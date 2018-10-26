@@ -48,7 +48,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/kirby/Documents/KNC_Creative/Swift_Server_Side/Projects/KevCodex_FullStack/KevCodex"
+      customWorkingDirectory = "/Users/kirby/Documents/KNC_Creative/Swift_Server_Side/Projects/KevCodex_FullStack/KevCodexServer"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
