@@ -1,0 +1,51 @@
+pipeline {
+    agent {
+        label 'ios-slave'
+    }
+    environment {
+        PATH = "/usr/local/bin:/usr/local/sbin:$PATH"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout files.
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        name: 'github',
+                        url: 'https://github.com/kevcodex/KevCodex-iOS-Partner-App'
+                    ]]
+                ])
+            }
+        }
+        stage('Build') {
+            steps {
+                sh """
+                xcodebuild \
+                -project SampleProject.xcodeproj \
+                -scheme SampleProject \
+                -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.0' \
+                | xcpretty
+                """
+            }
+        }
+        stage('Test') {
+            steps {
+                sh """
+                xcodebuild \
+                -project SampleProject.xcodeproj \
+                -scheme SampleProject \
+                -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.0' \
+                -only-testing:SampleProjectTests \
+                test \
+                | xcpretty -r junit
+                """
+                step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
+            }
+        }
+    }
+}
