@@ -84,7 +84,7 @@ pipeline {
                                 sh """
                                 xcodebuild \
                                 -workspace KevCodex.xcworkspace \
-                                -scheme Run \
+                                -scheme GameViewer \
                                 -configuration Debug \
                                 -destination 'OS=12.0,name=iPhone 8' \
                                 test \
