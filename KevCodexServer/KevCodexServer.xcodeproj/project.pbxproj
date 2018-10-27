@@ -436,50 +436,42 @@
          );
       };
       "OBJ_10" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_11",
-            "OBJ_14",
-            "OBJ_16",
-            "OBJ_18",
-            "OBJ_20"
-         );
-         name = "App";
-         path = "Sources/App";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "GameController.swift";
+         sourceTree = "<group>";
       };
       "OBJ_100" = {
          isa = "PBXFileReference";
-         path = "String+MongoKitten.swift";
+         path = "QueryBuilder.swift";
          sourceTree = "<group>";
       };
       "OBJ_1000" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
+         fileRef = "OBJ_114";
       };
       "OBJ_1001" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
+         fileRef = "OBJ_115";
       };
       "OBJ_1002" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
+         fileRef = "OBJ_116";
       };
       "OBJ_1003" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_60";
+         fileRef = "OBJ_117";
       };
       "OBJ_1004" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_61";
+         fileRef = "OBJ_118";
       };
       "OBJ_1005" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_62";
+         fileRef = "OBJ_119";
       };
       "OBJ_1006" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
+         fileRef = "OBJ_120";
       };
       "OBJ_1007" = {
          isa = "PBXFrameworksBuildPhase";
@@ -500,7 +492,7 @@
       };
       "OBJ_101" = {
          isa = "PBXFileReference";
-         path = "ValueConvertible.swift";
+         path = "Sort.swift";
          sourceTree = "<group>";
       };
       "OBJ_1010" = {
@@ -542,15 +534,15 @@
             LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
                "-swift-version",
-               "4",
+               "4.2",
                "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
          };
          name = "Debug";
       };
@@ -560,15 +552,15 @@
             LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
                "-swift-version",
-               "4",
+               "4.2",
                "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
          };
          name = "Release";
       };
@@ -580,8 +572,8 @@
             "OBJ_105",
             "OBJ_106"
          );
-         name = "Internals";
-         path = "Internals";
+         name = "Server";
+         path = "Server";
          sourceTree = "<group>";
       };
       "OBJ_1020" = {
@@ -704,7 +696,7 @@
       };
       "OBJ_103" = {
          isa = "PBXFileReference";
-         path = "Flags.swift";
+         path = "ClientSettings+URL.swift";
          sourceTree = "<group>";
       };
       "OBJ_1030" = {
@@ -759,215 +751,207 @@
       };
       "OBJ_1031" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
+         fileRef = "OBJ_54";
       };
       "OBJ_1032" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
+         fileRef = "OBJ_55";
       };
       "OBJ_1033" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
+         fileRef = "OBJ_56";
       };
       "OBJ_1034" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
+         fileRef = "OBJ_58";
       };
       "OBJ_1035" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
+         fileRef = "OBJ_60";
       };
       "OBJ_1036" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
+         fileRef = "OBJ_61";
       };
       "OBJ_1037" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
+         fileRef = "OBJ_62";
       };
       "OBJ_1038" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
+         fileRef = "OBJ_63";
       };
       "OBJ_1039" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
+         fileRef = "OBJ_64";
       };
       "OBJ_104" = {
          isa = "PBXFileReference";
-         path = "Message.swift";
+         path = "ClientSettings.swift";
          sourceTree = "<group>";
       };
       "OBJ_1040" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
+         fileRef = "OBJ_66";
       };
       "OBJ_1041" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_82";
+         fileRef = "OBJ_67";
       };
       "OBJ_1042" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_83";
+         fileRef = "OBJ_68";
       };
       "OBJ_1043" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_84";
+         fileRef = "OBJ_69";
       };
       "OBJ_1044" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_86";
+         fileRef = "OBJ_71";
       };
       "OBJ_1045" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_88";
+         fileRef = "OBJ_73";
       };
       "OBJ_1046" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_89";
+         fileRef = "OBJ_74";
       };
       "OBJ_1047" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_91";
+         fileRef = "OBJ_76";
       };
       "OBJ_1048" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_92";
+         fileRef = "OBJ_77";
       };
       "OBJ_1049" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_93";
+         fileRef = "OBJ_78";
       };
       "OBJ_105" = {
          isa = "PBXFileReference";
-         path = "MongoDriverInformation.swift";
+         path = "SSLSettings.swift";
          sourceTree = "<group>";
       };
       "OBJ_1050" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_94";
+         fileRef = "OBJ_79";
       };
       "OBJ_1051" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_95";
+         fileRef = "OBJ_80";
       };
       "OBJ_1052" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_96";
+         fileRef = "OBJ_81";
       };
       "OBJ_1053" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_97";
+         fileRef = "OBJ_82";
       };
       "OBJ_1054" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_98";
+         fileRef = "OBJ_83";
       };
       "OBJ_1055" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_99";
+         fileRef = "OBJ_84";
       };
       "OBJ_1056" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_100";
+         fileRef = "OBJ_85";
       };
       "OBJ_1057" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_101";
+         fileRef = "OBJ_86";
       };
       "OBJ_1058" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_103";
+         fileRef = "OBJ_88";
       };
       "OBJ_1059" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_104";
+         fileRef = "OBJ_89";
       };
       "OBJ_106" = {
          isa = "PBXFileReference";
-         path = "OperationCode.swift";
+         path = "Server.swift";
          sourceTree = "<group>";
       };
       "OBJ_1060" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_105";
+         fileRef = "OBJ_90";
       };
       "OBJ_1061" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_106";
+         fileRef = "OBJ_91";
       };
       "OBJ_1062" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_108";
+         fileRef = "OBJ_93";
       };
       "OBJ_1063" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_109";
+         fileRef = "OBJ_94";
       };
       "OBJ_1064" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_110";
+         fileRef = "OBJ_95";
       };
       "OBJ_1065" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_111";
+         fileRef = "OBJ_96";
       };
       "OBJ_1066" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_112";
+         fileRef = "OBJ_97";
       };
       "OBJ_1067" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_113";
+         fileRef = "OBJ_98";
       };
       "OBJ_1068" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_114";
+         fileRef = "OBJ_99";
       };
       "OBJ_1069" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_115";
+         fileRef = "OBJ_100";
       };
       "OBJ_107" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_108",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_111",
-            "OBJ_112",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116"
+            "OBJ_108"
          );
-         name = "Querying";
-         path = "Querying";
+         name = "Socket";
+         path = "Socket";
          sourceTree = "<group>";
       };
       "OBJ_1070" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_116";
+         fileRef = "OBJ_101";
       };
       "OBJ_1071" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_118";
+         fileRef = "OBJ_103";
       };
       "OBJ_1072" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_119";
+         fileRef = "OBJ_104";
       };
       "OBJ_1073" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_120";
+         fileRef = "OBJ_105";
       };
       "OBJ_1074" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_121";
+         fileRef = "OBJ_106";
       };
       "OBJ_1075" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_123";
+         fileRef = "OBJ_108";
       };
       "OBJ_1076" = {
          isa = "PBXFrameworksBuildPhase";
@@ -995,7 +979,7 @@
       };
       "OBJ_108" = {
          isa = "PBXFileReference";
-         path = "Cursor.swift";
+         path = "Connection.swift";
          sourceTree = "<group>";
       };
       "OBJ_1080" = {
@@ -1039,9 +1023,23 @@
          target = "Cheetah::Cheetah";
       };
       "OBJ_109" = {
-         isa = "PBXFileReference";
-         path = "DBRef.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_110",
+            "OBJ_111",
+            "OBJ_112",
+            "OBJ_113",
+            "OBJ_114",
+            "OBJ_115",
+            "OBJ_116",
+            "OBJ_117",
+            "OBJ_118",
+            "OBJ_119",
+            "OBJ_120"
+         );
+         name = "GeoJSON";
+         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/GeoJSON";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_1090" = {
          isa = "PBXTargetDependency";
@@ -1186,18 +1184,13 @@
          name = "Release";
       };
       "OBJ_11" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_12",
-            "OBJ_13"
-         );
-         name = "Controllers";
-         path = "Controllers";
+         isa = "PBXFileReference";
+         path = "TestController.swift";
          sourceTree = "<group>";
       };
       "OBJ_110" = {
          isa = "PBXFileReference";
-         path = "Explain.swift";
+         path = "CoordinateReferenceSystem.swift";
          sourceTree = "<group>";
       };
       "OBJ_1100" = {
@@ -1209,11 +1202,11 @@
       };
       "OBJ_1101" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_65";
+         fileRef = "OBJ_50";
       };
       "OBJ_1102" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_51";
       };
       "OBJ_1103" = {
          isa = "PBXFrameworksBuildPhase";
@@ -1250,7 +1243,7 @@
       };
       "OBJ_111" = {
          isa = "PBXFileReference";
-         path = "GridFS.swift";
+         path = "GeoJSONError.swift";
          sourceTree = "<group>";
       };
       "OBJ_1110" = {
@@ -1354,7 +1347,7 @@
       };
       "OBJ_1116" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_198";
+         fileRef = "OBJ_177";
       };
       "OBJ_1117" = {
          isa = "PBXFrameworksBuildPhase";
@@ -1414,7 +1407,7 @@
       };
       "OBJ_112" = {
          isa = "PBXFileReference";
-         path = "Index.swift";
+         path = "GeoJsonObjectType.swift";
          sourceTree = "<group>";
       };
       "OBJ_1120" = {
@@ -1510,7 +1503,7 @@
       };
       "OBJ_113" = {
          isa = "PBXFileReference";
-         path = "PipelineBuilder.swift";
+         path = "LineString.swift";
          sourceTree = "<group>";
       };
       "OBJ_1130" = {
@@ -1555,7 +1548,7 @@
       };
       "OBJ_114" = {
          isa = "PBXFileReference";
-         path = "Projection.swift";
+         path = "MultiLineString.swift";
          sourceTree = "<group>";
       };
       "OBJ_1141" = {
@@ -1720,7 +1713,7 @@
       };
       "OBJ_115" = {
          isa = "PBXFileReference";
-         path = "QueryBuilder.swift";
+         path = "MultiPoint.swift";
          sourceTree = "<group>";
       };
       "OBJ_1150" = {
@@ -1765,7 +1758,7 @@
       };
       "OBJ_116" = {
          isa = "PBXFileReference";
-         path = "Sort.swift";
+         path = "MultiPolygon.swift";
          sourceTree = "<group>";
       };
       "OBJ_1160" = {
@@ -1839,15 +1832,8 @@
          name = "Release";
       };
       "OBJ_117" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_118",
-            "OBJ_119",
-            "OBJ_120",
-            "OBJ_121"
-         );
-         name = "Server";
-         path = "Server";
+         isa = "PBXFileReference";
+         path = "Point.swift";
          sourceTree = "<group>";
       };
       "OBJ_1170" = {
@@ -1979,7 +1965,7 @@
       };
       "OBJ_118" = {
          isa = "PBXFileReference";
-         path = "ClientSettings+URL.swift";
+         path = "Polygon.swift";
          sourceTree = "<group>";
       };
       "OBJ_1180" = {
@@ -2028,7 +2014,7 @@
       };
       "OBJ_119" = {
          isa = "PBXFileReference";
-         path = "ClientSettings.swift";
+         path = "Position.swift";
          sourceTree = "<group>";
       };
       "OBJ_1191" = {
@@ -2191,13 +2177,17 @@
          );
       };
       "OBJ_12" = {
-         isa = "PBXFileReference";
-         path = "GameController.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_13"
+         );
+         name = "GameServiceLayer";
+         path = "GameServiceLayer";
          sourceTree = "<group>";
       };
       "OBJ_120" = {
          isa = "PBXFileReference";
-         path = "SSLSettings.swift";
+         path = "ValueConvertible.swift";
          sourceTree = "<group>";
       };
       "OBJ_1200" = {
@@ -2241,9 +2231,14 @@
          fileRef = "OBJ_239";
       };
       "OBJ_121" = {
-         isa = "PBXFileReference";
-         path = "Server.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_122",
+            "OBJ_123"
+         );
+         name = "ExtendedJSON";
+         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/ExtendedJSON";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_1210" = {
          isa = "PBXFrameworksBuildPhase";
@@ -2292,12 +2287,8 @@
          target = "PerfectThread::PerfectThread";
       };
       "OBJ_122" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_123"
-         );
-         name = "Socket";
-         path = "Socket";
+         isa = "PBXFileReference";
+         path = "ExtendedJSON+EfficientSerialization.swift";
          sourceTree = "<group>";
       };
       "OBJ_1220" = {
@@ -2462,7 +2453,7 @@
       };
       "OBJ_123" = {
          isa = "PBXFileReference";
-         path = "Connection.swift";
+         path = "ExtendedJSON.swift";
          sourceTree = "<group>";
       };
       "OBJ_1230" = {
@@ -2490,39 +2481,39 @@
       };
       "OBJ_1231" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_178";
+         fileRef = "OBJ_183";
       };
       "OBJ_1232" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_179";
+         fileRef = "OBJ_184";
       };
       "OBJ_1233" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_181";
+         fileRef = "OBJ_186";
       };
       "OBJ_1234" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_182";
+         fileRef = "OBJ_187";
       };
       "OBJ_1235" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_183";
+         fileRef = "OBJ_188";
       };
       "OBJ_1236" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_184";
+         fileRef = "OBJ_189";
       };
       "OBJ_1237" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_185";
+         fileRef = "OBJ_190";
       };
       "OBJ_1238" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_186";
+         fileRef = "OBJ_191";
       };
       "OBJ_1239" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_187";
+         fileRef = "OBJ_192";
       };
       "OBJ_124" = {
          isa = "PBXFileReference";
@@ -2533,39 +2524,39 @@
       };
       "OBJ_1240" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_188";
+         fileRef = "OBJ_193";
       };
       "OBJ_1241" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_189";
+         fileRef = "OBJ_194";
       };
       "OBJ_1242" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_190";
+         fileRef = "OBJ_195";
       };
       "OBJ_1243" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_191";
+         fileRef = "OBJ_196";
       };
       "OBJ_1244" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_192";
+         fileRef = "OBJ_197";
       };
       "OBJ_1245" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_193";
+         fileRef = "OBJ_198";
       };
       "OBJ_1246" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_194";
+         fileRef = "OBJ_199";
       };
       "OBJ_1247" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_195";
+         fileRef = "OBJ_200";
       };
       "OBJ_1248" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_196";
+         fileRef = "OBJ_201";
       };
       "OBJ_1249" = {
          isa = "PBXFrameworksBuildPhase";
@@ -3068,7 +3059,7 @@
       };
       "OBJ_13" = {
          isa = "PBXFileReference";
-         path = "TestController.swift";
+         path = "GameServiceLayer.swift";
          sourceTree = "<group>";
       };
       "OBJ_130" = {
@@ -3906,7 +3897,7 @@
             );
             SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
             SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "Run";
          };
          name = "Debug";
@@ -3952,7 +3943,7 @@
             );
             SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
             SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "Run";
          };
          name = "Release";
@@ -3965,7 +3956,7 @@
       };
       "OBJ_1393" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
+         fileRef = "OBJ_22";
       };
       "OBJ_1394" = {
          isa = "PBXFrameworksBuildPhase";
@@ -4003,7 +3994,7 @@
       };
       "OBJ_1397" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::MongoSocket::Product";
+         fileRef = "MongoKitten::ExtendedJSON::Product";
       };
       "OBJ_1398" = {
          isa = "PBXBuildFile";
@@ -4011,15 +4002,15 @@
       };
       "OBJ_1399" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::ExtendedJSON::Product";
+         fileRef = "MongoKitten::MongoSocket::Product";
       };
       "OBJ_14" = {
          isa = "PBXGroup";
          children = (
             "OBJ_15"
          );
-         name = "GameServiceLayer";
-         path = "GameServiceLayer";
+         name = "MiddleWare";
+         path = "MiddleWare";
          sourceTree = "<group>";
       };
       "OBJ_140" = {
@@ -4113,7 +4104,7 @@
       };
       "OBJ_1418" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::MongoSocket";
+         target = "MongoKitten::ExtendedJSON";
       };
       "OBJ_1419" = {
          isa = "PBXTargetDependency";
@@ -4136,7 +4127,7 @@
       };
       "OBJ_1420" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::ExtendedJSON";
+         target = "MongoKitten::MongoSocket";
       };
       "OBJ_1421" = {
          isa = "PBXTargetDependency";
@@ -4392,7 +4383,7 @@
       };
       "OBJ_15" = {
          isa = "PBXFileReference";
-         path = "GameServiceLayer.swift";
+         path = "TestFilter.swift";
          sourceTree = "<group>";
       };
       "OBJ_150" = {
@@ -4481,8 +4472,8 @@
          children = (
             "OBJ_17"
          );
-         name = "MiddleWare";
-         path = "MiddleWare";
+         name = "Models";
+         path = "Models";
          sourceTree = "<group>";
       };
       "OBJ_160" = {
@@ -4537,7 +4528,7 @@
       };
       "OBJ_17" = {
          isa = "PBXFileReference";
-         path = "TestFilter.swift";
+         path = "Game.swift";
          sourceTree = "<group>";
       };
       "OBJ_170" = {
@@ -4571,7 +4562,7 @@
          isa = "PBXGroup";
          children = (
             "OBJ_176",
-            "OBJ_197",
+            "OBJ_181",
             "OBJ_202"
          );
          name = "PerfectHTTPServer 3.0.18";
@@ -4582,173 +4573,175 @@
          isa = "PBXGroup";
          children = (
             "OBJ_177",
-            "OBJ_180",
+            "OBJ_178"
+         );
+         name = "PerfectCHTTPParser";
+         path = ".build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectCHTTPParser";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_177" = {
+         isa = "PBXFileReference";
+         path = "http_parser.c";
+         sourceTree = "<group>";
+      };
+      "OBJ_178" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_179",
+            "OBJ_180"
+         );
+         name = "include";
+         path = "include";
+         sourceTree = "<group>";
+      };
+      "OBJ_179" = {
+         isa = "PBXFileReference";
+         path = "http_parser.h";
+         sourceTree = "<group>";
+      };
+      "OBJ_18" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_19",
+            "OBJ_20"
+         );
+         name = "Setup";
+         path = "Setup";
+         sourceTree = "<group>";
+      };
+      "OBJ_180" = {
+         isa = "PBXFileReference";
+         name = "module.modulemap";
+         path = "/Users/kirby/Documents/KNC_Creative/Swift_Server_Side/Projects/KevCodex_FullStack/KevCodexServer/.build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectCHTTPParser/include/module.modulemap";
+         sourceTree = "<group>";
+      };
+      "OBJ_181" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_182",
+            "OBJ_185",
+            "OBJ_197",
+            "OBJ_198",
+            "OBJ_199",
+            "OBJ_200",
+            "OBJ_201"
+         );
+         name = "PerfectHTTPServer";
+         path = ".build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectHTTPServer";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_182" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_183",
+            "OBJ_184"
+         );
+         name = "HTTP11";
+         path = "HTTP11";
+         sourceTree = "<group>";
+      };
+      "OBJ_183" = {
+         isa = "PBXFileReference";
+         path = "HTTP11Request.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_184" = {
+         isa = "PBXFileReference";
+         path = "HTTP11Response.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_185" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_186",
+            "OBJ_187",
+            "OBJ_188",
+            "OBJ_189",
+            "OBJ_190",
+            "OBJ_191",
             "OBJ_192",
             "OBJ_193",
             "OBJ_194",
             "OBJ_195",
             "OBJ_196"
          );
-         name = "PerfectHTTPServer";
-         path = ".build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectHTTPServer";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_177" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_178",
-            "OBJ_179"
-         );
-         name = "HTTP11";
-         path = "HTTP11";
-         sourceTree = "<group>";
-      };
-      "OBJ_178" = {
-         isa = "PBXFileReference";
-         path = "HTTP11Request.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_179" = {
-         isa = "PBXFileReference";
-         path = "HTTP11Response.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_18" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_19"
-         );
-         name = "Models";
-         path = "Models";
-         sourceTree = "<group>";
-      };
-      "OBJ_180" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_181",
-            "OBJ_182",
-            "OBJ_183",
-            "OBJ_184",
-            "OBJ_185",
-            "OBJ_186",
-            "OBJ_187",
-            "OBJ_188",
-            "OBJ_189",
-            "OBJ_190",
-            "OBJ_191"
-         );
          name = "HTTP2";
          path = "HTTP2";
          sourceTree = "<group>";
       };
-      "OBJ_181" = {
+      "OBJ_186" = {
          isa = "PBXFileReference";
          path = "HPACK.swift";
          sourceTree = "<group>";
       };
-      "OBJ_182" = {
+      "OBJ_187" = {
          isa = "PBXFileReference";
          path = "HTTP2.swift";
          sourceTree = "<group>";
       };
-      "OBJ_183" = {
+      "OBJ_188" = {
          isa = "PBXFileReference";
          path = "HTTP2Client.swift";
          sourceTree = "<group>";
       };
-      "OBJ_184" = {
+      "OBJ_189" = {
          isa = "PBXFileReference";
          path = "HTTP2Frame.swift";
          sourceTree = "<group>";
       };
-      "OBJ_185" = {
-         isa = "PBXFileReference";
-         path = "HTTP2FrameReader.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_186" = {
-         isa = "PBXFileReference";
-         path = "HTTP2FrameWriter.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_187" = {
-         isa = "PBXFileReference";
-         path = "HTTP2PrefaceValidator.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_188" = {
-         isa = "PBXFileReference";
-         path = "HTTP2Request.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_189" = {
-         isa = "PBXFileReference";
-         path = "HTTP2Response.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_19" = {
          isa = "PBXFileReference";
-         path = "Game.swift";
+         path = "KevCodex.swift";
          sourceTree = "<group>";
       };
       "OBJ_190" = {
          isa = "PBXFileReference";
-         path = "HTTP2Session.swift";
+         path = "HTTP2FrameReader.swift";
          sourceTree = "<group>";
       };
       "OBJ_191" = {
          isa = "PBXFileReference";
-         path = "HTTP2SessionSettings.swift";
+         path = "HTTP2FrameWriter.swift";
          sourceTree = "<group>";
       };
       "OBJ_192" = {
          isa = "PBXFileReference";
-         path = "HTTPContentCompression.swift";
+         path = "HTTP2PrefaceValidator.swift";
          sourceTree = "<group>";
       };
       "OBJ_193" = {
          isa = "PBXFileReference";
-         path = "HTTPMultiplexer.swift";
+         path = "HTTP2Request.swift";
          sourceTree = "<group>";
       };
       "OBJ_194" = {
          isa = "PBXFileReference";
-         path = "HTTPServer.swift";
+         path = "HTTP2Response.swift";
          sourceTree = "<group>";
       };
       "OBJ_195" = {
          isa = "PBXFileReference";
-         path = "HTTPServerEx.swift";
+         path = "HTTP2Session.swift";
          sourceTree = "<group>";
       };
       "OBJ_196" = {
          isa = "PBXFileReference";
-         path = "HTTPServerExConfig.swift";
+         path = "HTTP2SessionSettings.swift";
          sourceTree = "<group>";
       };
       "OBJ_197" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_198",
-            "OBJ_199"
-         );
-         name = "PerfectCHTTPParser";
-         path = ".build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectCHTTPParser";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "HTTPContentCompression.swift";
+         sourceTree = "<group>";
       };
       "OBJ_198" = {
          isa = "PBXFileReference";
-         path = "http_parser.c";
+         path = "HTTPMultiplexer.swift";
          sourceTree = "<group>";
       };
       "OBJ_199" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_200",
-            "OBJ_201"
-         );
-         name = "include";
-         path = "include";
+         isa = "PBXFileReference";
+         path = "HTTPServer.swift";
          sourceTree = "<group>";
       };
       "OBJ_2" = {
@@ -4761,24 +4754,18 @@
          defaultConfigurationName = "Release";
       };
       "OBJ_20" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_21",
-            "OBJ_22"
-         );
-         name = "Setup";
-         path = "Setup";
+         isa = "PBXFileReference";
+         path = "start.swift";
          sourceTree = "<group>";
       };
       "OBJ_200" = {
          isa = "PBXFileReference";
-         path = "http_parser.h";
+         path = "HTTPServerEx.swift";
          sourceTree = "<group>";
       };
       "OBJ_201" = {
          isa = "PBXFileReference";
-         name = "module.modulemap";
-         path = "/Users/kirby/Documents/KNC_Creative/Swift_Server_Side/Projects/KevCodex_FullStack/KevCodexServer/.build/checkouts/Perfect-HTTPServer.git-5011309956593180191/Sources/PerfectCHTTPParser/include/module.modulemap";
+         path = "HTTPServerExConfig.swift";
          sourceTree = "<group>";
       };
       "OBJ_202" = {
@@ -4848,9 +4835,13 @@
          sourceTree = "<group>";
       };
       "OBJ_21" = {
-         isa = "PBXFileReference";
-         path = "KevCodex.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_22"
+         );
+         name = "Run";
+         path = "Sources/Run";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_210" = {
          isa = "PBXFileReference";
@@ -4904,7 +4895,7 @@
       };
       "OBJ_22" = {
          isa = "PBXFileReference";
-         path = "start.swift";
+         path = "main.swift";
          sourceTree = "<group>";
       };
       "OBJ_220" = {
@@ -6777,8 +6768,8 @@
          children = (
             "OBJ_49",
             "OBJ_52",
-            "OBJ_64",
-            "OBJ_67",
+            "OBJ_109",
+            "OBJ_121",
             "OBJ_124"
          );
          name = "MongoKitten 4.1.3";
@@ -6841,8 +6832,8 @@
             "OBJ_50",
             "OBJ_51"
          );
-         name = "ExtendedJSON";
-         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/ExtendedJSON";
+         name = "MongoSocket";
+         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/MongoSocket";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_490" = {
@@ -6926,7 +6917,7 @@
       };
       "OBJ_50" = {
          isa = "PBXFileReference";
-         path = "ExtendedJSON+EfficientSerialization.swift";
+         path = "MongoTCP.swift";
          sourceTree = "<group>";
       };
       "OBJ_500" = {
@@ -7006,7 +6997,7 @@
       };
       "OBJ_51" = {
          isa = "PBXFileReference";
-         path = "ExtendedJSON.swift";
+         path = "Socket.swift";
          sourceTree = "<group>";
       };
       "OBJ_510" = {
@@ -7049,29 +7040,29 @@
       "OBJ_517" = {
          isa = "PBXGroup";
          children = (
-            "PerfectHTTPServer::PerfectCHTTPParser::Product",
-            "PerfectHTTP::PerfectHTTP::Product",
-            "KevCodexServer::AppTests::Product",
-            "COpenSSL::COpenSSL::Product",
-            "MongoKitten::ExtendedJSON::Product",
-            "KevCodexServer::App::Product",
-            "PerfectHTTPServer::PerfectHTTPServer::Product",
-            "PerfectCURL::PerfectCURL::Product",
-            "PerfectThread::PerfectThread::Product",
-            "PerfectWebRedirects::PerfectWebRedirects::Product",
-            "Schrodinger::Schrodinger::Product",
-            "PerfectLogger::PerfectLogger::Product",
-            "MongoKitten::GeoJSON::Product",
-            "PerfectCrypto::PerfectCrypto::Product",
-            "PerfectNet::PerfectNet::Product",
-            "MongoKitten::MongoSocket::Product",
-            "MongoKitten::MongoKitten::Product",
-            "PerfectCZlib::PerfectCZlib::Product",
             "PerfectLib::PerfectLib::Product",
+            "MongoKitten::MongoKitten::Product",
+            "KevCodexServer::App::Product",
+            "PerfectNet::PerfectNet::Product",
+            "MongoKitten::ExtendedJSON::Product",
+            "Schrodinger::Schrodinger::Product",
+            "PerfectCURL::PerfectCURL::Product",
             "KevCodexServer::Run::Product",
             "BSON::BSON::Product",
+            "PerfectHTTPServer::PerfectHTTPServer::Product",
+            "PerfectLogger::PerfectLogger::Product",
+            "PerfectWebRedirects::PerfectWebRedirects::Product",
+            "COpenSSL::COpenSSL::Product",
             "Cheetah::Cheetah::Product",
-            "CryptoKitten::CryptoKitten::Product"
+            "MongoKitten::MongoSocket::Product",
+            "PerfectThread::PerfectThread::Product",
+            "PerfectHTTP::PerfectHTTP::Product",
+            "CryptoKitten::CryptoKitten::Product",
+            "MongoKitten::GeoJSON::Product",
+            "KevCodexServer::AppTests::Product",
+            "PerfectCrypto::PerfectCrypto::Product",
+            "PerfectCZlib::PerfectCZlib::Product",
+            "PerfectHTTPServer::PerfectCHTTPParser::Product"
          );
          name = "Products";
          path = "";
@@ -7081,29 +7072,35 @@
          isa = "PBXGroup";
          children = (
             "OBJ_53",
-            "OBJ_54",
-            "OBJ_55",
-            "OBJ_56",
             "OBJ_57",
-            "OBJ_58",
             "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63"
+            "OBJ_65",
+            "OBJ_70",
+            "OBJ_72",
+            "OBJ_75",
+            "OBJ_87",
+            "OBJ_92",
+            "OBJ_102",
+            "OBJ_107"
          );
-         name = "GeoJSON";
-         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/GeoJSON";
+         name = "MongoKitten";
+         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/MongoKitten";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_53" = {
-         isa = "PBXFileReference";
-         path = "CoordinateReferenceSystem.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_54",
+            "OBJ_55",
+            "OBJ_56"
+         );
+         name = "Auth";
+         path = "Auth";
          sourceTree = "<group>";
       };
       "OBJ_54" = {
          isa = "PBXFileReference";
-         path = "GeoJSONError.swift";
+         path = "Base64_temp.swift";
          sourceTree = "<group>";
       };
       "OBJ_542" = {
@@ -7158,7 +7155,7 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "App";
          };
          name = "Debug";
@@ -7206,7 +7203,7 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "App";
          };
          name = "Release";
@@ -7225,36 +7222,36 @@
       };
       "OBJ_546" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_10";
       };
       "OBJ_547" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
+         fileRef = "OBJ_11";
       };
       "OBJ_548" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_13";
       };
       "OBJ_549" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         fileRef = "OBJ_15";
       };
       "OBJ_55" = {
          isa = "PBXFileReference";
-         path = "GeoJsonObjectType.swift";
+         path = "Database+Authentication.swift";
          sourceTree = "<group>";
       };
       "OBJ_550" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
+         fileRef = "OBJ_17";
       };
       "OBJ_551" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
+         fileRef = "OBJ_19";
       };
       "OBJ_552" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
+         fileRef = "OBJ_20";
       };
       "OBJ_553" = {
          isa = "PBXFrameworksBuildPhase";
@@ -7287,7 +7284,7 @@
       };
       "OBJ_555" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::MongoSocket::Product";
+         fileRef = "MongoKitten::ExtendedJSON::Product";
       };
       "OBJ_556" = {
          isa = "PBXBuildFile";
@@ -7295,7 +7292,7 @@
       };
       "OBJ_557" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::ExtendedJSON::Product";
+         fileRef = "MongoKitten::MongoSocket::Product";
       };
       "OBJ_558" = {
          isa = "PBXBuildFile";
@@ -7307,7 +7304,7 @@
       };
       "OBJ_56" = {
          isa = "PBXFileReference";
-         path = "LineString.swift";
+         path = "SCRAM.swift";
          sourceTree = "<group>";
       };
       "OBJ_560" = {
@@ -7351,8 +7348,12 @@
          fileRef = "PerfectCrypto::PerfectCrypto::Product";
       };
       "OBJ_57" = {
-         isa = "PBXFileReference";
-         path = "MultiLineString.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_58"
+         );
+         name = "CRUD";
+         path = "CRUD";
          sourceTree = "<group>";
       };
       "OBJ_570" = {
@@ -7377,7 +7378,7 @@
       };
       "OBJ_576" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::MongoSocket";
+         target = "MongoKitten::ExtendedJSON";
       };
       "OBJ_578" = {
          isa = "PBXTargetDependency";
@@ -7385,12 +7386,12 @@
       };
       "OBJ_58" = {
          isa = "PBXFileReference";
-         path = "MultiPoint.swift";
+         path = "CRUD.swift";
          sourceTree = "<group>";
       };
       "OBJ_580" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::ExtendedJSON";
+         target = "MongoKitten::MongoSocket";
       };
       "OBJ_582" = {
          isa = "PBXTargetDependency";
@@ -7409,8 +7410,16 @@
          target = "BSON::BSON";
       };
       "OBJ_59" = {
-         isa = "PBXFileReference";
-         path = "MultiPolygon.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_60",
+            "OBJ_61",
+            "OBJ_62",
+            "OBJ_63",
+            "OBJ_64"
+         );
+         name = "Collection";
+         path = "Collection";
          sourceTree = "<group>";
       };
       "OBJ_590" = {
@@ -7441,7 +7450,7 @@
       };
       "OBJ_60" = {
          isa = "PBXFileReference";
-         path = "Point.swift";
+         path = "Collection+Administration.swift";
          sourceTree = "<group>";
       };
       "OBJ_600" = {
@@ -7466,7 +7475,7 @@
       };
       "OBJ_61" = {
          isa = "PBXFileReference";
-         path = "Polygon.swift";
+         path = "Collection+Geospatial.swift";
          sourceTree = "<group>";
       };
       "OBJ_610" = {
@@ -7527,7 +7536,7 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "AppTests";
          };
          name = "Debug";
@@ -7573,7 +7582,7 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "AppTests";
          };
          name = "Release";
@@ -7590,7 +7599,7 @@
       };
       "OBJ_62" = {
          isa = "PBXFileReference";
-         path = "Position.swift";
+         path = "Collection.swift";
          sourceTree = "<group>";
       };
       "OBJ_620" = {
@@ -7629,7 +7638,7 @@
       };
       "OBJ_623" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::MongoSocket::Product";
+         fileRef = "MongoKitten::ExtendedJSON::Product";
       };
       "OBJ_624" = {
          isa = "PBXBuildFile";
@@ -7637,7 +7646,7 @@
       };
       "OBJ_625" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoKitten::ExtendedJSON::Product";
+         fileRef = "MongoKitten::MongoSocket::Product";
       };
       "OBJ_626" = {
          isa = "PBXBuildFile";
@@ -7657,7 +7666,7 @@
       };
       "OBJ_63" = {
          isa = "PBXFileReference";
-         path = "ValueConvertible.swift";
+         path = "CollectionSlice.swift";
          sourceTree = "<group>";
       };
       "OBJ_630" = {
@@ -7701,14 +7710,9 @@
          fileRef = "PerfectThread::PerfectThread::Product";
       };
       "OBJ_64" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_65",
-            "OBJ_66"
-         );
-         name = "MongoSocket";
-         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/MongoSocket";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Options.swift";
+         sourceTree = "<group>";
       };
       "OBJ_640" = {
          isa = "PBXBuildFile";
@@ -7728,7 +7732,7 @@
       };
       "OBJ_644" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::MongoSocket";
+         target = "MongoKitten::ExtendedJSON";
       };
       "OBJ_645" = {
          isa = "PBXTargetDependency";
@@ -7736,7 +7740,7 @@
       };
       "OBJ_646" = {
          isa = "PBXTargetDependency";
-         target = "MongoKitten::ExtendedJSON";
+         target = "MongoKitten::MongoSocket";
       };
       "OBJ_647" = {
          isa = "PBXTargetDependency";
@@ -7751,8 +7755,15 @@
          target = "Cheetah::Cheetah";
       };
       "OBJ_65" = {
-         isa = "PBXFileReference";
-         path = "MongoTCP.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_66",
+            "OBJ_67",
+            "OBJ_68",
+            "OBJ_69"
+         );
+         name = "Database";
+         path = "Database";
          sourceTree = "<group>";
       };
       "OBJ_650" = {
@@ -7797,7 +7808,7 @@
       };
       "OBJ_66" = {
          isa = "PBXFileReference";
-         path = "Socket.swift";
+         path = "Database+Administration.swift";
          sourceTree = "<group>";
       };
       "OBJ_660" = {
@@ -7934,23 +7945,9 @@
          fileRef = "OBJ_155";
       };
       "OBJ_67" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_68",
-            "OBJ_72",
-            "OBJ_74",
-            "OBJ_80",
-            "OBJ_85",
-            "OBJ_87",
-            "OBJ_90",
-            "OBJ_102",
-            "OBJ_107",
-            "OBJ_117",
-            "OBJ_122"
-         );
-         name = "MongoKitten";
-         path = ".build/checkouts/MongoKitten.git--8530681146500885910/Sources/MongoKitten";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Database+RoleManagement.swift";
+         sourceTree = "<group>";
       };
       "OBJ_670" = {
          isa = "PBXBuildFile";
@@ -7993,14 +7990,8 @@
          fileRef = "OBJ_165";
       };
       "OBJ_68" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_69",
-            "OBJ_70",
-            "OBJ_71"
-         );
-         name = "Auth";
-         path = "Auth";
+         isa = "PBXFileReference";
+         path = "Database+UserManagement.swift";
          sourceTree = "<group>";
       };
       "OBJ_680" = {
@@ -8042,7 +8033,7 @@
       };
       "OBJ_69" = {
          isa = "PBXFileReference";
-         path = "Base64_temp.swift";
+         path = "Database.swift";
          sourceTree = "<group>";
       };
       "OBJ_690" = {
@@ -8430,15 +8421,19 @@
          isa = "PBXGroup";
          children = (
             "OBJ_8",
-            "OBJ_10"
+            "OBJ_21"
          );
          name = "Sources";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_70" = {
-         isa = "PBXFileReference";
-         path = "Database+Authentication.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_71"
+         );
+         name = "Deprecated";
+         path = "Deprecated";
          sourceTree = "<group>";
       };
       "OBJ_700" = {
@@ -8483,7 +8478,7 @@
       };
       "OBJ_71" = {
          isa = "PBXFileReference";
-         path = "SCRAM.swift";
+         path = "Deprecated.swift";
          sourceTree = "<group>";
       };
       "OBJ_710" = {
@@ -8529,10 +8524,11 @@
       "OBJ_72" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_73"
+            "OBJ_73",
+            "OBJ_74"
          );
-         name = "CRUD";
-         path = "CRUD";
+         name = "Error";
+         path = "Error";
          sourceTree = "<group>";
       };
       "OBJ_720" = {
@@ -8577,7 +8573,7 @@
       };
       "OBJ_73" = {
          isa = "PBXFileReference";
-         path = "CRUD.swift";
+         path = "HelpfulErrors.swift";
          sourceTree = "<group>";
       };
       "OBJ_730" = {
@@ -8621,16 +8617,8 @@
          fileRef = "OBJ_303";
       };
       "OBJ_74" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77",
-            "OBJ_78",
-            "OBJ_79"
-         );
-         name = "Collection";
-         path = "Collection";
+         isa = "PBXFileReference";
+         path = "MongoError.swift";
          sourceTree = "<group>";
       };
       "OBJ_740" = {
@@ -8674,8 +8662,22 @@
          fileRef = "OBJ_313";
       };
       "OBJ_75" = {
-         isa = "PBXFileReference";
-         path = "Collection+Administration.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_76",
+            "OBJ_77",
+            "OBJ_78",
+            "OBJ_79",
+            "OBJ_80",
+            "OBJ_81",
+            "OBJ_82",
+            "OBJ_83",
+            "OBJ_84",
+            "OBJ_85",
+            "OBJ_86"
+         );
+         name = "Helpers";
+         path = "Helpers";
          sourceTree = "<group>";
       };
       "OBJ_750" = {
@@ -8720,7 +8722,7 @@
       };
       "OBJ_76" = {
          isa = "PBXFileReference";
-         path = "Collection+Geospatial.swift";
+         path = "Bool+String.swift";
          sourceTree = "<group>";
       };
       "OBJ_760" = {
@@ -8765,7 +8767,7 @@
       };
       "OBJ_77" = {
          isa = "PBXFileReference";
-         path = "Collection.swift";
+         path = "BuildInfo.swift";
          sourceTree = "<group>";
       };
       "OBJ_770" = {
@@ -8810,7 +8812,7 @@
       };
       "OBJ_78" = {
          isa = "PBXFileReference";
-         path = "CollectionSlice.swift";
+         path = "Concern.swift";
          sourceTree = "<group>";
       };
       "OBJ_780" = {
@@ -8855,7 +8857,7 @@
       };
       "OBJ_79" = {
          isa = "PBXFileReference";
-         path = "Options.swift";
+         path = "DeserializationHelpers.swift";
          sourceTree = "<group>";
       };
       "OBJ_790" = {
@@ -8901,22 +8903,19 @@
       "OBJ_8" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_9"
+            "OBJ_9",
+            "OBJ_12",
+            "OBJ_14",
+            "OBJ_16",
+            "OBJ_18"
          );
-         name = "Run";
-         path = "Sources/Run";
+         name = "App";
+         path = "Sources/App";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_80" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_81",
-            "OBJ_82",
-            "OBJ_83",
-            "OBJ_84"
-         );
-         name = "Database";
-         path = "Database";
+         isa = "PBXFileReference";
+         path = "DocumentHelpers.swift";
          sourceTree = "<group>";
       };
       "OBJ_800" = {
@@ -8961,7 +8960,7 @@
       };
       "OBJ_81" = {
          isa = "PBXFileReference";
-         path = "Database+Administration.swift";
+         path = "GeoNearOption.swift";
          sourceTree = "<group>";
       };
       "OBJ_810" = {
@@ -9006,7 +9005,7 @@
       };
       "OBJ_82" = {
          isa = "PBXFileReference";
-         path = "Database+RoleManagement.swift";
+         path = "Helpers.swift";
          sourceTree = "<group>";
       };
       "OBJ_820" = {
@@ -9051,7 +9050,7 @@
       };
       "OBJ_83" = {
          isa = "PBXFileReference";
-         path = "Database+UserManagement.swift";
+         path = "Logging.swift";
          sourceTree = "<group>";
       };
       "OBJ_830" = {
@@ -9096,7 +9095,7 @@
       };
       "OBJ_84" = {
          isa = "PBXFileReference";
-         path = "Database.swift";
+         path = "SerializationHelpers.swift";
          sourceTree = "<group>";
       };
       "OBJ_840" = {
@@ -9140,12 +9139,8 @@
          fileRef = "OBJ_413";
       };
       "OBJ_85" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_86"
-         );
-         name = "Deprecated";
-         path = "Deprecated";
+         isa = "PBXFileReference";
+         path = "String+MongoKitten.swift";
          sourceTree = "<group>";
       };
       "OBJ_850" = {
@@ -9190,7 +9185,7 @@
       };
       "OBJ_86" = {
          isa = "PBXFileReference";
-         path = "Deprecated.swift";
+         path = "ValueConvertible.swift";
          sourceTree = "<group>";
       };
       "OBJ_860" = {
@@ -9237,10 +9232,12 @@
          isa = "PBXGroup";
          children = (
             "OBJ_88",
-            "OBJ_89"
+            "OBJ_89",
+            "OBJ_90",
+            "OBJ_91"
          );
-         name = "Error";
-         path = "Error";
+         name = "Internals";
+         path = "Internals";
          sourceTree = "<group>";
       };
       "OBJ_870" = {
@@ -9285,7 +9282,7 @@
       };
       "OBJ_88" = {
          isa = "PBXFileReference";
-         path = "HelpfulErrors.swift";
+         path = "Flags.swift";
          sourceTree = "<group>";
       };
       "OBJ_880" = {
@@ -9330,7 +9327,7 @@
       };
       "OBJ_89" = {
          isa = "PBXFileReference";
-         path = "MongoError.swift";
+         path = "Message.swift";
          sourceTree = "<group>";
       };
       "OBJ_890" = {
@@ -9374,27 +9371,18 @@
          fileRef = "OBJ_463";
       };
       "OBJ_9" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_10",
+            "OBJ_11"
+         );
+         name = "Controllers";
+         path = "Controllers";
          sourceTree = "<group>";
       };
       "OBJ_90" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_91",
-            "OBJ_92",
-            "OBJ_93",
-            "OBJ_94",
-            "OBJ_95",
-            "OBJ_96",
-            "OBJ_97",
-            "OBJ_98",
-            "OBJ_99",
-            "OBJ_100",
-            "OBJ_101"
-         );
-         name = "Helpers";
-         path = "Helpers";
+         isa = "PBXFileReference";
+         path = "MongoDriverInformation.swift";
          sourceTree = "<group>";
       };
       "OBJ_900" = {
@@ -9439,7 +9427,7 @@
       };
       "OBJ_91" = {
          isa = "PBXFileReference";
-         path = "Bool+String.swift";
+         path = "OperationCode.swift";
          sourceTree = "<group>";
       };
       "OBJ_910" = {
@@ -9483,8 +9471,20 @@
          fileRef = "OBJ_483";
       };
       "OBJ_92" = {
-         isa = "PBXFileReference";
-         path = "BuildInfo.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_93",
+            "OBJ_94",
+            "OBJ_95",
+            "OBJ_96",
+            "OBJ_97",
+            "OBJ_98",
+            "OBJ_99",
+            "OBJ_100",
+            "OBJ_101"
+         );
+         name = "Querying";
+         path = "Querying";
          sourceTree = "<group>";
       };
       "OBJ_920" = {
@@ -9529,7 +9529,7 @@
       };
       "OBJ_93" = {
          isa = "PBXFileReference";
-         path = "Concern.swift";
+         path = "Cursor.swift";
          sourceTree = "<group>";
       };
       "OBJ_930" = {
@@ -9644,7 +9644,7 @@
       };
       "OBJ_94" = {
          isa = "PBXFileReference";
-         path = "DeserializationHelpers.swift";
+         path = "DBRef.swift";
          sourceTree = "<group>";
       };
       "OBJ_940" = {
@@ -9731,7 +9731,7 @@
       };
       "OBJ_95" = {
          isa = "PBXFileReference";
-         path = "DocumentHelpers.swift";
+         path = "Explain.swift";
          sourceTree = "<group>";
       };
       "OBJ_951" = {
@@ -9889,7 +9889,7 @@
       };
       "OBJ_96" = {
          isa = "PBXFileReference";
-         path = "GeoNearOption.swift";
+         path = "GridFS.swift";
          sourceTree = "<group>";
       };
       "OBJ_960" = {
@@ -9934,7 +9934,7 @@
       };
       "OBJ_97" = {
          isa = "PBXFileReference";
-         path = "Helpers.swift";
+         path = "Index.swift";
          sourceTree = "<group>";
       };
       "OBJ_970" = {
@@ -10082,7 +10082,7 @@
       };
       "OBJ_98" = {
          isa = "PBXFileReference";
-         path = "Logging.swift";
+         path = "PipelineBuilder.swift";
          sourceTree = "<group>";
       };
       "OBJ_980" = {
@@ -10094,11 +10094,11 @@
       };
       "OBJ_981" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
+         fileRef = "OBJ_122";
       };
       "OBJ_982" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
+         fileRef = "OBJ_123";
       };
       "OBJ_983" = {
          isa = "PBXFrameworksBuildPhase";
@@ -10135,7 +10135,7 @@
       };
       "OBJ_99" = {
          isa = "PBXFileReference";
-         path = "SerializationHelpers.swift";
+         path = "Projection.swift";
          sourceTree = "<group>";
       };
       "OBJ_990" = {
@@ -10247,19 +10247,19 @@
       };
       "OBJ_996" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_53";
+         fileRef = "OBJ_110";
       };
       "OBJ_997" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
+         fileRef = "OBJ_111";
       };
       "OBJ_998" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_55";
+         fileRef = "OBJ_112";
       };
       "OBJ_999" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_56";
+         fileRef = "OBJ_113";
       };
       "PerfectCURL::PerfectCURL" = {
          isa = "PBXNativeTarget";
