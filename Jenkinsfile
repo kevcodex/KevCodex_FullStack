@@ -12,18 +12,18 @@ pipeline {
                     stages {
                         stage('Update Package') {
                             steps {
-                                sh 'swift package update'
+                                sh 'cd KevCodexServer && swift package update'
                             }
                         }
                         stage('Build') {
                             steps {
-                                sh 'swift package clean'
-                                sh 'swift build'
+                                sh 'cd KevCodexServer && swift package clean'
+                                sh 'cd KevCodexServer && swift build'
                             }
                         }
                         stage('Test') {
                             steps {
-                                sh 'swift test'
+                                sh 'cd KevCodexServer && swift test'
                             }
                         }
                     }
