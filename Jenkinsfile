@@ -5,9 +5,11 @@ pipeline {
             parallel {
                 stage('Linux Server Run') {
                     agent {
-                        docker {
-                            image 'swift:4.0'
-                        }
+                        // TODO: Figure out how to use docker env (have to install uuid-dev in docker container)
+                        label 'master'
+                    }
+                    environment {
+                        PATH = '/home/kirby/bin:/home/kirby/.local/bin:/home/kirby/swift-4.1.2-RELEASE-ubuntu16.04/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
                     }
                     stages {
                         stage('Update Package') {
@@ -37,7 +39,7 @@ pipeline {
                     }
                     post {
                         success {
-                            junit 'KevCodexServer/build/reports/junit.xml'
+                            junit 'build/reports/junit.xml'
                         }
                     }
                     stages {
@@ -51,15 +53,18 @@ pipeline {
                                 sh 'cd KevCodexServer && swift build'
                             }
                         }
+                        stage('Mac Generate Xcode') {
+                            steps {
+                                sh 'cd KevCodexServer && swift package generate-xcodeproj'
+                            }
+                        }
                         stage('Build and Test') {
                             steps {
                                 sh """
-                                cd KevCodexServer && \
                                 xcodebuild \
-                                -project KevCodexServer \
+                                -workspace KevCodex.xcworkspace \
                                 -scheme Run \
                                 -destination 'platform=macOS' \
-                                clean \
                                 build \
                                 test \
                                 | xcpretty -r junit
