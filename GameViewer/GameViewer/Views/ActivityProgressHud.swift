@@ -23,9 +23,9 @@ import UIKit
     }
   }
 
-  let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+  let activityIndicator = UIActivityIndicatorView(style: .white)
   let label = UILabel()
-  let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+  let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
   var vibrancyView: UIVisualEffectView
 
   init() {
