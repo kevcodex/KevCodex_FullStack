@@ -6,7 +6,7 @@ pipeline {
                 stage('Linux Server Run') {
                     agent {
                         docker {
-                            image 'swift:latest'
+                            image 'swift:4.0'
                         }
                     }
                     stages {
@@ -37,7 +37,7 @@ pipeline {
                     }
                     post {
                         success {
-                            junit 'build/reports/junit.xml'
+                            junit 'KevCodexServer/build/reports/junit.xml'
                         }
                     }
                     stages {
@@ -54,11 +54,13 @@ pipeline {
                         stage('Build and Test') {
                             steps {
                                 sh """
+                                cd KevCodexServer && \
                                 xcodebuild \
-                                -workspace KevCodex.xcworkspace \
+                                -project KevCodexServer \
                                 -scheme Run \
-                                -configuration Debug \
                                 -destination 'platform=macOS' \
+                                clean \
+                                build \
                                 test \
                                 | xcpretty -r junit
                                 """
