@@ -1,0 +1,41 @@
+env:
+  global:
+    - SWIFT_BRANCH=swift-4.2-release
+    - SWIFT_VERSION=swift-4.2-RELEASE
+matrix:
+  include:
+    - os: 
+      - linux
+      language: generic
+      sudo: required
+      dist: trusty
+      install:
+        - sudo apt-get install clang-3.8 libicu-dev 
+        - mkdir swift
+        - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz -s | tar xz -C swift &> /dev/null
+        - export PATH="$(pwd)/swift/$SWIFT_VERSION-ubuntu14.04/usr/bin:$PATH"
+      script:
+        - swift --version
+        - cd KevCodexServer
+        - swift package update
+        - swift build
+        - swift test
+        
+    - os:
+      - osx
+      language: swift
+      osx_image: xcode10
+      script:
+        - cd KevCodexServer
+        - swift package update
+        - swift build
+        - swift test
+
+    - os:
+      - osx
+      language: swift
+      osx_image: xcode10
+      script:
+        - xcodebuild -workspace KevCodex.xcworkspace -scheme GameViewer -configuration Debug -destination 'OS=12.0,name=iPhone 8' test | xcpretty
+    
+
