@@ -1,0 +1,4 @@
+module CNIOOpenSSL {
+    umbrella "/Users/kevin/Documents/Xcode Projects/KevCodex-FullStack/KevCodexServer/.build/checkouts/swift-nio-ssl.git--5108150250940504618/Sources/CNIOOpenSSL/include"
+    export *
+}

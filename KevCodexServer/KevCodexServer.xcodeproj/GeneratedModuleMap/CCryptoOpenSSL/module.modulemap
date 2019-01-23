@@ -1,0 +1,4 @@
+module CCryptoOpenSSL {
+    umbrella "/Users/kevin/Documents/Xcode Projects/KevCodex-FullStack/KevCodexServer/.build/checkouts/crypto.git--1967670794969701589/Sources/CCryptoOpenSSL/include"
+    export *
+}

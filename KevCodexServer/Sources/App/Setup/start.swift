@@ -16,6 +16,14 @@ public func start() throws {
     do {
         database = try KevCodex.database()
         
+        let test = database!["game"]
+        
+        print(test)
+        
+        test.find().forEach { (document) in
+            print(document)
+        }
+        
     } catch {
         // Unable to connect to Mongo
         print("MongoDB is not available on the given host and port")
