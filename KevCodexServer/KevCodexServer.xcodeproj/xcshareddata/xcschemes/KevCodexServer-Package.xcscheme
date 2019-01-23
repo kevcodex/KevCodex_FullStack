@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "KevCodexServer::App"
-               BuildableName = "App.framework"
-               BlueprintName = "App"
+               BlueprintIdentifier = "KevCodexServer::LegacyApp"
+               BuildableName = "LegacyApp.framework"
+               BlueprintName = "LegacyApp"
                ReferencedContainer = "container:KevCodexServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,6 +31,20 @@
                BlueprintIdentifier = "KevCodexServer::Run"
                BuildableName = "Run"
                BlueprintName = "Run"
+               ReferencedContainer = "container:KevCodexServer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "KevCodexServer::App"
+               BuildableName = "App.framework"
+               BlueprintName = "App"
                ReferencedContainer = "container:KevCodexServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -69,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "KevCodexServer::App"
-            BuildableName = "App.framework"
-            BlueprintName = "App"
+            BlueprintIdentifier = "KevCodexServer::LegacyApp"
+            BuildableName = "LegacyApp.framework"
+            BlueprintName = "LegacyApp"
             ReferencedContainer = "container:KevCodexServer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

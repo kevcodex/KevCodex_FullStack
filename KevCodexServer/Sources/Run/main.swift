@@ -1,10 +1,8 @@
 import App
-import PerfectLib
+import Vapor
 
 do {
-    try App.start()
-} catch PerfectError.networkError(let code, let message) {
-    print("NETWORK error \(code), \(message)")
+    try app(.detect()).run()
 } catch {
     print("Failed to start: \(error)")
 }
