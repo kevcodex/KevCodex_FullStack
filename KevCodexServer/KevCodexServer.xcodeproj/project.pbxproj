@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0AB1BD7121F8330C002E8AE8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1BD7021F8330C002E8AE8 /* Test.swift */; };
 		OBJ_1215 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* TestController.swift */; };
 		OBJ_1216 /* app.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* app.swift */; };
 		OBJ_1217 /* boot.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* boot.swift */; };
@@ -5240,6 +5241,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AB1BD7021F8330C002E8AE8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"COpenSSL::COpenSSL::Product" /* COpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = COpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7183,6 +7185,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB1BD6E21F832F5002E8AE8 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0AB1BD6F21F83300002E8AE8 /* Models */,
+				OBJ_24 /* Controllers */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		0AB1BD6F21F83300002E8AE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AB1BD7021F8330C002E8AE8 /* Test.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		OBJ_104 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -7654,7 +7673,7 @@
 		OBJ_23 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_24 /* Controllers */,
+				0AB1BD6E21F832F5002E8AE8 /* Test */,
 				OBJ_26 /* app.swift */,
 				OBJ_27 /* boot.swift */,
 				OBJ_28 /* configure.swift */,
@@ -11910,6 +11929,7 @@
 				OBJ_1217 /* boot.swift in Sources */,
 				OBJ_1218 /* configure.swift in Sources */,
 				OBJ_1219 /* routes.swift in Sources */,
+				0AB1BD7121F8330C002E8AE8 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
