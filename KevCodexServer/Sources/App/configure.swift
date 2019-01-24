@@ -1,9 +1,19 @@
 import Vapor
+import MongoKitten
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+    
+    guard let uri = Environment.get("DB_URI") else {
+        throw VaporError(identifier: "Mongo", reason: "Missing Mongo DB URI")
+    }
+    
+    let config = MongoConfig(databaseURI: uri, collectionName: "game")
+    
     /// Register providers first
-
+    let test = MongoProvider(config: config)
+    try services.register(test)
+    
     /// Register routes to the router
     let router = EngineRouter.default()
     try routes(router)

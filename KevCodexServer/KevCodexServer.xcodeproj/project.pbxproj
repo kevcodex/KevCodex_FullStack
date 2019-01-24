@@ -21,7 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0A428BF721F8DCF500A0AC07 /* MongoKittenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428BF621F8DCF500A0AC07 /* MongoKittenProvider.swift */; };
 		0AB1BD7121F8330C002E8AE8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1BD7021F8330C002E8AE8 /* Test.swift */; };
+		0AC567DB21F946A300F4CEC9 /* MongoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC567DA21F946A300F4CEC9 /* MongoService.swift */; };
+		0AC567DD21F946C000F4CEC9 /* MongoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC567DC21F946C000F4CEC9 /* MongoConfig.swift */; };
 		OBJ_1215 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* TestController.swift */; };
 		OBJ_1216 /* app.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* app.swift */; };
 		OBJ_1217 /* boot.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* boot.swift */; };
@@ -5241,7 +5244,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A428BF621F8DCF500A0AC07 /* MongoKittenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoKittenProvider.swift; sourceTree = "<group>"; };
 		0AB1BD7021F8330C002E8AE8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		0AC567DA21F946A300F4CEC9 /* MongoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoService.swift; sourceTree = "<group>"; };
+		0AC567DC21F946C000F4CEC9 /* MongoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoConfig.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"COpenSSL::COpenSSL::Product" /* COpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = COpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7185,6 +7191,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A428BF521F8DCDC00A0AC07 /* MongoKitten */ = {
+			isa = PBXGroup;
+			children = (
+				0A428BF621F8DCF500A0AC07 /* MongoKittenProvider.swift */,
+				0AC567DA21F946A300F4CEC9 /* MongoService.swift */,
+				0AC567DC21F946C000F4CEC9 /* MongoConfig.swift */,
+			);
+			path = MongoKitten;
+			sourceTree = "<group>";
+		};
 		0AB1BD6E21F832F5002E8AE8 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -7674,6 +7690,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB1BD6E21F832F5002E8AE8 /* Test */,
+				0A428BF521F8DCDC00A0AC07 /* MongoKitten */,
 				OBJ_26 /* app.swift */,
 				OBJ_27 /* boot.swift */,
 				OBJ_28 /* configure.swift */,
@@ -8577,7 +8594,7 @@
 			path = CodableReflection;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -8590,7 +8607,6 @@
 				OBJ_37 /* Dependencies */,
 				OBJ_1152 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Content */ = {
@@ -11823,7 +11839,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_1152 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -11924,11 +11940,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				0A428BF721F8DCF500A0AC07 /* MongoKittenProvider.swift in Sources */,
 				OBJ_1215 /* TestController.swift in Sources */,
 				OBJ_1216 /* app.swift in Sources */,
 				OBJ_1217 /* boot.swift in Sources */,
 				OBJ_1218 /* configure.swift in Sources */,
 				OBJ_1219 /* routes.swift in Sources */,
+				0AC567DB21F946A300F4CEC9 /* MongoService.swift in Sources */,
+				0AC567DD21F946C000F4CEC9 /* MongoConfig.swift in Sources */,
 				0AB1BD7121F8330C002E8AE8 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
