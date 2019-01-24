@@ -56,6 +56,24 @@
         }
       },
       {
+        "package": "Meow",
+        "repositoryURL": "https://github.com/OpenKitten/Meow.git",
+        "state": {
+          "branch": null,
+          "revision": "e7a9ab147a8c1a53954bb0e2d88c07ef2045e50e",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "MeowVapor",
+        "repositoryURL": "https://github.com/OpenKitten/MeowVapor.git",
+        "state": {
+          "branch": null,
+          "revision": "f05e49d9319b102a2c3f5ecb6890626e30335e9e",
+          "version": "2.0.0"
+        }
+      },
+      {
         "package": "MongoKitten",
         "repositoryURL": "https://github.com/OpenKitten/MongoKitten.git",
         "state": {

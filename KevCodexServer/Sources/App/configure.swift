@@ -1,5 +1,6 @@
 import Vapor
 import MongoKitten
+import MeowVapor
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
@@ -8,11 +9,13 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         throw VaporError(identifier: "Mongo", reason: "Missing Mongo DB URI")
     }
     
-    let config = MongoConfig(databaseURI: uri, collectionName: "game")
+//    let config = MongoConfig(databaseURI: uri, collectionName: "game")
+//    
+//    /// Register providers first
+//    let test = MongoProvider(config: config)
+//    try services.register(test)
     
-    /// Register providers first
-    let test = MongoProvider(config: config)
-    try services.register(test)
+    try services.register(try MeowProvider(uri))
     
     /// Register routes to the router
     let router = EngineRouter.default()
