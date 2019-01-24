@@ -40,13 +40,9 @@ struct TestController: RouteCollection {
         let meow = req.meow()
         
         return meow.flatMap { (context) -> Future<Game> in
-            let foo = context.find(MeowGame.self).getFirstResult()
+            let foo = context.find(Game.self).getFirstResult()
             
-            let unwrapped = foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
-            
-            return unwrapped.map({ (game) -> Game in
-                return Game(meow: game)
-            })
+            return foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
         }
     }
     
@@ -54,45 +50,34 @@ struct TestController: RouteCollection {
         let meow = req.meow()
         
         return meow.flatMap { (context) -> Future<[Game]> in
-            let foo = context.find(MeowGame.self).getAllResults()
-            
-            return foo.map({ (games) -> [Game] in
-                return games.map { Game(meow: $0) }
-            })
+            return context.find(Game.self).getAllResults()
         }
     }
-}
-
-struct Game: Content {
-    var id: String
-    var name: String
-    var description: String
-    var image: String
-    var date: String
-    var developer: String
     
-    init(meow: MeowGame) {
-        self.id = meow._id.description
-        self.name = meow.name
-        self.description = meow.description
-        self.image = meow.image
-        self.date = meow.date
-        self.developer = meow.developer
-    }
-}
-
-class MeowGame: MeowVapor.Model {
-    var _id: ObjectId
-    
-    var name: String
-    var description: String
-    var image: String
-    var date: String
-    var developer: String
-    
-    static var collectionName: String {
-        return "game"
-    }
-    
+//    func testMeow(_ req: Request) throws -> Future<Game> {
+//        let meow = req.meow()
+//
+//        return meow.flatMap { (context) -> Future<Game> in
+//            let foo = context.find(MeowGame.self).getFirstResult()
+//
+//            let unwrapped = foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
+//
+//            return unwrapped.map({ (game) -> Game in
+//                return Game(meow: game)
+//            })
+//        }
+//    }
+//
+//    func testMeows(_ req: Request) throws -> Future<[Game]> {
+//        let meow = req.meow()
+//
+//        return meow.flatMap { (context) -> Future<[Game]> in
+//            let foo = context.find(MeowGame.self).getAllResults()
+//
+//            return foo.map({ (games) -> [Game] in
+//                return games.map { Game(meow: $0) }
+//            })
+//        }
+//    }
 }
 
