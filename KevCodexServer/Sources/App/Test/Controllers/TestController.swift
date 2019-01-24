@@ -11,6 +11,8 @@ struct TestController: RouteCollection {
         
         apiRouter.get("meow", use: testMeow)
         apiRouter.get("meows", use: testMeows)
+        
+        apiRouter.post("addmeow", use: addMeow)
     }
     
     func helloWorldHandler(_ req: Request) throws -> String {
@@ -52,6 +54,17 @@ struct TestController: RouteCollection {
         return meow.flatMap { (context) -> Future<[Game]> in
             return context.find(Game.self).getAllResults()
         }
+    }
+    
+    func addMeow(_ req: Request) throws -> Future<HTTPStatus> {
+        let meow = req.meow()
+        
+        let test = meow.map { (context) -> Future<Void> in
+            let test = Game()
+            return context.save(test)
+        }
+        
+        return test.transform(to: HTTPStatus.ok)
     }
     
 //    func testMeow(_ req: Request) throws -> Future<Game> {

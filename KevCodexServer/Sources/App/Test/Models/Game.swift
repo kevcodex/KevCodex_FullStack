@@ -36,6 +36,15 @@ final class Game: MeowVapor.Model, Content {
     var date: String
     var developer: String
     
+    init() {
+        self._id = ObjectId()
+        self.name = "meow.name"
+        self.description = "meow.description"
+        self.image = "meow.image"
+        self.date = "meow.date"
+        self.developer = "meow.developer"
+    }
+    
     static var collectionName: String {
         return "game"
     }
