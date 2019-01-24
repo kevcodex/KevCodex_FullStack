@@ -10,40 +10,37 @@ import MongoKitten
 
 class MongoService: Service {
     let config: MongoConfig
-    var database: MongoKitten.Database!
+    let database: MongoKitten.Database
     
-    var collection: MongoKitten.Collection!
+    var collection: MongoKitten.Collection {
+        return database[config.collectionName]
+    }
     
-    private let threadPool: BlockingIOThreadPool
+    var bsonDecoder: BSONDecoder = {
+        return BSONDecoder()
+    }()
     
-    init(config: MongoConfig, threadPool: BlockingIOThreadPool) {
+    var bsonEncoder: BSONEncoder = {
+        return BSONEncoder()
+    }()
+    
+    init(config: MongoConfig, database: MongoKitten.Database) {
         self.config = config
-        self.threadPool = threadPool
+        self.database = database
     }
     
-    func connect(on eventLoop: EventLoop) throws -> Future<Void> {
-        let databaseFuture = MongoKitten.Database.connect(config.databaseURI, on: eventLoop)
+    func findAll<T: Codable>() -> Future<[T]> {
+        
+        let all = self.collection.find().map { (document) in
+            return try self.bsonDecoder.decode(T.self, from: document)
+        }
+        
+        return all.getAllResults()
+    }
+}
 
-        return databaseFuture.map { (database) -> (Void) in
-            self.database = database
-            self.collection = database[self.config.collectionName]
-        }.catchMap { (error) -> (Void) in
-            throw error
-        }
-    }
-    
-    func findAll(on eventLoop: EventLoop) -> Future<String> {
-        
-        
-        return threadPool.runIfActive(eventLoop: eventLoop) {
-            
-            let all = self.collection.find().getAllResults()
-            
-            let test =  all.map { (element) -> (String) in
-                return element.description
-            }
-            
-            return try test.wait()
-        }
+extension Request {
+    func mongoService() -> Future<MongoService> {
+        return Future.flatMap(on: self) { try self.privateContainer.make(Future<MongoService>.self) }
     }
 }

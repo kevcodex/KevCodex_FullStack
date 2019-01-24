@@ -10,6 +10,7 @@ struct TestController: RouteCollection {
         apiRouter.get("mongo", use: testMongo)
         
         apiRouter.get("meow", use: testMeow)
+        apiRouter.get("meowstatus", use: testMeowStatus)
         apiRouter.get("meows", use: testMeows)
         
         apiRouter.post("addmeow", use: addMeow)
@@ -32,10 +33,12 @@ struct TestController: RouteCollection {
         }
     }
     
-    func testMongo(_ req: Request) throws -> Future<String> {
-        let test = try req.make(MongoService.self)
+    func testMongo(_ req: Request) throws -> Future<[Game]> {
+        let test = req.mongoService()
         
-        return test.findAll(on: req.eventLoop)
+        return test.flatMap { (service) -> (Future<[Game]>) in
+            return service.findAll()
+        }
     }
     
     func testMeow(_ req: Request) throws -> Future<Game> {
@@ -45,6 +48,24 @@ struct TestController: RouteCollection {
             let foo = context.find(Game.self).getFirstResult()
             
             return foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
+        }
+    }
+    
+    // Modify response status and other
+    func testMeowStatus(_ req: Request) throws -> Future<Response> {
+        let meow = req.meow()
+        
+        return meow.flatMap { (context) -> (Future<Response>) in
+            let foo = context.find(Game.self).getFirstResult()
+            
+            let bar = foo.unwrap(or: Abort(.badRequest, reason: "No game exists")).map({ (game) -> (Response) in
+                let response = req.response(http: HTTPResponse(status: .accepted))
+                try response.content.encode(game)
+                
+                return response
+            })
+            
+            return bar
         }
     }
     
@@ -64,7 +85,7 @@ struct TestController: RouteCollection {
             return context.save(test)
         }
         
-        return test.transform(to: HTTPStatus.ok)
+        return test.transform(to: HTTPStatus.created)
     }
     
 //    func testMeow(_ req: Request) throws -> Future<Game> {
