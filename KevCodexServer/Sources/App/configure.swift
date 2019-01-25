@@ -28,6 +28,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // PlaintextRenderer
     config.prefer(LeafRenderer.self, for: ViewRenderer.self)
     
+    services.register(MethodOverrideMiddleware.self)
+    
     /// Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
@@ -37,5 +39,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
     middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
+    middlewares.use(MethodOverrideMiddleware.self)
     services.register(middlewares)
 }

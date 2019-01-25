@@ -7,6 +7,7 @@ struct TestController: RouteCollection {
         apiRouter.get("hello", use: helloWorldHandler)
         apiRouter.get("beers", Int.parameter, use: beersHandler)
         apiRouter.get("header", use: testHeader)
+        apiRouter.put("testput", use: testPutGames)
         
         apiRouter.get("mongo", use: testMongo)
         
@@ -38,6 +39,11 @@ struct TestController: RouteCollection {
         let test = req.http.headers.firstValue(name: HTTPHeaderName("apikey"))
         
         return test?.description ?? "mising"
+    }
+
+    // Test routing middleware works
+    func testPutGames(_ req: Request) throws -> String {
+        return "Success"
     }
     
     func testMongo(_ req: Request) throws -> Future<[Game]> {

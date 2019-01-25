@@ -18,21 +18,11 @@
     <hr>
     <h2>View Games</h2>
     <br>
-    <a href="games">Games</a>
-    <br>
-    <a href="games?json=true">Game JSON</a>
-    <br>
-    <button>Games Button</button>
-    <br>
-    <form action="/games" method="GET">
-        <input type="hidden" name="test" value="test">
-        <input type="submit" value="View List">
-    </form>
-    <form action="/games" method="GET">
+    <form action="api/games" method="GET">
         <input type="hidden" name="json" value="true">
-        <input type="submit" value="View JSON">
+        <input type="submit" value="View Games">
     </form>
-    <form action="/method/put" method="GET">
+    <form action="api/test/testput" method="GET">
         <input type="hidden" name="_method" value="PUT">
         <input type="submit" value="Test Put Override">
     </form>
