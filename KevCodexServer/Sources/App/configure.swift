@@ -1,6 +1,7 @@
 import Vapor
 import MongoKitten
 import MeowVapor
+import Leaf
 
 // Temp
 let globalApiKey = "27a9bec8-aa92-4a3f-800f-7618637d14a6"
@@ -23,6 +24,10 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // We'll see if issues occur down the line
     try services.register(try MeowProvider(uri))
     
+    try services.register(LeafProvider())
+    // PlaintextRenderer
+    config.prefer(LeafRenderer.self, for: ViewRenderer.self)
+    
     /// Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
@@ -30,7 +35,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     /// Register middleware
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
-    /// middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
+    middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 }
