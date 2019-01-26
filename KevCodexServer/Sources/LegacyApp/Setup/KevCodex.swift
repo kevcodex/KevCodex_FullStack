@@ -22,8 +22,8 @@ class KevCodex {
         let testController = TestController()
         server.addRoutes(testController.routes)
         
-        let gameController = GameController()
-        server.addRoutes(gameController.routes)
+//        let gameController = GameController()
+//        server.addRoutes(gameController.routes)
         
         //        let filters: [(HTTPRequestFilter, HTTPFilterPriority)] = [(Test(), HTTPFilterPriority.high)]
         //        server.setRequestFilters(filters)
@@ -50,14 +50,15 @@ class KevCodex {
     static func database() throws -> Database {
         // Start mongo DB
         // Need to have Mongod running
-        var mongodb: Server!
+        var mongodb: Database!
         
         guard let dbURI = ProcessInfo.processInfo.environment["DB_URI"] else {
-            throw MongoError.noServersAvailable
+            // TODO: - Handle Error
+            fatalError()
         }
         
-        mongodb = try Server(dbURI)
+        mongodb = try Database.synchronousConnect(dbURI + "/local")
         
-        return mongodb["local"]
+        return mongodb
     }
 }

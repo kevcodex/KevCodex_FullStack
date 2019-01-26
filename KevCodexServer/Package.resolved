@@ -6,26 +6,80 @@
         "repositoryURL": "https://github.com/OpenKitten/BSON.git",
         "state": {
           "branch": null,
-          "revision": "dc0f39faeaab3febd7706592e52cf6f4edfe8ea2",
-          "version": "5.2.4"
+          "revision": "a42fc9fcbe679ba3a40fbaf66934dac79b0965de",
+          "version": "6.0.0"
         }
       },
       {
-        "package": "Cheetah",
-        "repositoryURL": "https://github.com/OpenKitten/Cheetah.git",
+        "package": "Console",
+        "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
           "branch": null,
-          "revision": "801f4fa278670719bec074b708241878ad5fb25e",
-          "version": "2.0.2"
+          "revision": "d6cf07af59ae63cd95c4b5f98cf1f25627750fd1",
+          "version": "3.1.0"
         }
       },
       {
-        "package": "CryptoKitten",
-        "repositoryURL": "https://github.com/OpenKitten/CryptoKitten.git",
+        "package": "Core",
+        "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "bf7a4d6dbd6f4bbd96ae620101239446d2cdd3f9",
-          "version": "0.2.3"
+          "revision": "1794ff138bd669175a2528d27695028d7cb30471",
+          "version": "3.5.0"
+        }
+      },
+      {
+        "package": "Crypto",
+        "repositoryURL": "https://github.com/vapor/crypto.git",
+        "state": {
+          "branch": null,
+          "revision": "bce9ac891c9b33fc045deda713e0d976d13b749a",
+          "version": "3.3.1"
+        }
+      },
+      {
+        "package": "DatabaseKit",
+        "repositoryURL": "https://github.com/vapor/database-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "3557894af50914e134803a684b42a9ea6eefaea2",
+          "version": "1.3.2"
+        }
+      },
+      {
+        "package": "HTTP",
+        "repositoryURL": "https://github.com/vapor/http.git",
+        "state": {
+          "branch": null,
+          "revision": "6973bf50dab8dd00e4daf8cb82ca72b33f5db016",
+          "version": "3.1.6"
+        }
+      },
+      {
+        "package": "Leaf",
+        "repositoryURL": "https://github.com/vapor/leaf.git",
+        "state": {
+          "branch": null,
+          "revision": "d35f54cbac723e673f9bd5078361eea74049c8d7",
+          "version": "3.0.2"
+        }
+      },
+      {
+        "package": "Meow",
+        "repositoryURL": "https://github.com/OpenKitten/Meow.git",
+        "state": {
+          "branch": null,
+          "revision": "e7a9ab147a8c1a53954bb0e2d88c07ef2045e50e",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "MeowVapor",
+        "repositoryURL": "https://github.com/OpenKitten/MeowVapor.git",
+        "state": {
+          "branch": null,
+          "revision": "f05e49d9319b102a2c3f5ecb6890626e30335e9e",
+          "version": "2.0.0"
         }
       },
       {
@@ -33,125 +87,116 @@
         "repositoryURL": "https://github.com/OpenKitten/MongoKitten.git",
         "state": {
           "branch": null,
-          "revision": "f564cc39c6088c23bbafd7ea8910dc270517b77e",
-          "version": "4.1.3"
+          "revision": "ca17b07d55dceb6cb075467bd07cedda4676f077",
+          "version": "5.0.0"
         }
       },
       {
-        "package": "COpenSSL",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-COpenSSL.git",
+        "package": "Multipart",
+        "repositoryURL": "https://github.com/vapor/multipart.git",
         "state": {
           "branch": null,
-          "revision": "b8bd953a390940b486ce8119a61c8d5ad9d5c31c",
-          "version": "3.1.5"
+          "revision": "e57007c23a52b68e44ebdfc70cbe882a7c4f1ec3",
+          "version": "3.0.2"
         }
       },
       {
-        "package": "PerfectCrypto",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Crypto.git",
+        "package": "Routing",
+        "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
           "branch": null,
-          "revision": "54e0f7c2a9d7355fca3c23e0f88096ac3765e08b",
-          "version": "3.1.2"
-        }
-      },
-      {
-        "package": "PerfectCURL",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CURL.git",
-        "state": {
-          "branch": null,
-          "revision": "08ba26c7b768e9e2096d1fe475e0cef733b98a75",
-          "version": "3.0.7"
-        }
-      },
-      {
-        "package": "PerfectCZlib",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CZlib-src.git",
-        "state": {
-          "branch": null,
-          "revision": "b63e46909aad937c6434766f8f8c6720d8f3bd05",
-          "version": "0.0.4"
-        }
-      },
-      {
-        "package": "PerfectHTTP",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-HTTP.git",
-        "state": {
-          "branch": null,
-          "revision": "5ad1f4bb8f60447f308b8d8d35289c5a1d74c54f",
-          "version": "3.1.3"
-        }
-      },
-      {
-        "package": "PerfectHTTPServer",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-HTTPServer.git",
-        "state": {
-          "branch": null,
-          "revision": "9b31c02d5acfbd381dbfd944ec4cef2870854186",
-          "version": "3.0.18"
-        }
-      },
-      {
-        "package": "cURL",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-libcurl.git",
-        "state": {
-          "branch": null,
-          "revision": "672f6695d9ae04fce16ad01decef0649e0b872b0",
-          "version": "2.0.6"
-        }
-      },
-      {
-        "package": "PerfectLogger",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Logger.git",
-        "state": {
-          "branch": null,
-          "revision": "00bd1cf9d01657c73d7b3d27d5cc6437cc583f39",
-          "version": "3.1.0"
-        }
-      },
-      {
-        "package": "PerfectNet",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Net.git",
-        "state": {
-          "branch": null,
-          "revision": "a04974a9abf20adea2082e802e20ee9cce829eeb",
-          "version": "3.2.1"
-        }
-      },
-      {
-        "package": "PerfectThread",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Thread.git",
-        "state": {
-          "branch": null,
-          "revision": "04fcd2d29f50e05dbca907219322fd475c205c33",
-          "version": "3.0.5"
-        }
-      },
-      {
-        "package": "PerfectWebRedirects",
-        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-WebRedirects",
-        "state": {
-          "branch": null,
-          "revision": "84d2d6edc6cbe333c7d6b4dfc909bdf579eedaa1",
+          "revision": "3219e328491b0853b8554c5a694add344d2c6cfb",
           "version": "3.0.1"
         }
       },
       {
-        "package": "PerfectLib",
-        "repositoryURL": "https://github.com/PerfectlySoft/PerfectLib.git",
+        "package": "Service",
+        "repositoryURL": "https://github.com/vapor/service.git",
         "state": {
           "branch": null,
-          "revision": "60e44e4c62e293844581205528eefdc7e1153199",
-          "version": "3.1.2"
+          "revision": "281a70b69783891900be31a9e70051b6fe19e146",
+          "version": "1.0.0"
         }
       },
       {
-        "package": "Schrodinger",
-        "repositoryURL": "https://github.com/OpenKitten/Schrodinger.git",
+        "package": "swift-nio",
+        "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "d7030fe0a4a6eeddc02044650a8b409a4f57365a",
-          "version": "1.0.1"
+          "revision": "03c541a24dd0558c942b15d8464eb75d70a921c4",
+          "version": "1.12.1"
+        }
+      },
+      {
+        "package": "swift-nio-ssl",
+        "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
+        "state": {
+          "branch": null,
+          "revision": "0f3999f3e3c359cc74480c292644c3419e44a12f",
+          "version": "1.4.0"
+        }
+      },
+      {
+        "package": "swift-nio-ssl-support",
+        "repositoryURL": "https://github.com/apple/swift-nio-ssl-support.git",
+        "state": {
+          "branch": null,
+          "revision": "c02eec4e0e6d351cd092938cf44195a8e669f555",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "swift-nio-zlib-support",
+        "repositoryURL": "https://github.com/apple/swift-nio-zlib-support.git",
+        "state": {
+          "branch": null,
+          "revision": "37760e9a52030bb9011972c5213c3350fa9d41fd",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "TemplateKit",
+        "repositoryURL": "https://github.com/vapor/template-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "aff2d6fc65bfd04579b0201b31a8d6720239c1cf",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "URLEncodedForm",
+        "repositoryURL": "https://github.com/vapor/url-encoded-form.git",
+        "state": {
+          "branch": null,
+          "revision": "932024f363ee5ff59059cf7d67194a1c271d3d0c",
+          "version": "1.0.5"
+        }
+      },
+      {
+        "package": "Validation",
+        "repositoryURL": "https://github.com/vapor/validation.git",
+        "state": {
+          "branch": null,
+          "revision": "4de213cf319b694e4ce19e5339592601d4dd3ff6",
+          "version": "2.1.1"
+        }
+      },
+      {
+        "package": "Vapor",
+        "repositoryURL": "https://github.com/vapor/vapor.git",
+        "state": {
+          "branch": null,
+          "revision": "54cbf396147aba77ecb32e7fc75a3d13251551b1",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "WebSocket",
+        "repositoryURL": "https://github.com/vapor/websocket.git",
+        "state": {
+          "branch": null,
+          "revision": "21eb4773e25a8ff96fe347a31fe106900a69fa6a",
+          "version": "1.1.1"
         }
       }
     ]
