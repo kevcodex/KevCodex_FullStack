@@ -55,6 +55,14 @@ struct GameController: RouteCollection {
     
     func deleteGame(_ req: Request) throws -> Future<HTTPStatus> {
         
+        guard let apiKey = req.http.headers["apiKey"].first else {
+            throw Abort(.forbidden, reason: "Missing API Header")
+        }
+        
+        guard apiKey == globalApiKey else {
+            throw Abort(.forbidden, reason: "Invalid API Key")
+        }
+        
         let name = try req.parameters.next(String.self)
         
         let meow = req.meow()
