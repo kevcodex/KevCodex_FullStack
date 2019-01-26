@@ -48,8 +48,8 @@ createGameFormElement.onsubmit = function (event) {
 
     request.onload = function (event) {
         var output = document.getElementById("save_output")
-        if (request.status == 200) {
-            output.innerHTML = "Saved!" + ": " + request.response;
+        if (request.status == 201) {
+            output.innerHTML = "Saved!" + ": " + request.status + ", " + request.statusText;
         } else {
             output.innerHTML = "Error " + request.status + ": " + request.statusText + ", " + request.response + " <br \/>";
         }
