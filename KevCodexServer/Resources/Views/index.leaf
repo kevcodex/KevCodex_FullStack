@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>KCDEX</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<body>
+#set("content") {
 
     <h1>Welcome to KevCodex!</h1>
 
     <h5>This is a server-side swift experiment. Using Vapor Swift and MongoDB, you can enter and delete my favorite games using this webview.</h5>
 
     <a href="/test">TEST LINK</a>
+    <a href="/hiking">Hiking LINK</a>
     <hr>
     <h2>View Games</h2>
     <br>
@@ -67,6 +58,7 @@
     
 
     <script type="text/javascript" src="js/test.js"></script>
-</body>
 
-</html>
+}
+
+#embed("base")

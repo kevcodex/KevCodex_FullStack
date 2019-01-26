@@ -10,12 +10,13 @@ import Vapor
 struct WebsiteController: RouteCollection {
     
     func boot(router: Router) throws {
-        router.get(use: indexHandler)
+        router.get(use: indexPage)
         router.get("test", use: testHandler)
         router.get("foo", use: fooHandler)
+        router.get("hiking", use: hikingPage)
     }
     
-    func indexHandler(_ req: Request) throws -> Future<View> {
+    func indexPage(_ req: Request) throws -> Future<View> {
         
         return try req.view().render("index")
     }
@@ -31,9 +32,23 @@ struct WebsiteController: RouteCollection {
         
         return try req.view().render("_pages/test")
     }
-}
-
-struct IndexContext: Encodable {
-    let title: String
+    
+    func hikingPage(_ req: Request) throws -> Future<View> {
+        
+        let meow = req.meow()
+        
+        let futureHikes = meow.flatMap { (context) in
+            return context.find(Hike.self).getAllResults()
+        }
+        
+        return futureHikes.flatMap { (hikes) -> EventLoopFuture<View> in
+            
+            let hikesData = hikes.isEmpty ? nil : hikes
+            
+            let context = HikingContext(title: "Homepage", hikes: hikesData)
+            
+            return try req.view().render("hiking", context)
+        }
+    }
 }
 

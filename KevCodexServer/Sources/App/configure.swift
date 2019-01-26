@@ -35,9 +35,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register(router, as: Router.self)
 
     // Register middleware
-    var middlewares = MiddlewareConfig() // Create _empty_ middleware config
-    middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
-    middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
-    middlewares.use(MethodOverrideMiddleware.self)
-    services.register(middlewares)
+    var middlewaresConfig = MiddlewareConfig() // Create _empty_ middleware config
+    try middlewares(config: &middlewaresConfig)
+    services.register(middlewaresConfig)
 }

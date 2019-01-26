@@ -1,0 +1,26 @@
+#set("content") {
+
+<body>
+    #if(hikes) {
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            #for(hike in hikes) {
+              <tr>
+                <td>#(hike.title)</td>
+                <td>#(hike.description)</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } else {
+        <h2>There aren’t any hikes data yet!</h2>
+      }
+}
+
+#embed("base")
