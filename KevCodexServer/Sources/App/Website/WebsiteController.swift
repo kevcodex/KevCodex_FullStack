@@ -23,12 +23,8 @@ struct WebsiteController: RouteCollection {
     }
     
     func hikingPage(_ req: Request) throws -> Future<View> {
-        
-        let meow = req.meow()
-        
-        let futureHikes = meow.flatMap { (context) in
-            return context.find(Hike.self).getAllResults()
-        }
+                
+        let futureHikes = try HikingController().getAllHikes(req)
         
         return futureHikes.flatMap { (hikes) -> Future<View> in
             
