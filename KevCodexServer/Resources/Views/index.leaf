@@ -1,10 +1,9 @@
 #set("content") {
 
-    <h1>Welcome to KevCodex!</h1>
+    <h1>Welcome!</h1>
 
-    <h5>This is a server-side swift experiment. Using Vapor Swift and MongoDB, you can enter and delete my favorite games using this webview.</h5>
+    <h5>My name is Kevin Chen and I like to create stuff</h5>
 
-    <a href="/hiking">Hiking LINK</a>
     <hr>
     <h2>View Games</h2>
     <br>
