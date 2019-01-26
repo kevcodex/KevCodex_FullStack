@@ -7,6 +7,7 @@
 
 import Vapor
 
-struct IndexContext: Encodable {
+struct IndexContext: Encodable, BaseContext {
+    let navigation: [NavigationItem]
     let title: String
 }

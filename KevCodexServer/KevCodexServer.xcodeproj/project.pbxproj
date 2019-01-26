@@ -25,6 +25,7 @@
 		0A70DAB921FC3EC300FF27BE /* HikingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB821FC3EC300FF27BE /* HikingContext.swift */; };
 		0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DABA21FC3EE500FF27BE /* Hike.swift */; };
 		0A70DAC121FC438000FF27BE /* IndexContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAC021FC438000FF27BE /* IndexContext.swift */; };
+		0AA2113F21FCDD1800A84D23 /* BaseContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2113E21FCDD1800A84D23 /* BaseContext.swift */; };
 		OBJ_1037 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* AppTests.swift */; };
 		OBJ_1039 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KevCodexServer::App::Product" /* App.framework */; };
 		OBJ_1040 /* Leaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Leaf::Leaf::Product" /* Leaf.framework */; };
@@ -5059,6 +5060,7 @@
 		0A70DAB821FC3EC300FF27BE /* HikingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingContext.swift; sourceTree = "<group>"; };
 		0A70DABA21FC3EE500FF27BE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 		0A70DAC021FC438000FF27BE /* IndexContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexContext.swift; sourceTree = "<group>"; };
+		0AA2113E21FCDD1800A84D23 /* BaseContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContext.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6639,6 +6641,7 @@
 			children = (
 				0A70DAB821FC3EC300FF27BE /* HikingContext.swift */,
 				0A70DAC021FC438000FF27BE /* IndexContext.swift */,
+				0AA2113E21FCDD1800A84D23 /* BaseContext.swift */,
 			);
 			path = ViewContexts;
 			sourceTree = "<group>";
@@ -7876,7 +7879,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -7891,7 +7894,6 @@
 				OBJ_40 /* Dependencies */,
 				OBJ_833 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_502 /* Core 3.5.0 */ = {
@@ -10551,7 +10553,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_833 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -11730,6 +11732,7 @@
 				OBJ_896 /* boot.swift in Sources */,
 				0A70DAB621FC3DE900FF27BE /* middlewares.swift in Sources */,
 				OBJ_897 /* configure.swift in Sources */,
+				0AA2113F21FCDD1800A84D23 /* BaseContext.swift in Sources */,
 				OBJ_898 /* routes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

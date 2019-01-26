@@ -4,7 +4,6 @@
 
     <h5>This is a server-side swift experiment. Using Vapor Swift and MongoDB, you can enter and delete my favorite games using this webview.</h5>
 
-    <a href="/test">TEST LINK</a>
     <a href="/hiking">Hiking LINK</a>
     <hr>
     <h2>View Games</h2>

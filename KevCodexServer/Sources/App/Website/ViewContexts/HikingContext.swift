@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct HikingContext: Encodable {
+struct HikingContext: Encodable, BaseContext {
+    let navigation: [NavigationItem]
     let title: String
     let hikes: [Hike]?
 }
