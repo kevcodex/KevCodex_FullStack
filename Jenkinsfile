@@ -61,6 +61,7 @@ pipeline {
                         stage('Build and Test') {
                             steps {
                                 sh """
+                                set -o pipefail && \
                                 xcodebuild \
                                 -workspace KevCodex.xcworkspace \
                                 -scheme Run \
@@ -89,11 +90,12 @@ pipeline {
                         stage('Build and Test') {
                             steps {
                                 sh """
+                                set -o pipefail && \
                                 xcodebuild \
                                 -workspace KevCodex.xcworkspace \
                                 -scheme GameViewer \
                                 -configuration Debug \
-                                -destination 'OS=12.0,name=iPhone 8' \
+                                -destination 'OS=latest,name=iPhone 8' \
                                 test \
                                 | xcpretty -r junit
                                 """
