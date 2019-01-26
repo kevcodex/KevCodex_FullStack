@@ -17,7 +17,7 @@ struct GameBody: Decodable {
     var developer: String?
 }
 
-final class Game: MeowVapor.Model, Content {
+final class Game: QueryableModel, Content {
     var _id: ObjectId
     
     var name: String

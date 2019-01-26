@@ -1,11 +1,11 @@
-var button = document.querySelector("button");
+// var button = document.querySelector("button");
 
-button.addEventListener("click", changeColor);
+// button.addEventListener("click", changeColor);
 
 
-function changeColor() {
-    self.location = "game"
-}
+// function changeColor() {
+//     self.location = "game"
+// }
 
 // var myHeaders =  new Headers();
 // myHeaders.append("apiKey", "27a9bec8-aa92-4a3f-800f-7618637d14a6");
@@ -41,6 +41,8 @@ createGameFormElement.onsubmit = function (event) {
     Object.keys(headers).forEach(function (key) {
         request.setRequestHeader(key, headers[key])
     });
+
+    request.setRequestHeader("Content-Type", "application/json");
 
     request.send(json);
 
@@ -90,8 +92,8 @@ deleteGameFormElement.onsubmit = function (event) {
 
     request.onload = function (event) {
         var output = document.getElementById("save_output2")
-        if (request.status == 200) {
-            output.innerHTML = request.response;
+        if (request.status == 204) {
+            output.innerHTML = request.status;
         } else {
             output.innerHTML = "Error " + request.status + ": " + request.statusText + ", " + request.response + " <br \/>";
         }
