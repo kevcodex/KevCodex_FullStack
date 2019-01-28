@@ -16,8 +16,8 @@
                         <div class="view overlay">
                             <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
                             <div class="mask flex-center rgba-blue-light">
-                                <p class="white-text">#(hike.description)</p>
-                                <a href="/api/games">testest</a>
+                                <p class="white-text">#(hike.shortDescription)</p>
+                                <!-- <a href="/api/games">testest</a> -->
                             </div>
                         </div>
                     </div>
