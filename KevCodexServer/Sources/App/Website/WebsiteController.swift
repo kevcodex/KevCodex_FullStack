@@ -16,7 +16,7 @@ struct WebsiteController: RouteCollection {
     }
 
     func indexPage(_ req: Request) throws -> Future<View> {
-        let navigation = navigationStructure(for: req)
+        let navigation = leftNavigationStructure(for: req)
         let context = IndexContext(navigation: navigation, title: "Homepage")
         
         return try req.view().render("index", context)
@@ -30,7 +30,7 @@ struct WebsiteController: RouteCollection {
             
             let hikesData = hikes.isEmpty ? nil : hikes
             
-            let navigation = self.navigationStructure(for: req)
+            let navigation = self.leftNavigationStructure(for: req)
             let context = HikingContext(navigation: navigation, title: "Hiking", hikes: hikesData)
             
             return try req.view().render("hiking", context)
@@ -38,13 +38,13 @@ struct WebsiteController: RouteCollection {
     }
     
     func aboutMePage(_ req: Request) throws -> Future<View> {
-        let navigation = navigationStructure(for: req)
+        let navigation = leftNavigationStructure(for: req)
         let context = AboutContext(navigation: navigation, title: "About Me")
         
         return try req.view().render("about", context)
     }
     
-    private func navigationStructure(for req: Request) -> [NavigationItem] {
+    private func leftNavigationStructure(for req: Request) -> [NavigationItem] {
         
         let reqPath = req.http.url.path
         
