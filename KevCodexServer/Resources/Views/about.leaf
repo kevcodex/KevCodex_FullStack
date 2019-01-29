@@ -1,8 +1,96 @@
+<style>
+    .bg-1 { 
+        background-color: #1abc9c; 
+        color: #ffffff;
+    }
+
+    .bg-2 { 
+        background-color: #474e5d; 
+        color: #ffffff;
+    }
+
+    .bg-3 { 
+        background-color: #ffffff; 
+        color: #555555;
+    }
+
+    .bg-4 { 
+        background-color: #2f2f2f;
+        color: #ffffff;
+    }
+
+    .container-fluid {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+</style>
+
 #set("content") {
 
+    <div class="container-fluid bg-1 text-center">
+        <h1 class="mb-5">Who Am I?</h1>
+            <img src="/img/profile.jpeg" class="rounded-circle mb-5" style="display:inline" alt="Profile" width="350" height="350">
+        <h3>I am a <div id="changeText">Programmer</div></h3>
+    </div>
+
+    <div class="text-center container-fluid bg-3">
+        <h2>Skill Sets</h2>
+        <div class="card-deck text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Padawan</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title">Javascript</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Javascript</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Jedi Knight</h4>
+                </div>
+                <div class="card-body">
+                        <h1 class="card-title">Python</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Python</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Jedi Master</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title">Swift</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Swift</li>
+                        <li>Swift</li>
+                        <li>Swift</li>
+                        <li>Swift</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          
+    <div class="container-fluid bg-3 text-center">
+        <h3>Where To Find Me?</h3>
+        <p>Feel free to contact via email at <a href="mailto:kevchen2@gmail.com">kevchen2@gmail.com</a>. I'm always happy to chat about anything!</p>
+    </div>
+
+    <footer class="container-fluid bg-4 text-center">
+        <p>Source Code <a href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
+    </footer>
+<!-- 
     <h2>Hi there! My girfriend and I enjoy hiking and will usually go out about once a month. Here's a list of some of the hikes we have done</h2>
     <h4>TLDR: Before any hike, make sure you are adequetly prepared based on weather, fitness, mood, etc.</h4>
-    <h6>Note: My perspective of "difficult" may be different than yours. I run on average 5 miles 1.5x a week and play soccer once a week. If you regularly exercise then you may have a similar "difficulty" experience as me. Use you're own discretion when determining the "difficulty" of a hike. Weather conditions, mood, and more can also change the "difficulty" of a hike so make sure you are adequetly prepared.</h6>
+    <h6>Note: My perspective of "difficult" may be different than yours. I run on average 5 miles 1.5x a week and play soccer once a week. If you regularly exercise then you may have a similar "difficulty" experience as me. Use you're own discretion when determining the "difficulty" of a hike. Weather conditions, mood, and more can also change the "difficulty" of a hike so make sure you are adequetly prepared.</h6> -->
+
+    <script type="text/javascript" src="js/change.js"></script>
 }
     
 #embed("base")

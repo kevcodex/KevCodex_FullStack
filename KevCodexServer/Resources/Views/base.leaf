@@ -16,52 +16,59 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">KevCodex</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">KevCodex</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                #for(item in navigation) {
-                    <li class="nav-item #if(item.isActive){active}">
-                        <a href=#(item.path) class="nav-link">#(item.title)</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    #for(item in navigation) {
+                        <li class="nav-item #if(item.isActive){active}">
+                            <a href=#(item.path) class="nav-link">#(item.title)</a>
+                        </li>
+                    }
+                </ul>
+                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                    <li class="nav-item">
+                        <a href="/files/resume.pdf" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
+                            Resume
+                        </a>
                     </li>
-                }
-            </ul>
-            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-                <li class="nav-item">
-                    <a href="https://github.com/kevcodex" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
-                        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512 499.36" focusable="false" role="img">
-                            <title>GitHub</title>
-                            <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://bitbucket.org/kevcodex" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
-                        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 64 64" focusable="false" role="img">
-                            <title>Bitbucket</title>
-                            <path data-name="layer1" d="M53.223 45.928v.6c-.6 3.2-1.192 6.49-1.787 9.685a5.142 5.142 0 0 1-1.49 2.8 11.848 11.848 0 0 1-2.88 2.1 28.039 28.039 0 0 1-6.157 2.1 36.715 36.715 0 0 1-7.15.8 40.387 40.387 0 0 1-11.817-1.4 23.179 23.179 0 0 1-4.568-1.9 8.287 8.287 0 0 1-2.085-1.6 5.142 5.142 0 0 1-1.49-2.8c-.6-3.2-1.192-6.49-1.787-9.685v-.5c0-.8.7-1.2 1.49-.8.1 0 .1.1.2.1a25.18 25.18 0 0 0 7.746 3.694 34.291 34.291 0 0 0 7.746 1.5 39.967 39.967 0 0 0 9.136-.2 33.339 33.339 0 0 0 11.42-3.694c.7-.4 1.39-.9 2.085-1.3.1-.1.2-.2.3-.2.4-.4.993-.1 1.092.7z"
-                                fill="currentColor">
-                            </path>
-                            <path data-name="layer1" d="M59.28 7.089a5.333 5.333 0 0 0-1.49-1.5 14.565 14.565 0 0 0-4.071-2.2A45.408 45.408 0 0 0 44.286.9 77.853 77.853 0 0 0 32.369 0 76.578 76.578 0 0 0 20.85.9a42.934 42.934 0 0 0-8.044 1.9 20.547 20.547 0 0 0-4.965 2.3 11.175 11.175 0 0 0-1.986 1.8 3.669 3.669 0 0 0-.794 3c.4 2.2.7 4.393.993 6.59.5 3.295 1.092 6.49 1.589 9.785.6 3.594 1.291 7.189 1.887 10.783a4.187 4.187 0 0 0 1.092 2.2 6.247 6.247 0 0 0 1.192 1.1 19.454 19.454 0 0 0 4.866 2.7 41.433 41.433 0 0 0 13.009 2.7 45.414 45.414 0 0 0 9.732-.4 42.932 42.932 0 0 0 8.044-1.9 21.74 21.74 0 0 0 5.462-2.8 8.09 8.09 0 0 0 1.887-1.8 3.291 3.291 0 0 0 .7-1.6c.794-4.693 1.589-9.485 2.383-14.178l2.079-13.195a4.089 4.089 0 0 0-.696-2.796zM32.468 39.638a8.787 8.787 0 0 1 .1-17.573 8.8 8.8 0 0 1 8.739 8.886 8.906 8.906 0 0 1-8.839 8.687zM49.847 8.886a5.462 5.462 0 0 1-.894.7 14.306 14.306 0 0 1-2.88 1.1 37.8 37.8 0 0 1-5.859 1 66.524 66.524 0 0 1-7.646.4 60.927 60.927 0 0 1-8.639-.5 34.19 34.19 0 0 1-6.355-1.3 14.037 14.037 0 0 1-1.787-.8 2.391 2.391 0 0 1-.794-.6.856.856 0 0 1 0-1.3 2.391 2.391 0 0 1 .794-.6 9.767 9.767 0 0 1 2.681-1 40.367 40.367 0 0 1 6.057-1 82.5 82.5 0 0 1 9.93-.3 56.636 56.636 0 0 1 9.136.9 32.15 32.15 0 0 1 4.171 1.1 9.065 9.065 0 0 1 1.39.7 2.637 2.637 0 0 1 .6.5c.392.201.492.601.095 1z"
-                                fill="currentColor">
-                            </path>
-                            <path data-name="layer1" d="M32.468 26.459a4.393 4.393 0 1 0 4.369 4.393 4.3 4.3 0 0 0-4.369-4.393z" fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item">
+                        <a href="https://github.com/kevcodex" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
+                            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512 499.36" focusable="false" role="img">
+                                <title>GitHub</title>
+                                <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://bitbucket.org/kevcodex" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
+                            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 64 64" focusable="false" role="img">
+                                <title>Bitbucket</title>
+                                <path data-name="layer1" d="M53.223 45.928v.6c-.6 3.2-1.192 6.49-1.787 9.685a5.142 5.142 0 0 1-1.49 2.8 11.848 11.848 0 0 1-2.88 2.1 28.039 28.039 0 0 1-6.157 2.1 36.715 36.715 0 0 1-7.15.8 40.387 40.387 0 0 1-11.817-1.4 23.179 23.179 0 0 1-4.568-1.9 8.287 8.287 0 0 1-2.085-1.6 5.142 5.142 0 0 1-1.49-2.8c-.6-3.2-1.192-6.49-1.787-9.685v-.5c0-.8.7-1.2 1.49-.8.1 0 .1.1.2.1a25.18 25.18 0 0 0 7.746 3.694 34.291 34.291 0 0 0 7.746 1.5 39.967 39.967 0 0 0 9.136-.2 33.339 33.339 0 0 0 11.42-3.694c.7-.4 1.39-.9 2.085-1.3.1-.1.2-.2.3-.2.4-.4.993-.1 1.092.7z"
+                                    fill="currentColor">
+                                </path>
+                                <path data-name="layer1" d="M59.28 7.089a5.333 5.333 0 0 0-1.49-1.5 14.565 14.565 0 0 0-4.071-2.2A45.408 45.408 0 0 0 44.286.9 77.853 77.853 0 0 0 32.369 0 76.578 76.578 0 0 0 20.85.9a42.934 42.934 0 0 0-8.044 1.9 20.547 20.547 0 0 0-4.965 2.3 11.175 11.175 0 0 0-1.986 1.8 3.669 3.669 0 0 0-.794 3c.4 2.2.7 4.393.993 6.59.5 3.295 1.092 6.49 1.589 9.785.6 3.594 1.291 7.189 1.887 10.783a4.187 4.187 0 0 0 1.092 2.2 6.247 6.247 0 0 0 1.192 1.1 19.454 19.454 0 0 0 4.866 2.7 41.433 41.433 0 0 0 13.009 2.7 45.414 45.414 0 0 0 9.732-.4 42.932 42.932 0 0 0 8.044-1.9 21.74 21.74 0 0 0 5.462-2.8 8.09 8.09 0 0 0 1.887-1.8 3.291 3.291 0 0 0 .7-1.6c.794-4.693 1.589-9.485 2.383-14.178l2.079-13.195a4.089 4.089 0 0 0-.696-2.796zM32.468 39.638a8.787 8.787 0 0 1 .1-17.573 8.8 8.8 0 0 1 8.739 8.886 8.906 8.906 0 0 1-8.839 8.687zM49.847 8.886a5.462 5.462 0 0 1-.894.7 14.306 14.306 0 0 1-2.88 1.1 37.8 37.8 0 0 1-5.859 1 66.524 66.524 0 0 1-7.646.4 60.927 60.927 0 0 1-8.639-.5 34.19 34.19 0 0 1-6.355-1.3 14.037 14.037 0 0 1-1.787-.8 2.391 2.391 0 0 1-.794-.6.856.856 0 0 1 0-1.3 2.391 2.391 0 0 1 .794-.6 9.767 9.767 0 0 1 2.681-1 40.367 40.367 0 0 1 6.057-1 82.5 82.5 0 0 1 9.93-.3 56.636 56.636 0 0 1 9.136.9 32.15 32.15 0 0 1 4.171 1.1 9.065 9.065 0 0 1 1.39.7 2.637 2.637 0 0 1 .6.5c.392.201.492.601.095 1z"
+                                    fill="currentColor">
+                                </path>
+                                <path data-name="layer1" d="M32.468 26.459a4.393 4.393 0 1 0 4.369 4.393 4.3 4.3 0 0 0-4.369-4.393z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
         
-    <div class="container mt-3">
-        #get(content)
-    </div>
+    #get(content)
+
     <!-- MDB core JavaScript -->
     <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/4.7.0/compiled.0.min.js?ver=4.7.0'></script>
 

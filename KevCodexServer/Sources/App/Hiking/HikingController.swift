@@ -14,7 +14,8 @@ struct HikingController: RouteCollection {
         apiRouter.get(use: getAllHikes)
         apiRouter.get(ObjectId.parameter, use: getHike)
         apiRouter.post(use: addHike)
-        apiRouter.delete("title", String.parameter, use: deleteHike)
+        apiRouter.delete(ObjectId.parameter, use: deleteHikeByObjectID)
+        apiRouter.delete("title", String.parameter, use: deleteHikeByTitle)
     }
     
     func getAllHikes(_ req: Request) throws -> Future<[Hike]> {
@@ -67,7 +68,29 @@ struct HikingController: RouteCollection {
         }
     }
     
-    func deleteHike(_ req: Request) throws -> Future<HTTPStatus> {
+    func deleteHikeByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
+        guard let apiKey = req.http.headers["apiKey"].first else {
+            throw Abort(.forbidden, reason: "Missing API Header")
+        }
+        
+        guard apiKey == globalApiKey else {
+            throw Abort(.forbidden, reason: "Invalid API Key")
+        }
+        
+        let id = try req.parameters.next(ObjectId.self)
+        
+        let meow = req.meow()
+        
+        let futureInt = meow.flatMap { (context) -> Future<Int> in
+            return context.deleteOne(Hike.self, where: "_id" == id)
+        }
+        
+        return futureInt.map { (int) -> (HTTPStatus) in
+            return int == 1 ? .noContent : .notFound
+        }
+    }
+    
+    func deleteHikeByTitle(_ req: Request) throws -> Future<HTTPStatus> {
         
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")

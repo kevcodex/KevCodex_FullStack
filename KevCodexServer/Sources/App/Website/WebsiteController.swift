@@ -11,17 +11,25 @@ import MongoKitten
 struct WebsiteController: RouteCollection {
     
     func boot(router: Router) throws {
-        router.get(use: indexPage)
+        router.get(use: aboutMePage)
+        router.get("projects", use: projectsPage)
         router.get("hiking", use: hikingPage)
         router.get("hiking", ObjectId.parameter, use: hikingDetailPage)
-        router.get("about", use: aboutMePage)
+        router.get("test", use: testPage)
     }
 
-    func indexPage(_ req: Request) throws -> Future<View> {
+    func testPage(_ req: Request) throws -> Future<View> {
         let navigation = leftNavigationStructure(for: req)
-        let context = IndexContext(navigation: navigation, title: "Homepage")
+        let context = TestContext(navigation: navigation, title: "Test")
         
-        return try req.view().render("index", context)
+        return try req.view().render("test", context)
+    }
+    
+    func projectsPage(_ req: Request) throws -> Future<View> {
+        let navigation = leftNavigationStructure(for: req)
+        let context = TestContext(navigation: navigation, title: "Test")
+        
+        return try req.view().render("test", context)
     }
     
     func hikingPage(_ req: Request) throws -> Future<View> {
@@ -63,20 +71,19 @@ struct WebsiteController: RouteCollection {
         let reqPath = req.http.url.path
         
         // Better way to define isActive?
-        let home = NavigationItem(isActive: reqPath == NavigationPath.home, path: NavigationPath.home, title: "Home")
+        let home = NavigationItem(isActive: reqPath == NavigationPath.home, path: NavigationPath.home, title: "About Me")
+        let projects = NavigationItem(isActive: reqPath == NavigationPath.projects, path: NavigationPath.projects, title: "Projects")
         let hiking = NavigationItem(isActive: reqPath == NavigationPath.hiking, path: NavigationPath.hiking, title: "Hiking")
         
-        let about = NavigationItem(isActive: reqPath == NavigationPath.about, path: NavigationPath.about, title: "About Me")
-        
         return [home,
-                about,
+                projects,
                 hiking]
     }
     
     private struct NavigationPath {
         static let home = "/"
         static let hiking = "/hiking"
-        static let about = "/about"
+        static let projects = "/projects"
         
         private init() {}
     }

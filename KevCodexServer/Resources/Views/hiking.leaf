@@ -1,36 +1,38 @@
 #set("content") {
-    <main>
-        <section>
+    <div class="container mt-3">
+        <main>
+            <section>
 
-            <!--Grid row-->
-            <div class="row mb-5">
+                <!--Grid row-->
+                <div class="row mb-5">
 
-                #if(hikes) {
-                    #for(hike in hikes) {
+                    #if(hikes) {
+                        #for(hike in hikes) {
 
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <!--Grid column-->
+                        <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
 
-                        <!-- fix mobile bug where clicking will immediately open link? -->
-                        <h1 class="text-center">#(hike.title)</h1>
-                        <div class="view overlay">
-                            <a href= "hiking/#(hike._id)">
-                                <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
-                                <div class="mask flex-center rgba-blue-light text-center">
-                                    <p class="white-text">#(hike.shortDescription)</p>
-                                </div>
-                            </a>
+                            <!-- fix mobile bug where clicking will immediately open link? -->
+                            <h2 class="text-center">#(hike.title)</h2>
+                            <div class="view overlay">
+                                <a href= "hiking/#(hike._id)">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
+                                    <div class="mask flex-center rgba-blue-light text-center">
+                                        <p class="white-text">#(hike.shortDescription)</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <!--Grid column-->
+                        <!--Grid column-->
 
+                        }
+                    } else {
+                        <h2>There aren’t any hikes data yet!</h2>
                     }
-                } else {
-                    <h2>There aren’t any hikes data yet!</h2>
-                }
-            </div>
-        </section>
-    </main>
+                </div>
+            </section>
+        </main>
+    </div>
 }
 
 #embed("base")
