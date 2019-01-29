@@ -83,7 +83,7 @@
     </div>
 
     <footer class="container-fluid bg-4 text-center">
-        <p>Source Code <a href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
+        <p>Source Code <a rel="noopener" target="_blank" href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
     </footer>
 <!-- 
     <h2>Hi there! My girfriend and I enjoy hiking and will usually go out about once a month. Here's a list of some of the hikes we have done</h2>
