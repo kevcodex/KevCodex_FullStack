@@ -11,4 +11,4 @@ echo "BUILDING"
 
 echo `date`
 echo "RUNNING"
-.build/debug/Run
+.build/debug/Run -p 8081
