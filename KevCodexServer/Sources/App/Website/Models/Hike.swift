@@ -35,7 +35,7 @@ final class Hike: Content, QueryableModel {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self._id = ObjectId()
+        self._id = try container.decode(ObjectId.self, forKey: ._id)
         self.title = try container.decode(String.self, forKey: .title)
         self.location = try container.decode(String.self, forKey: .title)
         self.distance = try container.decode(Double.self, forKey: .distance)
@@ -55,6 +55,7 @@ final class Hike: Content, QueryableModel {
          difficulty: String?,
          description: String) {
         
+        // Generate new object ID for creation
         self._id = ObjectId()
         self.title = title
         self.location = location

@@ -6,12 +6,14 @@
 //
 
 import Vapor
+import MongoKitten
 
 struct WebsiteController: RouteCollection {
     
     func boot(router: Router) throws {
         router.get(use: indexPage)
         router.get("hiking", use: hikingPage)
+        router.get("hiking", ObjectId.parameter, use: hikingDetailPage)
         router.get("about", use: aboutMePage)
     }
 
@@ -31,9 +33,21 @@ struct WebsiteController: RouteCollection {
             let hikesData = hikes.isEmpty ? nil : hikes
             
             let navigation = self.leftNavigationStructure(for: req)
-            let context = HikingContext(navigation: navigation, title: "Hiking", hikes: hikesData)
+            let context = HikingListContext(navigation: navigation, title: "Hiking", hikes: hikesData)
             
             return try req.view().render("hiking", context)
+        }
+    }
+    
+    func hikingDetailPage(_ req: Request) throws -> Future<View> {
+        
+        let futureHike = try HikingController().getHike(req)
+        
+        return futureHike.flatMap { (hike) -> Future<View> in
+            
+            let context = HikingDetailContext(title: hike.title, hike: hike)
+            
+            return try req.view().render("hikingDetail", context)
         }
     }
     

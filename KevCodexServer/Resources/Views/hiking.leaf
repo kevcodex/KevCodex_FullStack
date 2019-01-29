@@ -12,13 +12,14 @@
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 
                         <!-- fix mobile bug where clicking will immediately open link? -->
-                        <h1>#(hike.title)</h1>
+                        <h1 class="text-center">#(hike.title)</h1>
                         <div class="view overlay">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
-                            <div class="mask flex-center rgba-blue-light">
-                                <p class="white-text">#(hike.shortDescription)</p>
-                                <!-- <a href="/api/games">testest</a> -->
-                            </div>
+                            <a href= "hiking/#(hike._id)">
+                                <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
+                                <div class="mask flex-center rgba-blue-light text-center">
+                                    <p class="white-text">#(hike.shortDescription)</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <!--Grid column-->

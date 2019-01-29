@@ -12,8 +12,9 @@ struct HikingController: RouteCollection {
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "hikes")
         apiRouter.get(use: getAllHikes)
+        apiRouter.get(ObjectId.parameter, use: getHike)
         apiRouter.post(use: addHike)
-        apiRouter.delete("name", String.parameter, use: deleteHike)
+        apiRouter.delete("title", String.parameter, use: deleteHike)
     }
     
     func getAllHikes(_ req: Request) throws -> Future<[Hike]> {
@@ -22,6 +23,23 @@ struct HikingController: RouteCollection {
         
         return meow.flatMap { (context) in
             return context.find(Hike.self).getAllResults()
+        }
+    }
+    
+    func getHike(_ req: Request) throws -> Future<Hike> {
+        
+        var id: ObjectId
+        
+        do {
+            id = try req.parameters.next(ObjectId.self)
+        } catch {
+            throw Abort(.badRequest, reason: error.localizedDescription)
+        }
+        
+        let meow = req.meow()
+        
+        return meow.flatMap { (context) in
+            return context.findOne(Hike.self, where: "_id" == id).unwrap(or: Abort(.notFound))
         }
     }
     

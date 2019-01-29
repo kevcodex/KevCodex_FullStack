@@ -1,0 +1,207 @@
+swagger: "2.0"
+
+info:
+  version: 1.0.0
+  title: Hiking API
+  description: A simple API for a list of hikes that I have done
+        
+schemes:
+  - http
+  - https
+host: localhost:8080
+basePath: /api
+
+paths:
+  /hikes:
+    get:
+      summary: A list of hikes.
+      description: Returns a list containing all hikes.
+      responses:
+        200:
+          description: A list of hikes
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hike'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+    post:
+      summary: Creates a new hike
+      description: Adds a new hike to the database. 
+      parameters:
+        - $ref: '#/parameters/ApiKey'
+        - name: hike
+          in: body
+          description: The hike to create.
+          schema:
+            $ref: '#/definitions/HikeBody'
+      responses:
+        201:
+          description: Created
+        default:
+           description: Unexpected error
+           schema:
+              $ref: '#/definitions/Error'
+              
+    delete:
+      summary: Deletes all hikes
+      description: Deletes all the hikes from the data base
+      parameters:
+        - $ref: '#/parameters/ApiKey'
+      responses:
+        204:
+          description: No Content
+          
+  /hikes/{objectid}:
+    get:
+      summary: Get a hike by ID
+      description: Gets a specfic hike by object ID
+      parameters:
+        - $ref: '#/parameters/objectid'
+      responses:
+        200:
+          description: Information about the hike
+          schema:
+            $ref: '#/definitions/Hike'
+        default:
+           description: Unexpected error
+           schema:
+              $ref: '#/definitions/Error'
+    delete:
+      summary: Delete a hike by ID
+      description: Deletes a specfic hike by ID of the hike.
+      parameters:
+        - $ref: '#/parameters/objectid'
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Edit a hike details
+      description: Edit the hike details
+      parameters:
+        - $ref: '#/parameters/objectid'
+      responses:
+        204:
+          description: No Content
+        default:
+           description: Unexpected error
+           schema:
+              $ref: '#/definitions/Error' 
+  /hikes/title/{title}:
+    get:
+      summary: Get a hike by title
+      description: Gets a specfic hike by the tile of the hike. If there are hikes with the same name, it will pull the first hike it finds
+      parameters:
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Information about the hike
+          schema:
+            $ref: '#/definitions/Hike'
+        default:
+           description: Unexpected error
+           schema:
+              $ref: '#/definitions/Error'
+
+parameters:
+  ApiKey:
+    name: apiKey
+    in: header
+    description: The secret api key
+    required: true
+    type: string
+  title:
+    name: title
+    in: path
+    required: true
+    description: The hike's title
+    type: string
+  objectid:
+    name: objectid
+    in: path
+    required: true
+    description: The hike's object ID
+    type: string
+ 
+definitions:
+  Hike: 
+    type: object
+    properties:
+      _id:
+        type: string
+      title:
+        type: string
+      location:
+        type: string
+      distance:
+        type: string 
+      hikingTime:
+        type: string 
+      elevationGain:
+        type: string 
+      difficulty:
+        type: string 
+      description:
+        type: string
+      shortDescription:
+        type: string
+  HikeBody: 
+    type: object
+    properties:
+      title:
+        type: string
+      location:
+        type: string
+      distance:
+        type: string 
+      hikingTime:
+        type: string 
+      elevationGain:
+        type: string 
+      difficulty:
+        type: string 
+      description:
+        type: string
+      shortDescription:
+        type: string
+  Error:
+    type: object
+    properties:
+      context:
+        type: string
+        description: error context description -- using jsonld type errors
+        example:
+          http://www.w3.org/ns/hydra/context.jsonld
+      type:
+        type: string
+        description: indicates what the message type is
+        example:
+          Error
+      status:
+        type: string
+        description: String HTTP status code of the error
+        example:
+          500
+      statusCode:
+        type: integer
+        description: HTTP status code of the error
+        example:
+          500
+      errorCode:
+        type: integer
+        description: System error code for the error
+        example:
+          400
+      message:
+        type: string
+        description: Error Message
+        example:
+          Invalid Input
+      detail:
+        type: string
+        description: more details for the error -- potentially show the user
+        example:
+          Missing api key

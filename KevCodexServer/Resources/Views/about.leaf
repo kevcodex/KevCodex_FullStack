@@ -1,6 +1,8 @@
 #set("content") {
 
-    blah blah blah blah 
+    <h2>Hi there! My girfriend and I enjoy hiking and will usually go out about once a month. Here's a list of some of the hikes we have done</h2>
+    <h4>TLDR: Before any hike, make sure you are adequetly prepared based on weather, fitness, mood, etc.</h4>
+    <h6>Note: My perspective of "difficult" may be different than yours. I run on average 5 miles 1.5x a week and play soccer once a week. If you regularly exercise then you may have a similar "difficulty" experience as me. Use you're own discretion when determining the "difficulty" of a hike. Weather conditions, mood, and more can also change the "difficulty" of a hike so make sure you are adequetly prepared.</h6>
 }
     
 #embed("base")

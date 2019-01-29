@@ -22,12 +22,13 @@
 
 /* Begin PBXBuildFile section */
 		0A70DAB621FC3DE900FF27BE /* middlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB521FC3DE900FF27BE /* middlewares.swift */; };
-		0A70DAB921FC3EC300FF27BE /* HikingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB821FC3EC300FF27BE /* HikingContext.swift */; };
+		0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */; };
 		0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DABA21FC3EE500FF27BE /* Hike.swift */; };
 		0A70DAC121FC438000FF27BE /* IndexContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAC021FC438000FF27BE /* IndexContext.swift */; };
 		0AA2113F21FCDD1800A84D23 /* BaseContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2113E21FCDD1800A84D23 /* BaseContext.swift */; };
 		0AA2114121FCE9B500A84D23 /* AboutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114021FCE9B500A84D23 /* AboutContext.swift */; };
 		0AA2114421FCF84800A84D23 /* HikingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114321FCF84800A84D23 /* HikingController.swift */; };
+		0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */; };
 		OBJ_1037 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* AppTests.swift */; };
 		OBJ_1039 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KevCodexServer::App::Product" /* App.framework */; };
 		OBJ_1040 /* Leaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Leaf::Leaf::Product" /* Leaf.framework */; };
@@ -5059,12 +5060,13 @@
 
 /* Begin PBXFileReference section */
 		0A70DAB521FC3DE900FF27BE /* middlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = middlewares.swift; sourceTree = "<group>"; };
-		0A70DAB821FC3EC300FF27BE /* HikingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingContext.swift; sourceTree = "<group>"; };
+		0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingListContext.swift; sourceTree = "<group>"; };
 		0A70DABA21FC3EE500FF27BE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 		0A70DAC021FC438000FF27BE /* IndexContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexContext.swift; sourceTree = "<group>"; };
 		0AA2113E21FCDD1800A84D23 /* BaseContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContext.swift; sourceTree = "<group>"; };
 		0AA2114021FCE9B500A84D23 /* AboutContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContext.swift; sourceTree = "<group>"; };
 		0AA2114321FCF84800A84D23 /* HikingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingController.swift; sourceTree = "<group>"; };
+		0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingDetailContext.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6643,7 +6645,8 @@
 		0A70DABE21FC3F3F00FF27BE /* ViewContexts */ = {
 			isa = PBXGroup;
 			children = (
-				0A70DAB821FC3EC300FF27BE /* HikingContext.swift */,
+				0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */,
+				0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */,
 				0A70DAC021FC438000FF27BE /* IndexContext.swift */,
 				0AA2114021FCE9B500A84D23 /* AboutContext.swift */,
 				0AA2113E21FCDD1800A84D23 /* BaseContext.swift */,
@@ -11733,7 +11736,8 @@
 				OBJ_886 /* Game.swift in Sources */,
 				OBJ_887 /* GameController.swift in Sources */,
 				OBJ_888 /* MethodOverrideMiddleware.swift in Sources */,
-				0A70DAB921FC3EC300FF27BE /* HikingContext.swift in Sources */,
+				0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */,
+				0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */,
 				OBJ_889 /* MongoConfig.swift in Sources */,
 				OBJ_890 /* MongoKittenProvider.swift in Sources */,
 				0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */,
