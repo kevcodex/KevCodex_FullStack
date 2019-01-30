@@ -25,13 +25,6 @@ struct WebsiteController: RouteCollection {
         return try req.view().render("test", context)
     }
     
-    func projectsPage(_ req: Request) throws -> Future<View> {
-        let navigation = leftNavigationStructure(for: req)
-        let context = TestContext(navigation: navigation, title: "Test")
-        
-        return try req.view().render("test", context)
-    }
-    
     func hikingPage(_ req: Request) throws -> Future<View> {
                 
         let futureHikes = try HikingController().getAllHikes(req)
@@ -65,6 +58,14 @@ struct WebsiteController: RouteCollection {
         
         return try req.view().render("about", context)
     }
+    
+    func projectsPage(_ req: Request) throws -> Future<View> {
+        let navigation = leftNavigationStructure(for: req)
+        let context = ProjectsContext(navigation: navigation, title: "Projects")
+        
+        return try req.view().render("projects", context)
+    }
+    
     
     private func leftNavigationStructure(for req: Request) -> [NavigationItem] {
         

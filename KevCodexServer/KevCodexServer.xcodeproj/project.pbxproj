@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0A52E06D220111C400C0B652 /* ProjectsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52E06C220111C400C0B652 /* ProjectsContext.swift */; };
 		0A70DAB621FC3DE900FF27BE /* middlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB521FC3DE900FF27BE /* middlewares.swift */; };
 		0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */; };
 		0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DABA21FC3EE500FF27BE /* Hike.swift */; };
@@ -5059,6 +5060,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A52E06C220111C400C0B652 /* ProjectsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsContext.swift; sourceTree = "<group>"; };
 		0A70DAB521FC3DE900FF27BE /* middlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = middlewares.swift; sourceTree = "<group>"; };
 		0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingListContext.swift; sourceTree = "<group>"; };
 		0A70DABA21FC3EE500FF27BE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
@@ -6649,6 +6651,7 @@
 				0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */,
 				0A70DAC021FC438000FF27BE /* TestContext.swift */,
 				0AA2114021FCE9B500A84D23 /* AboutContext.swift */,
+				0A52E06C220111C400C0B652 /* ProjectsContext.swift */,
 				0AA2113E21FCDD1800A84D23 /* BaseContext.swift */,
 			);
 			path = ViewContexts;
@@ -11752,6 +11755,7 @@
 				0AA2114421FCF84800A84D23 /* HikingController.swift in Sources */,
 				0AA2114121FCE9B500A84D23 /* AboutContext.swift in Sources */,
 				OBJ_897 /* configure.swift in Sources */,
+				0A52E06D220111C400C0B652 /* ProjectsContext.swift in Sources */,
 				0AA2113F21FCDD1800A84D23 /* BaseContext.swift in Sources */,
 				OBJ_898 /* routes.swift in Sources */,
 			);
