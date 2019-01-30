@@ -66,7 +66,6 @@ struct WebsiteController: RouteCollection {
         return try req.view().render("projects", context)
     }
     
-    
     private func leftNavigationStructure(for req: Request) -> [NavigationItem] {
         
         let reqPath = req.http.url.path
