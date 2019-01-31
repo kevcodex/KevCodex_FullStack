@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0A026CD92202737D003A5C5E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A026CD82202737D003A5C5E /* Project.swift */; };
+		0A026CDC220277F8003A5C5E /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A026CDB220277F8003A5C5E /* ProjectController.swift */; };
 		0A52E06D220111C400C0B652 /* ProjectsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52E06C220111C400C0B652 /* ProjectsContext.swift */; };
 		0A70DAB621FC3DE900FF27BE /* middlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB521FC3DE900FF27BE /* middlewares.swift */; };
 		0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */; };
@@ -5060,6 +5062,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A026CD82202737D003A5C5E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0A026CDB220277F8003A5C5E /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
 		0A52E06C220111C400C0B652 /* ProjectsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsContext.swift; sourceTree = "<group>"; };
 		0A70DAB521FC3DE900FF27BE /* middlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = middlewares.swift; sourceTree = "<group>"; };
 		0A70DAB821FC3EC300FF27BE /* HikingListContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingListContext.swift; sourceTree = "<group>"; };
@@ -6644,6 +6648,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A026CDA220277E0003A5C5E /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				0A026CDB220277F8003A5C5E /* ProjectController.swift */,
+				0A026CD82202737D003A5C5E /* Project.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		0A70DABE21FC3F3F00FF27BE /* ViewContexts */ = {
 			isa = PBXGroup;
 			children = (
@@ -6657,18 +6670,11 @@
 			path = ViewContexts;
 			sourceTree = "<group>";
 		};
-		0A70DABF21FC3F4A00FF27BE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0A70DABA21FC3EE500FF27BE /* Hike.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		0AA2114221FCF82600A84D23 /* Hiking */ = {
 			isa = PBXGroup;
 			children = (
 				0AA2114321FCF84800A84D23 /* HikingController.swift */,
+				0A70DABA21FC3EE500FF27BE /* Hike.swift */,
 			);
 			path = Hiking;
 			sourceTree = "<group>";
@@ -7038,7 +7044,6 @@
 			children = (
 				OBJ_24 /* WebsiteController.swift */,
 				0A70DABE21FC3F3F00FF27BE /* ViewContexts */,
-				0A70DABF21FC3F4A00FF27BE /* Models */,
 			);
 			path = Website;
 			sourceTree = "<group>";
@@ -8683,6 +8688,7 @@
 				OBJ_14 /* MongoKitten */,
 				OBJ_18 /* Test */,
 				0AA2114221FCF82600A84D23 /* Hiking */,
+				0A026CDA220277E0003A5C5E /* Project */,
 				OBJ_23 /* Website */,
 				OBJ_25 /* app.swift */,
 				OBJ_26 /* boot.swift */,
@@ -11741,6 +11747,7 @@
 				OBJ_888 /* MethodOverrideMiddleware.swift in Sources */,
 				0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */,
 				0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */,
+				0A026CDC220277F8003A5C5E /* ProjectController.swift in Sources */,
 				OBJ_889 /* MongoConfig.swift in Sources */,
 				OBJ_890 /* MongoKittenProvider.swift in Sources */,
 				0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */,
@@ -11750,6 +11757,7 @@
 				OBJ_894 /* WebsiteController.swift in Sources */,
 				0A70DAC121FC438000FF27BE /* TestContext.swift in Sources */,
 				OBJ_895 /* app.swift in Sources */,
+				0A026CD92202737D003A5C5E /* Project.swift in Sources */,
 				OBJ_896 /* boot.swift in Sources */,
 				0A70DAB621FC3DE900FF27BE /* middlewares.swift in Sources */,
 				0AA2114421FCF84800A84D23 /* HikingController.swift in Sources */,
