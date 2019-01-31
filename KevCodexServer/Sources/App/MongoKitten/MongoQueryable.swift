@@ -8,6 +8,7 @@
 import Vapor
 import MeowVapor
 
+/// Simple implementation of some requests that make calls to mongo
 protocol MongoQueryable {
     associatedtype Item: Content, QueryableModel
 }

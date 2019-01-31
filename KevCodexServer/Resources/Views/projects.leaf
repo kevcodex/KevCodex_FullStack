@@ -18,16 +18,15 @@
                     #if(projects) {
                         #for(project in projects) {
                             <div class="col-md-4">
-                                <div class="card text-right mb-4 box-shadow">
+                                <div class="card mb-4 box-shadow">
                                     <img class="card-img-top"
                                         alt="Project" src="http://siberian-cat.net/wp-content/uploads/2017/09/yess.jpg"
                                         data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
                                     <div class="card-body">
-                                        <p class="card-text">This one lets the img fit to its aspect ratio.</p>
+                                        <h3 class="card-title">#(project.title)</h3>
+                                        <p class="card-text">#(project.description)</p>
                                         <div class="d-flex justify-content-center align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-primary">View</button>
-                                            </div>
+                                            <a href="#(project.callToActionLink)" class="btn btn-sm btn-outline-primary">Button</a>
                                         </div>
                                     </div>
                                 </div>
