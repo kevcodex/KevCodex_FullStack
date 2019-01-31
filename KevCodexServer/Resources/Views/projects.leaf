@@ -18,7 +18,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                                alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="http://siberian-cat.net/wp-content/uploads/2017/09/yess.jpg"
+                                alt="Thumbnail [100%x225]" style="height: 348px; width: 100%; display: block;" src="http://siberian-cat.net/wp-content/uploads/2017/09/yess.jpg"
                                 data-holder-rendered="true">
                             <div class="card-body">
                                 <p class="card-text">This one constrains the image height</p>
@@ -32,16 +32,15 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card text-right mb-4 box-shadow">
                             <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                 alt="Thumbnail [100%x225]" src="http://siberian-cat.net/wp-content/uploads/2017/09/yess.jpg"
                                 data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
                             <div class="card-body">
                                 <p class="card-text">This one lets the img fit to its aspect ratio.</p>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-center align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
                                     </div>
                                 </div>
                             </div>

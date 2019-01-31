@@ -54,17 +54,13 @@ struct HikingController: RouteCollection {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         
-        return try req.content.decode(HikeBody.self).flatMap(to: HTTPStatus.self) { (hikeBody) in
+        return try req.content.decode(Hike.self).flatMap(to: HTTPStatus.self) { (hike) in
             
             let meow = req.meow()
             
-            let hikeFuture = meow.map { (context) -> Future<Void> in
-                let hike = Hike(hikeBody: hikeBody)
-                
-                return context.save(hike)
+            return meow.flatMap { (context) -> Future<HTTPStatus> in
+                return context.save(hike).transform(to: HTTPStatus.created)
             }
-            
-            return hikeFuture.transform(to: HTTPStatus.created)
         }
     }
     

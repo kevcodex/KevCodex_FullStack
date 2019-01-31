@@ -115,7 +115,7 @@
     </div>
 
     <footer class="pb-4 pt-4 bg-4 text-center">
-        <p>Source Code <a rel="noopener" target="_blank" href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
+        <p>Website Source Code <a rel="noopener" target="_blank" href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
     </footer>
 
     <script type="text/javascript" src="js/change.js"></script>
