@@ -60,10 +60,18 @@ struct WebsiteController: RouteCollection {
     }
     
     func projectsPage(_ req: Request) throws -> Future<View> {
-        let navigation = leftNavigationStructure(for: req)
-        let context = ProjectsContext(navigation: navigation, title: "Projects")
         
-        return try req.view().render("projects", context)
+        let futureProjects = try ProjectController().getAllItems(req)
+        
+        return futureProjects.flatMap { (projects) -> Future<View> in
+            
+            let projectsData = projects.isEmpty ? nil : projects
+            
+            let navigation = self.leftNavigationStructure(for: req)
+            let context = ProjectsContext(navigation: navigation, title: "Projects", projects: projectsData)
+            
+            return try req.view().render("projects", context)
+        }
     }
     
     private func leftNavigationStructure(for req: Request) -> [NavigationItem] {

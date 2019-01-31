@@ -11,4 +11,5 @@ struct ProjectsContext: Encodable, BaseContext {
     let navigation: [NavigationItem]
     
     let title: String
+    let projects: [Project]?
 }
