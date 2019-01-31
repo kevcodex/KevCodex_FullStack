@@ -27,7 +27,7 @@ struct WebsiteController: RouteCollection {
     
     func hikingPage(_ req: Request) throws -> Future<View> {
                 
-        let futureHikes = try HikingController().getAllHikes(req)
+        let futureHikes = try HikingController().getAllItems(req)
         
         return futureHikes.flatMap { (hikes) -> Future<View> in
             
@@ -42,7 +42,7 @@ struct WebsiteController: RouteCollection {
     
     func hikingDetailPage(_ req: Request) throws -> Future<View> {
         
-        let futureHike = try HikingController().getHike(req)
+        let futureHike = try HikingController().getItem(req)
         
         return futureHike.flatMap { (hike) -> Future<View> in
             

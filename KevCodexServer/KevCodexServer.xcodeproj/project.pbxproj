@@ -32,6 +32,8 @@
 		0AA2114121FCE9B500A84D23 /* AboutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114021FCE9B500A84D23 /* AboutContext.swift */; };
 		0AA2114421FCF84800A84D23 /* HikingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114321FCF84800A84D23 /* HikingController.swift */; };
 		0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */; };
+		0AEAD3F722027F67006F27B8 /* MongoQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */; };
+		0AEAD3F922027F91006F27B8 /* BasicMongoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */; };
 		OBJ_1037 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* AppTests.swift */; };
 		OBJ_1039 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KevCodexServer::App::Product" /* App.framework */; };
 		OBJ_1040 /* Leaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Leaf::Leaf::Product" /* Leaf.framework */; };
@@ -5073,6 +5075,8 @@
 		0AA2114021FCE9B500A84D23 /* AboutContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContext.swift; sourceTree = "<group>"; };
 		0AA2114321FCF84800A84D23 /* HikingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingController.swift; sourceTree = "<group>"; };
 		0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingDetailContext.swift; sourceTree = "<group>"; };
+		0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoQueryable.swift; sourceTree = "<group>"; };
+		0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMongoController.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6771,6 +6775,8 @@
 				OBJ_15 /* MongoConfig.swift */,
 				OBJ_16 /* MongoKittenProvider.swift */,
 				OBJ_17 /* MongoService.swift */,
+				0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */,
+				0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */,
 			);
 			path = MongoKitten;
 			sourceTree = "<group>";
@@ -11749,12 +11755,14 @@
 				0A70DAB921FC3EC300FF27BE /* HikingListContext.swift in Sources */,
 				0A026CDC220277F8003A5C5E /* ProjectController.swift in Sources */,
 				OBJ_889 /* MongoConfig.swift in Sources */,
+				0AEAD3F922027F91006F27B8 /* BasicMongoController.swift in Sources */,
 				OBJ_890 /* MongoKittenProvider.swift in Sources */,
 				0A70DABB21FC3EE500FF27BE /* Hike.swift in Sources */,
 				OBJ_891 /* MongoService.swift in Sources */,
 				OBJ_892 /* TestController.swift in Sources */,
 				OBJ_893 /* Test.swift in Sources */,
 				OBJ_894 /* WebsiteController.swift in Sources */,
+				0AEAD3F722027F67006F27B8 /* MongoQueryable.swift in Sources */,
 				0A70DAC121FC438000FF27BE /* TestContext.swift in Sources */,
 				OBJ_895 /* app.swift in Sources */,
 				0A026CD92202737D003A5C5E /* Project.swift in Sources */,
