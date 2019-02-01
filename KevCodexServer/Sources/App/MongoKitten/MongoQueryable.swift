@@ -82,3 +82,31 @@ extension MongoQueryable {
         }
     }
 }
+
+extension MongoQueryable where Item: MongoModelUpdateable {
+    func editItemByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
+        guard let apiKey = req.http.headers["apiKey"].first else {
+            throw Abort(.forbidden, reason: "Missing API Header")
+        }
+        
+        guard apiKey == globalApiKey else {
+            throw Abort(.forbidden, reason: "Invalid API Key")
+        }
+        
+        let itemFuture = try getItem(req)
+        
+        return try req.content.decode(Item.Body.self).flatMap(to: HTTPStatus.self) { (body) in
+            
+            return itemFuture.flatMap({ (item) in
+                
+                item.updateFields(with: body)
+                
+                let meow = req.meow()
+                
+                return meow.flatMap { (context) -> Future<HTTPStatus> in
+                    return context.save(item).transform(to: HTTPStatus.noContent)
+                }
+            })
+        }
+    }
+}

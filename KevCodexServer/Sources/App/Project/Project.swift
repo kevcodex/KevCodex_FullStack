@@ -26,6 +26,12 @@ final class Project: Content, QueryableModel {
         self.callToActionLink = try container.decode(String.self, forKey: .callToActionLink)
     }
     
+    static var collectionName: String {
+        return "projects"
+    }
+}
+
+extension Project: MongoModelUpdateable {
     func updateFields(with body: ProjectUpdateBody) {
         if let title = body.title {
             self.title = title
@@ -42,10 +48,6 @@ final class Project: Content, QueryableModel {
         if let callToActionLink = body.callToActionLink {
             self.callToActionLink = callToActionLink
         }
-    }
-    
-    static var collectionName: String {
-        return "projects"
     }
 }
 

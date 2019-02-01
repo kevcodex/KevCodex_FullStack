@@ -32,6 +32,7 @@
 		0AA2114121FCE9B500A84D23 /* AboutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114021FCE9B500A84D23 /* AboutContext.swift */; };
 		0AA2114421FCF84800A84D23 /* HikingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA2114321FCF84800A84D23 /* HikingController.swift */; };
 		0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */; };
+		0ABBD2AD2203E77200A6F62F /* MongoModelUpdateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBD2AC2203E77200A6F62F /* MongoModelUpdateable.swift */; };
 		0AEAD3F722027F67006F27B8 /* MongoQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */; };
 		0AEAD3F922027F91006F27B8 /* BasicMongoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */; };
 		OBJ_1037 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* AppTests.swift */; };
@@ -5075,6 +5076,7 @@
 		0AA2114021FCE9B500A84D23 /* AboutContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContext.swift; sourceTree = "<group>"; };
 		0AA2114321FCF84800A84D23 /* HikingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingController.swift; sourceTree = "<group>"; };
 		0AAE61E421FFB1B00050313B /* HikingDetailContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingDetailContext.swift; sourceTree = "<group>"; };
+		0ABBD2AC2203E77200A6F62F /* MongoModelUpdateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoModelUpdateable.swift; sourceTree = "<group>"; };
 		0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoQueryable.swift; sourceTree = "<group>"; };
 		0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMongoController.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6776,6 +6778,7 @@
 				OBJ_16 /* MongoKittenProvider.swift */,
 				OBJ_17 /* MongoService.swift */,
 				0AEAD3F622027F67006F27B8 /* MongoQueryable.swift */,
+				0ABBD2AC2203E77200A6F62F /* MongoModelUpdateable.swift */,
 				0AEAD3F822027F91006F27B8 /* BasicMongoController.swift */,
 			);
 			path = MongoKitten;
@@ -11749,6 +11752,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_886 /* Game.swift in Sources */,
+				0ABBD2AD2203E77200A6F62F /* MongoModelUpdateable.swift in Sources */,
 				OBJ_887 /* GameController.swift in Sources */,
 				OBJ_888 /* MethodOverrideMiddleware.swift in Sources */,
 				0AAE61E521FFB1B00050313B /* HikingDetailContext.swift in Sources */,
