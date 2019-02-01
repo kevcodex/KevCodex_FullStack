@@ -31,7 +31,7 @@
     <!-- Picture -->
     <div class="container-fluid bg-1 text-center">
         <h1 class="mb-5">Who Am I?</h1>
-            <img src="/img/profile.jpeg" class="rounded-circle mb-5" style="display:inline" alt="Profile" width="350" height="350">
+            <img src="/img/profile.jpg" class="rounded-circle mb-5" style="display:inline" alt="Profile" width="350" height="350">
         <h3>I am a <div id="changeText">Programmer</div></h3>
     </div>
 
@@ -80,6 +80,7 @@
                         <h4 class="my-0 font-weight-normal">Jedi Knight</h4>
                     </div>
                     <div class="card-body">
+                        <h5 class="card-title">Backend Development</h5>
                         <h5 class="card-title">Python</h5>
                         <h5 class="card-title">Data Science</h5>
                         <h5 class="card-title">Machine Learning</h5>
@@ -99,7 +100,6 @@
                         <h5 class="card-title">Scripting</h5>
                         <h5 class="card-title">Dev Ops</h5>
                         <h5 class="card-title">Jenkins</h5>
-                        <h5 class="card-title">Backend Development</h5>
                         <h5 class="card-title">Jira</h5>
                         <h5 class="card-title">Soccer</h5>
                     </div>
