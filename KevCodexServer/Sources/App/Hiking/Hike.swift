@@ -11,15 +11,15 @@ import MeowVapor
 final class Hike: Content, QueryableModel {
     var _id: ObjectId
     
-    let title: String
-    let location: String
-    let distance: Double
-    let hikingTime: Double
-    let elevationGain: Int
-    let difficulty: String?
-    let description: String
+    var title: String
+    var location: String
+    var distance: Double
+    var hikingTime: Double
+    var elevationGain: Int
+    var difficulty: String?
+    var description: String
     
-    let shortDescription: String?
+    var shortDescription: String?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -40,3 +40,49 @@ final class Hike: Content, QueryableModel {
         return "hiking"
     }
 }
+
+extension Hike: MongoModelUpdateable {
+    func updateFields(with body: HikeUpdateBody) {
+        if let title = body.title {
+            self.title = title
+        }
+        
+        if let location = body.location {
+            self.location = location
+        }
+        
+        if let distance = body.distance {
+            self.distance = distance
+        }
+        
+        if let hikingTime = body.hikingTime {
+            self.hikingTime = hikingTime
+        }
+        
+        if let elevationGain = body.elevationGain {
+            self.elevationGain = elevationGain
+        }
+        
+        if let difficulty = body.difficulty {
+            self.difficulty = difficulty
+        }
+        
+        if let description = body.description {
+            self.description = description
+            self.shortDescription = description.components(separatedBy: ".").first
+        }
+    }
+}
+
+/// The body to update the project. Contains all optional params to allow one or all project info to be updatable
+struct HikeUpdateBody: Content {
+    
+    let title: String?
+    let location: String?
+    let distance: Double?
+    let hikingTime: Double?
+    let elevationGain: Int?
+    let difficulty: String?
+    let description: String?
+}
+

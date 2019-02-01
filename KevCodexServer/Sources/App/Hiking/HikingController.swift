@@ -15,6 +15,7 @@ struct HikingController: RouteCollection, MongoQueryable {
         let apiRouter = router.grouped("api", "hikes")
         apiRouter.get(use: getAllItems)
         apiRouter.get(ObjectId.parameter, use: getItem)
+        apiRouter.put(ObjectId.parameter, use: editItemByObjectID)
         apiRouter.post(use: addItem)
         apiRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
         apiRouter.delete("title", String.parameter, use: deleteHikeByTitle)
