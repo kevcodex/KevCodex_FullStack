@@ -11,50 +11,50 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.0/css/mdb.min.css" rel="stylesheet">
     
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
 
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("#(hike.imageURLString)");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        .cover-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 30px;
-        }
-
-        .cover {
-            padding: 0 1.5rem;  
-        }
+        <style>
+            html {
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("#(hike.imageURLString)") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: #000;
+            }
+        
+            body {
+                padding-top: 60px;
+                background: transparent;
+                padding-bottom: 60px;
+                /* font-size: 1.6em; */
+            }
+        
+            div.row {
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 30px;
+                padding: 10px;
+                margin: 10px;
+            }
     </style>
 </head>
 
 <body>
 
-    <div class="hero-image">
-        <div class="row h-100">
-        
-            <div class="cover-container d-flex p-3 mx-auto flex-column align-self-center w-75">
-                <main role="main" class="cover">
-                    <h1>#(hike.title)</h1>
-                    <p class="lead">#(hike.description)</p>
-                </main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-7">
+                <h1>#(hike.title)</h1>
+                <p>#(hike.description)</p>
+                <p>Location: #(hike.location)</p>
+                <p>Distance: #(hike.distance) miles</p>
+                <p>Duration: ~#(hike.hikingTime) hr(s)</p>
+                <p>Elevation Gain: #(hike.elevationGain) Ft</p>
+                <p>Difficulty: #(hike.difficulty)</p>
+    
+                <h1 class="fixed-bottom">PC: blah blah</h1>
             </div>
-
-            <h1 class="fixed-bottom">PC: blah blah</h1>
         </div>
     </div>
-
 
     <!-- MDB core JavaScript -->
     <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/4.7.0/compiled.0.min.js?ver=4.7.0'></script>
