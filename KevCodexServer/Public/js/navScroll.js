@@ -1,4 +1,8 @@
 $(function () {
+    // Due to mobile bug, prevent hiding top bar for mobile
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        return
+    }
     var lastScrollTop = 0;
     var $navbar = $('.navbar');
     var navbarHeight = $navbar.outerHeight();
