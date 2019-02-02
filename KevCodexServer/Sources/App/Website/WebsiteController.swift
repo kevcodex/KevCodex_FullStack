@@ -10,6 +10,8 @@ import MongoKitten
 
 struct WebsiteController: RouteCollection {
     
+    let apiKey: String
+    
     func boot(router: Router) throws {
         router.get(use: aboutMePage)
         router.get("projects", use: projectsPage)
@@ -27,7 +29,7 @@ struct WebsiteController: RouteCollection {
     
     func hikingPage(_ req: Request) throws -> Future<View> {
                 
-        let futureHikes = try HikingController().getAllItems(req)
+        let futureHikes = try HikingController(apiKey: apiKey).getAllItems(req)
         
         return futureHikes.flatMap { (hikes) -> Future<View> in
             
@@ -42,7 +44,7 @@ struct WebsiteController: RouteCollection {
     
     func hikingDetailPage(_ req: Request) throws -> Future<View> {
         
-        let futureHike = try HikingController().getItem(req)
+        let futureHike = try HikingController(apiKey: apiKey).getItem(req)
         
         return futureHike.flatMap { (hike) -> Future<View> in
             
@@ -61,7 +63,7 @@ struct WebsiteController: RouteCollection {
     
     func projectsPage(_ req: Request) throws -> Future<View> {
         
-        let futureProjects = try ProjectController().getAllItems(req)
+        let futureProjects = try ProjectController(apiKey: apiKey).getAllItems(req)
         
         return futureProjects.flatMap { (projects) -> Future<View> in
             

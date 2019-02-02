@@ -2,6 +2,9 @@ import Vapor
 import MeowVapor
 
 struct TestController: RouteCollection {
+    
+    let apiKey: String
+    
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "test")
         apiRouter.get("hello", use: helloWorldHandler)
@@ -97,7 +100,7 @@ struct TestController: RouteCollection {
             throw Abort(.forbidden, reason: "Missing Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         

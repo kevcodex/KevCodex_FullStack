@@ -9,6 +9,9 @@ import Vapor
 import MongoKitten
 
 struct GameController: RouteCollection {
+    
+    let apiKey: String
+    
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "games")
         apiRouter.get(use: getGames)
@@ -31,7 +34,7 @@ struct GameController: RouteCollection {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         
@@ -59,7 +62,7 @@ struct GameController: RouteCollection {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         

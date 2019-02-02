@@ -10,10 +10,13 @@ import MeowVapor
 /// The base controller that will create and handle routes for basic mongo DB requests.
 class BasicMongoController<Item>: RouteCollection, MongoQueryable where Item: Content, Item: QueryableModel {
     
+    let apiKey: String
+    
     let path: [PathComponentsRepresentable]
     
-    init(path: PathComponentsRepresentable...) {
+    init(path: PathComponentsRepresentable..., apiKey: String) {
         self.path = path
+        self.apiKey = apiKey
     }
     
     func boot(router: Router) throws {

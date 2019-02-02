@@ -11,6 +11,8 @@ import MeowVapor
 /// Simple implementation of some requests that make calls to mongo
 protocol MongoQueryable {
     associatedtype Item: Content, QueryableModel
+    
+    var apiKey: String { get }
 }
 
 extension MongoQueryable {
@@ -46,7 +48,7 @@ extension MongoQueryable {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         
@@ -65,7 +67,7 @@ extension MongoQueryable {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         
@@ -89,7 +91,7 @@ extension MongoQueryable where Item: MongoModelUpdateable {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         

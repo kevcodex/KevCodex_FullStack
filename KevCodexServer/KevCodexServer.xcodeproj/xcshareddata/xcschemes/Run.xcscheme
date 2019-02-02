@@ -74,6 +74,11 @@
             value = "mongodb://localhost:27017/local"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "apiKey"
+            value = "27a9bec8-aa92-4a3f-800f-7618637d14a6"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>

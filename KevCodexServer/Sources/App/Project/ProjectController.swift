@@ -12,6 +12,8 @@ import MongoKitten
 struct ProjectController: RouteCollection, MongoQueryable {
     typealias Item = Project
     
+    let apiKey: String
+    
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "projects")
         apiRouter.get(use: getAllItems)

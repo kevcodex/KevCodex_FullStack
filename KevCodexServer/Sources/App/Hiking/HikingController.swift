@@ -9,7 +9,10 @@ import Vapor
 import MongoKitten
 
 struct HikingController: RouteCollection, MongoQueryable {
+    
     typealias Item = Hike
+    
+    let apiKey: String
     
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "hikes")
@@ -27,7 +30,7 @@ struct HikingController: RouteCollection, MongoQueryable {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         

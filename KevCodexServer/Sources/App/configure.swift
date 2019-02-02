@@ -3,14 +3,15 @@ import MongoKitten
 import MeowVapor
 import Leaf
 
-// Temp
-let globalApiKey = "27a9bec8-aa92-4a3f-800f-7618637d14a6"
-
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
     
     guard let uri = Environment.get("DB_URI") else {
-        throw VaporError(identifier: "Mongo", reason: "Missing Mongo DB URI")
+        throw VaporError(identifier: "Environment", reason: "Missing Mongo DB URI")
+    }
+    
+    guard let apiKey = Environment.get("apiKey") else {
+        throw VaporError(identifier: "Environment", reason: "Missing Mongo apiKey")
     }
     
     // Register providers first
@@ -31,7 +32,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     // Register routes to the router
     let router = EngineRouter.default()
-    try routes(router)
+    try routes(router, apiKey: apiKey)
     services.register(router, as: Router.self)
 
     // Register middleware
