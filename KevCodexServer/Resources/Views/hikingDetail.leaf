@@ -42,7 +42,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-sm-7">
+            <div class="col-md-12">
                 <h1>#(hike.title)</h1>
                 <p>#(hike.description)</p>
                 <p>Location: #(hike.location)</p>
@@ -50,11 +50,15 @@
                 <p>Duration: ~#(hike.hikingTime) hr(s)</p>
                 <p>Elevation Gain: #(hike.elevationGain) Ft</p>
                 <p>Difficulty: #(hike.difficulty)</p>
-    
-                <h1 class="fixed-bottom">PC: blah blah</h1>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-center">PC: blah blah</p>
+        </div>
+    </footer>
 
     <!-- MDB core JavaScript -->
     <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/4.7.0/compiled.0.min.js?ver=4.7.0'></script>
