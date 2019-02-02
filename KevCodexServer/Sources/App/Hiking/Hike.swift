@@ -18,6 +18,7 @@ final class Hike: Content, QueryableModel {
     var elevationGain: Int
     var difficulty: String?
     var description: String
+    var imageURLString: String?
     
     var shortDescription: String?
     
@@ -32,6 +33,7 @@ final class Hike: Content, QueryableModel {
         self.elevationGain = try container.decode(Int.self, forKey: .elevationGain)
         self.difficulty = try container.decode(String.self, forKey: .difficulty)
         self.description = try container.decode(String.self, forKey: .description)
+        self.imageURLString = try container.decodeIfPresent(String.self, forKey: .imageURLString)
         
         self.shortDescription = description.components(separatedBy: ".").first
     }
@@ -71,6 +73,10 @@ extension Hike: MongoModelUpdateable {
             self.description = description
             self.shortDescription = description.components(separatedBy: ".").first
         }
+        
+        if let imageURLString = body.imageURLString {
+            self.imageURLString = imageURLString
+        }
     }
 }
 
@@ -84,5 +90,6 @@ struct HikeUpdateBody: Content {
     let elevationGain: Int?
     let difficulty: String?
     let description: String?
+    let imageURLString: String?
 }
 
