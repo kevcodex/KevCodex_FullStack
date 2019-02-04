@@ -19,12 +19,17 @@
                         <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
 
                             <!-- fix mobile bug where clicking will immediately open link? -->
-                            <h2 class="text-center">#(hike.title)</h2>
-                            <div class="view overlay">
-                                <a href= "hiking/#(hike._id)">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="sample image">
+                            
+                            <div class="view overlay mb-4">
+                                <a href= "hiking/#(hike._id)" class="">
+                                    <img src="#(hike.imageURLString)" class="img-fluid"  alt="Image">
                                     <div class="mask flex-center rgba-blue-light text-center">
-                                        <p class="white-text">#(hike.shortDescription)</p>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h2 class="text-center">#(hike.title)</h2>
+                                                    <p class="white-text">#(hike.shortDescription)</p>
+                                                </div>
+                                            </div>
                                     </div>
                                 </a>
                             </div>
@@ -39,6 +44,19 @@
             </section>
         </main>
     </div>
-}
+} 
 
 #embed("base")
+
+<script>
+
+    // For mobile prevent instant opening on click
+    $("a").on("click", function (event) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            if ($(this).find(".mask").css("opacity") < 1) {
+                event.preventDefault();
+            }
+        }
+    });
+
+</script>
