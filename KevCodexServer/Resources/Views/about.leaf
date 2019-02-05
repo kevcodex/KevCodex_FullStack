@@ -69,9 +69,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Objective C</h5>
-                        <h5 class="card-title">Javascript</h5>
                         <h5 class="card-title">HTML</h5>
                         <h5 class="card-title">CSS</h5>
+                        <h5 class="card-title">Javascript</h5>
                         <h5 class="card-title">Golf</h5>
                     </div>
                 </div>
@@ -84,6 +84,7 @@
                         <h5 class="card-title">Python</h5>
                         <h5 class="card-title">Data Science</h5>
                         <h5 class="card-title">Machine Learning</h5>
+                        <h5 class="card-title">Dev Ops</h5>
                         <h5 class="card-title">Solidworks</h5>
                         <h5 class="card-title">Linux</h5>
                         <h5 class="card-title">MS Project</h5>
@@ -98,7 +99,6 @@
                         <h5 class="card-title">Swift</h5>
                         <h5 class="card-title">iOS and tvOS Development</h5>
                         <h5 class="card-title">Scripting</h5>
-                        <h5 class="card-title">Dev Ops</h5>
                         <h5 class="card-title">Jenkins</h5>
                         <h5 class="card-title">Jira</h5>
                         <h5 class="card-title">Soccer</h5>

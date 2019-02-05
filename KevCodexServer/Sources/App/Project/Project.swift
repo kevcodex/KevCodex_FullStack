@@ -15,6 +15,7 @@ final class Project: Content, QueryableModel {
     var imageURLString: String
     var description: String
     var callToActionLink: String
+    var sortOrder: Int?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -24,6 +25,7 @@ final class Project: Content, QueryableModel {
         self.imageURLString = try container.decode(String.self, forKey: .imageURLString)
         self.description = try container.decode(String.self, forKey: .description)
         self.callToActionLink = try container.decode(String.self, forKey: .callToActionLink)
+        self.sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder)
     }
     
     static var collectionName: String {
@@ -48,6 +50,10 @@ extension Project: MongoModelUpdateable {
         if let callToActionLink = body.callToActionLink {
             self.callToActionLink = callToActionLink
         }
+        
+        if let sortOrder = body.sortOrder {
+            self.sortOrder = sortOrder
+        }
     }
 }
 
@@ -59,5 +65,6 @@ extension Project {
         let imageURLString: String?
         let description: String?
         let callToActionLink: String?
+        let sortOrder: Int?
     }
 }

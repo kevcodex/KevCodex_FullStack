@@ -22,4 +22,22 @@ struct ProjectController: RouteCollection, MongoQueryable {
         apiRouter.post(use: addItem)
         apiRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
     }
+    
+    func getAllItems(_ req: Request) throws -> Future<[Item]> {
+        
+        let meow = req.meow()
+        
+        return meow.flatMap { (context) in
+            
+            return context.find(Item.self).getAllResults().map({ (items) in
+                return items.sorted {
+                    guard let firstOrder = $0.sortOrder,
+                        let secondOrder = $1.sortOrder else {
+                            return false
+                    }
+                    return firstOrder < secondOrder
+                }
+            })
+        }
+    }
 }
