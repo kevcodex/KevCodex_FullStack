@@ -136,7 +136,7 @@ struct TestController: RouteCollection {
         
         // parse JWT from token string, using HS-256 signer
         let jwt = try JWT<Token>(from: bearer.token, verifiedUsing: .hs256(key: "secret"))
-        return "Hello, \(jwt.payload.id)!"
+        return "Hello, \(jwt.payload.uid)!"
     }
     
     func createJWTTest(_ req: Request) throws -> Future<User.Response> {
@@ -168,7 +168,7 @@ struct TestController: RouteCollection {
                             throw Abort(.badRequest)
                         }
                         
-                        let response = user.convertToResponse(token: tokenString, expiration: token.expiration)
+                        let response = user.convertToResponse(token: tokenString, expiration: token.exp)
                         
                         return response
                     })
@@ -204,7 +204,7 @@ struct TestController: RouteCollection {
                     throw Abort(.badRequest)
                 }
                 
-                let response = user.convertToResponse(token: tokenString, expiration: token.expiration)
+                let response = user.convertToResponse(token: tokenString, expiration: token.exp)
                 
                 return response
             })

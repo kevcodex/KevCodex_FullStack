@@ -44,7 +44,7 @@ final class Hike: Content, QueryableModel {
 }
 
 extension Hike: MongoModelUpdateable {
-    func updateFields(with body: HikeUpdateBody) {
+    func updateFields(with body: UpdateBody) {
         if let title = body.title {
             self.title = title
         }
@@ -80,16 +80,19 @@ extension Hike: MongoModelUpdateable {
     }
 }
 
-/// The body to update the project. Contains all optional params to allow one or all project info to be updatable
-struct HikeUpdateBody: Content {
-    
-    let title: String?
-    let location: String?
-    let distance: Double?
-    let hikingTime: Double?
-    let elevationGain: Int?
-    let difficulty: String?
-    let description: String?
-    let imageURLString: String?
+
+extension Hike {
+    /// The body to update the project. Contains all optional params to allow one or all project info to be updatable
+    struct UpdateBody: Content {
+        
+        let title: String?
+        let location: String?
+        let distance: Double?
+        let hikingTime: Double?
+        let elevationGain: Int?
+        let difficulty: String?
+        let description: String?
+        let imageURLString: String?
+    }
 }
 

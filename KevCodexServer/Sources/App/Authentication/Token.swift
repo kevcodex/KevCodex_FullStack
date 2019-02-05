@@ -9,13 +9,13 @@ import Vapor
 import JWT
 
 struct Token: Codable {
-    let id: UUID
-    let expiration: TimeInterval
+    let uid: UUID
+    let exp: TimeInterval
 }
 
 extension Token: JWTPayload {
     func verify(using signer: JWTSigner) throws {
-        guard expiration >= Date().timeIntervalSince1970 else {
+        guard exp >= Date().timeIntervalSince1970 else {
             throw Abort(.unauthorized, reason: "Token has expired")
         }
     }
@@ -30,6 +30,6 @@ extension Token {
         let expiration = Date().timeIntervalSince1970 + 259200
         #endif
         
-        return Token(id: user.id, expiration: expiration)
+        return Token(uid: user.id, exp: expiration)
     }
 }

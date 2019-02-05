@@ -32,7 +32,7 @@ struct UserController: RouteCollection {
         
         // parse JWT from token string, using HS-256 signer
         let jwt = try JWT<Token>(from: bearer.token, verifiedUsing: .hs256(key: secretToken))
-        return "Hello, \(jwt.payload.id)!"
+        return "Hello, \(jwt.payload.uid)!"
     }
     
     func registerHandler(_ req: Request) throws -> Future<User.Response> {
@@ -64,7 +64,7 @@ struct UserController: RouteCollection {
                             throw Abort(.badRequest)
                         }
                         
-                        let response = user.convertToResponse(token: tokenString, expiration: token.expiration)
+                        let response = user.convertToResponse(token: tokenString, expiration: token.exp)
                         
                         return response
                     })
@@ -100,7 +100,7 @@ struct UserController: RouteCollection {
                     throw Abort(.badRequest)
                 }
                 
-                let response = existingUser.convertToResponse(token: tokenString, expiration: token.expiration)
+                let response = existingUser.convertToResponse(token: tokenString, expiration: token.exp)
                 
                 return response
             })
