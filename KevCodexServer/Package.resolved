@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/OpenKitten/MongoKitten.git",
         "state": {
           "branch": null,
-          "revision": "ca17b07d55dceb6cb075467bd07cedda4676f077",
-          "version": "5.0.0"
+          "revision": "61d20abeb638d783aff7dc104ecc916b1e813550",
+          "version": "5.1.0"
         }
       },
       {

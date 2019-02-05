@@ -51,7 +51,8 @@ struct UserController: RouteCollection {
                     throw Abort(.conflict, reason: "Email already exists")
                 } else {
                     
-                    let saveFuture = meow.flatMap({ (context) in
+                    let saveFuture = meow.flatMap({ (context) -> EventLoopFuture<Void> in
+                        try user.encryptPassword()
                         return context.save(user)
                     })
                     
@@ -75,21 +76,24 @@ struct UserController: RouteCollection {
     
     func loginHandler(_ req: Request) throws -> Future<User.Response> {
         
-        return try req.content.decode(User.self).flatMap { (user) in
+        return try req.content.decode(User.self).flatMap { (userBody) in
             
             let meow = req.meow()
             
             let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
                 let emailPath = try User.makeQueryPath(for: \User.email)
-                let passwordPath = try User.makeQueryPath(for: \User.password)
                 
-                return context.findOne(User.self, where: emailPath == user.email && passwordPath == user.password)
+                return context.findOne(User.self, where: emailPath == userBody.email)
             })
             
             return futureExistingUser.map({ (existingUser) in
                 
                 guard let existingUser = existingUser else {
-                    throw Abort(.unauthorized, reason: "Invalid Credentials")
+                    throw Abort(.unauthorized, reason: "Invalid Email")
+                }
+                
+                guard try User.verifyPassword(plainText: userBody.password, encryptedPass: existingUser.password) else {
+                    throw Abort(.unauthorized, reason: "Invalid Password")
                 }
                 
                 let token = Token.generate(for: existingUser)

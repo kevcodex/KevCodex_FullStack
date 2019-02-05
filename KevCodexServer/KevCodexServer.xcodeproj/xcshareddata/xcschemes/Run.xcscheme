@@ -69,13 +69,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "API_KEY"
-            value = "27a9bec8-aa92-4a3f-800f-7618637d14a6"
+            key = "SECRET_TOKEN"
+            value = "2EB16CD232FA1525DFBA7E503E7AC423544941705FFD2470BC451112D37D6592"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "SECRET_TOKEN"
-            value = "2EB16CD232FA1525DFBA7E503E7AC423544941705FFD2470BC451112D37D6592"
+            key = "API_KEY"
+            value = "27a9bec8-aa92-4a3f-800f-7618637d14a6"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

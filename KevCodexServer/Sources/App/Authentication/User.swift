@@ -7,6 +7,7 @@
 
 import Vapor
 import MeowVapor
+import Crypto
 
 final class User: QueryableModel {
     var _id: ObjectId
@@ -14,7 +15,7 @@ final class User: QueryableModel {
     // Gets stored as a string I think. Need to look into different storage
     let id: UUID
     let email: String
-    let password: String
+    var password: String
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -35,15 +36,26 @@ final class User: QueryableModel {
         self.password = password
     }
     
+    func encryptPassword() throws {
+        password = try BCrypt.hash(password)
+    }
+    
+    static func verifyPassword(plainText: String, encryptedPass: String) throws -> Bool {
+        return try BCrypt.verify(plainText, created: encryptedPass)
+    }
+    
+    static var collectionName: String {
+        return "users"
+    }
+}
+
+extension User {
+    
     struct Response: Content {
         let accessToken: String
         let expiration: TimeInterval
         let id: UUID
         let email: String
-    }
-    
-    static var collectionName: String {
-        return "users"
     }
 }
 
