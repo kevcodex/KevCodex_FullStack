@@ -10,8 +10,12 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         throw VaporError(identifier: "Environment", reason: "Missing Mongo DB URI")
     }
     
-    guard let apiKey = Environment.get("apiKey") else {
+    guard let apiKey = Environment.get("API_KEY") else {
         throw VaporError(identifier: "Environment", reason: "Missing Mongo apiKey")
+    }
+    
+    guard let secretToken = Environment.get("SECRET_TOKEN") else {
+        throw VaporError(identifier: "Environment", reason: "Missing JWT secret")
     }
     
     // Register providers first
@@ -32,7 +36,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     // Register routes to the router
     let router = EngineRouter.default()
-    try routes(router, apiKey: apiKey)
+    try routes(router, apiKey: apiKey, secretToken: secretToken)
     services.register(router, as: Router.self)
 
     // Register middleware

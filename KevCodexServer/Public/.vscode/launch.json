@@ -12,6 +12,13 @@
             "webRoot": "${workspaceFolder}"
         },
         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against ip",
+            "url": "http://kc.local:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
              // Have to open chrome with --remote-debugging-port=9222 to work
             "type": "chrome",
             "request": "attach",

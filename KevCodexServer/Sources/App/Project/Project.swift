@@ -32,7 +32,7 @@ final class Project: Content, QueryableModel {
 }
 
 extension Project: MongoModelUpdateable {
-    func updateFields(with body: ProjectUpdateBody) {
+    func updateFields(with body: UpdateBody) {
         if let title = body.title {
             self.title = title
         }
@@ -51,11 +51,13 @@ extension Project: MongoModelUpdateable {
     }
 }
 
-/// The body to update the project. Contains all optional params to allow one or all project info to be updatable
-struct ProjectUpdateBody: Content {
-    
-    let title: String?
-    let imageURLString: String?
-    let description: String?
-    let callToActionLink: String?
+extension Project {
+    /// The body to update the project. Contains all optional params to allow one or all project info to be updatable
+    struct UpdateBody: Content {
+        
+        let title: String?
+        let imageURLString: String?
+        let description: String?
+        let callToActionLink: String?
+    }
 }
