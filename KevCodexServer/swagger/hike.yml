@@ -32,7 +32,8 @@ paths:
       summary: Creates a new hike
       description: Adds a new hike to the database. 
       parameters:
-        - $ref: '#/parameters/ApiKey'
+        - $ref: '#/securityDefinitions/ApiKey'
+        - $ref: '#/securityDefinitions/Authorization'
         - name: hike
           in: body
           description: The hike to create.
@@ -50,7 +51,8 @@ paths:
       summary: Deletes all hikes
       description: Deletes all the hikes from the data base
       parameters:
-        - $ref: '#/parameters/ApiKey'
+        - $ref: '#/securityDefinitions/ApiKey'
+        - $ref: '#/securityDefinitions/Authorization'
       responses:
         204:
           description: No Content
@@ -75,6 +77,8 @@ paths:
       description: Deletes a specfic hike by ID of the hike.
       parameters:
         - $ref: '#/parameters/objectid'
+        - $ref: '#/securityDefinitions/ApiKey'
+        - $ref: '#/securityDefinitions/Authorization'
       responses:
         200:
           description: OK
@@ -83,6 +87,8 @@ paths:
       description: Edit the hike details
       parameters:
         - $ref: '#/parameters/objectid'
+        - $ref: '#/securityDefinitions/ApiKey'
+        - $ref: '#/securityDefinitions/Authorization'
       responses:
         204:
           description: No Content
@@ -106,13 +112,20 @@ paths:
            schema:
               $ref: '#/definitions/Error'
 
-parameters:
+securityDefinitions:
+  Authorization:
+    type: string
+    name: Authorization
+    in: header
+    description: The bearer auth JWT
+    required: true
   ApiKey:
     name: apiKey
+    type: apiKey
     in: header
     description: The secret api key
     required: true
-    type: string
+parameters:
   title:
     name: title
     in: path
