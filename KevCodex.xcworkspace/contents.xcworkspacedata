@@ -5,6 +5,6 @@
       location = "group:KevCodexServer/KevCodexServer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:KevCodexServer/../GameViewer/GameViewer.xcodeproj">
+      location = "group:KevCodexIOS/KevCodexIOS.xcodeproj">
    </FileRef>
 </Workspace>

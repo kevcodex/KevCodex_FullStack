@@ -11,7 +11,7 @@
 		4E884EAF1EFC7EDE00A19C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Main.storyboard */; };
 		4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */; };
 		4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */; };
-		4E884EBF1EFC7EDE00A19C5F /* GameViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EBE1EFC7EDE00A19C5F /* GameViewerTests.swift */; };
+		4E884EBF1EFC7EDE00A19C5F /* KevCodexIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EBE1EFC7EDE00A19C5F /* KevCodexIOSTests.swift */; };
 		4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECB1EFC7F4D00A19C5F /* CustomDismissController.swift */; };
 		4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECC1EFC7F4D00A19C5F /* CustomTransitionController.swift */; };
 		4E884EE31EFC7F4D00A19C5F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECD1EFC7F4D00A19C5F /* DetailsViewController.swift */; };
@@ -44,14 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E884EA61EFC7EDE00A19C5F /* GameViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E884EB31EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E884EB51EFC7EDE00A19C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E884EBA1EFC7EDE00A19C5F /* GameViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E884EBE1EFC7EDE00A19C5F /* GameViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewerTests.swift; sourceTree = "<group>"; };
+		4E884EBA1EFC7EDE00A19C5F /* KevCodexIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KevCodexIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E884EBE1EFC7EDE00A19C5F /* KevCodexIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevCodexIOSTests.swift; sourceTree = "<group>"; };
 		4E884EC01EFC7EDE00A19C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E884ECB1EFC7F4D00A19C5F /* CustomDismissController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDismissController.swift; sourceTree = "<group>"; };
 		4E884ECC1EFC7F4D00A19C5F /* CustomTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransitionController.swift; sourceTree = "<group>"; };
@@ -92,11 +92,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4E884ED41EFC7F4D00A19C5F /* NetworkAPI.swift */,
+				4E884ED51EFC7F4D00A19C5F /* NetworkClient.swift */,
+				4E884ED61EFC7F4D00A19C5F /* NetworkError.swift */,
+				4E884ED71EFC7F4D00A19C5F /* NetworkRequest.swift */,
+				4E884ED91EFC7F4D00A19C5F /* JSONDecodable.swift */,
+				4E884EDA1EFC7F4D00A19C5F /* JSONDecodeError.swift */,
+				4E884EDE1EFC7F4D00A19C5F /* NetworkSearchResponse.swift */,
+			);
+			path = LegacyNetworkLayer;
+			sourceTree = "<group>";
+		};
 		4E884E9D1EFC7EDE00A19C5F = {
 			isa = PBXGroup;
 			children = (
-				4E884EA81EFC7EDE00A19C5F /* GameViewer */,
-				4E884EBD1EFC7EDE00A19C5F /* GameViewerTests */,
+				4E884EA81EFC7EDE00A19C5F /* KevCodexIOS */,
+				4E884EBD1EFC7EDE00A19C5F /* KevCodexIOSTests */,
 				4E884EA71EFC7EDE00A19C5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,15 +118,16 @@
 		4E884EA71EFC7EDE00A19C5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E884EA61EFC7EDE00A19C5F /* GameViewer.app */,
-				4E884EBA1EFC7EDE00A19C5F /* GameViewerTests.xctest */,
+				4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */,
+				4E884EBA1EFC7EDE00A19C5F /* KevCodexIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E884EA81EFC7EDE00A19C5F /* GameViewer */ = {
+		4E884EA81EFC7EDE00A19C5F /* KevCodexIOS */ = {
 			isa = PBXGroup;
 			children = (
+				0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */,
 				4E884ED01EFC7F4D00A19C5F /* Extensions */,
 				4E884ED21EFC7F4D00A19C5F /* Helpers */,
 				4E884ED81EFC7F4D00A19C5F /* Library */,
@@ -125,16 +140,16 @@
 				4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */,
 				4E884EB51EFC7EDE00A19C5F /* Info.plist */,
 			);
-			path = GameViewer;
+			path = KevCodexIOS;
 			sourceTree = "<group>";
 		};
-		4E884EBD1EFC7EDE00A19C5F /* GameViewerTests */ = {
+		4E884EBD1EFC7EDE00A19C5F /* KevCodexIOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				4E884EBE1EFC7EDE00A19C5F /* GameViewerTests.swift */,
+				4E884EBE1EFC7EDE00A19C5F /* KevCodexIOSTests.swift */,
 				4E884EC01EFC7EDE00A19C5F /* Info.plist */,
 			);
-			path = GameViewerTests;
+			path = KevCodexIOSTests;
 			sourceTree = "<group>";
 		};
 		4E884ECA1EFC7F4D00A19C5F /* Controllers */ = {
@@ -161,10 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				4E884ED31EFC7F4D00A19C5F /* ActivityViewPresentor.swift */,
-				4E884ED41EFC7F4D00A19C5F /* NetworkAPI.swift */,
-				4E884ED51EFC7F4D00A19C5F /* NetworkClient.swift */,
-				4E884ED61EFC7F4D00A19C5F /* NetworkError.swift */,
-				4E884ED71EFC7F4D00A19C5F /* NetworkRequest.swift */,
 				844B14B71FFAAB3700D94C04 /* Image Loader */,
 			);
 			path = Helpers;
@@ -173,8 +184,6 @@
 		4E884ED81EFC7F4D00A19C5F /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				4E884ED91EFC7F4D00A19C5F /* JSONDecodable.swift */,
-				4E884EDA1EFC7F4D00A19C5F /* JSONDecodeError.swift */,
 				4E884EDB1EFC7F4D00A19C5F /* Result.swift */,
 			);
 			path = Library;
@@ -184,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				4E884EDD1EFC7F4D00A19C5F /* ObjectFeed.swift */,
-				4E884EDE1EFC7F4D00A19C5F /* NetworkSearchResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E884EA51EFC7EDE00A19C5F /* GameViewer */ = {
+		4E884EA51EFC7EDE00A19C5F /* KevCodexIOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E884EC31EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "GameViewer" */;
+			buildConfigurationList = 4E884EC31EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOS" */;
 			buildPhases = (
 				4E884EA21EFC7EDE00A19C5F /* Sources */,
 				4E884EA31EFC7EDE00A19C5F /* Frameworks */,
@@ -221,14 +229,14 @@
 			);
 			dependencies = (
 			);
-			name = GameViewer;
+			name = KevCodexIOS;
 			productName = SampleProject;
-			productReference = 4E884EA61EFC7EDE00A19C5F /* GameViewer.app */;
+			productReference = 4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4E884EB91EFC7EDE00A19C5F /* GameViewerTests */ = {
+		4E884EB91EFC7EDE00A19C5F /* KevCodexIOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E884EC61EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "GameViewerTests" */;
+			buildConfigurationList = 4E884EC61EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOSTests" */;
 			buildPhases = (
 				4E884EB61EFC7EDE00A19C5F /* Sources */,
 				4E884EB71EFC7EDE00A19C5F /* Frameworks */,
@@ -239,9 +247,9 @@
 			dependencies = (
 				4E884EBC1EFC7EDE00A19C5F /* PBXTargetDependency */,
 			);
-			name = GameViewerTests;
+			name = KevCodexIOSTests;
 			productName = SampleProjectTests;
-			productReference = 4E884EBA1EFC7EDE00A19C5F /* GameViewerTests.xctest */;
+			productReference = 4E884EBA1EFC7EDE00A19C5F /* KevCodexIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -269,7 +277,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4E884EA11EFC7EDE00A19C5F /* Build configuration list for PBXProject "GameViewer" */;
+			buildConfigurationList = 4E884EA11EFC7EDE00A19C5F /* Build configuration list for PBXProject "KevCodexIOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -282,8 +290,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E884EA51EFC7EDE00A19C5F /* GameViewer */,
-				4E884EB91EFC7EDE00A19C5F /* GameViewerTests */,
+				4E884EA51EFC7EDE00A19C5F /* KevCodexIOS */,
+				4E884EB91EFC7EDE00A19C5F /* KevCodexIOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E884EBF1EFC7EDE00A19C5F /* GameViewerTests.swift in Sources */,
+				4E884EBF1EFC7EDE00A19C5F /* KevCodexIOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +357,7 @@
 /* Begin PBXTargetDependency section */
 		4E884EBC1EFC7EDE00A19C5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4E884EA51EFC7EDE00A19C5F /* GameViewer */;
+			target = 4E884EA51EFC7EDE00A19C5F /* KevCodexIOS */;
 			targetProxy = 4E884EBB1EFC7EDE00A19C5F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -490,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
-				INFOPLIST_FILE = "$(SRCROOT)/GameViewer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProject;
@@ -504,7 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
-				INFOPLIST_FILE = "$(SRCROOT)/GameViewer/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProject;
@@ -524,7 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameViewer.app/GameViewer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KevCodexIOS.app/KevCodexIOS";
 			};
 			name = Debug;
 		};
@@ -539,14 +547,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameViewer.app/GameViewer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KevCodexIOS.app/KevCodexIOS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E884EA11EFC7EDE00A19C5F /* Build configuration list for PBXProject "GameViewer" */ = {
+		4E884EA11EFC7EDE00A19C5F /* Build configuration list for PBXProject "KevCodexIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E884EC11EFC7EDE00A19C5F /* Debug */,
@@ -555,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E884EC31EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "GameViewer" */ = {
+		4E884EC31EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E884EC41EFC7EDE00A19C5F /* Debug */,
@@ -564,7 +572,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E884EC61EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "GameViewerTests" */ = {
+		4E884EC61EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E884EC71EFC7EDE00A19C5F /* Debug */,

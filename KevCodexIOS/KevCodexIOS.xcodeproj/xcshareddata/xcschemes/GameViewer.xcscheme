@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4E884EA51EFC7EDE00A19C5F"
-               BuildableName = "GameViewer.app"
-               BlueprintName = "GameViewer"
-               ReferencedContainer = "container:GameViewer.xcodeproj">
+               BuildableName = "KevCodexIOS.app"
+               BlueprintName = "KevCodexIOS"
+               ReferencedContainer = "container:KevCodexIOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4E884EB91EFC7EDE00A19C5F"
-               BuildableName = "GameViewerTests.xctest"
-               BlueprintName = "GameViewerTests"
-               ReferencedContainer = "container:GameViewer.xcodeproj">
+               BuildableName = "KevCodexIOSTests.xctest"
+               BlueprintName = "KevCodexIOSTests"
+               ReferencedContainer = "container:KevCodexIOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E884EA51EFC7EDE00A19C5F"
-            BuildableName = "GameViewer.app"
-            BlueprintName = "GameViewer"
-            ReferencedContainer = "container:GameViewer.xcodeproj">
+            BuildableName = "KevCodexIOS.app"
+            BlueprintName = "KevCodexIOS"
+            ReferencedContainer = "container:KevCodexIOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E884EA51EFC7EDE00A19C5F"
-            BuildableName = "GameViewer.app"
-            BlueprintName = "GameViewer"
-            ReferencedContainer = "container:GameViewer.xcodeproj">
+            BuildableName = "KevCodexIOS.app"
+            BlueprintName = "KevCodexIOS"
+            ReferencedContainer = "container:KevCodexIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E884EA51EFC7EDE00A19C5F"
-            BuildableName = "GameViewer.app"
-            BlueprintName = "GameViewer"
-            ReferencedContainer = "container:GameViewer.xcodeproj">
+            BuildableName = "KevCodexIOS.app"
+            BlueprintName = "KevCodexIOS"
+            ReferencedContainer = "container:KevCodexIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
