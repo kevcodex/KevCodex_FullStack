@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05B4DC265BDFF45F444E383D /* Pods_KevCodexIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F933B0E4392F61695BCE6056 /* Pods_KevCodexIOSTests.framework */; };
+		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
 		4E884EAF1EFC7EDE00A19C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Main.storyboard */; };
 		4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */; };
@@ -70,8 +72,14 @@
 		4E884EDD1EFC7F4D00A19C5F /* ObjectFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectFeed.swift; sourceTree = "<group>"; };
 		4E884EDE1EFC7F4D00A19C5F /* NetworkSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSearchResponse.swift; sourceTree = "<group>"; };
 		4E884EE01EFC7F4D00A19C5F /* ActivityProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityProgressHud.swift; sourceTree = "<group>"; };
+		5E5D77E3F1C0C7FFCB5D5923 /* Pods-KevCodexIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KevCodexIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KevCodexIOSTests/Pods-KevCodexIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KevCodexIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B14B51FFAAB3200D94C04 /* ImageLoaderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderError.swift; sourceTree = "<group>"; };
 		84FFE6DE1FFA951700F35B9E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		A45217BA98B915EA8ED66D42 /* Pods-KevCodexIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KevCodexIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KevCodexIOS/Pods-KevCodexIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D04318F58AF4FA3AC8221C0B /* Pods-KevCodexIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KevCodexIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KevCodexIOS/Pods-KevCodexIOS.release.xcconfig"; sourceTree = "<group>"; };
+		DE7516479304D850624BF10B /* Pods-KevCodexIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KevCodexIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KevCodexIOSTests/Pods-KevCodexIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F933B0E4392F61695BCE6056 /* Pods_KevCodexIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KevCodexIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B4DC265BDFF45F444E383D /* Pods_KevCodexIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,12 +116,23 @@
 			path = LegacyNetworkLayer;
 			sourceTree = "<group>";
 		};
+		0CC3A2172F1A1E45A71A942F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */,
+				F933B0E4392F61695BCE6056 /* Pods_KevCodexIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E884E9D1EFC7EDE00A19C5F = {
 			isa = PBXGroup;
 			children = (
 				4E884EA81EFC7EDE00A19C5F /* KevCodexIOS */,
 				4E884EBD1EFC7EDE00A19C5F /* KevCodexIOSTests */,
 				4E884EA71EFC7EDE00A19C5F /* Products */,
+				5ACB0ABB7D384CFC48054059 /* Pods */,
+				0CC3A2172F1A1E45A71A942F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +226,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5ACB0ABB7D384CFC48054059 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A45217BA98B915EA8ED66D42 /* Pods-KevCodexIOS.debug.xcconfig */,
+				D04318F58AF4FA3AC8221C0B /* Pods-KevCodexIOS.release.xcconfig */,
+				DE7516479304D850624BF10B /* Pods-KevCodexIOSTests.debug.xcconfig */,
+				5E5D77E3F1C0C7FFCB5D5923 /* Pods-KevCodexIOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		844B14B71FFAAB3700D94C04 /* Image Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E884EC31EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOS" */;
 			buildPhases = (
+				72BE6D161A923CDA97B37702 /* [CP] Check Pods Manifest.lock */,
 				4E884EA21EFC7EDE00A19C5F /* Sources */,
 				4E884EA31EFC7EDE00A19C5F /* Frameworks */,
 				4E884EA41EFC7EDE00A19C5F /* Resources */,
+				70A2EBA2CD29653938BAC239 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E884EC61EFC7EDE00A19C5F /* Build configuration list for PBXNativeTarget "KevCodexIOSTests" */;
 			buildPhases = (
+				39C9A77AA61F6A288D2597AD /* [CP] Check Pods Manifest.lock */,
 				4E884EB61EFC7EDE00A19C5F /* Sources */,
 				4E884EB71EFC7EDE00A19C5F /* Frameworks */,
 				4E884EB81EFC7EDE00A19C5F /* Resources */,
@@ -315,6 +350,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39C9A77AA61F6A288D2597AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KevCodexIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70A2EBA2CD29653938BAC239 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KevCodexIOS/Pods-KevCodexIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MiniNe/MiniNe.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiniNe.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KevCodexIOS/Pods-KevCodexIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72BE6D161A923CDA97B37702 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KevCodexIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E884EA21EFC7EDE00A19C5F /* Sources */ = {
@@ -495,11 +599,12 @@
 		};
 		4E884EC41EFC7EDE00A19C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45217BA98B915EA8ED66D42 /* Pods-KevCodexIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,11 +614,12 @@
 		};
 		4E884EC51EFC7EDE00A19C5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D04318F58AF4FA3AC8221C0B /* Pods-KevCodexIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.kirby.SampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,6 +629,7 @@
 		};
 		4E884EC71EFC7EDE00A19C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE7516479304D850624BF10B /* Pods-KevCodexIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -538,6 +645,7 @@
 		};
 		4E884EC81EFC7EDE00A19C5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E5D77E3F1C0C7FFCB5D5923 /* Pods-KevCodexIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

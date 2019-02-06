@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:KevCodexServer/KevCodexServer.xcodeproj">
+      location = "group:KevCodexIOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:KevCodexIOS/KevCodexIOS.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
