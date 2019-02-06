@@ -8,28 +8,8 @@
 
 import Foundation
 
-enum ImageLoaderError: Error {
-  case noError
-  case invalidURL
-  case apiFailed(message: String)
-}
-
-extension ImageLoaderError: Equatable {
-  static func ==(lhs: ImageLoaderError, rhs: ImageLoaderError) -> Bool {
-    switch (lhs, rhs) {
-      
-    case (.noError, .noError):
-      return true
-      
-    case (.invalidURL, .invalidURL):
-      return true
-      
-    case (let .apiFailed(errorMessage1), let .apiFailed(errorMessage2)):
-      return errorMessage1 == errorMessage2
-      
-    default:
-      return false
-    }
-  }
-  
+enum ImageLoaderError: Error, Equatable {
+    case noError
+    case invalidURL
+    case apiFailed(message: String)
 }
