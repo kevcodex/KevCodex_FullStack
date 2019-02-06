@@ -15,11 +15,11 @@ final class NetworkAPI {
     typealias Response = NetworkSearchResponse<ObjectFeed>
 
     var path: String {
-      return "/games"
+      return "/api/games"
     }
 
     var parameters: [String: Any]? {
-        return ["json": true]
+        return nil
     }
 
     var method: HTTPMethod {

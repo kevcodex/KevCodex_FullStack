@@ -1,7 +1,12 @@
 import Vapor
 import MeowVapor
+import JWT
+import Crypto
 
 struct TestController: RouteCollection {
+    
+    let apiKey: String
+    
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "test")
         apiRouter.get("hello", use: helloWorldHandler)
@@ -16,6 +21,10 @@ struct TestController: RouteCollection {
         apiRouter.get("meows", use: testMeows)
         
         apiRouter.post("addmeow", use: addMeow)
+        
+        apiRouter.get("jwt", use: jwtTest)
+        apiRouter.post("jwt", "register", use: createJWTTest)
+        apiRouter.post("jwt", "login", use: loginTest)
     }
     
     func helloWorldHandler(_ req: Request) throws -> String {
@@ -97,7 +106,7 @@ struct TestController: RouteCollection {
             throw Abort(.forbidden, reason: "Missing Header")
         }
         
-        guard apiKey == globalApiKey else {
+        guard apiKey == self.apiKey else {
             throw Abort(.forbidden, reason: "Invalid API Key")
         }
         
@@ -116,6 +125,89 @@ struct TestController: RouteCollection {
             }
             
             return test.transform(to: HTTPStatus.created)
+        }
+    }
+    
+    func jwtTest(_ req: Request) throws -> String {
+        // fetches the token from `Authorization: Bearer <token>` header
+        guard let bearer = req.http.headers.bearerAuthorization else {
+            throw Abort(.unauthorized)
+        }
+        
+        // parse JWT from token string, using HS-256 signer
+        let jwt = try JWT<Token>(from: bearer.token, verifiedUsing: .hs256(key: "secret"))
+        return "Hello, \(jwt.payload.uid)!"
+    }
+    
+    func createJWTTest(_ req: Request) throws -> Future<User.Response> {
+        
+        return try req.content.decode(User.self).flatMap { (user) in
+            
+            let meow = req.meow()
+            
+            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
+                let path = try User.makeQueryPath(for: \User.email)
+                return context.findOne(User.self, where: path == user.email)
+            })
+            
+            return futureExistingUser.flatMap({ (existingUser) in
+                if let _ = existingUser {
+                    throw Abort(.conflict, reason: "Email already exists")
+                } else {
+                    
+                    let saveFuture = meow.flatMap({ (context) in
+                        return context.save(user)
+                    })
+
+                    return saveFuture.map({ (_) -> User.Response in
+                        let token = Token.generate(for: user)
+                        
+                        let data = try JWT(payload: token).sign(using: .hs256(key: "secret"))
+                        
+                        guard let tokenString = String(data: data, encoding: .utf8) else {
+                            throw Abort(.badRequest)
+                        }
+                        
+                        let response = user.convertToResponse(token: tokenString, expiration: token.exp)
+                        
+                        return response
+                    })
+                }
+            })
+        }
+    }
+    
+    func loginTest(_ req: Request) throws -> Future<User.Response> {
+        
+        return try req.content.decode(User.self).flatMap { (user) in
+            
+            let meow = req.meow()
+            
+            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
+                let emailPath = try User.makeQueryPath(for: \User.email)
+                let passwordPath = try User.makeQueryPath(for: \User.password)
+                
+                return context.findOne(User.self, where: emailPath == user.email && passwordPath == user.password)
+            })
+            
+            return futureExistingUser.map({ (existingUser) in
+                
+                guard let existingUser = existingUser else {
+                    throw Abort(.unauthorized, reason: "Invalid Credentials")
+                }
+                
+                let token = Token.generate(for: existingUser)
+                
+                let data = try JWT(payload: token).sign(using: .hs256(key: "secret"))
+                
+                guard let tokenString = String(data: data, encoding: .utf8) else {
+                    throw Abort(.badRequest)
+                }
+                
+                let response = user.convertToResponse(token: tokenString, expiration: token.exp)
+                
+                return response
+            })
         }
     }
     

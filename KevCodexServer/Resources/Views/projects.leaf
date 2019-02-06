@@ -1,0 +1,40 @@
+#set("content") {
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Projects and Works</h1>
+                <p class="lead text-muted">Here is a list of various apps and projects I have created. If the source code is available feel free to use it. If you have any questions about a project I'm always happy to chat!</p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    #if(projects) {
+                        #for(project in projects) {
+                            <div class="col-md-4">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top"
+                                        alt="Project" src="#(project.imageURLString)"
+                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
+                                    <div class="card-body">
+                                        <h3 class="card-title">#(project.title)</h3>
+                                        <p class="card-text">#(project.description)</p>
+                                        <div class="d-flex align-items-center">
+                                            <a href="#(project.callToActionLink)" class="btn btn-sm btn-outline-primary">View Project</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    } else {
+                        <h2>There aren’t any projects data yet!</h2>
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+}
+
+#embed("base")

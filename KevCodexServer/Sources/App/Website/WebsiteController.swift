@@ -6,34 +6,96 @@
 //
 
 import Vapor
+import MongoKitten
 
 struct WebsiteController: RouteCollection {
     
+    let apiKey: String
+    
     func boot(router: Router) throws {
-        router.get(use: indexHandler)
-        router.get("test", use: testHandler)
-        router.get("foo", use: fooHandler)
+        router.get(use: aboutMePage)
+        router.get("projects", use: projectsPage)
+        router.get("hiking", use: hikingPage)
+        router.get("hiking", ObjectId.parameter, use: hikingDetailPage)
+        router.get("test", use: testPage)
     }
-    
-    func indexHandler(_ req: Request) throws -> Future<View> {
-        
-        return try req.view().render("index")
-    }
-    
-    func testHandler(_ req: Request) throws -> Future<View> {
 
-        let context = IndexContext(title: "Homepage")
- 
+    func testPage(_ req: Request) throws -> Future<View> {
+        let navigation = leftNavigationStructure(for: req)
+        let context = TestContext(navigation: navigation, title: "Test")
+        
         return try req.view().render("test", context)
     }
     
-    func fooHandler(_ req: Request) throws -> Future<View> {
+    func hikingPage(_ req: Request) throws -> Future<View> {
+                
+        let futureHikes = try HikingController(apiKey: apiKey).getAllItems(req)
         
-        return try req.view().render("_pages/test")
+        return futureHikes.flatMap { (hikes) -> Future<View> in
+            
+            let hikesData = hikes.isEmpty ? nil : hikes
+            
+            let navigation = self.leftNavigationStructure(for: req)
+            let context = HikingListContext(navigation: navigation, title: "Hiking", hikes: hikesData)
+            
+            return try req.view().render("hiking", context)
+        }
     }
-}
-
-struct IndexContext: Encodable {
-    let title: String
+    
+    func hikingDetailPage(_ req: Request) throws -> Future<View> {
+        
+        let futureHike = try HikingController(apiKey: apiKey).getItem(req)
+        
+        return futureHike.flatMap { (hike) -> Future<View> in
+            
+            let context = HikingDetailContext(title: hike.title, hike: hike)
+            
+            return try req.view().render("hikingDetail", context)
+        }
+    }
+    
+    func aboutMePage(_ req: Request) throws -> Future<View> {
+        let navigation = leftNavigationStructure(for: req)
+        let context = AboutContext(navigation: navigation, title: "About Me")
+        
+        return try req.view().render("about", context)
+    }
+    
+    func projectsPage(_ req: Request) throws -> Future<View> {
+        
+        let futureProjects = try ProjectController(apiKey: apiKey).getAllItems(req)
+        
+        return futureProjects.flatMap { (projects) -> Future<View> in
+            
+            let projectsData = projects.isEmpty ? nil : projects
+            
+            let navigation = self.leftNavigationStructure(for: req)
+            let context = ProjectsContext(navigation: navigation, title: "Projects", projects: projectsData)
+            
+            return try req.view().render("projects", context)
+        }
+    }
+    
+    private func leftNavigationStructure(for req: Request) -> [NavigationItem] {
+        
+        let reqPath = req.http.url.path
+        
+        // Better way to define isActive?
+        let home = NavigationItem(isActive: reqPath == NavigationPath.home, path: NavigationPath.home, title: "About Me")
+        let projects = NavigationItem(isActive: reqPath == NavigationPath.projects, path: NavigationPath.projects, title: "Projects")
+        let hiking = NavigationItem(isActive: reqPath == NavigationPath.hiking, path: NavigationPath.hiking, title: "Hiking")
+        
+        return [home,
+                projects,
+                hiking]
+    }
+    
+    private struct NavigationPath {
+        static let home = "/"
+        static let hiking = "/hiking"
+        static let projects = "/projects"
+        
+        private init() {}
+    }
 }
 

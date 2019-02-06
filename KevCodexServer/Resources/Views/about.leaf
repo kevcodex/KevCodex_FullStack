@@ -1,0 +1,124 @@
+<style>
+    .bg-1 { 
+        background-color: #1abc9c; 
+        color: #ffffff;
+    }
+
+    .bg-2 { 
+        background-color: #474e5d; 
+        color: #ffffff;
+    }
+
+    .bg-3 { 
+        background-color: #ffffff; 
+        color: #555555;
+    }
+
+    .bg-4 { 
+        background-color: #2f2f2f;
+        color: #ffffff;
+    }
+
+    .container-fluid {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+</style>
+
+#set("content") {
+
+    <!-- Picture -->
+    <div class="container-fluid bg-1 text-center">
+        <h1 class="mb-5">Who Am I?</h1>
+            <img src="/img/profile.jpg" class="rounded-circle mb-5" style="display:inline" alt="Profile" width="350" height="350">
+        <h3>I am a <div id="changeText">Programmer</div></h3>
+    </div>
+
+    <!-- Brief Desciption -->
+    <section id="about">
+		
+        <div class="container-fluid bg-2">
+        
+            <header class="text-center mb-5">
+            
+                <h1>My Origin Story?</h1>
+            
+            </header>
+            
+            <div class="row text-center">
+            
+                <div class="col-sm-8 offset-sm-2">
+                            
+                    <p class="text-center"> Hi There! I am a Nanoengineer by degree turned Mechanical Engineer turned iOS Developer.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sed deserunt obcaecati quisquam, saepe repellat! Tempora mollitia dolor at aut voluptate, libero aliquam laudantium sit placeat nulla nam, debitis quaerat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quae nisi quam dolores temporibus dignissimos illum itaque inventore pariatur praesentium fugit corporis provident nemo, cumque, voluptas doloremque placeat id mollitia. <br><br>Programming is not just a job for me, it's a passion.</p>
+                
+                </div>
+                
+            </div>            
+        </div>
+    </section>
+
+    <!-- Skill Set -->
+    <section id="skills">
+        <div class="text-center container-fluid bg-3">
+            <h2 class="mb-5">My Skill Sets?</h2>
+            <div class="card-deck text-center">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Padawan</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Objective C</h5>
+                        <h5 class="card-title">HTML</h5>
+                        <h5 class="card-title">CSS</h5>
+                        <h5 class="card-title">Javascript</h5>
+                        <h5 class="card-title">Golf</h5>
+                    </div>
+                </div>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Jedi Knight</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Backend Development</h5>
+                        <h5 class="card-title">Python</h5>
+                        <h5 class="card-title">Data Science</h5>
+                        <h5 class="card-title">Machine Learning</h5>
+                        <h5 class="card-title">Dev Ops</h5>
+                        <h5 class="card-title">Solidworks</h5>
+                        <h5 class="card-title">Linux</h5>
+                        <h5 class="card-title">MS Project</h5>
+                        <h5 class="card-title">Ping Pong</h5>
+                    </div>
+                </div>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Jedi Master</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Swift</h5>
+                        <h5 class="card-title">iOS and tvOS Development</h5>
+                        <h5 class="card-title">Scripting</h5>
+                        <h5 class="card-title">Jenkins</h5>
+                        <h5 class="card-title">Jira</h5>
+                        <h5 class="card-title">Soccer</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Me -->
+    <div class="container-fluid bg-3 text-center">
+        <h3>Where To Find Me?</h3>
+        <p>Feel free to contact via email at <a href="mailto:kevchen2@gmail.com">kevchen2@gmail.com</a>. I'm always happy to chat about anything!</p>
+    </div>
+
+    <footer class="pb-4 pt-4 bg-4 text-center">
+        <p>Website Source Code <a rel="noopener" target="_blank" href="https://github.com/kevcodex/KevCodex_FullStack">Here</a></p>  
+    </footer>
+
+    <script type="text/javascript" src="js/change.js"></script>
+}
+    
+#embed("base")

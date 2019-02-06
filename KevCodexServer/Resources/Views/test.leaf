@@ -1,16 +1,65 @@
-<!DOCTYPE html>
+#set("content") {
 
-<html lang="en">
+    <div class="container mt-3">
+        <h1>Welcome!</h1>
 
-<head>
-    <meta charset="utf-8" />
+        <h5>My name is Kevin Chen. I like creating stuff.</h5>
 
-    <title>Hello World</title>
-</head>
+        <hr>
+        <h2>View Games</h2>
+        <br>
+        <form action="api/games" method="GET">
+            <input type="hidden" name="json" value="true">
+            <input type="submit" value="View Games">
+        </form>
+        <form action="api/test/testput" method="GET">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="submit" value="Test Put Override">
+        </form>
+        <hr>
+        
+        <h2>Create Game</h2>
+        <form id="create_game" action="api/games" method="POST">
+            Name: <br>
+            <input type="text" name="name" value="">
+            <br> Description: <br>
+            <textarea name="description" cols="40" rows="15"></textarea>
+            <br> Image URL: <br>
+            <input type="text" name="image" value="">
+            <br> Approx. Date Made: <br>
+            <input type="text" name="date" value="">
+            <br> Developer: <br>
+            <input type="text" name="developer" value="">
+            <br> API Key: <br>
+            <input type="text" name="apikey" autocomplete="off" value="">
+            <br>
+            <input type="submit" value="Save">
+        </form>
+        <div id="save_output"></div>
 
-<body>
+        <hr>
+        <h2>Delete Game</h2>
+        <form id="delete_game" action="api/games/name" method="POST">
+            Name:
+            <br>
+            <input type="text" name="name" autocomplete="off" value="">
+            <br> Api Key:
+            <br>
+            <input type="text" name="apikey" autocomplete="off" value="">
+            <br>
+            <br>
+            <input type="submit" value="Delete">
+        </form>
+        <div id="save_output2"></div>
+        <br>
+        <br>
+        <br>
 
-    <h1>#(title)</h1>
-</body>
+    </div>
+    
 
-</html>
+    <script type="text/javascript" src="js/test.js"></script>
+
+}
+
+#embed("base")
