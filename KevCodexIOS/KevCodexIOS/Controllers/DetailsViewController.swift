@@ -11,7 +11,7 @@ import UIKit
 // shows details of the feed
 class DetailsViewController: UIViewController {
 
-  var result: ObjectFeed!
+  var result: Project!
   var image: UIImage?
 
   @IBOutlet weak var imageView: UIImageView!
@@ -23,8 +23,8 @@ class DetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    dateLabel.text = result.readableDate
-    titleLabel.text = result.name
+//    dateLabel.text = result.readableDate
+    titleLabel.text = result.title
     descriptionLabel.text = result.description
 
     let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
@@ -55,7 +55,7 @@ extension DetailsViewController {
   @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
     
     if let image = image {
-      let vc = UIActivityViewController(activityItems: [result.name, image], applicationActivities: [])
+      let vc = UIActivityViewController(activityItems: [result.title, image], applicationActivities: [])
       present(vc, animated: true)
     }
   }

@@ -10,7 +10,7 @@ import Foundation
 
 // implements endpoint(s)
 final class NetworkAPI {
-  struct Feed: NetworkRequest {
+  struct Feed: LegacyNetworkRequest {
 
     typealias Response = NetworkSearchResponse<ObjectFeed>
 
@@ -22,7 +22,7 @@ final class NetworkAPI {
         return nil
     }
 
-    var method: HTTPMethod {
+    var method: LegacyHTTPMethod {
       return .get
     }
   }

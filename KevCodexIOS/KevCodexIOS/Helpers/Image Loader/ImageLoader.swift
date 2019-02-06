@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// Async load images
-class ImageLoader {
+final class ImageLoader {
   
   static func loadImage(from imagePath: String, completion: @escaping (UIImage?, ImageLoaderError) -> Void) {
     

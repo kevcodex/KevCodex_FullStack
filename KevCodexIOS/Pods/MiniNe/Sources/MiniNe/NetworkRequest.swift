@@ -1,5 +1,5 @@
 //
-//  NetworkRequest.swift
+//  LegacyNetworkRequest.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/19/17.

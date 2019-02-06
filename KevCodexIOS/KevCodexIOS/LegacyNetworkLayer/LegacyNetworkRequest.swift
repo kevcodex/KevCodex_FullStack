@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+enum LegacyHTTPMethod: String {
   // for this app only need a get request
   case get
 
@@ -17,17 +17,17 @@ enum HTTPMethod: String {
 }
 
 // handles the request to get data
-protocol NetworkRequest {
+protocol LegacyNetworkRequest {
 
   associatedtype Response: JSONDecodable
 
   var baseURL: URL? { get }
   var path: String { get }
-  var method: HTTPMethod { get }
+  var method: LegacyHTTPMethod { get }
     var parameters: [String: Any]? { get }
 }
 
-extension NetworkRequest {
+extension LegacyNetworkRequest {
 
   var baseURL: URL? {
 

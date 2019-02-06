@@ -15,7 +15,7 @@ class NetworkClient {
     return session
   }()
 
-  func send<Request: NetworkRequest>(request: Request,
+  func send<Request: LegacyNetworkRequest>(request: Request,
                                     completion: @escaping (Result<Request.Response, NetworkError>) -> Void) {
 
     guard let urlRequest = request.buildURLRequest() else {
