@@ -26,6 +26,10 @@ struct HikingController: RouteCollection, MongoQueryable {
     
     func deleteHikeByTitle(_ req: Request) throws -> Future<HTTPStatus> {
         
+        guard let _ = req.http.headers.bearerAuthorization else {
+            throw Abort(.unauthorized, reason: "Missing Access Token")
+        }
+        
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")
         }

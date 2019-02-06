@@ -20,7 +20,7 @@ struct UserController: RouteCollection {
         let apiRouter = router.grouped("api", "profile")
         
         apiRouter.get("test", use: jwtTest)
-        apiRouter.post("register", use: registerHandler)
+//        apiRouter.post("register", use: registerHandler)
         apiRouter.post("login", use: loginHandler)
     }
     
