@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "Public"
+		},
+		{
+			"path": "Resources"
+		},
+		{
+			"path": "swagger"
+		}
+	],
+	"settings": {}
+}
