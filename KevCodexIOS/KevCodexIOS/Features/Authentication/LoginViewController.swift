@@ -19,6 +19,7 @@ final class LoginViewController: UIViewController {
     weak var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         usernameTextField.delegate = self
     }
 }
