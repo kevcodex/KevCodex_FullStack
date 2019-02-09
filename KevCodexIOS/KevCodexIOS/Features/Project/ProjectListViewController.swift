@@ -52,14 +52,14 @@ class ProjectListViewController: UIViewController {
                     print(error)
                 }
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.sync {
                     strongSelf.collectionView.reloadData()
                     strongSelf.hideActivityIndicator()
                 }
                 
             case let .failure(error):
                 print(error)
-                DispatchQueue.main.async {
+                DispatchQueue.main.sync {
                     strongSelf.collectionView.reloadData()
                     strongSelf.hideActivityIndicator()
                 }

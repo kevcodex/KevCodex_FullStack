@@ -221,6 +221,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EBJ-lK-5T9" firstAttribute="trailing" secondItem="Ybr-ak-UGV" secondAttribute="trailing" id="6QF-s4-xCJ"/>
                             <constraint firstItem="EBJ-lK-5T9" firstAttribute="bottom" secondItem="Ybr-ak-UGV" secondAttribute="bottom" id="6xL-yA-J8r"/>

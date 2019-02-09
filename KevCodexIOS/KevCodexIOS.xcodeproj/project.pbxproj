@@ -238,9 +238,9 @@
 			isa = PBXGroup;
 			children = (
 				4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */,
+				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
 				4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */,
 				4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */,
-				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
 				4E884EDC1EFC7F4D00A19C5F /* Models */,
 			);
 			path = Project;
