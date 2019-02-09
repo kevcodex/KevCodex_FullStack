@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
+protocol LoginViewControllerDelegate: class {
     func loginViewController(_ loginViewController: LoginViewController, didLogin username: String)
 }
 
@@ -16,7 +16,7 @@ final class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     
-    var delegate: LoginViewControllerDelegate?
+    weak var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad() {
         usernameTextField.delegate = self

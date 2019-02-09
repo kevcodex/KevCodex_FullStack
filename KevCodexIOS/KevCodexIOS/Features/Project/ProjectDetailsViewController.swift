@@ -9,7 +9,7 @@
 import UIKit
 
 // shows details of the feed
-class ProjectDetailsViewController: UIViewController {
+final class ProjectDetailsViewController: UIViewController {
     
     var result: Project!
     var image: UIImage?
@@ -63,5 +63,11 @@ extension ProjectDetailsViewController {
     @IBAction func backTapped(_ sender: UIBarButtonItem) {
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProjectDetailsViewController: StoryboardInitializable {
+    static var storyboardName: String {
+        return "Project"
     }
 }
