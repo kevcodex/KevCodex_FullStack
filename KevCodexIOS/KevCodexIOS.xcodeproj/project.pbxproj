@@ -112,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				0A0114B2220E4AEC00F0581B /* StoryboardInitializable.swift */,
+				4E884EDB1EFC7F4D00A19C5F /* Result.swift */,
+				4E884ED01EFC7F4D00A19C5F /* Extensions */,
 				0A0114C2220E639E00F0581B /* CustomTransitions */,
 			);
 			path = Utilities;
@@ -210,13 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				0A0114B7220E4EB000F0581B /* App */,
-				0A5AF30F220A758C0093A77A /* Networking */,
-				4E884ED01EFC7F4D00A19C5F /* Extensions */,
-				4E884ED21EFC7F4D00A19C5F /* Helpers */,
-				4E884ED81EFC7F4D00A19C5F /* Library */,
-				4E884EDC1EFC7F4D00A19C5F /* Models */,
-				4E884EDF1EFC7F4D00A19C5F /* Views */,
 				0A0114BF220E60AF00F0581B /* Features */,
+				0A5AF30F220A758C0093A77A /* Networking */,
+				4E884ED21EFC7F4D00A19C5F /* Helpers */,
+				4E884EDF1EFC7F4D00A19C5F /* Views */,
 				0A0114B1220E4AA700F0581B /* Utilities */,
 				0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */,
 				4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */,
@@ -242,6 +241,7 @@
 				4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */,
 				4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */,
 				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
+				4E884EDC1EFC7F4D00A19C5F /* Models */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -261,14 +261,6 @@
 				844B14B71FFAAB3700D94C04 /* Image Loader */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		4E884ED81EFC7F4D00A19C5F /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				4E884EDB1EFC7F4D00A19C5F /* Result.swift */,
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 		4E884EDC1EFC7F4D00A19C5F /* Models */ = {
