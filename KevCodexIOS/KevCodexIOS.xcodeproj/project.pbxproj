@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		05B4DC265BDFF45F444E383D /* Pods_KevCodexIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F933B0E4392F61695BCE6056 /* Pods_KevCodexIOSTests.framework */; };
+		0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B2220E4AEC00F0581B /* StoryboardInitializable.swift */; };
+		0A0114B5220E4B2A00F0581B /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0114B4220E4B2A00F0581B /* Authentication.storyboard */; };
+		0A0114BA220E4ECC00F0581B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B8220E4ECC00F0581B /* App.swift */; };
+		0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */; };
+		0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114BD220E514B00F0581B /* LoginViewController.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
-		4E884EAF1EFC7EDE00A19C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Main.storyboard */; };
+		4E884EAF1EFC7EDE00A19C5F /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Product.storyboard */; };
 		4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */; };
 		4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */; };
 		4E884EBF1EFC7EDE00A19C5F /* KevCodexIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EBE1EFC7EDE00A19C5F /* KevCodexIOSTests.swift */; };
@@ -40,11 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0114B2220E4AEC00F0581B /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		0A0114B4220E4B2A00F0581B /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		0A0114B8220E4ECC00F0581B /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0A0114BD220E514B00F0581B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Product.storyboard; sourceTree = "<group>"; };
 		4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E884EB31EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E884EB51EFC7EDE00A19C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +108,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0114B1220E4AA700F0581B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0A0114B2220E4AEC00F0581B /* StoryboardInitializable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0A0114B7220E4EB000F0581B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0A0114B8220E4ECC00F0581B /* App.swift */,
+				0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */,
+				4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0A0114BC220E4F9C00F0581B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				0A0114B4220E4B2A00F0581B /* Authentication.storyboard */,
+				0A0114BD220E514B00F0581B /* LoginViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +198,10 @@
 				4E884EDC1EFC7F4D00A19C5F /* Models */,
 				4E884EDF1EFC7F4D00A19C5F /* Views */,
 				4E884ECA1EFC7F4D00A19C5F /* Controllers */,
-				4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */,
-				4E884EAD1EFC7EDE00A19C5F /* Main.storyboard */,
+				0A0114B1220E4AA700F0581B /* Utilities */,
+				0A0114BC220E4F9C00F0581B /* Authentication */,
+				0A0114B7220E4EB000F0581B /* App */,
+				4E884EAD1EFC7EDE00A19C5F /* Product.storyboard */,
 				4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */,
 				4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */,
 				4E884EB51EFC7EDE00A19C5F /* Info.plist */,
@@ -342,9 +381,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0114B5220E4B2A00F0581B /* Authentication.storyboard in Resources */,
 				4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */,
 				4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */,
-				4E884EAF1EFC7EDE00A19C5F /* Main.storyboard in Resources */,
+				4E884EAF1EFC7EDE00A19C5F /* Product.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,17 +471,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */,
 				4E884EE71EFC7F4D00A19C5F /* ActivityViewPresentor.swift in Sources */,
 				4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */,
+				0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */,
 				84FFE6DF1FFA951700F35B9E /* ImageLoader.swift in Sources */,
 				4E884EE41EFC7F4D00A19C5F /* FeedCell.swift in Sources */,
 				4E884EE51EFC7F4D00A19C5F /* ListViewController.swift in Sources */,
+				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
 				4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */,
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,
 				4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */,
 				4E884EF11EFC7F4D00A19C5F /* ActivityProgressHud.swift in Sources */,
 				844B14B61FFAAB3200D94C04 /* ImageLoaderError.swift in Sources */,
+				0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */,
 				4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */,
 				4E884EE31EFC7F4D00A19C5F /* DetailsViewController.swift in Sources */,
 				0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */,
@@ -467,12 +511,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4E884EAD1EFC7EDE00A19C5F /* Main.storyboard */ = {
+		4E884EAD1EFC7EDE00A19C5F /* Product.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4E884EAE1EFC7EDE00A19C5F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Product.storyboard;
 			sourceTree = "<group>";
 		};
 		4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */ = {
@@ -601,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A45217BA98B915EA8ED66D42 /* Pods-KevCodexIOS.debug.xcconfig */;
 			buildSettings = {
+				API_ENDPOINT = "http://localhost:8080";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";
@@ -616,6 +661,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D04318F58AF4FA3AC8221C0B /* Pods-KevCodexIOS.release.xcconfig */;
 			buildSettings = {
+				API_ENDPOINT = "https://kevcodex.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7U5UFZ4SY4;
 				INFOPLIST_FILE = "$(SRCROOT)/KevCodexIOS/Info.plist";

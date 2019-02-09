@@ -193,3 +193,9 @@ fileprivate extension ListViewController {
 // MARK: - Activity Presentor Protocol
 extension ListViewController: ActivityIndicatorPresentor {
 }
+
+extension ListViewController: StoryboardInitializable {
+    static var storyboardName: String {
+        return "Product"
+    }
+}
