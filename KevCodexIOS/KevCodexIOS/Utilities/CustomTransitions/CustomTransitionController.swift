@@ -26,13 +26,15 @@ class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitionin
         
         let containerView = transitionContext.containerView
         
-        let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+        guard let snapshot = toVC.view.snapshotView(afterScreenUpdates: true) else {
+            return
+        }
         
-        snapshot?.frame.origin = originFrame.origin
-        snapshot?.layer.masksToBounds = true
+        snapshot.frame.origin = originFrame.origin
+        snapshot.layer.masksToBounds = true
         
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot!)
+        containerView.addSubview(snapshot)
         toVC.view.isHidden = true
         
         let duration = transitionDuration(using: transitionContext)
@@ -46,13 +48,13 @@ class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitionin
                         
                         UIView.animate(withDuration: duration, animations: { 
                             
-                            snapshot?.frame = toVC.view.frame
+                            snapshot.frame = toVC.view.frame
                             
                         }, completion: { _ in
                             
                             toVC.view.isHidden = false
                             toVC.view.alpha = 1.0
-                            snapshot?.removeFromSuperview()
+                            snapshot.removeFromSuperview()
                             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                             
                         })

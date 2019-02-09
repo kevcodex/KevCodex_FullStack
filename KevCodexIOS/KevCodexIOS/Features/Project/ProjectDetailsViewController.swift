@@ -30,8 +30,8 @@ class ProjectDetailsViewController: UIViewController {
         let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
         let locations: [CGFloat] = [0.0, 1.0]
         
-        if let cachedImage = image {
-            let gradientImage = cachedImage.createGradient(with: colors, at: locations)
+        if let cachedImage = image,
+            let gradientImage = cachedImage.createGradient(with: colors, at: locations) {
             
             imageView.image = gradientImage
         } else {
