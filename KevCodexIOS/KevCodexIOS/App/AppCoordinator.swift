@@ -33,7 +33,7 @@ final class AppCoordinator {
 
 extension AppCoordinator: LoginViewControllerDelegate {
     func loginViewController(_ loginViewController: LoginViewController, didLogin username: String) {
-        let vc = ListViewController.makeFromStoryboard()
+        let vc = ProjectListViewController.makeFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

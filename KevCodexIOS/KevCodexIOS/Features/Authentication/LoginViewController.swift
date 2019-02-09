@@ -21,8 +21,6 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         usernameTextField.delegate = self
     }
-    
-    
 }
 
 // MARK: - Text Field Delegate

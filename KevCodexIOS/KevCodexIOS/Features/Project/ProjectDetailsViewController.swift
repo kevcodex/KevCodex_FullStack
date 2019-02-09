@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  ProjectDetailsViewController.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 // shows details of the feed
-class DetailsViewController: UIViewController {
+class ProjectDetailsViewController: UIViewController {
     
     var result: Project!
     var image: UIImage?
@@ -51,7 +51,7 @@ class DetailsViewController: UIViewController {
 }
 
 // MARK: - Actions
-extension DetailsViewController {
+extension ProjectDetailsViewController {
     @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
         
         if let image = image {
