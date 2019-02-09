@@ -43,22 +43,20 @@ class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitionin
             
             fromVC.view.alpha = 0.0
             
-        },
-                       completion: { _ in
-                        
-                        UIView.animate(withDuration: duration, animations: { 
-                            
-                            snapshot.frame = toVC.view.frame
-                            
-                        }, completion: { _ in
-                            
-                            toVC.view.isHidden = false
-                            toVC.view.alpha = 1.0
-                            snapshot.removeFromSuperview()
-                            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                            
-                        })
-                        
+        }, completion: { _ in
+            
+            UIView.animate(withDuration: duration, animations: {
+                
+                snapshot.frame = toVC.view.frame
+                
+            }, completion: { _ in
+                
+                toVC.view.isHidden = false
+                toVC.view.alpha = 1.0
+                snapshot.removeFromSuperview()
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                
+            })
         })
     }
 }

@@ -26,12 +26,14 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning {
         
         let containerView = transitionContext.containerView
         
-        let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+        guard let snapshot = toVC.view.snapshotView(afterScreenUpdates: true) else {
+            return
+        }
         
-        snapshot?.layer.masksToBounds = true
+        snapshot.layer.masksToBounds = true
         
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot!)
+        containerView.addSubview(snapshot)
         toVC.view.alpha = 0.0
         
         // fixes if user orientents listview did not re-orientate
@@ -46,7 +48,7 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning {
             
         }, completion: { _ in
             
-            snapshot?.removeFromSuperview()
+            snapshot.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             
         })
