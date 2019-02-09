@@ -13,6 +13,8 @@
 		0A0114BA220E4ECC00F0581B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B8220E4ECC00F0581B /* App.swift */; };
 		0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */; };
 		0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114BD220E514B00F0581B /* LoginViewController.swift */; };
+		0A0114C4220F495600F0581B /* ProjectDetailTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */; };
+		0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
@@ -50,6 +52,8 @@
 		0A0114B8220E4ECC00F0581B /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0A0114BD220E514B00F0581B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailTransitioner.swift; sourceTree = "<group>"; };
+		0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCoordinator.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,9 +242,11 @@
 			isa = PBXGroup;
 			children = (
 				4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */,
+				0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */,
 				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
 				4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */,
 				4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */,
+				0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */,
 				4E884EDC1EFC7F4D00A19C5F /* Models */,
 			);
 			path = Project;
@@ -479,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0114C4220F495600F0581B /* ProjectDetailTransitioner.swift in Sources */,
 				0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */,
 				4E884EE71EFC7F4D00A19C5F /* ActivityViewPresentor.swift in Sources */,
 				4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */,
@@ -488,6 +495,7 @@
 				4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */,
 				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
+				0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */,
 				4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */,
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,
 				4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */,

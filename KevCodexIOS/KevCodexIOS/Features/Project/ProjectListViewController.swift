@@ -26,11 +26,6 @@ final class ProjectListViewController: UIViewController {
     
     weak var delegate: ProjectListViewControllerDelegate?
     
-    var cellFrame: CGRect!
-    
-    private let customTransition = CustomTransitionController()
-    private let customDismissTransition = CustomDismissController()
-    
     @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -112,7 +107,6 @@ extension ProjectListViewController: UICollectionViewDataSource {
     
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         delegate?.projectListViewController(self, didSelectItemAt: indexPath, in: collectionView)
     }
 }
@@ -137,51 +131,12 @@ extension ProjectListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Segue
-
-//extension ProjectListViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let cell = sender as? ProjectFeedCell,
-//            let indexPath = collectionView.indexPath(for: cell),
-//            let detailsViewController = segue.destination as? ProjectDetailsViewController
-//
-//            else {
-//                return
-//        }
-//
-//        guard let theAttributes = collectionView.layoutAttributesForItem(at: indexPath) else {
-//            return
-//        }
-//
-//        cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
-//
-//        detailsViewController.transitioningDelegate = self
-//        detailsViewController.result = cell.project
-//
-//        detailsViewController.image = cell.imageView.image
-//    }
-//}
-
 // MARK: - Transition View
 extension ProjectListViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         collectionView.collectionViewLayout.invalidateLayout()
-    }
-}
-
-// MARK: - Transition Delegate
-extension ProjectListViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customTransition.originFrame = cellFrame
-        return customTransition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customDismissTransition.originFrame = dismissed.view.frame
-        return customDismissTransition
     }
 }
 
@@ -207,3 +162,31 @@ extension ProjectListViewController: StoryboardInitializable {
         return "Project"
     }
 }
+
+
+
+
+// MARK: - Segue
+
+//extension ProjectListViewController {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let cell = sender as? ProjectFeedCell,
+//            let indexPath = collectionView.indexPath(for: cell),
+//            let detailsViewController = segue.destination as? ProjectDetailsViewController
+//
+//            else {
+//                return
+//        }
+//
+//        guard let theAttributes = collectionView.layoutAttributesForItem(at: indexPath) else {
+//            return
+//        }
+//
+//        cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
+//
+//        detailsViewController.transitioningDelegate = self
+//        detailsViewController.result = cell.project
+//
+//        detailsViewController.image = cell.imageView.image
+//    }
+//}

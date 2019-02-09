@@ -12,6 +12,8 @@ final class AppCoordinator {
     let window: UIWindow
     var navigationController: UINavigationController?
     
+    var detailController: ProjectCoordinator?
+    
     init?(window: UIWindow?) {
         
         guard let window = window else {
@@ -33,27 +35,11 @@ final class AppCoordinator {
 
 extension AppCoordinator: LoginViewControllerDelegate {
     func loginViewController(_ loginViewController: LoginViewController, didLogin username: String) {
-        let projectListVC = ProjectListViewController.makeFromStoryboard()
-        projectListVC.delegate = self
-        navigationController?.pushViewController(projectListVC, animated: true)
-    }
-}
-
-extension AppCoordinator: ProjectListViewControllerDelegate {
-    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectItemAt indexPath: IndexPath, in collectionView: UICollectionView) {
         
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ProjectFeedCell,
-            let theAttributes = collectionView.layoutAttributesForItem(at: indexPath) else {
-                return
+        guard let navigationController = navigationController else {
+            return
         }
         
-        projectListViewController.cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
-        
-        let detailsViewController = ProjectDetailsViewController.makeFromStoryboard()
-        detailsViewController.transitioningDelegate = projectListViewController
-        detailsViewController.result = cell.project
-        
-        detailsViewController.image = cell.imageView.image
-        navigationController?.present(detailsViewController, animated: true)
+        detailController = ProjectCoordinator(with: navigationController)
     }
 }
