@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class ProjectCoordinator {
+final class ProjectCoordinator: Coordinator {
     
-    var navigationController: UINavigationController?
+    var rootViewController: UINavigationController?
     var detailTransitioner: ProjectDetailTransitioner?
     
     init(with navigationController: UINavigationController) {
-        self.navigationController = navigationController
+        self.rootViewController = navigationController
         
         // Launch initial vc
         let projectListVC = ProjectListViewController.makeFromStoryboard()
@@ -42,6 +42,6 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         detailsViewController.result = cell.project
         
         detailsViewController.image = cell.imageView.image
-        navigationController?.present(detailsViewController, animated: true)
+        rootViewController?.present(detailsViewController, animated: true)
     }
 }

@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class AppCoordinator {
+final class AppCoordinator: NSObject, CoordinatorWithChildren {
     let window: UIWindow
-    var navigationController: UINavigationController?
+    var rootViewController: UINavigationController?
     
-    var detailController: ProjectCoordinator?
+    var childCoordinators: [String: Any] = [:]
     
     init?(window: UIWindow?) {
         
@@ -28,18 +28,28 @@ final class AppCoordinator {
         let viewController = LoginViewController.makeFromStoryboard()
         viewController.delegate = self
         
-        navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
+        rootViewController = UINavigationController(rootViewController: viewController)
+        rootViewController?.delegate = self
+        window.rootViewController = rootViewController
     }
 }
 
 extension AppCoordinator: LoginViewControllerDelegate {
     func loginViewController(_ loginViewController: LoginViewController, didLogin username: String) {
         
-        guard let navigationController = navigationController else {
+        guard let navigationController = rootViewController else {
             return
         }
         
-        detailController = ProjectCoordinator(with: navigationController)
+        let detailController = ProjectCoordinator(with: navigationController)
+        
+        addChild(coordinator: detailController)
+    }
+}
+
+
+extension AppCoordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        print(viewController.description)
     }
 }
