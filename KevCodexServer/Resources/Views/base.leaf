@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link href="/css/navbar-top-fixed.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
 
     <title>#(title) | KCDEX</title>
 </head>
@@ -32,7 +34,7 @@
     <header>
 
         <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #494949;">
             <a class="navbar-brand" href="/">KevCodex</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

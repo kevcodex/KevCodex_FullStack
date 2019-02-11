@@ -48,17 +48,17 @@
                 <p>Location: #(hike.location)</p>
                 <p>Distance: #(hike.distance) miles</p>
                 <p>Duration: ~#(hike.hikingTime) hr(s)</p>
-                <p>Elevation Gain: #(hike.elevationGain) Ft</p>
+                <p>Elevation Gain: #(hike.elevationGain) ft</p>
                 <p>Difficulty: #(hike.difficulty)</p>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="container">
             <p class="text-center">PC: blah blah</p>
         </div>
-    </footer>
+    </footer> -->
 
     <!-- MDB core JavaScript -->
     <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/4.7.0/compiled.0.min.js?ver=4.7.0'></script>

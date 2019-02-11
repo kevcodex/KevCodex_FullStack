@@ -27,7 +27,7 @@ final class Hike: Content, QueryableModel {
         
         self._id = try container.decodeIfPresent(ObjectId.self, forKey: ._id) ?? ObjectId()
         self.title = try container.decode(String.self, forKey: .title)
-        self.location = try container.decode(String.self, forKey: .title)
+        self.location = try container.decode(String.self, forKey: .location)
         self.distance = try container.decode(Double.self, forKey: .distance)
         self.hikingTime = try container.decode(Double.self, forKey: .hikingTime)
         self.elevationGain = try container.decode(Int.self, forKey: .elevationGain)
