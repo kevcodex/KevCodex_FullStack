@@ -35,9 +35,9 @@
 
     <!-- Picture -->
     <div class="container-fluid bg-1 text-center">
-        <img src="/img/profile.jpg" class="rounded-circle mb-5" style="display:inline" alt="Profile" width="350" height="350">
-        <h1 style="font-size: 50px">Kevin Chen</h1>
-        <h3><div id="changeText">Programmer</div></h3>
+        <img src="/img/profile.jpg" class="rounded-circle mb-4" style="display:inline" alt="Profile" width="350" height="350">
+        <h1 class="display-3">Kevin Chen</h1>
+        <h2><div class="font-italic" id="changeText">Software Developer</div></h2>
     </div>
 
     <!-- Brief Desciption -->
@@ -47,7 +47,7 @@
         
             <header class="text-center mb-3">
             
-                <h1>Origin Story</h1>
+                <h1 class="display-4 font-italic">Origin Story</h1>
             
             </header>
             
@@ -55,7 +55,7 @@
             
                 <div class="col-sm-8 offset-sm-2">
                             
-                    <p class="text-center"> Hi there! My journey as a software developer is unique and a bit unconventional. I graduated from UC San Diego with a Nanoengineering degree. Nanoengineering was the next frontier of engineering, and it was exciting doing research, but I felt like Nanotechnology is still in its research phase. My first job was working as a Mechanical Engineering for a medical device startup company. In my free time, I would dabble in programming by creating an interactive iOS game. I continued on my programming adventure making more iOS apps and expanding my coding skills to backend development, dev ops, and machine learning. While I have learned many skills over the years, there is still much to learn, and I intend putting these skills to good use. <br><br> <strong>Programming is not just a job; it's a passion.</strong></p>
+                    <p class="text-center lead"> Hi there! My journey as a software developer is unique and a bit unconventional. I graduated from UC San Diego with a Nanoengineering degree. Nanoengineering was the next frontier of engineering, and it was exciting doing research, but I felt like Nanotechnology is still in its research phase. My first job was working as a Mechanical Engineering for a medical device startup company. In my free time, I would dabble in programming by creating an interactive iOS game. I continued on my programming adventure making more iOS apps and expanding my coding skills to backend development, dev ops, and machine learning. While I have learned many skills over the years, there is still much to learn, and I intend putting these skills to good use. <br><br> <strong>Programming is not just a job; it's a passion.</strong></p>
                 
                 </div>
                 
@@ -66,7 +66,7 @@
     <!-- Skill Set -->
     <section id="skills">
         <div class="text-center container-fluid bg-3">
-            <h1 class="mb-5 text-white">Skill Sets</h1>
+            <h1 class="mb-5 text-white display-4 font-italic">Skill Sets</h1>
             <div class="card-deck text-center">
                 <div class="card mb-4 box-shadow text-white" style="background-color: #0099ff;">
                     <div class="card-header">
@@ -121,8 +121,8 @@
     
     <!-- Contact Me -->
     <div class="container-fluid bg-4 text-center">
-        <h1 class="mb-3">Contact Information</h1>
-        <p>Feel free to contact via email at <a href="mailto:kevchen2@gmail.com">kevchen2@gmail.com</a>. I'm always happy to chat about anything!</p>
+        <h1 class="mb-3 display-4 font-italic">Contact Information</h1>
+        <p class="lead">Feel free to contact via email at <a href="mailto:kevchen2@gmail.com">kevchen2@gmail.com</a>. I'm always happy to chat about anything!</p>
     </div>
 
     <footer class="pb-4 pt-4 bg-5 text-center">

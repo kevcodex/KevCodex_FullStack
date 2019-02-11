@@ -1,56 +1,55 @@
 #set("content") {
-    <div class="container mt-4">
         <main>
-            <div class="jumbotron p-3 p-md-5 rounded">
+            <div class="jumbotron p-3 p-md-5 rounded text-center">
                 <div class="col-md-12 px-0">
                     <h1 class="display-4 font-italic">Hiking San Diego County</h1>
                     <p class="lead my-3">I enjoy hiking because I love being outdoors. San Diego offers a diverse array of hiking trails such as coastal hikes, moonscape deserts, rocky mountains—there’s a hike for every season! My girlfriend and I hike at least once a month, if not more. Here are a few hikes we recommend!</p>               
                 </div>
             </div>
-            <section>
+            <div class="container mt-4">
+                <section>
+                    <!--Grid row-->
+                    <div class="row mb-5">
 
-                <!--Grid row-->
-                <div class="row mb-5">
+                        #if(hikes) {
+                            #for(hike in hikes) {
 
-                    #if(hikes) {
-                        #for(hike in hikes) {
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
 
-                        <!--Grid column-->
-                        <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
-
-                            <!-- fix mobile bug where clicking will immediately open link? -->
-                            
-                            <div class="view overlay mb-4">
-                                <a href= "hiking/#(hike._id)" class="">
-                                    <img src="#(hike.imageURLString)" class="img-fluid"  alt="Image">
-                                    <div class="mask flex-center rgba-blue-light text-center">
-                                        <div class="container">
-                                            <div class="row mt-3">
-                                                <div class="col-md-12">
-                                                    <h2 class="text-center white-text">#(hike.title)</h2>
-                                                    <!-- <p class="white-text">#(hike.location)</p> -->
+                                <!-- fix mobile bug where clicking will immediately open link? -->
+                                
+                                <div class="view overlay mb-4">
+                                    <a href= "hiking/#(hike._id)" class="">
+                                        <img src="#(hike.imageURLString)" class="img-fluid"  alt="Image">
+                                        <div class="mask flex-center rgba-blue-light text-center">
+                                            <div class="container">
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12">
+                                                        <h2 class="text-center white-text">#(hike.title)</h2>
+                                                        <!-- <p class="white-text">#(hike.location)</p> -->
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <div class="col-md-12">
-                                                    <button class="btn btn-sm btn-outline-white">Explore</button>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-sm btn-outline-white">Explore</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <!--Grid column-->
+                            <!--Grid column-->
 
+                            }
+                        } else {
+                            <h2>There aren’t any hikes data yet!</h2>
                         }
-                    } else {
-                        <h2>There aren’t any hikes data yet!</h2>
-                    }
-                </div>
-            </section>
+                    </div>
+                </section>
+            </div>
         </main>
-    </div>
 } 
 
 #embed("base")
