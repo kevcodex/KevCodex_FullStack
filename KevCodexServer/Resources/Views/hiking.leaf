@@ -2,9 +2,9 @@
     <div class="container mt-4">
         <main>
             <div class="jumbotron p-3 p-md-5 rounded">
-                <div class="col-md-6 px-0">
-                    <h1 class="display-4 font-italic">Hikes I have done</h1>
-                    <p class="lead my-3">Hi there! My girfriend and I enjoy hiking and will usually go out about once a month. Here's a list of some of the hikes we have done. Before any hike, make sure you are adequetly prepared based on weather, fitness, mood, etc.</p>               
+                <div class="col-md-12 px-0">
+                    <h1 class="display-4 font-italic">Hiking San Diego County</h1>
+                    <p class="lead my-3">I enjoy hiking because I love being outdoors. San Diego offers a diverse array of hiking trails such as coastal hikes, moonscape deserts, rocky mountains—there’s a hike for every season! My girlfriend and I hike at least once a month, if not more. Here are a couple of hikes we recommend!</p>               
                 </div>
             </div>
             <section>
@@ -25,15 +25,15 @@
                                     <img src="#(hike.imageURLString)" class="img-fluid"  alt="Image">
                                     <div class="mask flex-center rgba-blue-light text-center">
                                         <div class="container">
-                                            <div class="row mt-3">
+                                            <div class="row mt-4">
                                                 <div class="col-md-12">
                                                     <h2 class="text-center white-text">#(hike.title)</h2>
                                                     <p class="white-text">#(hike.location)</p>
                                                 </div>
                                             </div>
-                                            <div class="row mt-3">
+                                            <div class="row mt-4">
                                                 <div class="col-md-12">
-                                                    <button class="btn btn-sm btn-outline-white">View More Info</button>
+                                                    <button class="btn btn-sm btn-outline-white">Explore</button>
                                                 </div>
                                             </div>
                                         </div>
