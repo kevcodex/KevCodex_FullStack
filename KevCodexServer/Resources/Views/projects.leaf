@@ -17,7 +17,7 @@
                                 <div class="card mb-4 box-shadow">
                                     <img class="card-img-top" 
                                         alt="Project" src="#(project.imageURLString)"
-                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;" onerror="this.src='http://placehold.it/500x500';">
+                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;" onerror="this.src='https://placehold.it/500x500';">
                                     <div class="card-body">
                                         <h3 class="card-title">#(project.title)</h3>
                                         <p class="card-text">#(project.description)</p>
