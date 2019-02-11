@@ -1,4 +1,4 @@
-var text = ["Programmer", "Hiker", "Soccer Player", "Gamer", "Runner", "Entrepreneur", "Kevin Chen"];
+var text = ["Software Developer", "Soccer Player", "Avid Hiker", "Casual Gamer", "Adventure Seeker", "Entrepreneur"];
 var counter = 0;
 var elem = document.getElementById("changeText");
 var inst = setInterval(change, 1000);

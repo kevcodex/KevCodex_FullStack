@@ -1,12 +1,12 @@
 #set("content") {
     <main role="main">
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Projects and Works</h1>
-                <p class="lead text-muted">Here is a list of various apps and projects I have created. If the source code is available feel free to use it. If you have any questions about a project I'm always happy to chat!</p>
+        <div class="jumbotron p-3 p-md-5 rounded text-center">
+            <div class="col-md-12 px-0">
+                <h1 class="display-4 font-italic">Projects</h1>
+                <p class="lead my-3">Here is a list of various apps and projects I have created or helped develop. Feel free to use the source code if it's available. If you have any questions about a project, I'm always happy to chat!</p>               
             </div>
-        </section>
+        </div>
 
         <div class="album py-5 bg-light">
             <div class="container">
@@ -15,14 +15,14 @@
                         #for(project in projects) {
                             <div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top"
+                                    <img class="card-img-top" 
                                         alt="Project" src="#(project.imageURLString)"
-                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
+                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;" onerror="this.src='http://placehold.it/500x500';">
                                     <div class="card-body">
                                         <h3 class="card-title">#(project.title)</h3>
                                         <p class="card-text">#(project.description)</p>
                                         <div class="d-flex align-items-center">
-                                            <a href="#(project.callToActionLink)" class="btn btn-sm btn-outline-primary">View Project</a>
+                                            <a href="#(project.callToActionLink)" rel="noopener" target="_blank" class="btn btn-sm btn-outline-primary">View Project</a>
                                         </div>
                                     </div>
                                 </div>
