@@ -1,5 +1,5 @@
 //
-//  ActivityViewPresentor.swift
+//  ActivityIndicatorPresenter.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Used for view controllers that need to present an activity indicator
-protocol ActivityIndicatorPresentor {
+protocol ActivityIndicatorPresenter {
     
     var activityIndicator: ActivityProgressHud { get }
     
@@ -18,7 +18,7 @@ protocol ActivityIndicatorPresentor {
     func hideActivityIndicator()
 }
 
-extension ActivityIndicatorPresentor where Self: UIViewController {
+extension ActivityIndicatorPresenter where Self: UIViewController {
     
     func showActivityIndicator(title: String) {
         

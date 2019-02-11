@@ -35,18 +35,17 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
 }
 
 extension AppCoordinator: LoginViewControllerDelegate {
-    func loginViewController(_ loginViewController: LoginViewController, didLogin username: String) {
+    func loginViewController(_ loginViewController: LoginViewController, didLogin user: User) {
         
         guard let navigationController = rootViewController else {
             return
         }
         
-        let detailController = ProjectCoordinator(with: navigationController)
+        let detailController = ProjectCoordinator(with: navigationController, user: user)
         
         addChild(coordinator: detailController)
     }
 }
-
 
 extension AppCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {

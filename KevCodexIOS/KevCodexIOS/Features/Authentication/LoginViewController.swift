@@ -9,28 +9,18 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: class {
-    func loginViewController(_ loginViewController: LoginViewController, didLogin username: String)
+    func loginViewController(_ loginViewController: LoginViewController, didLogin user: User)
 }
 
 final class LoginViewController: UIViewController {
     
-    struct Credentials {
-        var username: String
-        var password: String
-        
-        func isValid() -> Bool {
-            guard !username.isEmpty, !password.isEmpty else {
-                return false
-            }
-            
-            return true
-        }
-    }
-    
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
     weak var delegate: LoginViewControllerDelegate?
+    
+    // Activity conformance
+    var activityIndicator = ActivityProgressHud()
+    
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     private var credentials = Credentials(username: "", password: "")
     
@@ -44,11 +34,39 @@ final class LoginViewController: UIViewController {
 // MARK: - Actions
 extension LoginViewController {
     @IBAction func didTapLoginButton(_ sender: UIButton) {
+        
+        view.endEditing(true)
+        
         guard credentials.isValid() else {
             return
         }
         
+        showActivityIndicator(title: "Loading")
         
+        AuthenticationWorker.login(with: credentials) { [weak self] (result) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let user):
+                strongSelf.delegate?.loginViewController(strongSelf, didLogin: user)
+            case .failure(let error):
+                print(error)
+            }
+            
+            strongSelf.hideActivityIndicator()
+        }
+    }
+}
+
+// MARK: - Touches
+extension LoginViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        view.endEditing(true)
     }
 }
 
@@ -77,6 +95,9 @@ extension LoginViewController: UITextFieldDelegate {
         
         return true
     }
+}
+
+extension LoginViewController: ActivityIndicatorPresenter {
 }
 
 extension LoginViewController: StoryboardInitializable {

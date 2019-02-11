@@ -154,7 +154,7 @@ fileprivate extension ProjectListViewController {
 }
 
 // MARK: - Activity Presentor Protocol
-extension ProjectListViewController: ActivityIndicatorPresentor {
+extension ProjectListViewController: ActivityIndicatorPresenter {
 }
 
 extension ProjectListViewController: StoryboardInitializable {

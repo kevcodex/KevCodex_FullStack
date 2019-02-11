@@ -13,8 +13,11 @@ final class ProjectCoordinator: Coordinator {
     var rootViewController: UINavigationController?
     var detailTransitioner: ProjectDetailTransitioner?
     
-    init(with navigationController: UINavigationController) {
+    private let user: User
+    
+    init(with navigationController: UINavigationController, user: User) {
         self.rootViewController = navigationController
+        self.user = user
         
         // Launch initial vc
         let projectListVC = ProjectListViewController.makeFromStoryboard()
