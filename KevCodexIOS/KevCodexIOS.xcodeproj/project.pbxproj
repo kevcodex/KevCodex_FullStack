@@ -17,8 +17,10 @@
 		0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */; };
 		0A0114C8220F546A00F0581B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C7220F546A00F0581B /* Coordinator.swift */; };
 		0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */; };
+		0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
+		0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
 		4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */; };
@@ -58,8 +60,10 @@
 		0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCoordinator.swift; sourceTree = "<group>"; };
 		0A0114C7220F546A00F0581B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorWithChildren.swift; sourceTree = "<group>"; };
+		0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NonEmpty.swift"; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Project.storyboard; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */,
+				0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				4E884ED11EFC7F4D00A19C5F /* UIImage+Extensions.swift */,
+				0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0114C4220F495600F0581B /* ProjectDetailTransitioner.swift in Sources */,
+				0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */,
 				0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */,
 				0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */,
 				4E884EE71EFC7F4D00A19C5F /* ActivityViewPresentor.swift in Sources */,
@@ -510,6 +517,7 @@
 				4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */,
 				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
+				0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */,
 				0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */,
 				4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */,
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,

@@ -18,24 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uo-d0-AIo">
-                                <rect key="frame" x="30" y="265" width="315" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="x4b-UK-9fW">
+                                <rect key="frame" x="40" y="208.5" width="295" height="83"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uo-d0-AIo">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="next" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bek-41-O8e">
+                                        <rect key="frame" x="0.0" y="53" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5I-Wd-UtP">
+                                <rect key="frame" x="168.5" y="351.5" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLoginButton:" destination="is0-j8-VGx" eventType="touchUpInside" id="M8L-Uf-rLl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2uo-d0-AIo" firstAttribute="leading" secondItem="mxm-DR-0I5" secondAttribute="leading" constant="30" id="OX5-U3-zYX"/>
-                            <constraint firstItem="2uo-d0-AIo" firstAttribute="top" secondItem="mxm-DR-0I5" secondAttribute="top" constant="201" id="QfH-Fs-ruT"/>
-                            <constraint firstItem="mxm-DR-0I5" firstAttribute="trailing" secondItem="2uo-d0-AIo" secondAttribute="trailing" constant="30" id="Siw-nf-zzA"/>
+                            <constraint firstItem="w5I-Wd-UtP" firstAttribute="centerX" secondItem="JTZ-fg-npW" secondAttribute="centerX" id="0b2-T4-xe3"/>
+                            <constraint firstItem="x4b-UK-9fW" firstAttribute="centerX" secondItem="JTZ-fg-npW" secondAttribute="centerX" id="2m7-6U-6hg"/>
+                            <constraint firstItem="mxm-DR-0I5" firstAttribute="trailing" secondItem="x4b-UK-9fW" secondAttribute="trailing" constant="40" id="335-UX-s4b"/>
+                            <constraint firstItem="x4b-UK-9fW" firstAttribute="centerY" secondItem="JTZ-fg-npW" secondAttribute="centerY" multiplier="0.75" id="3Rq-K0-vsT"/>
+                            <constraint firstItem="w5I-Wd-UtP" firstAttribute="top" secondItem="x4b-UK-9fW" secondAttribute="bottom" constant="60" id="QEt-io-aWa"/>
+                            <constraint firstItem="x4b-UK-9fW" firstAttribute="leading" secondItem="mxm-DR-0I5" secondAttribute="leading" constant="40" id="gxO-3K-duX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mxm-DR-0I5"/>
                     </view>
                     <navigationItem key="navigationItem" id="VaC-zF-sAP"/>
                     <connections>
-                        <outlet property="usernameTextField" destination="2uo-d0-AIo" id="0rX-ba-fvh"/>
+                        <outlet property="passwordTextField" destination="bek-41-O8e" id="q0u-D6-pyJ"/>
+                        <outlet property="usernameTextField" destination="2uo-d0-AIo" id="3L3-0V-Ho3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9z-Nq-hRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
