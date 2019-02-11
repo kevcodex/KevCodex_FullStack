@@ -21,3 +21,24 @@ enum Result<T, Error: Swift.Error> {
         self = .failure(error)
     }
 }
+
+extension Result {
+    func unbox() throws -> T {
+        switch self {
+        case .success(let success):
+            return success
+        case .failure(let failure):
+            throw failure
+        }
+    }
+}
+
+extension Result where T == Void {
+    init() {
+        self = .success(())
+    }
+    
+    static var success: Result {
+        return .success(())
+    }
+}

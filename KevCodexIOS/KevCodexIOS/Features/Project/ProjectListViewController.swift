@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  ProjectListViewController.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/19/17.
@@ -9,8 +9,12 @@
 import UIKit
 import MiniNe
 
+protocol ProjectListViewControllerDelegate: class {
+    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectItemAt indexPath: IndexPath, in collectionView: UICollectionView)
+}
+
 // Shows a collection view of the objects recieved
-class ListViewController: UIViewController {
+final class ProjectListViewController: UIViewController {
     
     let client = MiniNeClient()
     
@@ -20,12 +24,9 @@ class ListViewController: UIViewController {
     
     var activityIndicator = ActivityProgressHud()
     
-    fileprivate var cellFrame: CGRect!
+    weak var delegate: ProjectListViewControllerDelegate?
     
-    fileprivate let customTransition = CustomTransitionController()
-    fileprivate let customDismissTransition = CustomDismissController()
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +53,14 @@ class ListViewController: UIViewController {
                     print(error)
                 }
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.sync {
                     strongSelf.collectionView.reloadData()
                     strongSelf.hideActivityIndicator()
                 }
                 
             case let .failure(error):
                 print(error)
-                DispatchQueue.main.async {
+                DispatchQueue.main.sync {
                     strongSelf.collectionView.reloadData()
                     strongSelf.hideActivityIndicator()
                 }
@@ -69,13 +70,13 @@ class ListViewController: UIViewController {
 }
 
 // MARK: - Collection View datasource
-extension ListViewController: UICollectionViewDataSource {
+extension ProjectListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as! FeedCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectFeedCell", for: indexPath) as! ProjectFeedCell
         
         let result = results[indexPath.row]
         
@@ -106,15 +107,13 @@ extension ListViewController: UICollectionViewDataSource {
     
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let sender = collectionView.cellForItem(at: indexPath)
-        
-        performSegue(withIdentifier: "ShowDetails", sender: sender)
+        delegate?.projectListViewController(self, didSelectItemAt: indexPath, in: collectionView)
     }
 }
 
 // MARK: - Collection View Delegate
 
-extension ListViewController: UICollectionViewDelegateFlowLayout {
+extension ProjectListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         
@@ -132,30 +131,8 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Segue
-
-extension ListViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let cell = sender as? FeedCell,
-            let indexPath = collectionView.indexPath(for: cell),
-            let detailsViewController = segue.destination as? DetailsViewController
-            
-            else {
-                return
-        }
-        
-        let theAttributes: UICollectionViewLayoutAttributes! = collectionView.layoutAttributesForItem(at: indexPath)
-        cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
-        
-        detailsViewController.transitioningDelegate = self
-        detailsViewController.result = cell.project
-        
-        detailsViewController.image = cell.imageView.image
-    }
-}
-
 // MARK: - Transition View
-extension ListViewController {
+extension ProjectListViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -163,22 +140,8 @@ extension ListViewController {
     }
 }
 
-// MARK: - Transition Delegate
-extension ListViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customTransition.originFrame = cellFrame
-        return customTransition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customDismissTransition.originFrame = dismissed.view.frame
-        return customDismissTransition
-    }
-}
-
 // MARK: - Private Helpers
-fileprivate extension ListViewController {
+fileprivate extension ProjectListViewController {
     func fadeImageView(_ imageView: UIImageView, to newImage: UIImage, with duration: TimeInterval) {
         UIView.transition(with: imageView,
                           duration: duration,
@@ -191,5 +154,39 @@ fileprivate extension ListViewController {
 }
 
 // MARK: - Activity Presentor Protocol
-extension ListViewController: ActivityIndicatorPresentor {
+extension ProjectListViewController: ActivityIndicatorPresenter {
 }
+
+extension ProjectListViewController: StoryboardInitializable {
+    static var storyboardName: String {
+        return "Project"
+    }
+}
+
+
+
+
+// MARK: - Segue
+
+//extension ProjectListViewController {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let cell = sender as? ProjectFeedCell,
+//            let indexPath = collectionView.indexPath(for: cell),
+//            let detailsViewController = segue.destination as? ProjectDetailsViewController
+//
+//            else {
+//                return
+//        }
+//
+//        guard let theAttributes = collectionView.layoutAttributesForItem(at: indexPath) else {
+//            return
+//        }
+//
+//        cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
+//
+//        detailsViewController.transitioningDelegate = self
+//        detailsViewController.result = cell.project
+//
+//        detailsViewController.image = cell.imageView.image
+//    }
+//}

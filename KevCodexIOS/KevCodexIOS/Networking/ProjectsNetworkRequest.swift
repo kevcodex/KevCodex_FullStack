@@ -12,7 +12,11 @@ import MiniNe
 struct ProjectsNetworkRequest: NetworkRequest {
     
     var baseURL: URL? {
-        return URL(string: "http://localhost:8080")
+        guard let baseURLString = App.APIBaseURL else {
+            return nil
+        }
+        
+        return URL(string: baseURLString)
     }
     
     var path: String

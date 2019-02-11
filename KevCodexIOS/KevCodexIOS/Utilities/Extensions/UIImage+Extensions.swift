@@ -19,10 +19,12 @@ extension UIImage {
      - returns: An image with a gradient
      
      */
-    func createGradient(with colors: [CGColor], at locations: [CGFloat]) -> UIImage {
+    func createGradient(with colors: [CGColor], at locations: [CGFloat]) -> UIImage? {
         
         UIGraphicsBeginImageContext(size)
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
         
         draw(at: CGPoint(x: 0, y: 0))
         
@@ -30,17 +32,21 @@ extension UIImage {
         
         let colors = colors as CFArray
         
-        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
+        guard let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations) else {
+            return nil
+        }
         
         let startPoint = CGPoint.zero
         let endPoint = CGPoint(x: 0, y: size.height)
         
-        context!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: UInt32(0)))
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: UInt32(0)))
         
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            return nil
+        }
         
         UIGraphicsEndImageContext()
         
-        return image!
+        return image
     }
 }

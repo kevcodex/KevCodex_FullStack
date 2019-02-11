@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  ProjectDetailsViewController.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 // shows details of the feed
-class DetailsViewController: UIViewController {
+final class ProjectDetailsViewController: UIViewController {
     
     var result: Project!
     var image: UIImage?
@@ -30,8 +30,8 @@ class DetailsViewController: UIViewController {
         let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
         let locations: [CGFloat] = [0.0, 1.0]
         
-        if let cachedImage = image {
-            let gradientImage = cachedImage.createGradient(with: colors, at: locations)
+        if let cachedImage = image,
+            let gradientImage = cachedImage.createGradient(with: colors, at: locations) {
             
             imageView.image = gradientImage
         } else {
@@ -51,7 +51,7 @@ class DetailsViewController: UIViewController {
 }
 
 // MARK: - Actions
-extension DetailsViewController {
+extension ProjectDetailsViewController {
     @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
         
         if let image = image {
@@ -63,5 +63,11 @@ extension DetailsViewController {
     @IBAction func backTapped(_ sender: UIBarButtonItem) {
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProjectDetailsViewController: StoryboardInitializable {
+    static var storyboardName: String {
+        return "Project"
     }
 }

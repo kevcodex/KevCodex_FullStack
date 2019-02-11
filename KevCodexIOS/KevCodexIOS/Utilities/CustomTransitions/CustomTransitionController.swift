@@ -1,5 +1,5 @@
 //
-//  CustomDissmissController.swift
+//  CustomTransitionController.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-// animated a faed effec
-class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning {
+// for animating the "slide" effect
+class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitioning {
     
     var originFrame = CGRect.zero
     
@@ -26,29 +26,37 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning {
         
         let containerView = transitionContext.containerView
         
-        let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+        guard let snapshot = toVC.view.snapshotView(afterScreenUpdates: true) else {
+            return
+        }
         
-        snapshot?.layer.masksToBounds = true
+        snapshot.frame.origin = originFrame.origin
+        snapshot.layer.masksToBounds = true
         
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot!)
-        toVC.view.alpha = 0.0
-        
-        // fixes if user orientents listview did not re-orientate
-        toVC.view.frame = originFrame
+        containerView.addSubview(snapshot)
+        toVC.view.isHidden = true
         
         let duration = transitionDuration(using: transitionContext)
         
-        UIView.animate(withDuration: duration, animations: { () -> Void in
+        UIView.animate(withDuration: duration, animations: { 
             
             fromVC.view.alpha = 0.0
-            toVC.view.alpha = 1.0
             
         }, completion: { _ in
             
-            snapshot?.removeFromSuperview()
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            
+            UIView.animate(withDuration: duration, animations: {
+                
+                snapshot.frame = toVC.view.frame
+                
+            }, completion: { _ in
+                
+                toVC.view.isHidden = false
+                toVC.view.alpha = 1.0
+                snapshot.removeFromSuperview()
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                
+            })
         })
     }
 }
