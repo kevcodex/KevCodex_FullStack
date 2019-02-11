@@ -15,14 +15,14 @@
                         #for(project in projects) {
                             <div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top"
+                                    <img class="card-img-top" 
                                         alt="Project" src="#(project.imageURLString)"
-                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;">
+                                        data-holder-rendered="true" style="height: 100%; width: 100%; display: block;" onerror="this.src='http://placehold.it/500x500';">
                                     <div class="card-body">
                                         <h3 class="card-title">#(project.title)</h3>
                                         <p class="card-text">#(project.description)</p>
                                         <div class="d-flex align-items-center">
-                                            <a href="#(project.callToActionLink)" class="btn btn-sm btn-outline-primary">View Project</a>
+                                            <a href="#(project.callToActionLink)" rel="noopener" target="_blank" class="btn btn-sm btn-outline-primary">View Project</a>
                                         </div>
                                     </div>
                                 </div>
