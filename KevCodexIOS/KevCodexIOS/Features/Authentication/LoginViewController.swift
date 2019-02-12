@@ -16,9 +16,6 @@ final class LoginViewController: UIViewController {
     
     weak var delegate: LoginViewControllerDelegate?
     
-    // Activity conformance
-    var activityIndicator = ActivityProgressHud()
-    
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     

@@ -17,7 +17,13 @@ protocol Coordinator: class {
 
 extension Coordinator {
     var identifier: String {
-        return String(describing: self)
+        
+        guard let identifier = String(describing: self).components(separatedBy: ".").last else {
+            assertionFailure("Something went wrong!")
+            return ""
+        }
+        
+        return identifier
     }
     
     static var identifier: String {

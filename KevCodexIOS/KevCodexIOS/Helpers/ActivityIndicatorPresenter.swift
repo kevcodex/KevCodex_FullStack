@@ -11,8 +11,6 @@ import UIKit
 /// Used for view controllers that need to present an activity indicator
 protocol ActivityIndicatorPresenter {
     
-    var activityIndicator: ActivityProgressHud { get }
-    
     func showActivityIndicator(title: String)
     
     func hideActivityIndicator()
@@ -22,28 +20,30 @@ extension ActivityIndicatorPresenter where Self: UIViewController {
     
     func showActivityIndicator(title: String) {
         
+        let activityIndicator = ActivityProgressHud()
+        
         // prevents another progress hud from appearing if it already exists
         if self.isActivityIndicatorPresent {
             return
         }
         
-        self.activityIndicator.text = title
-        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 85, height: 85)
-        self.activityIndicator.center = CGPoint(x: self.view.bounds.size.width / 2, y: self.view.bounds.height / 2)
-        self.view.addSubview(self.activityIndicator)
+        activityIndicator.text = title
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 85, height: 85)
+        activityIndicator.center = CGPoint(x: self.view.bounds.size.width / 2, y: self.view.bounds.height / 2)
+        view.addSubview(activityIndicator)
         
     }
     
     func hideActivityIndicator() {
-        
-        
-        self.activityIndicator.removeFromSuperview()
+        guard let activityIndicator = view.subviews.first(where: { $0 is ActivityProgressHud }) else {
+            return
+        }
+        activityIndicator.removeFromSuperview()
     }
     
     /// Checks to see if a activity indicator is already presented in the view
     private var isActivityIndicatorPresent: Bool {
         
-        let allActivityIndicators = view.subviews.compactMap { $0 as? ActivityProgressHud }
-        return (allActivityIndicators.count >= 1 ? true : false)
+        return view.subviews.contains { $0 is ActivityProgressHud }
     }
 }
