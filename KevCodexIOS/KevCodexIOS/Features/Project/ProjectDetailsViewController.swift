@@ -11,7 +11,7 @@ import UIKit
 // shows details of the feed
 final class ProjectDetailsViewController: UIViewController {
     
-    var result: Project!
+    var project: Project?
     var image: UIImage?
     
     @IBOutlet weak var imageView: UIImageView!
@@ -24,8 +24,8 @@ final class ProjectDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         //    dateLabel.text = result.readableDate
-        titleLabel.text = result.title
-        descriptionLabel.text = result.description
+        titleLabel.text = project?.title
+        descriptionLabel.text = project?.description
         
         let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
         let locations: [CGFloat] = [0.0, 1.0]
@@ -54,10 +54,13 @@ final class ProjectDetailsViewController: UIViewController {
 extension ProjectDetailsViewController {
     @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
         
-        if let image = image {
-            let vc = UIActivityViewController(activityItems: [result.title, image], applicationActivities: [])
-            present(vc, animated: true)
+        guard let project = project,
+            let image = image else {
+                return
         }
+        
+        let vc = UIActivityViewController(activityItems: [project.title, image], applicationActivities: [])
+        present(vc, animated: true)
     }
     
     @IBAction func backTapped(_ sender: UIBarButtonItem) {

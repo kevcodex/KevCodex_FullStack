@@ -11,8 +11,8 @@ import UIKit
 final class ProjectCoordinator: Coordinator {
     
     var rootViewController: UINavigationController?
-    var detailTransitioner: ProjectDetailTransitioner?
     
+    private var detailTransitioner: ProjectDetailTransitioner?
     private let user: User
     
     init(with navigationController: UINavigationController, user: User) {
@@ -42,9 +42,9 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         self.detailTransitioner = transitioner
         
         detailsViewController.transitioningDelegate = transitioner
-        detailsViewController.result = cell.project
-        
+        detailsViewController.project = cell.project
         detailsViewController.image = cell.imageView.image
+        
         rootViewController?.present(detailsViewController, animated: true)
     }
 }

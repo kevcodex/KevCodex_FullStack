@@ -26,5 +26,4 @@ class ProjectFeedCell: UICollectionViewCell {
         descriptionLabel.text = project.description
         titleLabel.text = project.title
     }
-    
 }
