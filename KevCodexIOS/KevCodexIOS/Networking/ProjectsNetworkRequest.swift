@@ -34,4 +34,8 @@ extension ProjectsNetworkRequest {
     static func getAllProjectsRequest() -> ProjectsNetworkRequest {
         return ProjectsNetworkRequest(path: "api/projects", method: .get, parameters: nil, headers: nil, body: nil)
     }
+    
+    static func getImageRequest(imagePath: String) -> ProjectsNetworkRequest {
+        return ProjectsNetworkRequest(path: imagePath, method: .get, parameters: nil, headers: nil, body: nil)
+    }
 }

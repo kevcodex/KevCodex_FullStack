@@ -50,7 +50,7 @@ extension AppCoordinator: LoginViewControllerDelegate {
 extension AppCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Look into better way of removing child Coordinator
-        if let _ = viewController as? LoginViewController {
+        if viewController is LoginViewController {
             removeChild(with: ProjectCoordinator.identifier)
         }
     }

@@ -20,7 +20,7 @@ final class ProjectListViewController: UIViewController {
     
     let imageCache = NSCache<NSString, UIImage>()
     
-    var results: [Project] = []
+    var projects: [Project] = []
     
     var activityIndicator = ActivityProgressHud()
     
@@ -48,7 +48,7 @@ final class ProjectListViewController: UIViewController {
                 
                 do {
                     let projects = try JSONDecoder().decode([Project].self, from: response.data)
-                    strongSelf.results = projects
+                    strongSelf.projects = projects
                 } catch {
                     print(error)
                 }
@@ -72,35 +72,42 @@ final class ProjectListViewController: UIViewController {
 // MARK: - Collection View datasource
 extension ProjectListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return results.count
+        return projects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectFeedCell", for: indexPath) as! ProjectFeedCell
         
-        let result = results[indexPath.row]
+        let project = projects[indexPath.row]
         
-        cell.updateCell(with: result)
+        cell.updateCell(with: project)
         cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
         
-//        if let imagePath = result.imagePath {
-//
-//            if let cachedImage = self.imageCache.object(forKey: imagePath as NSString) {
-//                self.fadeImageView(cell.imageView, to: cachedImage, with: 0.5)
-//            } else {
-//                ImageLoader.loadImage(from: imagePath) { (image, error) in
-//                    guard let image = image, error == .noError else {
-//                        cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
-//                        return
-//                    }
-//
-//                    self.imageCache.setObject(image, forKey: imagePath as NSString)
-//                    self.fadeImageView(cell.imageView, to: image, with: 0.5)
-//                }
-//            }
-//        } else {
-        cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
-//        }
+        // Make image url optional in server
+        guard let imagePath = project.imageURLString.nonEmpty else {
+            cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
+            return cell
+        }
+        
+        if let cachedImage = self.imageCache.object(forKey: imagePath as NSString) {
+            self.fadeImageView(cell.imageView, to: cachedImage, with: 0.5)
+        } else {
+            ImageLoader.loadImage(from: imagePath) { [weak self] result in
+                
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                switch result {
+                case .success(let image):
+                    strongSelf.imageCache.setObject(image, forKey: imagePath as NSString)
+                    strongSelf.fadeImageView(cell.imageView, to: image, with: 0.5)
+                case .failure(let error):
+                    print(error)
+                    cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
+                }
+            }
+        }
         
         return cell
     }
