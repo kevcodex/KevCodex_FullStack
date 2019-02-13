@@ -23,6 +23,7 @@
 		0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F012221340A200386DE8 /* MainCoordinator.swift */; };
 		0A78F01522134AC100386DE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A78F01422134AC100386DE8 /* Main.storyboard */; };
 		0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F017221367EC00386DE8 /* MainTabBarController.swift */; };
+		0A78F01A22139F0D00386DE8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01922139F0D00386DE8 /* AccessToken.swift */; };
 		0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */; };
 		0ACA680F2212201F00CF6BA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680E2212201F00CF6BA1 /* User.swift */; };
 		0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */; };
@@ -74,6 +75,7 @@
 		0A78F012221340A200386DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		0A78F01422134AC100386DE8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0A78F017221367EC00386DE8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0A78F01922139F0D00386DE8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NonEmpty.swift"; sourceTree = "<group>"; };
 		0ACA680E2212201F00CF6BA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+PerformOnMain.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				0A0114BD220E514B00F0581B /* LoginViewController.swift */,
 				0ACA6812221227BD00CF6BA1 /* AuthenticationWorker.swift */,
 				0ACA680E2212201F00CF6BA1 /* User.swift */,
+				0A78F01922139F0D00386DE8 /* AccessToken.swift */,
 				0ACA6814221231D400CF6BA1 /* Credentials.swift */,
 			);
 			path = Authentication;
@@ -569,6 +572,7 @@
 				0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */,
 				0ACA6813221227BD00CF6BA1 /* AuthenticationWorker.swift in Sources */,
 				0A0114C8220F546A00F0581B /* Coordinator.swift in Sources */,
+				0A78F01A22139F0D00386DE8 /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,11 +30,18 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
     }
     
     func start() {
-        // Launch initial vc
-        let viewController = LoginViewController.makeFromStoryboard()
-        viewController.delegate = self
-        
-        rootViewController.setViewControllers([viewController], animated: true)
+        if let user = User.retrieveUser() {
+            let mainCoordinator = MainCoordinator(user: user)
+            
+            addChild(coordinator: mainCoordinator)
+            
+            rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: false)
+        } else {
+            let viewController = LoginViewController.makeFromStoryboard()
+            viewController.delegate = self
+            
+            rootViewController.setViewControllers([viewController], animated: true)
+        }
     }
 }
 
@@ -45,6 +52,8 @@ extension AppCoordinator: LoginViewControllerDelegate {
         
         addChild(coordinator: mainCoordinator)
         
+        User.cache(user: user)
+        
         rootViewController.present(mainCoordinator.rootViewController, animated: true)
     }
 }
@@ -53,7 +62,7 @@ extension AppCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Look into better way of removing child Coordinator
         if viewController is LoginViewController {
-            removeChild(with: ProjectCoordinator.identifier)
+            childCoordinators.removeAll()
         }
     }
 }

@@ -52,7 +52,7 @@ final class ProjectDetailsViewController: UIViewController {
 
 // MARK: - Actions
 extension ProjectDetailsViewController {
-    @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
+    @IBAction func shareTapped(_ sender: UIBarButtonItem) {
         
         guard let project = project,
             let image = image else {
@@ -63,9 +63,18 @@ extension ProjectDetailsViewController {
         present(vc, animated: true)
     }
     
+    
     @IBAction func backTapped(_ sender: UIBarButtonItem) {
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        // TODO: Do Stuff
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        // TODO: Do Stuff
     }
 }
 

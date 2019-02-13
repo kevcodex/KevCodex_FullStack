@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MiniNe
 
 protocol ProjectListViewControllerDelegate: class {
     func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectItemAt indexPath: IndexPath, in collectionView: UICollectionView)
@@ -15,8 +14,6 @@ protocol ProjectListViewControllerDelegate: class {
 
 // Shows a collection view of the objects recieved
 final class ProjectListViewController: UIViewController {
-    
-    let client = MiniNeClient()
     
     let imageCache = NSCache<NSString, UIImage>()
     
@@ -141,8 +138,7 @@ fileprivate extension ProjectListViewController {
                           options: .transitionCrossDissolve,
                           animations: {
                             imageView.image = newImage
-        },
-                          completion: nil)
+        })
     }
 }
 
