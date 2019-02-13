@@ -146,7 +146,7 @@ fileprivate extension ProjectListViewController {
 extension ProjectListViewController: ActivityIndicatorPresenter {
 }
 
-extension ProjectListViewController: StoryboardInitializable {
+extension ProjectListViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
         return "Project"
     }

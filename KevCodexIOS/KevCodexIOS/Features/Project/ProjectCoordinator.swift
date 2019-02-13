@@ -15,14 +15,15 @@ final class ProjectCoordinator: Coordinator {
     private var detailTransitioner: ProjectDetailTransitioner?
     private let user: User
     
-    init(with navigationController: UINavigationController, user: User) {
-        self.rootViewController = navigationController
+    init(user: User) {
         self.user = user
         
         // Launch initial vc
-        let projectListVC = ProjectListViewController.makeFromStoryboard()
+        let (nav, projectListVC) = ProjectListViewController.makeFromStoryboardWithNavigation()
+        
+        self.rootViewController = nav
+        
         projectListVC.delegate = self
-        navigationController.pushViewController(projectListVC, animated: true)
     }
 }
 

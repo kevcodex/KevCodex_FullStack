@@ -23,8 +23,7 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         
         super.init()
         
-        let nav = UINavigationController()
-        let project = ProjectCoordinator(with: nav, user: user)
+        let project = ProjectCoordinator(user: user)
         project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
         
         let test = UIViewController()
