@@ -12,7 +12,7 @@ protocol Coordinator: class {
     
     associatedtype RootViewController: UIViewController
     
-    var rootViewController: RootViewController? { get }
+    var rootViewController: RootViewController { get }
 }
 
 extension Coordinator {

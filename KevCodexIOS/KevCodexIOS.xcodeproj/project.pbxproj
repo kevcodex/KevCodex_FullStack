@@ -20,6 +20,9 @@
 		0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
+		0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F012221340A200386DE8 /* MainCoordinator.swift */; };
+		0A78F01522134AC100386DE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A78F01422134AC100386DE8 /* Main.storyboard */; };
+		0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F017221367EC00386DE8 /* MainTabBarController.swift */; };
 		0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */; };
 		0ACA680F2212201F00CF6BA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680E2212201F00CF6BA1 /* User.swift */; };
 		0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */; };
@@ -68,6 +71,9 @@
 		0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0A78F012221340A200386DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		0A78F01422134AC100386DE8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0A78F017221367EC00386DE8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NonEmpty.swift"; sourceTree = "<group>"; };
 		0ACA680E2212201F00CF6BA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+PerformOnMain.swift"; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		0A0114BF220E60AF00F0581B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0A78F016221367CD00386DE8 /* Main */,
 				4E884ECA1EFC7F4D00A19C5F /* Project */,
 				0A0114BC220E4F9C00F0581B /* Authentication */,
 			);
@@ -213,6 +220,16 @@
 				0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0A78F016221367CD00386DE8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0A78F01422134AC100386DE8 /* Main.storyboard */,
+				0A78F012221340A200386DE8 /* MainCoordinator.swift */,
+				0A78F017221367EC00386DE8 /* MainTabBarController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		0CC3A2172F1A1E45A71A942F /* Frameworks */ = {
@@ -431,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0114B5220E4B2A00F0581B /* Authentication.storyboard in Resources */,
+				0A78F01522134AC100386DE8 /* Main.storyboard in Resources */,
 				4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */,
 				4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */,
 				4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */,
@@ -533,6 +551,7 @@
 				0ACA6815221231D400CF6BA1 /* Credentials.swift in Sources */,
 				4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */,
 				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
+				0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
 				0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */,
 				0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */,
@@ -547,6 +566,7 @@
 				0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */,
 				4E884EE31EFC7F4D00A19C5F /* ProjectDetailsViewController.swift in Sources */,
 				0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */,
+				0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */,
 				0ACA6813221227BD00CF6BA1 /* AuthenticationWorker.swift in Sources */,
 				0A0114C8220F546A00F0581B /* Coordinator.swift in Sources */,
 			);
