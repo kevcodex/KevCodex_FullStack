@@ -9,7 +9,7 @@
 import Foundation
 
 extension Thread {
-    static func performOnMain(_ block: () -> Void) {
+    static func performOnMainSync(_ block: () -> Void) {
         if Thread.isMainThread {
             block()
         } else {

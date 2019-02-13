@@ -9,7 +9,6 @@
 import Foundation
 
 enum ImageLoaderError: Error, Equatable {
-    case noError
     case invalidURL
     case apiFailed(message: String)
 }

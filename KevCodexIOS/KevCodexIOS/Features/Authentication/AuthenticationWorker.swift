@@ -24,7 +24,7 @@ final class AuthenticationWorker {
         
         client.send(request: request) { (result) in
             
-            Thread.performOnMain {
+            Thread.performOnMainSync {
                 switch result {
                 case .success(let response):
                     

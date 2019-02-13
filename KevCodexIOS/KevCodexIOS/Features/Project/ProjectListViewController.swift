@@ -36,35 +36,21 @@ final class ProjectListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let request = ProjectsNetworkRequest.getAllProjectsRequest()
-        client.send(request: request) { [weak self] result in
+        ProjectWorker.getAllProjects { [weak self] (result) in
             
             guard let strongSelf = self else {
                 return
             }
             
             switch result {
-            case let .success(response):
-                
-                do {
-                    let projects = try JSONDecoder().decode([Project].self, from: response.data)
-                    strongSelf.projects = projects
-                } catch {
-                    print(error)
-                }
-                
-                DispatchQueue.main.sync {
-                    strongSelf.collectionView.reloadData()
-                    strongSelf.hideActivityIndicator()
-                }
-                
-            case let .failure(error):
+            case .success(let projects):
+                strongSelf.projects = projects
+            case .failure(let error):
                 print(error)
-                DispatchQueue.main.sync {
-                    strongSelf.collectionView.reloadData()
-                    strongSelf.hideActivityIndicator()
-                }
             }
+            
+            strongSelf.collectionView.reloadData()
+            strongSelf.hideActivityIndicator()
         }
     }
 }
@@ -92,7 +78,7 @@ extension ProjectListViewController: UICollectionViewDataSource {
         if let cachedImage = self.imageCache.object(forKey: imagePath as NSString) {
             self.fadeImageView(cell.imageView, to: cachedImage, with: 0.5)
         } else {
-            ImageLoader.loadImage(from: imagePath) { [weak self] result in
+            ProjectWorker.loadImage(from: imagePath) { [weak self] result in
                 
                 guard let strongSelf = self else {
                     return

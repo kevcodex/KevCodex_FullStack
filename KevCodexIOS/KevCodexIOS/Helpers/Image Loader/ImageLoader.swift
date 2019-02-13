@@ -13,11 +13,10 @@ import MiniNe
 /// Async load images
 final class ImageLoader {
     
-    static func loadImage(from imagePath: String, completion: @escaping (Result<UIImage, ImageLoaderError>) -> Void) {
-                
-        let client = MiniNeClient()
+    static func loadImage<Request>(from request: Request,
+                                   completion: @escaping (Result<UIImage, ImageLoaderError>) -> Void) where Request: NetworkRequest {
         
-        let request = ProjectsNetworkRequest.getImageRequest(imagePath: imagePath)
+        let client = MiniNeClient()
         
         client.send(request: request) { (result) in
             

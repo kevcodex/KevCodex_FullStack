@@ -25,6 +25,7 @@
 		0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */; };
 		0ACA6813221227BD00CF6BA1 /* AuthenticationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA6812221227BD00CF6BA1 /* AuthenticationWorker.swift */; };
 		0ACA6815221231D400CF6BA1 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA6814221231D400CF6BA1 /* Credentials.swift */; };
+		0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
 		4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */; };
@@ -72,6 +73,7 @@
 		0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+PerformOnMain.swift"; sourceTree = "<group>"; };
 		0ACA6812221227BD00CF6BA1 /* AuthenticationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWorker.swift; sourceTree = "<group>"; };
 		0ACA6814221231D400CF6BA1 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWorker.swift; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Project.storyboard; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */,
 				0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */,
+				0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */,
 				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
 				4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */,
 				4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */,
@@ -541,6 +544,7 @@
 				844B14B61FFAAB3200D94C04 /* ImageLoaderError.swift in Sources */,
 				0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */,
 				4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */,
+				0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */,
 				4E884EE31EFC7F4D00A19C5F /* ProjectDetailsViewController.swift in Sources */,
 				0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */,
 				0ACA6813221227BD00CF6BA1 /* AuthenticationWorker.swift in Sources */,
