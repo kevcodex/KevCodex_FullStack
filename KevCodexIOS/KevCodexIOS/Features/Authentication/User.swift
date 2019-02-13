@@ -13,6 +13,14 @@ struct User: Codable {
     let expiration: TimeInterval
     let id: UUID
     let email: String
+    
+    func isValidAccessToken() -> Bool {
+        guard expiration >= Date().timeIntervalSince1970 else {
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension User {
@@ -25,7 +33,7 @@ extension User {
         UserDefaults.standard.set(data, forKey: Key.user)
     }
     
-    static func retrieveUser() -> User? {
+    static func retrieve() -> User? {
         guard let data = UserDefaults.standard.data(forKey: Key.user),
             let user = try? JSONDecoder().decode(User.self, from: data) else {
                 return nil

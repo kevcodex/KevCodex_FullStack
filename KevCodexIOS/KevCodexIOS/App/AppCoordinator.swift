@@ -28,7 +28,9 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
     
     func start() {
         
-        if let user = User.retrieveUser() {
+        if let user = User.retrieve(),
+            user.isValidAccessToken() {
+            
             let mainCoordinator = MainCoordinator(user: user)
             
             rootViewController = mainCoordinator.rootViewController
