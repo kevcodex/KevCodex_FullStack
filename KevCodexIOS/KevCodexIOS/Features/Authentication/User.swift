@@ -17,7 +17,7 @@ struct User: Codable {
 
 extension User {
     
-    static func cache(user: User) {
+    static func store(user: User) {
         guard let data = try? JSONEncoder().encode(user) else {
             return
         }

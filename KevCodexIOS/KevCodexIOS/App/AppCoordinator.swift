@@ -10,7 +10,7 @@ import UIKit
 
 final class AppCoordinator: NSObject, CoordinatorWithChildren {
     let window: UIWindow
-    var rootViewController: UINavigationController
+    var rootViewController: UIViewController
     
     var childCoordinators: [String: Any] = [:]
     
@@ -21,26 +21,27 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
         }
         
         self.window = window
-        rootViewController = UINavigationController()
+        rootViewController = UIViewController()
         
         super.init()
-        
-        rootViewController.delegate = self
-        window.rootViewController = rootViewController
     }
     
     func start() {
+        
         if let user = User.retrieveUser() {
             let mainCoordinator = MainCoordinator(user: user)
             
+            rootViewController = mainCoordinator.rootViewController
+            window.rootViewController = rootViewController
+            
             addChild(coordinator: mainCoordinator)
             
-            rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: false)
         } else {
             let viewController = LoginViewController.makeFromStoryboard()
             viewController.delegate = self
             
-            rootViewController.setViewControllers([viewController], animated: true)
+            rootViewController = viewController
+            window.rootViewController = viewController
         }
     }
 }
@@ -52,17 +53,8 @@ extension AppCoordinator: LoginViewControllerDelegate {
         
         addChild(coordinator: mainCoordinator)
         
-        User.cache(user: user)
+        User.store(user: user)
         
         rootViewController.present(mainCoordinator.rootViewController, animated: true)
-    }
-}
-
-extension AppCoordinator: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        // Look into better way of removing child Coordinator
-        if viewController is LoginViewController {
-            childCoordinators.removeAll()
-        }
     }
 }
