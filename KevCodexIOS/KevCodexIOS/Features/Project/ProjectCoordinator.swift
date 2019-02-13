@@ -36,10 +36,11 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         }
         
         let cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
+        let yOffset = rootViewController.navigationBar.frame.maxY
         
         let detailsViewController = ProjectDetailsViewController.makeFromStoryboard()
         
-        let transitioner = ProjectDetailTransitioner(cellFrame: cellFrame)
+        let transitioner = ProjectDetailTransitioner(cellFrame: cellFrame, yOffset: yOffset)
         self.detailTransitioner = transitioner
         
         detailsViewController.transitioningDelegate = transitioner

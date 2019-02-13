@@ -10,12 +10,14 @@ import UIKit
 
 final class ProjectDetailTransitioner: NSObject {
     let cellFrame: CGRect
+    let yOffset: CGFloat
     
     private let customTransition = CustomTransitionController()
     private let customDismissTransition = CustomDismissController()
     
-    init(cellFrame: CGRect) {
+    init(cellFrame: CGRect, yOffset: CGFloat) {
         self.cellFrame = cellFrame
+        self.yOffset = yOffset
     }
 }
 
@@ -24,6 +26,7 @@ extension ProjectDetailTransitioner: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         customTransition.originFrame = cellFrame
+        customTransition.yOffset = yOffset
         return customTransition
     }
     

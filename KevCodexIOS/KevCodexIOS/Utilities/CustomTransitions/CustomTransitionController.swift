@@ -13,20 +13,27 @@ class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitionin
     
     var originFrame = CGRect.zero
     
+    var yOffset: CGFloat = 0
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+        guard let fromVC = transitionContext.viewController(forKey: .from),
+            let toVC = transitionContext.viewController(forKey: .to) else {
                 return
         }
         
-        let containerView = transitionContext.containerView
+        if let navController = fromVC.navigationController {
+            yOffset = navController.navigationBar.frame.height
+        }
         
-        guard let snapshot = toVC.view.snapshotView(afterScreenUpdates: true) else {
+        let containerView = transitionContext.containerView
+        let snapshotRect = CGRect(origin: CGPoint(x: 0, y: yOffset), size: toVC.view.frame.size)
+        
+        guard let snapshot = toVC.view.resizableSnapshotView(from: snapshotRect, afterScreenUpdates: true, withCapInsets: .zero) else {
             return
         }
         
@@ -46,8 +53,10 @@ class CustomTransitionController: NSObject, UIViewControllerAnimatedTransitionin
         }, completion: { _ in
             
             UIView.animate(withDuration: duration, animations: {
-                
-                snapshot.frame = toVC.view.frame
+                var frame = toVC.view.frame
+                frame = frame.offsetBy(dx: 0, dy: self.yOffset)
+
+                snapshot.frame = frame
                 
             }, completion: { _ in
                 
