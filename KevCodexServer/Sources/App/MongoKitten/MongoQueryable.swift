@@ -44,10 +44,6 @@ extension MongoQueryable {
     
     func addItem(_ req: Request) throws -> Future<HTTPStatus> {
         
-        guard let _ = req.http.headers.bearerAuthorization else {
-            throw Abort(.unauthorized, reason: "Missing Access Token")
-        }
-        
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")
         }
@@ -67,10 +63,6 @@ extension MongoQueryable {
     }
     
     func deleteItemByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
-        
-        guard let _ = req.http.headers.bearerAuthorization else {
-            throw Abort(.unauthorized, reason: "Missing Access Token")
-        }
         
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")
@@ -96,10 +88,6 @@ extension MongoQueryable {
 
 extension MongoQueryable where Item: MongoModelUpdateable {
     func editItemByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
-        
-        guard let _ = req.http.headers.bearerAuthorization else {
-            throw Abort(.unauthorized, reason: "Missing Access Token")
-        }
         
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")

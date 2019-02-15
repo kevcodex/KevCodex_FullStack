@@ -18,6 +18,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         throw VaporError(identifier: "Environment", reason: "Missing JWT secret")
     }
     
+    JWTConfig.key = secretToken
+    
     // Register providers first
 //    let config = MongoConfig(databaseURI: uri, collectionName: "game")
 //
@@ -36,7 +38,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     // Register routes to the router
     let router = EngineRouter.default()
-    try routes(router, apiKey: apiKey, secretToken: secretToken)
+    try routes(router, apiKey: apiKey)
     services.register(router, as: Router.self)
 
     // Register middleware
