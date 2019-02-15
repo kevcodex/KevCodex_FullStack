@@ -46,7 +46,14 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         detailsViewController.transitioningDelegate = transitioner
         detailsViewController.project = cell.project
         detailsViewController.image = cell.imageView.image
+        detailsViewController.delegate = self
         
         rootViewController.present(detailsViewController, animated: true)
+    }
+}
+
+extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project) {
+        
     }
 }

@@ -18,3 +18,15 @@ struct Project: Decodable {
     let sortOrder: Int?
 
 }
+
+extension Project {
+
+    struct UpdateBody: Codable {
+        
+        let title: String?
+        let imageURLString: String?
+        let description: String?
+        let callToActionLink: String?
+        let sortOrder: Int?
+    }
+}

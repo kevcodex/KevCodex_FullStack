@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol ProjectDetailsViewControllerDelegate: class {
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project)
+}
+
 // shows details of the feed
 final class ProjectDetailsViewController: UIViewController {
     
     var project: Project?
     var image: UIImage?
+    
+    weak var delegate: ProjectDetailsViewControllerDelegate?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -70,7 +76,11 @@ extension ProjectDetailsViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        // TODO: Do Stuff
+        guard let project = project else {
+            return
+        }
+        
+        delegate?.projectDetailsViewController(self, didPressEdit: project)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
