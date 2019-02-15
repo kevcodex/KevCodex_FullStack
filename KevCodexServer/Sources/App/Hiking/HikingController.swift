@@ -19,12 +19,14 @@ struct HikingController: RouteCollection, MongoQueryable {
         apiRouter.get(use: getAllItems)
         apiRouter.get(ObjectId.parameter, use: getItem)
         
-        let jwtRequiredRouter = apiRouter.grouped(JWTMiddleware())
+        let apiKeyMiddleware = ApiKeyMiddleware(apiKey: apiKey)
         
-        jwtRequiredRouter.put(ObjectId.parameter, use: editItemByObjectID)
-        jwtRequiredRouter.post(use: addItem)
-        jwtRequiredRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
-        jwtRequiredRouter.delete("title", String.parameter, use: deleteHikeByTitle)
+        let authenticationRouter = apiRouter.grouped(JWTMiddleware(), apiKeyMiddleware)
+        
+        authenticationRouter.put(ObjectId.parameter, use: editItemByObjectID)
+        authenticationRouter.post(use: addItem)
+        authenticationRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
+        authenticationRouter.delete("title", String.parameter, use: deleteHikeByTitle)
     }
     
     func deleteHikeByTitle(_ req: Request) throws -> Future<HTTPStatus> {

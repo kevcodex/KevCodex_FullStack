@@ -24,6 +24,7 @@
 		0A5546BF22173053005A43EE /* JWTMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546BE22173053005A43EE /* JWTMiddleware.swift */; };
 		0A5546C222173425005A43EE /* JWTConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C122173425005A43EE /* JWTConfig.swift */; };
 		0A5546C4221736D9005A43EE /* JWTError+Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C3221736D9005A43EE /* JWTError+Cases.swift */; };
+		0A5546C622173AE4005A43EE /* ApiKeyMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C522173AE4005A43EE /* ApiKeyMiddleware.swift */; };
 		OBJ_1000 /* CNIOLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */; };
 		OBJ_1001 /* _MongoKittenCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::_MongoKittenCrypto::Product" /* _MongoKittenCrypto.framework */; };
 		OBJ_1097 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* AppTests.swift */; };
@@ -5282,6 +5283,7 @@
 		0A5546BE22173053005A43EE /* JWTMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTMiddleware.swift; sourceTree = "<group>"; };
 		0A5546C122173425005A43EE /* JWTConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTConfig.swift; sourceTree = "<group>"; };
 		0A5546C3221736D9005A43EE /* JWTError+Cases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JWTError+Cases.swift"; sourceTree = "<group>"; };
+		0A5546C522173AE4005A43EE /* ApiKeyMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyMiddleware.swift; sourceTree = "<group>"; };
 		"BSON::BSON::Product" /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7252,6 +7254,7 @@
 			children = (
 				OBJ_22 /* MethodOverrideMiddleware.swift */,
 				0A5546BE22173053005A43EE /* JWTMiddleware.swift */,
+				0A5546C522173AE4005A43EE /* ApiKeyMiddleware.swift */,
 			);
 			path = MiddleWare;
 			sourceTree = "<group>";
@@ -12160,6 +12163,7 @@
 				OBJ_929 /* Game.swift in Sources */,
 				OBJ_930 /* GameController.swift in Sources */,
 				OBJ_931 /* Hike.swift in Sources */,
+				0A5546C622173AE4005A43EE /* ApiKeyMiddleware.swift in Sources */,
 				0A5546BF22173053005A43EE /* JWTMiddleware.swift in Sources */,
 				OBJ_932 /* HikingController.swift in Sources */,
 				OBJ_933 /* MethodOverrideMiddleware.swift in Sources */,

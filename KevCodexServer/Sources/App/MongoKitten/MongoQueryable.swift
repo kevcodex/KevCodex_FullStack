@@ -11,8 +11,6 @@ import MeowVapor
 /// Simple implementation of some requests that make calls to mongo
 protocol MongoQueryable {
     associatedtype Item: Content, QueryableModel
-    
-    var apiKey: String { get }
 }
 
 extension MongoQueryable {
@@ -44,14 +42,6 @@ extension MongoQueryable {
     
     func addItem(_ req: Request) throws -> Future<HTTPStatus> {
         
-        guard let apiKey = req.http.headers["apiKey"].first else {
-            throw Abort(.forbidden, reason: "Missing API Header")
-        }
-        
-        guard apiKey == self.apiKey else {
-            throw Abort(.forbidden, reason: "Invalid API Key")
-        }
-        
         return try req.content.decode(Item.self).flatMap(to: HTTPStatus.self) { (item) in
             
             let meow = req.meow()
@@ -63,14 +53,6 @@ extension MongoQueryable {
     }
     
     func deleteItemByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
-        
-        guard let apiKey = req.http.headers["apiKey"].first else {
-            throw Abort(.forbidden, reason: "Missing API Header")
-        }
-        
-        guard apiKey == self.apiKey else {
-            throw Abort(.forbidden, reason: "Invalid API Key")
-        }
         
         let id = try req.parameters.next(ObjectId.self)
         
@@ -88,14 +70,6 @@ extension MongoQueryable {
 
 extension MongoQueryable where Item: MongoModelUpdateable {
     func editItemByObjectID(_ req: Request) throws -> Future<HTTPStatus> {
-        
-        guard let apiKey = req.http.headers["apiKey"].first else {
-            throw Abort(.forbidden, reason: "Missing API Header")
-        }
-        
-        guard apiKey == self.apiKey else {
-            throw Abort(.forbidden, reason: "Invalid API Key")
-        }
         
         let itemFuture = try getItem(req)
         
