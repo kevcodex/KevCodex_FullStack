@@ -10,7 +10,7 @@ import UIKit
 
 final class ProjectCoordinator: Coordinator {
     
-    let rootViewController: UINavigationController
+    let rootViewController: ProjectListViewController
     
     private var detailTransitioner: ProjectDetailTransitioner?
     private let user: User
@@ -21,9 +21,9 @@ final class ProjectCoordinator: Coordinator {
         self.user = user
         
         // Launch initial vc
-        let (nav, projectListVC) = ProjectListViewController.makeFromStoryboardWithNavigation()
+        let projectListVC = ProjectListViewController.makeFromStoryboard()
         
-        self.rootViewController = nav
+        self.rootViewController = projectListVC
         
         projectListVC.delegate = self
     }
@@ -38,9 +38,10 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         }
         
         let cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
-        let yOffset = rootViewController.navigationBar.frame.maxY
         
         let (nav, detailsViewController) = ProjectDetailsViewController.makeFromStoryboardWithNavigation()
+        
+        let yOffset = nav.navigationBar.frame.maxY
         
         let transitioner = ProjectDetailTransitioner(cellFrame: cellFrame, yOffset: yOffset)
         self.detailTransitioner = transitioner
@@ -57,11 +58,7 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
     
     private func refreshListViewController() {
         
-        guard let projectListVC = rootViewController.viewControllers.first(where: { $0 is ProjectListViewController }) as? ProjectListViewController else {
-            return
-        }
-        
-        projectListVC.refresh()
+        rootViewController.refresh()
     }
 }
 

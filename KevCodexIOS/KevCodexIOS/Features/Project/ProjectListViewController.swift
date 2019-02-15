@@ -150,7 +150,7 @@ private extension ProjectListViewController {
 extension ProjectListViewController: ActivityIndicatorPresenter {
 }
 
-extension ProjectListViewController: StoryboardNavigationInitializable {
+extension ProjectListViewController: StoryboardInitializable {
     static var storyboardName: String {
         return "Project"
     }
