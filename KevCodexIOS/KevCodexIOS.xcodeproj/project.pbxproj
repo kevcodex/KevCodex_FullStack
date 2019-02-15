@@ -25,6 +25,7 @@
 		0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F017221367EC00386DE8 /* MainTabBarController.swift */; };
 		0A78F01A22139F0D00386DE8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01922139F0D00386DE8 /* AccessToken.swift */; };
 		0A78F01C2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01B2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift */; };
+		0A78F01E22148ADB00386DE8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01D22148ADB00386DE8 /* UIViewController+Extensions.swift */; };
 		0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */; };
 		0ACA680F2212201F00CF6BA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680E2212201F00CF6BA1 /* User.swift */; };
 		0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */; };
@@ -78,6 +79,7 @@
 		0A78F017221367EC00386DE8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0A78F01922139F0D00386DE8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		0A78F01B2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNavigationInitializable.swift; sourceTree = "<group>"; };
+		0A78F01D22148ADB00386DE8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NonEmpty.swift"; sourceTree = "<group>"; };
 		0ACA680E2212201F00CF6BA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+PerformOnMain.swift"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				4E884ED11EFC7F4D00A19C5F /* UIImage+Extensions.swift */,
 				0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */,
 				0ACA68102212215E00CF6BA1 /* Thread+PerformOnMain.swift */,
+				0A78F01D22148ADB00386DE8 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,
 				4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */,
 				4E884EF11EFC7F4D00A19C5F /* ActivityProgressHud.swift in Sources */,
+				0A78F01E22148ADB00386DE8 /* UIViewController+Extensions.swift in Sources */,
 				844B14B61FFAAB3200D94C04 /* ImageLoaderError.swift in Sources */,
 				0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */,
 				4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */,

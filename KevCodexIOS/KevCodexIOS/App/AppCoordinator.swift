@@ -22,6 +22,7 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
         
         self.window = window
         rootViewController = UIViewController()
+        window.rootViewController = rootViewController
         
         super.init()
     }
@@ -33,8 +34,7 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
             
             let mainCoordinator = MainCoordinator(user: user)
             
-            rootViewController = mainCoordinator.rootViewController
-            window.rootViewController = rootViewController
+            rootViewController.addChildVC(mainCoordinator.rootViewController)
             
             addChild(coordinator: mainCoordinator)
             
@@ -42,8 +42,7 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
             let viewController = LoginViewController.makeFromStoryboard()
             viewController.delegate = self
             
-            rootViewController = viewController
-            window.rootViewController = viewController
+            rootViewController.addChildVC(viewController)
         }
     }
 }
