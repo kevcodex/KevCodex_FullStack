@@ -9,7 +9,8 @@
 import UIKit
 
 final class ProjectEditorViewController: UIViewController {
-
+    
+    var project: Project?
 
 }
 

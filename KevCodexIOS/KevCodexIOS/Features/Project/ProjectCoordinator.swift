@@ -38,22 +38,30 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         let cellFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
         let yOffset = rootViewController.navigationBar.frame.maxY
         
-        let detailsViewController = ProjectDetailsViewController.makeFromStoryboard()
+        let (nav, detailsViewController) = ProjectDetailsViewController.makeFromStoryboardWithNavigation()
         
         let transitioner = ProjectDetailTransitioner(cellFrame: cellFrame, yOffset: yOffset)
         self.detailTransitioner = transitioner
         
-        detailsViewController.transitioningDelegate = transitioner
+        nav.transitioningDelegate = transitioner
         detailsViewController.project = cell.project
         detailsViewController.image = cell.imageView.image
         detailsViewController.delegate = self
         
-        rootViewController.present(detailsViewController, animated: true)
+        rootViewController.present(nav, animated: true)
     }
 }
 
 extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project) {
         
+        guard let navigationController = projectDetailsViewController.navigationController else {
+            return
+        }
+        
+        let editVC = ProjectEditorViewController.makeFromStoryboard()
+        editVC.project = project
+        
+        navigationController.pushViewController(editVC, animated: true)
     }
 }

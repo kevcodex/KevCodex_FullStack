@@ -94,47 +94,38 @@
                                     <constraint firstAttribute="bottom" secondItem="uM7-PP-aG3" secondAttribute="bottom" id="v1B-yQ-8N9"/>
                                 </constraints>
                             </scrollView>
-                            <navigationBar hidden="YES" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t6-kP-cye">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <items>
-                                    <navigationItem id="whG-uq-zhE">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="OZh-qG-jy7">
-                                            <connections>
-                                                <action selector="backTapped:" destination="cSs-k3-cEo" id="n5i-Dp-N3s"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="syh-B2-GIP">
-                                            <connections>
-                                                <action selector="shareTapped:" destination="cSs-k3-cEo" id="f7F-f7-h7S"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Yy2-nb-g4T" firstAttribute="trailing" secondItem="tSj-YA-0T1" secondAttribute="trailing" id="2cM-ly-YFP"/>
-                            <constraint firstItem="Yy2-nb-g4T" firstAttribute="trailing" secondItem="3t6-kP-cye" secondAttribute="trailing" id="KWG-QW-aEO"/>
+                            <constraint firstItem="tSj-YA-0T1" firstAttribute="top" secondItem="Yy2-nb-g4T" secondAttribute="top" id="LQN-c2-h2f"/>
                             <constraint firstItem="tSj-YA-0T1" firstAttribute="leading" secondItem="Yy2-nb-g4T" secondAttribute="leading" id="Mjy-CU-9Hc"/>
-                            <constraint firstItem="3t6-kP-cye" firstAttribute="top" secondItem="Yy2-nb-g4T" secondAttribute="top" id="WUB-lu-jTH"/>
-                            <constraint firstItem="3t6-kP-cye" firstAttribute="leading" secondItem="Yy2-nb-g4T" secondAttribute="leading" id="jyq-05-5hw"/>
-                            <constraint firstItem="tSj-YA-0T1" firstAttribute="top" secondItem="3t6-kP-cye" secondAttribute="bottom" id="vQq-b2-thp"/>
                             <constraint firstItem="Yy2-nb-g4T" firstAttribute="bottom" secondItem="tSj-YA-0T1" secondAttribute="bottom" id="zso-st-mq3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yy2-nb-g4T"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Izu-YG-YKM">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="OZh-qG-jy7">
+                            <connections>
+                                <action selector="backTapped:" destination="cSs-k3-cEo" id="n5i-Dp-N3s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="syh-B2-GIP">
+                            <connections>
+                                <action selector="shareTapped:" destination="cSs-k3-cEo" id="f7F-f7-h7S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="rxc-F3-qHd" id="yqD-0K-xHC"/>
                         <outlet property="descriptionLabel" destination="v18-l9-BYX" id="8kB-lV-BM1"/>
                         <outlet property="imageView" destination="hXg-Kb-b6r" id="BUn-aE-hwz"/>
-                        <outlet property="navigationBar" destination="3t6-kP-cye" id="FbD-0z-4ga"/>
                         <outlet property="titleLabel" destination="vgI-UG-1To" id="i0I-SD-fX8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxz-Dj-2VL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.8" y="135.96059113300493"/>
+            <point key="canvasLocation" x="2887.1999999999998" y="135.96059113300493"/>
         </scene>
         <!--Project Editor View Controller-->
         <scene sceneID="2S6-Dc-Oi2">
@@ -191,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fL-Jf-bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="136"/>
+            <point key="canvasLocation" x="3786.4000000000001" y="135.96059113300493"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9N5-py-hP2">
@@ -310,12 +301,30 @@
                     <navigationItem key="navigationItem" title="Favorite Video Games" id="e0x-qD-R2v"/>
                     <connections>
                         <outlet property="collectionView" destination="Ybr-ak-UGV" id="est-EL-lk2"/>
-                        <segue destination="cSs-k3-cEo" kind="presentation" identifier="ShowDetails" id="JTb-sk-x3b"/>
+                        <segue destination="FQm-dl-p0J" kind="presentation" identifier="ShowDetails" id="JTb-sk-x3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5k-yi-xss" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072.8" y="136.69950738916256"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bmo-qZ-sIG">
+            <objects>
+                <navigationController storyboardIdentifier="ProjectDetailsViewControllerNavigation" automaticallyAdjustsScrollViewInsets="NO" id="FQm-dl-p0J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3fx-bG-Zoh">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cSs-k3-cEo" kind="relationship" relationship="rootViewController" id="L66-z2-ekH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FxP-7y-8Qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944.8" y="135.96059113300493"/>
         </scene>
     </scenes>
 </document>

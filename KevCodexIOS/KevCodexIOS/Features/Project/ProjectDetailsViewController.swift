@@ -18,13 +18,16 @@ final class ProjectDetailsViewController: UIViewController {
     var project: Project?
     var image: UIImage?
     
+    var navigationBar: UINavigationBar? {
+        return navigationController?.navigationBar
+    }
+    
     weak var delegate: ProjectDetailsViewControllerDelegate?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +51,10 @@ final class ProjectDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        navigationBar.isHidden = false
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
+        navigationBar?.isHidden = false
+        navigationBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
         // navigationBar.tintColor = UIColor.white
     }
 }
@@ -88,7 +91,7 @@ extension ProjectDetailsViewController {
     }
 }
 
-extension ProjectDetailsViewController: StoryboardInitializable {
+extension ProjectDetailsViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
         return "Project"
     }
