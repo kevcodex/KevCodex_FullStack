@@ -170,15 +170,31 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFf-fF-nX4">
+                                <rect key="frame" x="163" y="601" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="4Og-ES-M6c" eventType="touchUpInside" id="SAv-Hr-btD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5be-ps-gjF" firstAttribute="leading" secondItem="vl9-IY-T8y" secondAttribute="leading" constant="40" id="45Y-xk-FUI"/>
+                            <constraint firstItem="rFf-fF-nX4" firstAttribute="centerX" secondItem="jcl-2D-lbp" secondAttribute="centerX" id="VXm-pp-QIB"/>
                             <constraint firstItem="5be-ps-gjF" firstAttribute="centerY" secondItem="jcl-2D-lbp" secondAttribute="centerY" id="lIu-XM-hZq"/>
+                            <constraint firstItem="rFf-fF-nX4" firstAttribute="top" secondItem="5be-ps-gjF" secondAttribute="bottom" constant="60" id="uCr-ah-RNc"/>
                             <constraint firstItem="vl9-IY-T8y" firstAttribute="trailing" secondItem="5be-ps-gjF" secondAttribute="trailing" constant="40" id="yZO-lN-ju7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vl9-IY-T8y"/>
                     </view>
+                    <connections>
+                        <outlet property="callToActionTextField" destination="GTh-wh-4vy" id="ige-bk-mut"/>
+                        <outlet property="descriptionTextField" destination="Wke-Hd-Qkk" id="GXq-kN-Vvd"/>
+                        <outlet property="imagePathTextField" destination="BLe-Jg-mZM" id="dhc-5d-2Yv"/>
+                        <outlet property="sortOrderTextField" destination="9ml-0z-E0D" id="pT4-aA-0J4"/>
+                        <outlet property="titleTextField" destination="Ood-rf-eKK" id="f2L-2l-7aH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fL-Jf-bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

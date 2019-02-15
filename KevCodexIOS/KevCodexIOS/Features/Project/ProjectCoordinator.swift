@@ -15,6 +15,8 @@ final class ProjectCoordinator: Coordinator {
     private var detailTransitioner: ProjectDetailTransitioner?
     private let user: User
     
+    private var detailNavigationController: UINavigationController?
+    
     init(user: User) {
         self.user = user
         
@@ -49,19 +51,44 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         detailsViewController.delegate = self
         
         rootViewController.present(nav, animated: true)
+        
+        self.detailNavigationController = nav
     }
 }
 
 extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project) {
         
-        guard let navigationController = projectDetailsViewController.navigationController else {
+        guard let navigationController = detailNavigationController else {
             return
         }
         
         let editVC = ProjectEditorViewController.makeFromStoryboard()
         editVC.project = project
+        editVC.delegate = self
         
         navigationController.pushViewController(editVC, animated: true)
+    }
+}
+
+extension ProjectCoordinator: ProjectEditorViewControllerDelegate {
+    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody, completion: @escaping () -> Void) {
+        
+        guard let navigationController = detailNavigationController else {
+            return
+        }
+        
+        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { (result) in
+            switch result {
+            case .success:
+                navigationController.dismiss(animated: true) {
+                    self.detailNavigationController = nil
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+            completion()
+        }
     }
 }
