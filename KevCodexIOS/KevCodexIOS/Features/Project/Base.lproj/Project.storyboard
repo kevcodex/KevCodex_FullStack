@@ -136,10 +136,66 @@
             </objects>
             <point key="canvasLocation" x="1944.8" y="135.96059113300493"/>
         </scene>
+        <!--Project Editor View Controller-->
+        <scene sceneID="2S6-Dc-Oi2">
+            <objects>
+                <viewController storyboardIdentifier="ProjectEditorViewController" id="4Og-ES-M6c" customClass="ProjectEditorViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jcl-2D-lbp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5be-ps-gjF">
+                                <rect key="frame" x="40" y="271" width="295" height="270"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ood-rf-eKK">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-Hd-Qkk">
+                                        <rect key="frame" x="0.0" y="60" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image URL Path" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLe-Jg-mZM">
+                                        <rect key="frame" x="0.0" y="120" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Call To Action URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-wh-4vy">
+                                        <rect key="frame" x="0.0" y="180" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sort Order" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-0z-E0D">
+                                        <rect key="frame" x="0.0" y="240" width="295" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5be-ps-gjF" firstAttribute="leading" secondItem="vl9-IY-T8y" secondAttribute="leading" constant="40" id="45Y-xk-FUI"/>
+                            <constraint firstItem="5be-ps-gjF" firstAttribute="centerY" secondItem="jcl-2D-lbp" secondAttribute="centerY" id="lIu-XM-hZq"/>
+                            <constraint firstItem="vl9-IY-T8y" firstAttribute="trailing" secondItem="5be-ps-gjF" secondAttribute="trailing" constant="40" id="yZO-lN-ju7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vl9-IY-T8y"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fL-Jf-bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="136"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="9N5-py-hP2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8CM-iY-dcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ProjectListViewControllerNavigation" automaticallyAdjustsScrollViewInsets="NO" id="pzS-xE-YQo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2xr-Jj-dPG">
@@ -154,6 +210,7 @@
                         <segue destination="3ug-aD-5bd" kind="relationship" relationship="rootViewController" id="sYY-f5-Cp4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8CM-iY-dcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
