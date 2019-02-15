@@ -54,6 +54,15 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         
         self.detailNavigationController = nav
     }
+    
+    private func refreshListViewController() {
+        
+        guard let projectListVC = rootViewController.viewControllers.first(where: { $0 is ProjectListViewController }) as? ProjectListViewController else {
+            return
+        }
+        
+        projectListVC.refresh()
+    }
 }
 
 extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
@@ -78,11 +87,12 @@ extension ProjectCoordinator: ProjectEditorViewControllerDelegate {
             return
         }
         
-        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { (result) in
+        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
             switch result {
             case .success:
                 navigationController.dismiss(animated: true) {
-                    self.detailNavigationController = nil
+                    self?.detailNavigationController = nil
+                    self?.refreshListViewController()
                 }
             case .failure(let error):
                 print(error)

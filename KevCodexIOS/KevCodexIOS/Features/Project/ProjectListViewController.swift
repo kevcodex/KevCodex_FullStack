@@ -50,6 +50,27 @@ final class ProjectListViewController: UIViewController {
             strongSelf.hideActivityIndicator()
         }
     }
+    
+    func refresh() {
+        showActivityIndicator(title: "Loading")
+        
+        ProjectWorker.getAllProjects { [weak self] (result) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let projects):
+                strongSelf.projects = projects
+            case .failure(let error):
+                print(error)
+            }
+            
+            strongSelf.collectionView.reloadData()
+            strongSelf.hideActivityIndicator()
+        }
+    }
 }
 
 // MARK: - Collection View datasource
@@ -131,7 +152,7 @@ extension ProjectListViewController {
 }
 
 // MARK: - Private Helpers
-fileprivate extension ProjectListViewController {
+private extension ProjectListViewController {
     func fadeImageView(_ imageView: UIImageView, to newImage: UIImage, with duration: TimeInterval) {
         UIView.transition(with: imageView,
                           duration: duration,
