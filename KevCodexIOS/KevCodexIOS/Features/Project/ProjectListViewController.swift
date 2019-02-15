@@ -28,27 +28,10 @@ final class ProjectListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showActivityIndicator(title: "Loading")
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        ProjectWorker.getAllProjects { [weak self] (result) in
-            
-            guard let strongSelf = self else {
-                return
-            }
-            
-            switch result {
-            case .success(let projects):
-                strongSelf.projects = projects
-            case .failure(let error):
-                print(error)
-            }
-            
-            strongSelf.collectionView.reloadData()
-            strongSelf.hideActivityIndicator()
-        }
+        refresh()
     }
     
     func refresh() {

@@ -20,7 +20,7 @@ final class ProjectEditorViewController: UIViewController {
     weak var delegate: ProjectEditorViewControllerDelegate?
 
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: CustomTextView!
     @IBOutlet weak var imagePathTextField: UITextField!
     @IBOutlet weak var callToActionTextField: UITextField!
     @IBOutlet weak var sortOrderTextField: UITextField!
@@ -39,7 +39,7 @@ final class ProjectEditorViewController: UIViewController {
         }
         
         titleTextField.text = project.title
-        descriptionTextField.text = project.description
+        descriptionTextView.text = project.description
         imagePathTextField.text = project.imageURLString
         callToActionTextField.text = project.callToActionLink
         
@@ -65,7 +65,7 @@ extension ProjectEditorViewController {
 
         let body = Project.UpdateBody(title: titleTextField.text,
                                       imageURLString: imagePathTextField.text,
-                                      description: descriptionTextField.text,
+                                      description: descriptionTextView.text,
                                       callToActionLink: callToActionTextField.text,
                                       sortOrder: sortOrderInt)
         

@@ -136,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5be-ps-gjF">
-                                <rect key="frame" x="40" y="271" width="295" height="270"/>
+                                <rect key="frame" x="40" y="222" width="295" height="368"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ood-rf-eKK">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -144,26 +144,40 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-Hd-Qkk">
-                                        <rect key="frame" x="0.0" y="60" width="295" height="30"/>
-                                        <nil key="textColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G8y-UT-upl" customClass="CustomTextView" customModule="KevCodexIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="295" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="W8C-RC-mAc"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image URL Path" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLe-Jg-mZM">
-                                        <rect key="frame" x="0.0" y="120" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="218" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Call To Action URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-wh-4vy">
-                                        <rect key="frame" x="0.0" y="180" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="278" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sort Order" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-0z-E0D">
-                                        <rect key="frame" x="0.0" y="240" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="338" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -171,7 +185,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFf-fF-nX4">
-                                <rect key="frame" x="163" y="601" width="49" height="30"/>
+                                <rect key="frame" x="163" y="650" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="4Og-ES-M6c" eventType="touchUpInside" id="SAv-Hr-btD"/>
@@ -190,7 +204,7 @@
                     </view>
                     <connections>
                         <outlet property="callToActionTextField" destination="GTh-wh-4vy" id="ige-bk-mut"/>
-                        <outlet property="descriptionTextField" destination="Wke-Hd-Qkk" id="GXq-kN-Vvd"/>
+                        <outlet property="descriptionTextView" destination="G8y-UT-upl" id="dAd-K1-mzt"/>
                         <outlet property="imagePathTextField" destination="BLe-Jg-mZM" id="dhc-5d-2Yv"/>
                         <outlet property="sortOrderTextField" destination="9ml-0z-E0D" id="pT4-aA-0J4"/>
                         <outlet property="titleTextField" destination="Ood-rf-eKK" id="f2L-2l-7aH"/>
