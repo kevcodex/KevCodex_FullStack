@@ -63,6 +63,7 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
 }
 
 extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
+    
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project) {
         
         guard let navigationController = detailNavigationController else {
@@ -74,6 +75,35 @@ extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
         editVC.delegate = self
         
         navigationController.pushViewController(editVC, animated: true)
+    }
+    
+    func projectDetailsViewControllerDidPressBack(_ projectDetailsViewController: ProjectDetailsViewController) {
+        guard let navigationController = detailNavigationController else {
+            return
+        }
+        
+        navigationController.dismiss(animated: true)
+    }
+    
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void) {
+        
+        guard let navigationController = detailNavigationController else {
+            return
+        }
+        
+        ProjectWorker.deleteProject(id: project._id, accessToken: user.accessToken) { [weak self] (result) in
+            switch result {
+            case .success:
+                navigationController.dismiss(animated: true) {
+                    self?.detailNavigationController = nil
+                    self?.refreshListViewController()
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+            completion()
+        }
     }
 }
 

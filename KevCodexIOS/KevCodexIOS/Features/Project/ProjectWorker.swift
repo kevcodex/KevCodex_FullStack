@@ -69,4 +69,26 @@ class ProjectWorker {
             }
         }
     }
+    
+    static func deleteProject(id: String, accessToken: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        let request = ProjectsNetworkRequest.deleteProjectRequest(id: id, accessToken: accessToken)
+        
+        let client = MiniNeClient()
+        
+        client.send(request: request) { result in
+            
+            Thread.performOnMainSync {
+                switch result {
+                case .success:
+                    
+                    completion(.success)
+                    
+                case let .failure(error):
+                    
+                    completion(Result(error: .requestError(error)))
+                }
+            }
+        }
+    }
 }

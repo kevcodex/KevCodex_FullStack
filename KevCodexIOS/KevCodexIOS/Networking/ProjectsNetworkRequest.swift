@@ -56,4 +56,11 @@ extension ProjectsNetworkRequest {
         
         return ProjectsNetworkRequest(path: "api/projects/\(id)", method: .put, parameters: nil, headers: headers, body: body)
     }
+    
+    static func deleteProjectRequest(id: String, accessToken: String) -> ProjectsNetworkRequest {
+        
+        let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
+        
+        return ProjectsNetworkRequest(path: "api/projects/\(id)", method: .delete, parameters: nil, headers: headers, body: nil)
+    }
 }

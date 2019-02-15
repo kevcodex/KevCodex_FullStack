@@ -10,6 +10,10 @@ import UIKit
 
 protocol ProjectDetailsViewControllerDelegate: class {
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project)
+    
+    func projectDetailsViewControllerDidPressBack(_ projectDetailsViewController: ProjectDetailsViewController)
+    
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void)
 }
 
 // shows details of the feed
@@ -75,7 +79,7 @@ extension ProjectDetailsViewController {
     
     @IBAction func backTapped(_ sender: UIBarButtonItem) {
         
-        dismiss(animated: true, completion: nil)
+        delegate?.projectDetailsViewControllerDidPressBack(self)
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
@@ -87,9 +91,31 @@ extension ProjectDetailsViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        // TODO: Do Stuff
+        
+        guard let project = project else {
+            return
+        }
+        
+        let controller = UIAlertController(title: "Permanently Delete?", message: "This action is irreversible, so make sure you are sure.", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            
+            self.showActivityIndicator(title: "Loading")
+            self.delegate?.projectDetailsViewController(self, didConfirmDelete: project) {
+               self.hideActivityIndicator()
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        controller.addAction(confirmAction)
+        controller.addAction(cancelAction)
+        
+        present(controller, animated: true)
     }
 }
+
+extension ProjectDetailsViewController: ActivityIndicatorPresenter {}
 
 extension ProjectDetailsViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
