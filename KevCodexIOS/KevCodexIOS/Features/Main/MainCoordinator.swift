@@ -26,12 +26,13 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         let project = ProjectCoordinator(user: user)
         project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
         
-        let test = UIViewController()
-        test.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        let settings = SettingsCoordinator(user: user)
+        settings.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
         
         addChild(coordinator: project)
+        addChild(coordinator: settings)
         
         rootViewController.addChild(project.rootViewController)
-        rootViewController.addChild(test)
+        rootViewController.addChild(settings.rootViewController)
     }
 }

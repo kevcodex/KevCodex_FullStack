@@ -18,6 +18,9 @@
 		0A0114C8220F546A00F0581B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C7220F546A00F0581B /* Coordinator.swift */; };
 		0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */; };
 		0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */; };
+		0A5546C922176044005A43EE /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C822176044005A43EE /* SettingsCoordinator.swift */; };
+		0A5546CB2217608B005A43EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546CA2217608B005A43EE /* SettingsViewController.swift */; };
+		0A5546CD22176095005A43EE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546CC22176095005A43EE /* Settings.storyboard */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
 		0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F012221340A200386DE8 /* MainCoordinator.swift */; };
@@ -74,6 +77,9 @@
 		0A0114C7220F546A00F0581B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorWithChildren.swift; sourceTree = "<group>"; };
 		0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkRequest.swift; sourceTree = "<group>"; };
+		0A5546C822176044005A43EE /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		0A5546CA2217608B005A43EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0A5546CC22176095005A43EE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0A78F012221340A200386DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 			children = (
 				0A78F016221367CD00386DE8 /* Main */,
 				4E884ECA1EFC7F4D00A19C5F /* Project */,
+				0A5546C722176032005A43EE /* Settings */,
 				0A0114BC220E4F9C00F0581B /* Authentication */,
 			);
 			path = Features;
@@ -208,6 +215,16 @@
 				0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0A5546C722176032005A43EE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0A5546CC22176095005A43EE /* Settings.storyboard */,
+				0A5546C822176044005A43EE /* SettingsCoordinator.swift */,
+				0A5546CA2217608B005A43EE /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */ = {
@@ -465,6 +482,7 @@
 				0A0114B5220E4B2A00F0581B /* Authentication.storyboard in Resources */,
 				0A78F01522134AC100386DE8 /* Main.storyboard in Resources */,
 				4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */,
+				0A5546CD22176095005A43EE /* Settings.storyboard in Resources */,
 				4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */,
 				4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */,
 			);
@@ -558,9 +576,11 @@
 				0AC4ACEA221619F900547754 /* CustomTextView.swift in Sources */,
 				0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */,
 				0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */,
+				0A5546CB2217608B005A43EE /* SettingsViewController.swift in Sources */,
 				4E884EE71EFC7F4D00A19C5F /* ActivityIndicatorPresenter.swift in Sources */,
 				4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */,
 				0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */,
+				0A5546C922176044005A43EE /* SettingsCoordinator.swift in Sources */,
 				0A78F47C2214DA0300386DE8 /* ProjectEditorViewController.swift in Sources */,
 				0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */,
 				84FFE6DF1FFA951700F35B9E /* ImageLoader.swift in Sources */,
