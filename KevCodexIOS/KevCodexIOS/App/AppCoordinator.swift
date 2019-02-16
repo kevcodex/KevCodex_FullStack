@@ -30,19 +30,19 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
     
     func start() {
         
-        let loginViewController = LoginViewController.makeFromStoryboard()
-        loginViewController.delegate = self
-        
         if let user = User.retrieve(),
             user.isValidAccessToken() {
             
             let mainCoordinator = MainCoordinator(user: user, delegate: self)
             
-            rootViewController.setViewControllers([loginViewController, mainCoordinator.rootViewController], animated: true)
+            rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: true)
             
             addChild(coordinator: mainCoordinator)
             
         } else {
+            
+            let loginViewController = LoginViewController.makeFromStoryboard()
+            loginViewController.delegate = self
 
             rootViewController.setViewControllers([loginViewController], animated: true)
         }
@@ -58,7 +58,7 @@ extension AppCoordinator: LoginViewControllerDelegate {
         
         User.store(user: user)
         
-        rootViewController.pushViewController(mainCoordinator.rootViewController, animated: true)
+        rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: true)
     }
 }
 
@@ -67,6 +67,11 @@ extension AppCoordinator: MainCoordinatorDelegate {
         User.removeCache()
         removeAllChildren()
         
-        rootViewController.popViewController(animated: true)
+        let loginViewController = LoginViewController.makeFromStoryboard()
+        loginViewController.delegate = self
+        
+        rootViewController.setViewControllers([loginViewController, mainCoordinator.rootViewController], animated: false)
+        
+        rootViewController.popToRootViewController(animated: true)
     }
 }
