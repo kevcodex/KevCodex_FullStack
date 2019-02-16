@@ -1,5 +1,5 @@
 //
-//  ProjectDetailsViewController.swift
+//  HikingDetailsViewController.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol ProjectDetailsViewControllerDelegate: class {
-    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEdit project: Project)
+protocol HikingDetailsViewControllerDelegate: class {
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didPressEdit project: Project)
     
-    func projectDetailsViewControllerDidPressBack(_ projectDetailsViewController: ProjectDetailsViewController)
+    func hikingDetailsViewControllerDidPressBack(_ hikingDetailsViewController: HikingDetailsViewController)
     
-    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void)
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void)
 }
 
 // shows details of the feed
-final class ProjectDetailsViewController: UIViewController {
+final class HikingDetailsViewController: UIViewController {
     
     var project: Project?
     var image: UIImage?
@@ -26,7 +26,7 @@ final class ProjectDetailsViewController: UIViewController {
         return navigationController?.navigationBar
     }
     
-    weak var delegate: ProjectDetailsViewControllerDelegate?
+    weak var delegate: HikingDetailsViewControllerDelegate?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -64,7 +64,7 @@ final class ProjectDetailsViewController: UIViewController {
 }
 
 // MARK: - Actions
-extension ProjectDetailsViewController {
+extension HikingDetailsViewController {
     @IBAction func shareTapped(_ sender: UIBarButtonItem) {
         
         guard let project = project,
@@ -79,7 +79,7 @@ extension ProjectDetailsViewController {
     
     @IBAction func backTapped(_ sender: UIBarButtonItem) {
         
-        delegate?.projectDetailsViewControllerDidPressBack(self)
+        delegate?.hikingDetailsViewControllerDidPressBack(self)
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
@@ -87,7 +87,7 @@ extension ProjectDetailsViewController {
             return
         }
         
-        delegate?.projectDetailsViewController(self, didPressEdit: project)
+        delegate?.hikingDetailsViewController(self, didPressEdit: project)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
@@ -101,7 +101,7 @@ extension ProjectDetailsViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
             
             self.showActivityIndicator(title: "Loading")
-            self.delegate?.projectDetailsViewController(self, didConfirmDelete: project) {
+            self.delegate?.hikingDetailsViewController(self, didConfirmDelete: project) {
                self.hideActivityIndicator()
             }
         }
@@ -115,10 +115,10 @@ extension ProjectDetailsViewController {
     }
 }
 
-extension ProjectDetailsViewController: ActivityIndicatorPresenter {}
+extension HikingDetailsViewController: ActivityIndicatorPresenter {}
 
-extension ProjectDetailsViewController: StoryboardNavigationInitializable {
+extension HikingDetailsViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
-        return "Project"
+        return "Hiking"
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ProjectFeedCell.swift
+//  HikingFeedCell.swift
 //  SampleProject
 //
 //  Created by Kirby on 6/20/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 //the cell information
-class ProjectFeedCell: UICollectionViewCell {
+class HikingFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!

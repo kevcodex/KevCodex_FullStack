@@ -30,21 +30,21 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         
         super.init()
         
-        let project = ProjectCoordinator(user: user)
-        project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
-        
         let hiking = HikingCoordinator(user: user)
-        hiking.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
+        hiking.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        
+        let project = ProjectCoordinator(user: user)
+        project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
         
         let settings = SettingsCoordinator(user: user, delegate: self)
         settings.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
         
-        addChild(coordinator: project)
         addChild(coordinator: hiking)
+        addChild(coordinator: project)
         addChild(coordinator: settings)
         
-        rootViewController.addChild(project.rootViewController)
         rootViewController.addChild(hiking.rootViewController)
+        rootViewController.addChild(project.rootViewController)
         rootViewController.addChild(settings.rootViewController)
     }
 }

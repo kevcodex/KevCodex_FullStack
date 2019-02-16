@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Project Details View Controller-->
+        <!--Hiking Details View Controller-->
         <scene sceneID="qh3-s4-YPg">
             <objects>
-                <viewController storyboardIdentifier="ProjectDetailsViewController" id="cSs-k3-cEo" customClass="ProjectDetailsViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HikingDetailsViewController" id="cSs-k3-cEo" customClass="HikingDetailsViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DKZ-JS-2Dd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="2887.1999999999998" y="135.96059113300493"/>
         </scene>
-        <!--Project Editor View Controller-->
+        <!--Hiking Editor View Controller-->
         <scene sceneID="2S6-Dc-Oi2">
             <objects>
-                <viewController storyboardIdentifier="ProjectEditorViewController" id="4Og-ES-M6c" customClass="ProjectEditorViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HikingEditorViewController" id="4Og-ES-M6c" customClass="HikingEditorViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcl-2D-lbp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +217,7 @@
         <!--Project List-->
         <scene sceneID="ePO-lm-bQ5">
             <objects>
-                <viewController storyboardIdentifier="ProjectListViewController" id="3ug-aD-5bd" userLabel="Project List" customClass="ProjectListViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HikingListViewController" id="3ug-aD-5bd" userLabel="Project List" customClass="HikingListViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9wY-rt-uYT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProjectFeedCell" id="q9H-gH-9hV" customClass="ProjectFeedCell" customModule="KevCodexIOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HikingFeedCell" id="q9H-gH-9hV" customClass="HikingFeedCell" customModule="KevCodexIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -319,7 +319,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bmo-qZ-sIG">
             <objects>
-                <navigationController storyboardIdentifier="ProjectDetailsViewControllerNavigation" automaticallyAdjustsScrollViewInsets="NO" id="FQm-dl-p0J" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HikingDetailsViewControllerNavigation" automaticallyAdjustsScrollViewInsets="NO" id="FQm-dl-p0J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3fx-bG-Zoh">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

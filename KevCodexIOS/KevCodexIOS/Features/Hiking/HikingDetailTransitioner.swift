@@ -1,5 +1,5 @@
 //
-//  ProjectDetailTransitioner.swift
+//  HikingDetailTransitioner.swift
 //  KevCodexIOS
 //
 //  Created by Kevin Chen on 2/9/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ProjectDetailTransitioner: NSObject {
+final class HikingDetailTransitioner: NSObject {
     let cellFrame: CGRect
     let yOffset: CGFloat
     
@@ -22,7 +22,7 @@ final class ProjectDetailTransitioner: NSObject {
 }
 
 // MARK: - Transition Delegate
-extension ProjectDetailTransitioner: UIViewControllerTransitioningDelegate {
+extension HikingDetailTransitioner: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         customTransition.originFrame = cellFrame

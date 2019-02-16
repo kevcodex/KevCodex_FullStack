@@ -1,5 +1,5 @@
 //
-//  ProjectEditorViewController.swift
+//  HikingEditorViewController.swift
 //  KevCodexIOS
 //
 //  Created by Kevin Chen on 2/13/19.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol ProjectEditorViewControllerDelegate: class {
-    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody, completion: @escaping () -> Void)
+protocol HikingEditorViewControllerDelegate: class {
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody, completion: @escaping () -> Void)
 }
 
 
-final class ProjectEditorViewController: UIViewController {
+final class HikingEditorViewController: UIViewController {
     
     var project: Project?
     
-    weak var delegate: ProjectEditorViewControllerDelegate?
+    weak var delegate: HikingEditorViewControllerDelegate?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: CustomTextView!
@@ -49,7 +49,7 @@ final class ProjectEditorViewController: UIViewController {
     }
 }
 
-extension ProjectEditorViewController {
+extension HikingEditorViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
         guard let project = project else {
@@ -71,14 +71,14 @@ extension ProjectEditorViewController {
         
         showActivityIndicator(title: "Loading")
         
-        delegate?.projectEditorViewController(self, didSubmitFor: project, withBody: body) { [weak self] in
+        delegate?.hikingEditorViewController(self, didSubmitFor: project, withBody: body) { [weak self] in
             self?.hideActivityIndicator()
         }
     }
 }
 
 // MARK: - Touches
-extension ProjectEditorViewController {
+extension HikingEditorViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
@@ -86,10 +86,10 @@ extension ProjectEditorViewController {
     }
 }
 
-extension ProjectEditorViewController: ActivityIndicatorPresenter {}
+extension HikingEditorViewController: ActivityIndicatorPresenter {}
 
-extension ProjectEditorViewController: StoryboardInitializable {
+extension HikingEditorViewController: StoryboardInitializable {
     static var storyboardName: String {
-        return "Project"
+        return "Hiking"
     }
 }

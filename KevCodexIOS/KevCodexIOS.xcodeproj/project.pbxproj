@@ -13,17 +13,18 @@
 		0A0114BA220E4ECC00F0581B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B8220E4ECC00F0581B /* App.swift */; };
 		0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */; };
 		0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114BD220E514B00F0581B /* LoginViewController.swift */; };
-		0A0114C4220F495600F0581B /* ProjectDetailTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */; };
-		0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */; };
+		0A0114C4220F495600F0581B /* HikingDetailTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C3220F495600F0581B /* HikingDetailTransitioner.swift */; };
+		0A0114C6220F50CC00F0581B /* HikingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C5220F50CC00F0581B /* HikingCoordinator.swift */; };
 		0A0114C8220F546A00F0581B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C7220F546A00F0581B /* Coordinator.swift */; };
 		0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */; };
 		0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */; };
 		0A5546C922176044005A43EE /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C822176044005A43EE /* SettingsCoordinator.swift */; };
 		0A5546CB2217608B005A43EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546CA2217608B005A43EE /* SettingsViewController.swift */; };
 		0A5546CD22176095005A43EE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546CC22176095005A43EE /* Settings.storyboard */; };
-		0A5546D022177C38005A43EE /* Hiking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546CF22177C38005A43EE /* Hiking.storyboard */; };
-		0A5546D222177C44005A43EE /* HikingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D122177C44005A43EE /* HikingListViewController.swift */; };
-		0A5546D422177C4C005A43EE /* HikingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D322177C4C005A43EE /* HikingCoordinator.swift */; };
+		0A5546D922179069005A43EE /* ProjectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D622179069005A43EE /* ProjectCoordinator.swift */; };
+		0A5546DA22179069005A43EE /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546D722179069005A43EE /* Project.storyboard */; };
+		0A5546DB22179069005A43EE /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D822179069005A43EE /* ProjectListViewController.swift */; };
+		0A5546DD221790DF005A43EE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546DC221790DF005A43EE /* Hike.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
 		0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F012221340A200386DE8 /* MainCoordinator.swift */; };
@@ -32,7 +33,7 @@
 		0A78F01A22139F0D00386DE8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01922139F0D00386DE8 /* AccessToken.swift */; };
 		0A78F01C2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01B2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift */; };
 		0A78F01E22148ADB00386DE8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F01D22148ADB00386DE8 /* UIViewController+Extensions.swift */; };
-		0A78F47C2214DA0300386DE8 /* ProjectEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F47B2214DA0300386DE8 /* ProjectEditorViewController.swift */; };
+		0A78F47C2214DA0300386DE8 /* HikingEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F47B2214DA0300386DE8 /* HikingEditorViewController.swift */; };
 		0AC4ACEA221619F900547754 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4ACE9221619F900547754 /* CustomTextView.swift */; };
 		0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */; };
 		0ACA680F2212201F00CF6BA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA680E2212201F00CF6BA1 /* User.swift */; };
@@ -42,15 +43,15 @@
 		0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
-		4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */; };
+		4E884EAF1EFC7EDE00A19C5F /* Hiking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Hiking.storyboard */; };
 		4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */; };
 		4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */; };
 		4E884EBF1EFC7EDE00A19C5F /* KevCodexIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EBE1EFC7EDE00A19C5F /* KevCodexIOSTests.swift */; };
 		4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECB1EFC7F4D00A19C5F /* CustomDismissController.swift */; };
 		4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECC1EFC7F4D00A19C5F /* CustomTransitionController.swift */; };
-		4E884EE31EFC7F4D00A19C5F /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */; };
-		4E884EE41EFC7F4D00A19C5F /* ProjectFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */; };
-		4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */; };
+		4E884EE31EFC7F4D00A19C5F /* HikingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECD1EFC7F4D00A19C5F /* HikingDetailsViewController.swift */; };
+		4E884EE41EFC7F4D00A19C5F /* HikingFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECE1EFC7F4D00A19C5F /* HikingFeedCell.swift */; };
+		4E884EE51EFC7F4D00A19C5F /* HikingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ECF1EFC7F4D00A19C5F /* HikingListViewController.swift */; };
 		4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ED11EFC7F4D00A19C5F /* UIImage+Extensions.swift */; };
 		4E884EE71EFC7F4D00A19C5F /* ActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884ED31EFC7F4D00A19C5F /* ActivityIndicatorPresenter.swift */; };
 		4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EDB1EFC7F4D00A19C5F /* Result.swift */; };
@@ -75,17 +76,18 @@
 		0A0114B8220E4ECC00F0581B /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		0A0114B9220E4ECC00F0581B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0A0114BD220E514B00F0581B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailTransitioner.swift; sourceTree = "<group>"; };
-		0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCoordinator.swift; sourceTree = "<group>"; };
+		0A0114C3220F495600F0581B /* HikingDetailTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingDetailTransitioner.swift; sourceTree = "<group>"; };
+		0A0114C5220F50CC00F0581B /* HikingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCoordinator.swift; sourceTree = "<group>"; };
 		0A0114C7220F546A00F0581B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0A0114C9220F5C2E00F0581B /* CoordinatorWithChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorWithChildren.swift; sourceTree = "<group>"; };
 		0A0117082211ED3300F0581B /* AuthenticationNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5546C822176044005A43EE /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		0A5546CA2217608B005A43EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0A5546CC22176095005A43EE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		0A5546CF22177C38005A43EE /* Hiking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hiking.storyboard; sourceTree = "<group>"; };
-		0A5546D122177C44005A43EE /* HikingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingListViewController.swift; sourceTree = "<group>"; };
-		0A5546D322177C4C005A43EE /* HikingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCoordinator.swift; sourceTree = "<group>"; };
+		0A5546D622179069005A43EE /* ProjectCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCoordinator.swift; sourceTree = "<group>"; };
+		0A5546D722179069005A43EE /* Project.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
+		0A5546D822179069005A43EE /* ProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
+		0A5546DC221790DF005A43EE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0A78F012221340A200386DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		0A78F01922139F0D00386DE8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		0A78F01B2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNavigationInitializable.swift; sourceTree = "<group>"; };
 		0A78F01D22148ADB00386DE8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		0A78F47B2214DA0300386DE8 /* ProjectEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorViewController.swift; sourceTree = "<group>"; };
+		0A78F47B2214DA0300386DE8 /* HikingEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingEditorViewController.swift; sourceTree = "<group>"; };
 		0AC4ACE9221619F900547754 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		0ACA680C2211F1E600CF6BA1 /* String+NonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NonEmpty.swift"; sourceTree = "<group>"; };
 		0ACA680E2212201F00CF6BA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWorker.swift; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Project.storyboard; sourceTree = "<group>"; };
+		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Hiking.storyboard; sourceTree = "<group>"; };
 		4E884EB01EFC7EDE00A19C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E884EB31EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E884EB51EFC7EDE00A19C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,9 +115,9 @@
 		4E884EC01EFC7EDE00A19C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E884ECB1EFC7F4D00A19C5F /* CustomDismissController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDismissController.swift; sourceTree = "<group>"; };
 		4E884ECC1EFC7F4D00A19C5F /* CustomTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransitionController.swift; sourceTree = "<group>"; };
-		4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
-		4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFeedCell.swift; sourceTree = "<group>"; };
-		4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
+		4E884ECD1EFC7F4D00A19C5F /* HikingDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikingDetailsViewController.swift; sourceTree = "<group>"; };
+		4E884ECE1EFC7F4D00A19C5F /* HikingFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikingFeedCell.swift; sourceTree = "<group>"; };
+		4E884ECF1EFC7F4D00A19C5F /* HikingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikingListViewController.swift; sourceTree = "<group>"; };
 		4E884ED11EFC7F4D00A19C5F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		4E884ED31EFC7F4D00A19C5F /* ActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		4E884ED41EFC7F4D00A19C5F /* NetworkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
@@ -198,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				0A78F016221367CD00386DE8 /* Main */,
-				0A5546CE22177C25005A43EE /* Hiking */,
-				4E884ECA1EFC7F4D00A19C5F /* Project */,
+				0A5546D522179069005A43EE /* Project */,
+				4E884ECA1EFC7F4D00A19C5F /* Hiking */,
 				0A5546C722176032005A43EE /* Settings */,
 				0A0114BC220E4F9C00F0581B /* Authentication */,
 			);
@@ -234,14 +236,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		0A5546CE22177C25005A43EE /* Hiking */ = {
+		0A5546D522179069005A43EE /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				0A5546CF22177C38005A43EE /* Hiking.storyboard */,
-				0A5546D322177C4C005A43EE /* HikingCoordinator.swift */,
-				0A5546D122177C44005A43EE /* HikingListViewController.swift */,
+				0A5546D722179069005A43EE /* Project.storyboard */,
+				0A5546D622179069005A43EE /* ProjectCoordinator.swift */,
+				0A5546D822179069005A43EE /* ProjectListViewController.swift */,
+				0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */,
+				0A5AF310220A7B4B0093A77A /* Project.swift */,
 			);
-			path = Hiking;
+			path = Project;
 			sourceTree = "<group>";
 		};
 		0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */ = {
@@ -333,20 +337,19 @@
 			path = KevCodexIOSTests;
 			sourceTree = "<group>";
 		};
-		4E884ECA1EFC7F4D00A19C5F /* Project */ = {
+		4E884ECA1EFC7F4D00A19C5F /* Hiking */ = {
 			isa = PBXGroup;
 			children = (
-				4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */,
-				0A0114C5220F50CC00F0581B /* ProjectCoordinator.swift */,
-				0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */,
-				4E884ECF1EFC7F4D00A19C5F /* ProjectListViewController.swift */,
-				4E884ECD1EFC7F4D00A19C5F /* ProjectDetailsViewController.swift */,
-				0A78F47B2214DA0300386DE8 /* ProjectEditorViewController.swift */,
-				4E884ECE1EFC7F4D00A19C5F /* ProjectFeedCell.swift */,
-				0A0114C3220F495600F0581B /* ProjectDetailTransitioner.swift */,
+				4E884EAD1EFC7EDE00A19C5F /* Hiking.storyboard */,
+				0A0114C5220F50CC00F0581B /* HikingCoordinator.swift */,
+				4E884ECF1EFC7F4D00A19C5F /* HikingListViewController.swift */,
+				4E884ECD1EFC7F4D00A19C5F /* HikingDetailsViewController.swift */,
+				0A78F47B2214DA0300386DE8 /* HikingEditorViewController.swift */,
+				4E884ECE1EFC7F4D00A19C5F /* HikingFeedCell.swift */,
+				0A0114C3220F495600F0581B /* HikingDetailTransitioner.swift */,
 				4E884EDC1EFC7F4D00A19C5F /* Models */,
 			);
-			path = Project;
+			path = Hiking;
 			sourceTree = "<group>";
 		};
 		4E884ED01EFC7F4D00A19C5F /* Extensions */ = {
@@ -372,7 +375,7 @@
 		4E884EDC1EFC7F4D00A19C5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0A5AF310220A7B4B0093A77A /* Project.swift */,
+				0A5546DC221790DF005A43EE /* Hike.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -500,9 +503,9 @@
 				0A78F01522134AC100386DE8 /* Main.storyboard in Resources */,
 				4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */,
 				0A5546CD22176095005A43EE /* Settings.storyboard in Resources */,
-				0A5546D022177C38005A43EE /* Hiking.storyboard in Resources */,
 				4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */,
-				4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */,
+				4E884EAF1EFC7EDE00A19C5F /* Hiking.storyboard in Resources */,
+				0A5546DA22179069005A43EE /* Project.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,40 +592,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0114C4220F495600F0581B /* ProjectDetailTransitioner.swift in Sources */,
+				0A0114C4220F495600F0581B /* HikingDetailTransitioner.swift in Sources */,
 				0A0117092211ED3300F0581B /* AuthenticationNetworkRequest.swift in Sources */,
 				0AC4ACEA221619F900547754 /* CustomTextView.swift in Sources */,
 				0A0114CA220F5C2E00F0581B /* CoordinatorWithChildren.swift in Sources */,
 				0A0114BE220E514B00F0581B /* LoginViewController.swift in Sources */,
+				0A5546D922179069005A43EE /* ProjectCoordinator.swift in Sources */,
 				0A5546CB2217608B005A43EE /* SettingsViewController.swift in Sources */,
 				4E884EE71EFC7F4D00A19C5F /* ActivityIndicatorPresenter.swift in Sources */,
 				4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */,
 				0A0114BB220E4ECC00F0581B /* AppCoordinator.swift in Sources */,
 				0A5546C922176044005A43EE /* SettingsCoordinator.swift in Sources */,
-				0A78F47C2214DA0300386DE8 /* ProjectEditorViewController.swift in Sources */,
+				0A78F47C2214DA0300386DE8 /* HikingEditorViewController.swift in Sources */,
 				0ACA68112212215E00CF6BA1 /* Thread+PerformOnMain.swift in Sources */,
 				84FFE6DF1FFA951700F35B9E /* ImageLoader.swift in Sources */,
-				4E884EE41EFC7F4D00A19C5F /* ProjectFeedCell.swift in Sources */,
+				4E884EE41EFC7F4D00A19C5F /* HikingFeedCell.swift in Sources */,
 				0ACA6815221231D400CF6BA1 /* Credentials.swift in Sources */,
-				4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */,
-				0A5546D422177C4C005A43EE /* HikingCoordinator.swift in Sources */,
+				4E884EE51EFC7F4D00A19C5F /* HikingListViewController.swift in Sources */,
 				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
 				0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
+				0A5546DB22179069005A43EE /* ProjectListViewController.swift in Sources */,
 				0ACA680D2211F1E600CF6BA1 /* String+NonEmpty.swift in Sources */,
-				0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */,
+				0A0114C6220F50CC00F0581B /* HikingCoordinator.swift in Sources */,
 				0ACA680F2212201F00CF6BA1 /* User.swift in Sources */,
 				4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */,
-				0A5546D222177C44005A43EE /* HikingListViewController.swift in Sources */,
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,
 				4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */,
 				4E884EF11EFC7F4D00A19C5F /* ActivityProgressHud.swift in Sources */,
 				0A78F01E22148ADB00386DE8 /* UIViewController+Extensions.swift in Sources */,
 				844B14B61FFAAB3200D94C04 /* ImageLoaderError.swift in Sources */,
 				0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */,
+				0A5546DD221790DF005A43EE /* Hike.swift in Sources */,
 				4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */,
 				0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */,
-				4E884EE31EFC7F4D00A19C5F /* ProjectDetailsViewController.swift in Sources */,
+				4E884EE31EFC7F4D00A19C5F /* HikingDetailsViewController.swift in Sources */,
 				0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */,
 				0A78F018221367EC00386DE8 /* MainTabBarController.swift in Sources */,
 				0A78F01C2213D4AC00386DE8 /* StoryboardNavigationInitializable.swift in Sources */,
@@ -651,12 +655,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4E884EAD1EFC7EDE00A19C5F /* Project.storyboard */ = {
+		4E884EAD1EFC7EDE00A19C5F /* Hiking.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4E884EAE1EFC7EDE00A19C5F /* Base */,
 			);
-			name = Project.storyboard;
+			name = Hiking.storyboard;
 			sourceTree = "<group>";
 		};
 		4E884EB21EFC7EDE00A19C5F /* LaunchScreen.storyboard */ = {
