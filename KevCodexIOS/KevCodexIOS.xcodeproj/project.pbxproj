@@ -21,6 +21,9 @@
 		0A5546C922176044005A43EE /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546C822176044005A43EE /* SettingsCoordinator.swift */; };
 		0A5546CB2217608B005A43EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546CA2217608B005A43EE /* SettingsViewController.swift */; };
 		0A5546CD22176095005A43EE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546CC22176095005A43EE /* Settings.storyboard */; };
+		0A5546D022177C38005A43EE /* Hiking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5546CF22177C38005A43EE /* Hiking.storyboard */; };
+		0A5546D222177C44005A43EE /* HikingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D122177C44005A43EE /* HikingListViewController.swift */; };
+		0A5546D422177C4C005A43EE /* HikingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5546D322177C4C005A43EE /* HikingCoordinator.swift */; };
 		0A5AF30E220A75840093A77A /* ProjectsNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */; };
 		0A5AF311220A7B4B0093A77A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AF310220A7B4B0093A77A /* Project.swift */; };
 		0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78F012221340A200386DE8 /* MainCoordinator.swift */; };
@@ -80,6 +83,9 @@
 		0A5546C822176044005A43EE /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		0A5546CA2217608B005A43EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0A5546CC22176095005A43EE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		0A5546CF22177C38005A43EE /* Hiking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hiking.storyboard; sourceTree = "<group>"; };
+		0A5546D122177C44005A43EE /* HikingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingListViewController.swift; sourceTree = "<group>"; };
+		0A5546D322177C4C005A43EE /* HikingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCoordinator.swift; sourceTree = "<group>"; };
 		0A5AF30D220A75840093A77A /* ProjectsNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNetworkRequest.swift; sourceTree = "<group>"; };
 		0A5AF310220A7B4B0093A77A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0A78F012221340A200386DE8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				0A78F016221367CD00386DE8 /* Main */,
+				0A5546CE22177C25005A43EE /* Hiking */,
 				4E884ECA1EFC7F4D00A19C5F /* Project */,
 				0A5546C722176032005A43EE /* Settings */,
 				0A0114BC220E4F9C00F0581B /* Authentication */,
@@ -225,6 +232,16 @@
 				0A5546CA2217608B005A43EE /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		0A5546CE22177C25005A43EE /* Hiking */ = {
+			isa = PBXGroup;
+			children = (
+				0A5546CF22177C38005A43EE /* Hiking.storyboard */,
+				0A5546D322177C4C005A43EE /* HikingCoordinator.swift */,
+				0A5546D122177C44005A43EE /* HikingListViewController.swift */,
+			);
+			path = Hiking;
 			sourceTree = "<group>";
 		};
 		0A5AF30C220A69FD0093A77A /* LegacyNetworkLayer */ = {
@@ -483,6 +500,7 @@
 				0A78F01522134AC100386DE8 /* Main.storyboard in Resources */,
 				4E884EB41EFC7EDE00A19C5F /* LaunchScreen.storyboard in Resources */,
 				0A5546CD22176095005A43EE /* Settings.storyboard in Resources */,
+				0A5546D022177C38005A43EE /* Hiking.storyboard in Resources */,
 				4E884EB11EFC7EDE00A19C5F /* Assets.xcassets in Resources */,
 				4E884EAF1EFC7EDE00A19C5F /* Project.storyboard in Resources */,
 			);
@@ -587,6 +605,7 @@
 				4E884EE41EFC7F4D00A19C5F /* ProjectFeedCell.swift in Sources */,
 				0ACA6815221231D400CF6BA1 /* Credentials.swift in Sources */,
 				4E884EE51EFC7F4D00A19C5F /* ProjectListViewController.swift in Sources */,
+				0A5546D422177C4C005A43EE /* HikingCoordinator.swift in Sources */,
 				0A0114BA220E4ECC00F0581B /* App.swift in Sources */,
 				0A78F013221340A200386DE8 /* MainCoordinator.swift in Sources */,
 				0A5AF311220A7B4B0093A77A /* Project.swift in Sources */,
@@ -594,6 +613,7 @@
 				0A0114C6220F50CC00F0581B /* ProjectCoordinator.swift in Sources */,
 				0ACA680F2212201F00CF6BA1 /* User.swift in Sources */,
 				4E884EEE1EFC7F4D00A19C5F /* Result.swift in Sources */,
+				0A5546D222177C44005A43EE /* HikingListViewController.swift in Sources */,
 				4E884EE61EFC7F4D00A19C5F /* UIImage+Extensions.swift in Sources */,
 				4E884EE21EFC7F4D00A19C5F /* CustomTransitionController.swift in Sources */,
 				4E884EF11EFC7F4D00A19C5F /* ActivityProgressHud.swift in Sources */,

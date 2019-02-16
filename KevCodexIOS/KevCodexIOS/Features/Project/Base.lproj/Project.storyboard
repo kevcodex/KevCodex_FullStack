@@ -214,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="3786.4000000000001" y="135.96059113300493"/>
         </scene>
-        <!--Favorite Video Games-->
+        <!--Project List-->
         <scene sceneID="ePO-lm-bQ5">
             <objects>
-                <viewController storyboardIdentifier="ProjectListViewController" id="3ug-aD-5bd" customClass="ProjectListViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectListViewController" id="3ug-aD-5bd" userLabel="Project List" customClass="ProjectListViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9wY-rt-uYT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,7 +307,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EBJ-lK-5T9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorite Video Games" id="e0x-qD-R2v"/>
                     <connections>
                         <outlet property="collectionView" destination="Ybr-ak-UGV" id="est-EL-lk2"/>
                         <segue destination="FQm-dl-p0J" kind="presentation" identifier="ShowDetails" id="JTb-sk-x3b"/>
