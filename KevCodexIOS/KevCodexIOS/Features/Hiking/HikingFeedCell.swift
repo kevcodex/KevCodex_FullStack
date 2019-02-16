@@ -17,13 +17,13 @@ class HikingFeedCell: UICollectionViewCell {
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var project: Project?
+    var hike: Hike?
     
-    func updateCell(with project: Project) {
+    func updateCell(with hike: Hike) {
         
-        self.project = project
+        self.hike = hike
         
-        descriptionLabel.text = project.description
-        titleLabel.text = project.title
+        descriptionLabel.text = hike.shortDescription
+        titleLabel.text = hike.title
     }
 }

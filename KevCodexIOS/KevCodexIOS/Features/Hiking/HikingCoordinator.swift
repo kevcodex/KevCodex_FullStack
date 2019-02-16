@@ -21,11 +21,11 @@ final class HikingCoordinator: Coordinator {
         self.user = user
         
         // Launch initial vc
-        let projectListVC = HikingListViewController.makeFromStoryboard()
+        let hikingListVC = HikingListViewController.makeFromStoryboard()
         
-        self.rootViewController = projectListVC
+        self.rootViewController = hikingListVC
         
-        projectListVC.delegate = self
+        hikingListVC.delegate = self
     }
 }
 
@@ -47,7 +47,7 @@ extension HikingCoordinator: HikingListViewControllerDelegate {
         self.detailTransitioner = transitioner
         
         nav.transitioningDelegate = transitioner
-        detailsViewController.project = cell.project
+        detailsViewController.hike = cell.hike
         detailsViewController.image = cell.imageView.image
         detailsViewController.delegate = self
         
@@ -64,14 +64,14 @@ extension HikingCoordinator: HikingListViewControllerDelegate {
 
 extension HikingCoordinator: HikingDetailsViewControllerDelegate {
     
-    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didPressEdit project: Project) {
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didPressEdit hike: Hike) {
         
         guard let navigationController = detailNavigationController else {
             return
         }
         
         let editVC = HikingEditorViewController.makeFromStoryboard()
-        editVC.project = project
+        editVC.hike = hike
         editVC.delegate = self
         
         navigationController.pushViewController(editVC, animated: true)
@@ -85,13 +85,13 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
         navigationController.dismiss(animated: true)
     }
     
-    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void) {
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete hike: Hike, completion: @escaping () -> Void) {
         
         guard let navigationController = detailNavigationController else {
             return
         }
         
-        ProjectWorker.deleteProject(id: project._id, accessToken: user.accessToken) { [weak self] (result) in
+        HikingWorker.deleteHike(id: hike._id, accessToken: user.accessToken) { [weak self] (result) in
             switch result {
             case .success:
                 navigationController.dismiss(animated: true) {
@@ -108,13 +108,13 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
 }
 
 extension HikingCoordinator: HikingEditorViewControllerDelegate {
-    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody, completion: @escaping () -> Void) {
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody, completion: @escaping () -> Void) {
         
         guard let navigationController = detailNavigationController else {
             return
         }
         
-        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
+        HikingWorker.editHike(id: hike._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
             switch result {
             case .success:
                 navigationController.dismiss(animated: true) {

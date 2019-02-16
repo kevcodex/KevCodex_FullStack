@@ -9,17 +9,17 @@
 import UIKit
 
 protocol HikingDetailsViewControllerDelegate: class {
-    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didPressEdit project: Project)
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didPressEdit hike: Hike)
     
     func hikingDetailsViewControllerDidPressBack(_ hikingDetailsViewController: HikingDetailsViewController)
     
-    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete project: Project, completion: @escaping () -> Void)
+    func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete hike: Hike, completion: @escaping () -> Void)
 }
 
 // shows details of the feed
 final class HikingDetailsViewController: UIViewController {
     
-    var project: Project?
+    var hike: Hike?
     var image: UIImage?
     
     var navigationBar: UINavigationBar? {
@@ -37,8 +37,8 @@ final class HikingDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         //    dateLabel.text = result.readableDate
-        titleLabel.text = project?.title
-        descriptionLabel.text = project?.description
+        titleLabel.text = hike?.title
+        descriptionLabel.text = hike?.description
         
         let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
         let locations: [CGFloat] = [0.0, 1.0]
@@ -67,12 +67,12 @@ final class HikingDetailsViewController: UIViewController {
 extension HikingDetailsViewController {
     @IBAction func shareTapped(_ sender: UIBarButtonItem) {
         
-        guard let project = project,
+        guard let hike = hike,
             let image = image else {
                 return
         }
         
-        let vc = UIActivityViewController(activityItems: [project.title, image], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [hike.title, image], applicationActivities: [])
         present(vc, animated: true)
     }
     
@@ -83,16 +83,16 @@ extension HikingDetailsViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        guard let project = project else {
+        guard let hike = hike else {
             return
         }
         
-        delegate?.hikingDetailsViewController(self, didPressEdit: project)
+        delegate?.hikingDetailsViewController(self, didPressEdit: hike)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         
-        guard let project = project else {
+        guard let hike = hike else {
             return
         }
         
@@ -101,7 +101,7 @@ extension HikingDetailsViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
             
             self.showActivityIndicator(title: "Loading")
-            self.delegate?.hikingDetailsViewController(self, didConfirmDelete: project) {
+            self.delegate?.hikingDetailsViewController(self, didConfirmDelete: hike) {
                self.hideActivityIndicator()
             }
         }

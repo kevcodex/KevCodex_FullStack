@@ -9,13 +9,13 @@
 import UIKit
 
 protocol HikingEditorViewControllerDelegate: class {
-    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody, completion: @escaping () -> Void)
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody, completion: @escaping () -> Void)
 }
 
 
 final class HikingEditorViewController: UIViewController {
     
-    var project: Project?
+    var hike: Hike?
     
     weak var delegate: HikingEditorViewControllerDelegate?
 
@@ -34,25 +34,25 @@ final class HikingEditorViewController: UIViewController {
     
     private func prefillTextFields() {
         
-        guard let project = project else {
+        guard let hike = hike else {
             return
         }
         
-        titleTextField.text = project.title
-        descriptionTextView.text = project.description
-        imagePathTextField.text = project.imageURLString
-        callToActionTextField.text = project.callToActionLink
+        titleTextField.text = hike.title
+        descriptionTextView.text = hike.description
+        imagePathTextField.text = hike.imageURLString
+//        callToActionTextField.text = hike.callToActionLink
         
-        if let sortOrder = project.sortOrder {
-            sortOrderTextField.text = String(sortOrder)
-        }
+//        if let sortOrder = hike.sortOrder {
+//            sortOrderTextField.text = String(sortOrder)
+//        }
     }
 }
 
 extension HikingEditorViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        guard let project = project else {
+        guard let hike = hike else {
             return
         }
         
@@ -63,17 +63,17 @@ extension HikingEditorViewController {
             return Int(sortOrder)
         }()
 
-        let body = Project.UpdateBody(title: titleTextField.text,
-                                      imageURLString: imagePathTextField.text,
-                                      description: descriptionTextView.text,
-                                      callToActionLink: callToActionTextField.text,
-                                      sortOrder: sortOrderInt)
-        
-        showActivityIndicator(title: "Loading")
-        
-        delegate?.hikingEditorViewController(self, didSubmitFor: project, withBody: body) { [weak self] in
-            self?.hideActivityIndicator()
-        }
+//        let body = Hike.UpdateBody(title: titleTextField.text,
+//                                      imageURLString: imagePathTextField.text,
+//                                      description: descriptionTextView.text,
+//                                      callToActionLink: callToActionTextField.text,
+//                                      sortOrder: sortOrderInt)
+//
+//        showActivityIndicator(title: "Loading")
+//
+//        delegate?.hikingEditorViewController(self, didSubmitFor: project, withBody: body) { [weak self] in
+//            self?.hideActivityIndicator()
+//        }
     }
 }
 

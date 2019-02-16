@@ -17,7 +17,7 @@ final class HikingListViewController: UIViewController {
     
     let imageCache = NSCache<NSString, UIImage>()
     
-    var projects: [Project] = []
+    var hikes: [Hike] = []
     
     var activityIndicator = ActivityProgressHud()
     
@@ -37,15 +37,15 @@ final class HikingListViewController: UIViewController {
     func refresh() {
         showActivityIndicator(title: "Loading")
         
-        ProjectWorker.getAllProjects { [weak self] (result) in
+        HikingWorker.getAllHikes { [weak self] (result) in
             
             guard let strongSelf = self else {
                 return
             }
             
             switch result {
-            case .success(let projects):
-                strongSelf.projects = projects
+            case .success(let hikes):
+                strongSelf.hikes = hikes
             case .failure(let error):
                 print(error)
             }
@@ -59,19 +59,19 @@ final class HikingListViewController: UIViewController {
 // MARK: - Collection View datasource
 extension HikingListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return projects.count
+        return hikes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HikingFeedCell", for: indexPath) as! HikingFeedCell
         
-        let project = projects[indexPath.row]
+        let hike = hikes[indexPath.row]
         
-        cell.updateCell(with: project)
+        cell.updateCell(with: hike)
         cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
         
         // Make image url optional in server
-        guard let imagePath = project.imageURLString.nonEmpty else {
+        guard let imagePath = hike.imageURLString?.nonEmpty else {
             cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
             return cell
         }
@@ -79,7 +79,7 @@ extension HikingListViewController: UICollectionViewDataSource {
         if let cachedImage = self.imageCache.object(forKey: imagePath as NSString) {
             self.fadeImageView(cell.imageView, to: cachedImage, with: 0.5)
         } else {
-            ProjectWorker.loadImage(from: imagePath) { [weak self] result in
+            HikingWorker.loadImage(from: imagePath) { [weak self] result in
                 
                 guard let strongSelf = self else {
                     return

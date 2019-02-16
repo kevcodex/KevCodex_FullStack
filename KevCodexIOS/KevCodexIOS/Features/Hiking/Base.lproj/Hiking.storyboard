@@ -54,8 +54,8 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULO-Jo-E75">
-                                                <rect key="frame" x="139" y="388.33333333333331" width="97" height="30"/>
-                                                <state key="normal" title="Delete Project">
+                                                <rect key="frame" x="148" y="388.33333333333331" width="79" height="30"/>
+                                                <state key="normal" title="Delete Hike">
                                                     <color key="titleColor" red="1" green="0.39496109340000002" blue="0.22455605170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -63,8 +63,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-gr-hfV">
-                                                <rect key="frame" x="148" y="348.33333333333331" width="79" height="30"/>
-                                                <state key="normal" title="Edit Project"/>
+                                                <rect key="frame" x="157" y="348.33333333333331" width="61" height="30"/>
+                                                <state key="normal" title="Edit Hike"/>
                                                 <connections>
                                                     <action selector="editButtonTapped:" destination="cSs-k3-cEo" eventType="touchUpInside" id="IaA-p7-ovo"/>
                                                 </connections>
