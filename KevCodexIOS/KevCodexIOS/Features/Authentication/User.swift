@@ -41,6 +41,10 @@ extension User {
         
         return user
     }
+    
+    static func removeCache() {
+        UserDefaults.standard.removeObject(forKey: Key.user)
+    }
 }
 
 // MARK: Keys

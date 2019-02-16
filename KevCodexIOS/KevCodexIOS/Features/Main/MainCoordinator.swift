@@ -8,16 +8,23 @@
 
 import UIKit
 
+protocol MainCoordinatorDelegate: class {
+    func mainCoordinatorDidLogout(_ mainCoordinator: MainCoordinator)
+}
+
 /// The coordinator that handles the main part of the app
 final class MainCoordinator: NSObject, CoordinatorWithChildren {
     var childCoordinators: [String: Any] = [:]
     
     let rootViewController: MainTabBarViewController
     
+    weak var delegate: MainCoordinatorDelegate?
+    
     private let user: User
     
-    init(user: User) {
+    init(user: User, delegate: MainCoordinatorDelegate) {
         self.user = user
+        self.delegate = delegate
         
         rootViewController = MainTabBarViewController.makeFromStoryboard()
         
@@ -26,7 +33,7 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         let project = ProjectCoordinator(user: user)
         project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
         
-        let settings = SettingsCoordinator(user: user)
+        let settings = SettingsCoordinator(user: user, delegate: self)
         settings.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
         
         addChild(coordinator: project)
@@ -34,5 +41,11 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         
         rootViewController.addChild(project.rootViewController)
         rootViewController.addChild(settings.rootViewController)
+    }
+}
+
+extension MainCoordinator: SettingsCoordinatorDelegate {
+    func settingsCoordinatorDidLogout(_ settingsCoordinator: SettingsCoordinator) {
+        delegate?.mainCoordinatorDidLogout(self)
     }
 }

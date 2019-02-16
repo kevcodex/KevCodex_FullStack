@@ -8,8 +8,17 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate: class {
+    func settingsViewControllerDidPressLogout(_ settingsViewController: SettingsViewController)
+}
+
 final class SettingsViewController: UIViewController {
     
+    weak var delegate: SettingsViewControllerDelegate?
+    
+    @IBAction func didPressLogoutButton(_ sender: UIButton) {
+        delegate?.settingsViewControllerDidPressLogout(self)
+    }
 }
 
 extension SettingsViewController: StoryboardInitializable {

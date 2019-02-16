@@ -8,14 +8,33 @@
 
 import UIKit
 
+protocol SettingsCoordinatorDelegate: class {
+    func settingsCoordinatorDidLogout(_ settingsCoordinator: SettingsCoordinator)
+}
+
 final class SettingsCoordinator: Coordinator {
     
     let user: User
     
     let rootViewController: SettingsViewController
     
-    init(user: User) {
+    weak var delegate: SettingsCoordinatorDelegate?
+    
+    init(user: User, delegate: SettingsCoordinatorDelegate) {
         self.user = user
-        rootViewController = SettingsViewController.makeFromStoryboard()
+        self.delegate = delegate
+        
+        let settingsVC = SettingsViewController.makeFromStoryboard()
+        
+        rootViewController = settingsVC
+        
+        settingsVC.delegate = self
+    }
+}
+
+extension SettingsCoordinator: SettingsViewControllerDelegate {
+    func settingsViewControllerDidPressLogout(_ settingsViewController: SettingsViewController) {
+        // TODO: - Need server to have an endpoint to logout 
+        delegate?.settingsCoordinatorDidLogout(self)
     }
 }
