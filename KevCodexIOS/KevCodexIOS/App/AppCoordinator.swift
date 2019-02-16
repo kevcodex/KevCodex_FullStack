@@ -10,7 +10,7 @@ import UIKit
 
 final class AppCoordinator: NSObject, CoordinatorWithChildren {
     let window: UIWindow
-    var rootViewController: UIViewController
+    var rootViewController: UINavigationController
     
     var childCoordinators: [String: Any] = [:]
     
@@ -21,7 +21,8 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
         }
         
         self.window = window
-        rootViewController = UIViewController()
+        rootViewController = UINavigationController()
+        rootViewController.isNavigationBarHidden = true
         window.rootViewController = rootViewController
         
         super.init()
@@ -29,20 +30,21 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
     
     func start() {
         
+        let loginViewController = LoginViewController.makeFromStoryboard()
+        loginViewController.delegate = self
+        
         if let user = User.retrieve(),
             user.isValidAccessToken() {
             
             let mainCoordinator = MainCoordinator(user: user, delegate: self)
             
-            rootViewController.addChildVC(mainCoordinator.rootViewController)
+            rootViewController.setViewControllers([loginViewController, mainCoordinator.rootViewController], animated: true)
             
             addChild(coordinator: mainCoordinator)
             
         } else {
-            let viewController = LoginViewController.makeFromStoryboard()
-            viewController.delegate = self
-            
-            rootViewController.addChildVC(viewController)
+
+            rootViewController.setViewControllers([loginViewController], animated: true)
         }
     }
 }
@@ -56,9 +58,7 @@ extension AppCoordinator: LoginViewControllerDelegate {
         
         User.store(user: user)
         
-        rootViewController.addChildVC(mainCoordinator.rootViewController)
-        
-        loginViewController.removeFromParentVC()
+        rootViewController.pushViewController(mainCoordinator.rootViewController, animated: true)
     }
 }
 
@@ -67,11 +67,6 @@ extension AppCoordinator: MainCoordinatorDelegate {
         User.removeCache()
         removeAllChildren()
         
-        mainCoordinator.rootViewController.removeFromParentVC()
-        
-        let viewController = LoginViewController.makeFromStoryboard()
-        viewController.delegate = self
-        
-        rootViewController.addChildVC(viewController)
+        rootViewController.popViewController(animated: true)
     }
 }
