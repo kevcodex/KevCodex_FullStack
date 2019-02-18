@@ -79,5 +79,72 @@
             </objects>
             <point key="canvasLocation" x="464.80000000000001" y="-361.16941529235385"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Y6-j6-l3u">
+            <objects>
+                <navigationController storyboardIdentifier="ProjectDetailsViewControllerNavigation" navigationBarHidden="YES" id="v9q-GI-HKQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pHP-KO-Nee">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EK1-uN-rcn" kind="relationship" relationship="rootViewController" id="aTQ-gy-Pmk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B27-cl-LOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1223" y="-361"/>
+        </scene>
+        <!--Project Details View Controller-->
+        <scene sceneID="gmc-lQ-c1e">
+            <objects>
+                <viewController storyboardIdentifier="ProjectDetailsViewController" id="EK1-uN-rcn" customClass="ProjectDetailsViewController" customModule="KevCodexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iFR-J4-WSm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R4W-UU-Sje">
+                                <rect key="frame" x="62.5" y="89" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="c0K-Iq-UeR"/>
+                                    <constraint firstAttribute="width" secondItem="R4W-UU-Sje" secondAttribute="height" multiplier="1:1" id="nWk-Gm-soR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtz-8b-9Bx">
+                                <rect key="frame" x="62.5" y="369" width="250" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppA-ZX-mea">
+                                <rect key="frame" x="62.5" y="430" width="250" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R4W-UU-Sje" firstAttribute="centerX" secondItem="iFR-J4-WSm" secondAttribute="centerX" id="69r-OF-ql6"/>
+                            <constraint firstItem="ppA-ZX-mea" firstAttribute="width" secondItem="R4W-UU-Sje" secondAttribute="width" id="8YE-dF-wXu"/>
+                            <constraint firstItem="wtz-8b-9Bx" firstAttribute="width" secondItem="R4W-UU-Sje" secondAttribute="width" id="NJg-6w-KjV"/>
+                            <constraint firstItem="wtz-8b-9Bx" firstAttribute="top" secondItem="R4W-UU-Sje" secondAttribute="bottom" constant="30" id="P4t-AB-e6x"/>
+                            <constraint firstItem="ppA-ZX-mea" firstAttribute="top" secondItem="wtz-8b-9Bx" secondAttribute="bottom" constant="40" id="SwL-me-ddd"/>
+                            <constraint firstItem="ppA-ZX-mea" firstAttribute="centerX" secondItem="iFR-J4-WSm" secondAttribute="centerX" id="cB1-Ga-fYC"/>
+                            <constraint firstItem="R4W-UU-Sje" firstAttribute="top" secondItem="Sm1-Af-r6O" secondAttribute="top" constant="69" id="lgB-82-kSV"/>
+                            <constraint firstItem="wtz-8b-9Bx" firstAttribute="centerX" secondItem="iFR-J4-WSm" secondAttribute="centerX" id="o2V-gL-UI2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sm1-Af-r6O"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F3j-ly-GuW"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="ppA-ZX-mea" id="RFs-Zq-7ZQ"/>
+                        <outlet property="imageView" destination="R4W-UU-Sje" id="CoA-l7-OAh"/>
+                        <outlet property="titleLabel" destination="wtz-8b-9Bx" id="w1Y-Uu-RVh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlO-qa-7RZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2050" y="-361"/>
+        </scene>
     </scenes>
 </document>

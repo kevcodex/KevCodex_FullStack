@@ -45,6 +45,7 @@
 		0ACEF8F52217938F00705884 /* HikingNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACEF8F42217938F00705884 /* HikingNetworkRequest.swift */; };
 		0ACEF8F7221A138000705884 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACEF8F6221A138000705884 /* ProjectViewModel.swift */; };
 		0ACEF8F9221A180B00705884 /* ProjectFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACEF8F8221A180B00705884 /* ProjectFeedCell.swift */; };
+		0ACEF8FB221A5B2900705884 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACEF8FA221A5B2900705884 /* ProjectDetailsViewController.swift */; };
 		2318D92C2690299D3BE17541 /* Pods_KevCodexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8069F4A72C22F674868B6455 /* Pods_KevCodexIOS.framework */; };
 		4E884EAA1EFC7EDE00A19C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */; };
 		4E884EAF1EFC7EDE00A19C5F /* Hiking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E884EAD1EFC7EDE00A19C5F /* Hiking.storyboard */; };
@@ -112,6 +113,7 @@
 		0ACEF8F42217938F00705884 /* HikingNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingNetworkRequest.swift; sourceTree = "<group>"; };
 		0ACEF8F6221A138000705884 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		0ACEF8F8221A180B00705884 /* ProjectFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFeedCell.swift; sourceTree = "<group>"; };
+		0ACEF8FA221A5B2900705884 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		4E884EA61EFC7EDE00A19C5F /* KevCodexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevCodexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E884EA91EFC7EDE00A19C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E884EAE1EFC7EDE00A19C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Hiking.storyboard; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				0A5546D722179069005A43EE /* Project.storyboard */,
 				0A5546D622179069005A43EE /* ProjectCoordinator.swift */,
 				0A5546D822179069005A43EE /* ProjectListViewController.swift */,
+				0ACEF8FA221A5B2900705884 /* ProjectDetailsViewController.swift */,
 				0ACA681622126DE200CF6BA1 /* ProjectWorker.swift */,
 				0A5AF310220A7B4B0093A77A /* Project.swift */,
 				0ACEF8F6221A138000705884 /* ProjectViewModel.swift */,
@@ -639,6 +642,7 @@
 				844B14B61FFAAB3200D94C04 /* ImageLoaderError.swift in Sources */,
 				0ACEF8F7221A138000705884 /* ProjectViewModel.swift in Sources */,
 				0A0114B3220E4AEC00F0581B /* StoryboardInitializable.swift in Sources */,
+				0ACEF8FB221A5B2900705884 /* ProjectDetailsViewController.swift in Sources */,
 				0A5546DD221790DF005A43EE /* Hike.swift in Sources */,
 				4E884EE11EFC7F4D00A19C5F /* CustomDismissController.swift in Sources */,
 				0ACA681722126DE200CF6BA1 /* ProjectWorker.swift in Sources */,

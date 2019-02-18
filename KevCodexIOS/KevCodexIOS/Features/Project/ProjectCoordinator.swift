@@ -6,7 +6,7 @@
 //  Copyright © 2019 Kirby. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ProjectCoordinator: Coordinator {
     let rootViewController: ProjectListViewController
@@ -21,7 +21,16 @@ final class ProjectCoordinator: Coordinator {
 }
 
 extension ProjectCoordinator: ProjectListViewControllerDelegate {
-    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project) {
+    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project, image: UIImage?) {
+        let (navigation, controller) = ProjectDetailsViewController.makeFromStoryboardWithNavigation()
+        controller.delegate = self
+        controller.project = project
+        controller.image = image
         
+        rootViewController.present(navigation, animated: true)
     }
+}
+
+extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
+    
 }

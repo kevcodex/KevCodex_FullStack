@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProjectListViewControllerDelegate: class {
-    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project)
+    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project, image: UIImage?)
 }
 
 final class ProjectListViewController: UIViewController {
@@ -82,7 +82,10 @@ extension ProjectListViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         
-        delegate?.projectListViewController(self, didSelectProject: project)
+        let cell = collectionView.cellForItem(at: indexPath) as? ProjectFeedCell
+        let image = cell?.imageView.image
+        
+        delegate?.projectListViewController(self, didSelectProject: project, image: image)
         
     }
     
