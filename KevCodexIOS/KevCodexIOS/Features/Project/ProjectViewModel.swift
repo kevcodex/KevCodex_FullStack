@@ -41,12 +41,7 @@ final class ProjectViewModel {
         }
     }
     
-    func fetchImage(for project: Project, completion: @escaping (Result<UIImage, ImageLoaderError>) -> Void) {
-        
-        guard let imagePath = project.imageURLString.nonEmpty else {
-            completion(Result(value: #imageLiteral(resourceName: "PlaceHolder")))
-            return
-        }
+    func fetchImage(for imagePath: String, completion: @escaping (Result<UIImage, ImageLoaderError>) -> Void) {
         
         if let cachedImage = self.imageCache.object(forKey: imagePath as NSString) {
             completion(Result(value: cachedImage))

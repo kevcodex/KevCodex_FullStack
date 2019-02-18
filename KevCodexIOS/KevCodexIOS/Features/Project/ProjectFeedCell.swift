@@ -13,7 +13,4 @@ class ProjectFeedCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func update(with project: Project) {
-        titleLabel.text = project.title
-    }
 }

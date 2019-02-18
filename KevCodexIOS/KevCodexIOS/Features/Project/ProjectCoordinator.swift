@@ -16,5 +16,12 @@ final class ProjectCoordinator: Coordinator {
     init(user: User) {
         self.user = user
         rootViewController = ProjectListViewController.makeFromStoryboard()
+        rootViewController.delegate = self
+    }
+}
+
+extension ProjectCoordinator: ProjectListViewControllerDelegate {
+    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project) {
+        
     }
 }

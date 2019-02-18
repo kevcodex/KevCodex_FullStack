@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol ProjectListViewControllerDelegate: class {
+    func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project)
+}
+
 final class ProjectListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let projectViewModel = ProjectViewModel()
+    
+    weak var delegate: ProjectListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,23 +55,46 @@ extension ProjectListViewController: UICollectionViewDataSource {
             return cell
         }
         
-        projectViewModel.fetchImage(for: project) { (result) in
-            switch result {
-            case .success(let image):
-                cell.imageView.image = image
-            case .failure(let error):
-                print(error)
+        if let imagePath = project.imageURLString.nonEmpty {
+            
+            projectViewModel.fetchImage(for: imagePath) { (result) in
+                switch result {
+                case .success(let image):
+                    cell.imageView.image = image
+                    cell.titleLabel.isHidden = true
+                case .failure(let error):
+                    print(error)
+                }
             }
+        } else {
+            cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
+            cell.titleLabel.text = project.title
         }
-        
-        cell.update(with: project)
         
         return cell
     }
 }
 
-extension ProjectListViewController: UICollectionViewDelegate {
+extension ProjectListViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let project = projectViewModel.project(at: indexPath.row) else {
+            return
+        }
+        
+        delegate?.projectListViewController(self, didSelectProject: project)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var size = UIScreen.main.bounds.width / 2
+        
+        if let viewFlowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+            size = size - viewFlowLayout.sectionInset.left - viewFlowLayout.sectionInset.right
+        }
+        
+        return CGSize(width: size, height: size)
+    }
 }
 
 extension ProjectListViewController: StoryboardInitializable {
