@@ -39,7 +39,7 @@ pipeline {
                     }
                     post {
                         success {
-                            junit 'build/reports/junit.xml'
+                            junit 'KevCodexServer/build/reports/junit.xml'
                         }
                     }
                     stages {
@@ -84,7 +84,7 @@ pipeline {
                     }
                     post {
                         success {
-                            junit 'build/reports/junit.xml'
+                            junit 'KevCodexIOS/build/reports/junit.xml'
                         }
                     }
                     stages {
