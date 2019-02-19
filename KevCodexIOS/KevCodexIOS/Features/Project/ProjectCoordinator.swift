@@ -60,6 +60,29 @@ extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
         navigation.pushViewController(vc, animated: true)
         
     }
+    
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressDelete project: Project) {
+        
+        guard let navigationController = detailNavigationController else {
+            return
+        }
+        
+        projectDetailsViewController.showActivityIndicator(title: "Loading")
+        
+        ProjectWorker.deleteProject(id: project._id, accessToken: user.accessToken) { [weak self] (result) in
+            switch result {
+            case .success:
+                navigationController.dismiss(animated: true) {
+                    self?.detailNavigationController = nil
+                    self?.refreshListViewController()
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+            projectDetailsViewController.hideActivityIndicator()
+        }
+    }
 }
 
 extension ProjectCoordinator: ProjectEditorViewControllerDelegate {

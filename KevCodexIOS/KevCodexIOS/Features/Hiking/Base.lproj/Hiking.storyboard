@@ -139,10 +139,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-xu-EIQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5be-ps-gjF">
-                                                <rect key="frame" x="40" y="50" width="295" height="368"/>
+                                                <rect key="frame" x="40" y="50" width="295" height="548"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ood-rf-eKK">
                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -170,20 +170,38 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image URL Path" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLe-Jg-mZM">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLe-Jg-mZM">
                                                         <rect key="frame" x="0.0" y="218" width="295" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Call To Action URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-wh-4vy">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-wh-4vy">
                                                         <rect key="frame" x="0.0" y="278" width="295" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sort Order" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-0z-E0D">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hike Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-0z-E0D">
                                                         <rect key="frame" x="0.0" y="338" width="295" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Elevation Gain" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6D-Mn-5VW">
+                                                        <rect key="frame" x="0.0" y="398" width="295" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Difficulty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpx-Ff-NBk">
+                                                        <rect key="frame" x="0.0" y="458" width="295" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image Path" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1do-C0-GCm">
+                                                        <rect key="frame" x="0.0" y="518" width="295" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -191,7 +209,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFf-fF-nX4">
-                                                <rect key="frame" x="163" y="470" width="49" height="30"/>
+                                                <rect key="frame" x="163" y="650" width="49" height="30"/>
                                                 <state key="normal" title="Submit"/>
                                                 <connections>
                                                     <action selector="submitButtonPressed:" destination="4Og-ES-M6c" eventType="touchUpInside" id="SAv-Hr-btD"/>
@@ -228,11 +246,14 @@
                         <viewLayoutGuide key="safeArea" id="vl9-IY-T8y"/>
                     </view>
                     <connections>
-                        <outlet property="callToActionTextField" destination="GTh-wh-4vy" id="ige-bk-mut"/>
                         <outlet property="descriptionTextView" destination="G8y-UT-upl" id="dAd-K1-mzt"/>
-                        <outlet property="imagePathTextField" destination="BLe-Jg-mZM" id="dhc-5d-2Yv"/>
+                        <outlet property="difficultyTextField" destination="wpx-Ff-NBk" id="ouq-Vv-xUy"/>
+                        <outlet property="distanceTextField" destination="GTh-wh-4vy" id="gq9-rd-qoN"/>
+                        <outlet property="elevationGainTextField" destination="A6D-Mn-5VW" id="Pxi-Ko-4KQ"/>
+                        <outlet property="hikeTimeTextField" destination="9ml-0z-E0D" id="mWc-T1-loA"/>
+                        <outlet property="imagePathTextField" destination="1do-C0-GCm" id="1la-DU-zh6"/>
+                        <outlet property="locationTextField" destination="BLe-Jg-mZM" id="UAN-X4-Jv0"/>
                         <outlet property="scrollView" destination="nd5-PE-mrE" id="klK-Uj-qtQ"/>
-                        <outlet property="sortOrderTextField" destination="9ml-0z-E0D" id="pT4-aA-0J4"/>
                         <outlet property="titleTextField" destination="Ood-rf-eKK" id="f2L-2l-7aH"/>
                     </connections>
                 </viewController>

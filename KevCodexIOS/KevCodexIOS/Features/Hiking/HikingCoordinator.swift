@@ -108,11 +108,13 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
 }
 
 extension HikingCoordinator: HikingEditorViewControllerDelegate {
-    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody, completion: @escaping () -> Void) {
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody) {
         
         guard let navigationController = detailNavigationController else {
             return
         }
+        
+        hikingEditorViewController.showActivityIndicator(title: "Loading")
         
         HikingWorker.editHike(id: hike._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
             switch result {
@@ -125,7 +127,7 @@ extension HikingCoordinator: HikingEditorViewControllerDelegate {
                 print(error)
             }
             
-            completion()
+            hikingEditorViewController.hideActivityIndicator()
         }
     }
 }

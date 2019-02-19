@@ -127,6 +127,9 @@
                                 <state key="normal" title="Delete Project">
                                     <color key="titleColor" red="1" green="0.39496109340000002" blue="0.22455605170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressDeleteButton:" destination="EK1-uN-rcn" eventType="touchUpInside" id="Kn3-LC-5KS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

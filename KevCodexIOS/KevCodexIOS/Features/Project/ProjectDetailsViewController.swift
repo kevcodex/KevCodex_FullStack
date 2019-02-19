@@ -11,6 +11,8 @@ import UIKit
 protocol ProjectDetailsViewControllerDelegate: class {
     func projectDetailsViewControllerDidDismiss(_ projectDetailsViewController: ProjectDetailsViewController)
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEditFor project: Project)
+    
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressDelete project: Project)
 }
 
 final class ProjectDetailsViewController: UIViewController {
@@ -50,6 +52,26 @@ extension ProjectDetailsViewController {
         delegate?.projectDetailsViewControllerDidDismiss(self)
     }
     
+    @IBAction func didPressDeleteButton(_ sender: UIButton) {
+        guard let project = project else {
+            return
+        }
+        
+        let controller = UIAlertController(title: "Permanently Delete?", message: "This action is irreversible, so make sure you are sure.", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            
+            self.delegate?.projectDetailsViewController(self, didPressDelete: project)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        controller.addAction(confirmAction)
+        controller.addAction(cancelAction)
+        
+        present(controller, animated: true)
+    }
+    
     @IBAction func didPressEditButton(_ sender: UIButton) {
         
         guard let project = project else {
@@ -59,6 +81,8 @@ extension ProjectDetailsViewController {
         delegate?.projectDetailsViewController(self, didPressEditFor: project)
     }
 }
+
+extension ProjectDetailsViewController: ActivityIndicatorPresenter {}
 
 extension ProjectDetailsViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
