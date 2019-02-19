@@ -43,8 +43,8 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         addChild(coordinator: project)
         addChild(coordinator: settings)
         
-        rootViewController.addChild(hiking.rootViewController)
         rootViewController.addChild(project.rootViewController)
+        rootViewController.addChild(hiking.rootViewController)
         rootViewController.addChild(settings.rootViewController)
     }
 }

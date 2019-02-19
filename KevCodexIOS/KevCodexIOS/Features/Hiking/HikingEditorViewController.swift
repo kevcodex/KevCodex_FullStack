@@ -19,6 +19,7 @@ final class HikingEditorViewController: UIViewController {
     
     weak var delegate: HikingEditorViewControllerDelegate?
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: CustomTextView!
     @IBOutlet weak var imagePathTextField: UITextField!
@@ -30,6 +31,11 @@ final class HikingEditorViewController: UIViewController {
         
         prefillTextFields()
         
+        scrollView.keyboardDismissMode = .onDrag
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(tapGesture)
     }
     
     private func prefillTextFields() {
@@ -82,6 +88,12 @@ extension HikingEditorViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
+        view.endEditing(true)
+    }
+}
+
+extension HikingEditorViewController {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }

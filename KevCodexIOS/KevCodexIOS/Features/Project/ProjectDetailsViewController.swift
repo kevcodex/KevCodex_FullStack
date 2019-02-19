@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ProjectDetailsViewControllerDelegate: class {
-    
+    func projectDetailsViewControllerDidDismiss(_ projectDetailsViewController: ProjectDetailsViewController)
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEditFor project: Project)
 }
 
 final class ProjectDetailsViewController: UIViewController {
@@ -33,6 +34,29 @@ final class ProjectDetailsViewController: UIViewController {
         titleLabel.text = project.title
         descriptionLabel.text = project.description
         imageView.image = image
+        
+        let button = UIBarButtonItem(image: IconFactory.imageOfCrossIcon(),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didPressCloseButton))
+        
+        navigationItem.setLeftBarButtonItems([button], animated: true)
+    }
+}
+
+extension ProjectDetailsViewController {
+    
+    @objc func didPressCloseButton() {
+        delegate?.projectDetailsViewControllerDidDismiss(self)
+    }
+    
+    @IBAction func didPressEditButton(_ sender: UIButton) {
+        
+        guard let project = project else {
+            return
+        }
+        
+        delegate?.projectDetailsViewController(self, didPressEditFor: project)
     }
 }
 

@@ -13,6 +13,8 @@ final class ProjectCoordinator: Coordinator {
     
     let user: User
     
+    var detailNavigationController: UINavigationController?
+    
     init(user: User) {
         self.user = user
         rootViewController = ProjectListViewController.makeFromStoryboard()
@@ -27,10 +29,58 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         controller.project = project
         controller.image = image
         
+        detailNavigationController = navigation
+        
         rootViewController.present(navigation, animated: true)
+    }
+    
+    private func refreshListViewController() {
+        
+        rootViewController.refresh()
     }
 }
 
 extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
+    func projectDetailsViewControllerDidDismiss(_ projectDetailsViewController: ProjectDetailsViewController) {
+        projectDetailsViewController.dismiss(animated: true) {
+            self.detailNavigationController = nil
+        }
+    }
     
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEditFor project: Project) {
+        
+        guard let navigation = detailNavigationController else {
+            return
+        }
+        
+        let vc = ProjectEditorViewController.makeFromStoryboard()
+        vc.delegate = self
+        vc.project = project
+        
+        navigation.pushViewController(vc, animated: true)
+        
+    }
+}
+
+extension ProjectCoordinator: ProjectEditorViewControllerDelegate {
+    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody) {
+        
+        guard let navigationController = detailNavigationController else {
+            return
+        }
+        
+        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
+            switch result {
+            case .success:
+                navigationController.dismiss(animated: true) {
+                    self?.detailNavigationController = nil
+                    self?.refreshListViewController()
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+            projectEditorViewController.hideActivityIndicator()
+        }
+    }    
 }

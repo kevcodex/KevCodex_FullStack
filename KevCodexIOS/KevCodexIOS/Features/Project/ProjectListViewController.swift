@@ -25,7 +25,17 @@ final class ProjectListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        projectViewModel.fetchProjects() { result in
+        refresh()
+    }
+    
+    func refresh() {
+        showActivityIndicator(title: "Loading")
+        
+        projectViewModel.fetchProjects() { [weak self] (result) in
+            
+            guard let strongSelf = self else {
+                return
+            }
             
             switch result {
             case .success:
@@ -33,7 +43,9 @@ final class ProjectListViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
-            self.collectionView.reloadData()
+            
+            strongSelf.collectionView.reloadData()
+            strongSelf.hideActivityIndicator()
         }
     }
     
@@ -64,11 +76,15 @@ extension ProjectListViewController: UICollectionViewDataSource {
                     cell.titleLabel.isHidden = true
                 case .failure(let error):
                     print(error)
+                    cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
+                    cell.titleLabel.text = project.title
+                    cell.titleLabel.isHidden = false
                 }
             }
         } else {
             cell.imageView.image = #imageLiteral(resourceName: "PlaceHolder")
             cell.titleLabel.text = project.title
+            cell.titleLabel.isHidden = false
         }
         
         return cell
@@ -99,6 +115,8 @@ extension ProjectListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
     }
 }
+
+extension ProjectListViewController: ActivityIndicatorPresenter {}
 
 extension ProjectListViewController: StoryboardInitializable {
     static var storyboardName: String {
