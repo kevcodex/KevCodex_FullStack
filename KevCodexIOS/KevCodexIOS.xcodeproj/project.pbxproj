@@ -571,12 +571,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KevCodexIOS/Pods-KevCodexIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MiniNe/MiniNe.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiniNe.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

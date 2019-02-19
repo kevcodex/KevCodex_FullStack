@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 protocol MainCoordinatorDelegate: class {
     func mainCoordinatorDidLogout(_ mainCoordinator: MainCoordinator)
@@ -31,10 +32,13 @@ final class MainCoordinator: NSObject, CoordinatorWithChildren {
         super.init()
         
         let hiking = HikingCoordinator(user: user)
-        hiking.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        let hikeImage = UIImage.fontAwesomeIcon(name: .hiking, style: .solid, textColor: .black, size: CGSize(width: 40, height: 40))
+        hiking.rootViewController.tabBarItem = UITabBarItem(title: "Hikes", image: hikeImage, tag: 0)
         
         let project = ProjectCoordinator(user: user)
-        project.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
+        let projectImage = UIImage.fontAwesomeIcon(name: .star, style: .solid, textColor: .black, size: CGSize(width: 40, height: 40))
+        project.rootViewController.tabBarItem = UITabBarItem(title: "Projects", image: projectImage, tag: 1)
+        
         
         let settings = SettingsCoordinator(user: user, delegate: self)
         settings.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
