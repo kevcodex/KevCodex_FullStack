@@ -18,9 +18,14 @@ struct ProjectController: RouteCollection, MongoQueryable {
         let apiRouter = router.grouped("api", "projects")
         apiRouter.get(use: getAllItems)
         apiRouter.get(ObjectId.parameter, use: getItem)
-        apiRouter.put(ObjectId.parameter, use: editItemByObjectID)
-        apiRouter.post(use: addItem)
-        apiRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
+        
+        let apiKeyMiddleware = ApiKeyMiddleware(apiKey: apiKey)
+        
+        let authenticationRouter = apiRouter.grouped(JWTMiddleware(), apiKeyMiddleware)
+
+        authenticationRouter.put(ObjectId.parameter, use: editItemByObjectID)
+        authenticationRouter.post(use: addItem)
+        authenticationRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
     }
     
     func getAllItems(_ req: Request) throws -> Future<[Item]> {

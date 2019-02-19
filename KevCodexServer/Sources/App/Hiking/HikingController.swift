@@ -18,17 +18,18 @@ struct HikingController: RouteCollection, MongoQueryable {
         let apiRouter = router.grouped("api", "hikes")
         apiRouter.get(use: getAllItems)
         apiRouter.get(ObjectId.parameter, use: getItem)
-        apiRouter.put(ObjectId.parameter, use: editItemByObjectID)
-        apiRouter.post(use: addItem)
-        apiRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
-        apiRouter.delete("title", String.parameter, use: deleteHikeByTitle)
+        
+        let apiKeyMiddleware = ApiKeyMiddleware(apiKey: apiKey)
+        
+        let authenticationRouter = apiRouter.grouped(JWTMiddleware(), apiKeyMiddleware)
+        
+        authenticationRouter.put(ObjectId.parameter, use: editItemByObjectID)
+        authenticationRouter.post(use: addItem)
+        authenticationRouter.delete(ObjectId.parameter, use: deleteItemByObjectID)
+        authenticationRouter.delete("title", String.parameter, use: deleteHikeByTitle)
     }
     
     func deleteHikeByTitle(_ req: Request) throws -> Future<HTTPStatus> {
-        
-        guard let _ = req.http.headers.bearerAuthorization else {
-            throw Abort(.unauthorized, reason: "Missing Access Token")
-        }
         
         guard let apiKey = req.http.headers["apiKey"].first else {
             throw Abort(.forbidden, reason: "Missing API Header")

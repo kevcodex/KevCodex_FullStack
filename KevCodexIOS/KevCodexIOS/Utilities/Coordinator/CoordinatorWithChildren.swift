@@ -28,4 +28,9 @@ extension CoordinatorWithChildren {
         let identifier = type.identifier
         removeChild(with: identifier, tearDown: tearDown)
     }
+    
+    func removeAllChildren(tearDown: (() -> Void)? = nil) {
+        tearDown?()
+        childCoordinators.removeAll()
+    }
 }

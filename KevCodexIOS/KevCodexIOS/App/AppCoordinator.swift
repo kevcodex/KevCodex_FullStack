@@ -10,7 +10,7 @@ import UIKit
 
 final class AppCoordinator: NSObject, CoordinatorWithChildren {
     let window: UIWindow
-    var rootViewController: UINavigationController?
+    var rootViewController: UINavigationController
     
     var childCoordinators: [String: Any] = [:]
     
@@ -21,34 +21,57 @@ final class AppCoordinator: NSObject, CoordinatorWithChildren {
         }
         
         self.window = window
+        rootViewController = UINavigationController()
+        rootViewController.isNavigationBarHidden = true
+        window.rootViewController = rootViewController
+        
+        super.init()
     }
     
     func start() {
-        // Launch initial vc
-        let viewController = LoginViewController.makeFromStoryboard()
-        viewController.delegate = self
         
-        rootViewController = UINavigationController(rootViewController: viewController)
-        rootViewController?.delegate = self
-        window.rootViewController = rootViewController
+        if let user = User.retrieve(),
+            user.isValidAccessToken() {
+            
+            let mainCoordinator = MainCoordinator(user: user, delegate: self)
+            
+            rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: true)
+            
+            addChild(coordinator: mainCoordinator)
+            
+        } else {
+            
+            let loginViewController = LoginViewController.makeFromStoryboard()
+            loginViewController.delegate = self
+
+            rootViewController.setViewControllers([loginViewController], animated: true)
+        }
     }
 }
 
 extension AppCoordinator: LoginViewControllerDelegate {
     func loginViewController(_ loginViewController: LoginViewController, didLogin user: User) {
         
-        guard let navigationController = rootViewController else {
-            return
-        }
+        let mainCoordinator = MainCoordinator(user: user, delegate: self)
         
-        let detailController = ProjectCoordinator(with: navigationController, user: user)
+        addChild(coordinator: mainCoordinator)
         
-        addChild(coordinator: detailController)
+        User.store(user: user)
+        
+        rootViewController.setViewControllers([mainCoordinator.rootViewController], animated: true)
     }
 }
 
-extension AppCoordinator: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print(viewController.description)
+extension AppCoordinator: MainCoordinatorDelegate {
+    func mainCoordinatorDidLogout(_ mainCoordinator: MainCoordinator) {
+        User.removeCache()
+        removeAllChildren()
+        
+        let loginViewController = LoginViewController.makeFromStoryboard()
+        loginViewController.delegate = self
+        
+        rootViewController.setViewControllers([loginViewController, mainCoordinator.rootViewController], animated: false)
+        
+        rootViewController.popToRootViewController(animated: true)
     }
 }

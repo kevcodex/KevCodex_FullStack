@@ -14,7 +14,6 @@ import Crypto
 struct UserController: RouteCollection {
     
     let apiKey: String
-    let secretToken: String
     
     func boot(router: Router) throws {
         let apiRouter = router.grouped("api", "profile")
@@ -31,7 +30,7 @@ struct UserController: RouteCollection {
         }
         
         // parse JWT from token string, using HS-256 signer
-        let jwt = try JWT<Token>(from: bearer.token, verifiedUsing: .hs256(key: secretToken))
+        let jwt = try JWT<Token>(from: bearer.token, verifiedUsing: .hs256(key: JWTConfig.key))
         return "Hello, \(jwt.payload.uid)!"
     }
     
@@ -59,7 +58,10 @@ struct UserController: RouteCollection {
                     return saveFuture.map({ (_) -> User.Response in
                         let token = Token.generate(for: user)
                         
-                        let data = try JWT(payload: token).sign(using: .hs256(key: self.secretToken))
+                        let signer = JWTConfig.signer
+                        
+                        let jwt = JWT(payload: token)
+                        let data = try signer.sign(jwt)
                         
                         guard let tokenString = String(data: data, encoding: .utf8) else {
                             throw Abort(.badRequest)
@@ -98,7 +100,10 @@ struct UserController: RouteCollection {
                 
                 let token = Token.generate(for: existingUser)
                 
-                let data = try JWT(payload: token).sign(using: .hs256(key: self.secretToken))
+                let signer = JWTConfig.signer
+                
+                let jwt = JWT(payload: token)
+                let data = try signer.sign(jwt)
                 
                 guard let tokenString = String(data: data, encoding: .utf8) else {
                     throw Abort(.badRequest)

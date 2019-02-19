@@ -16,12 +16,21 @@ struct Token: Codable {
 extension Token: JWTPayload {
     func verify(using signer: JWTSigner) throws {
         guard exp >= Date().timeIntervalSince1970 else {
-            throw Abort(.unauthorized, reason: "Token has expired")
+            throw Abort(.unauthorized, reason: JWTError.tokenExpired.reason)
         }
     }
 }
 
 extension Token {
+    
+    static func verifySignature(from token: String) throws {
+        do {
+            let _ = try JWT<Token>(from: token, verifiedUsing: JWTConfig.signer)
+        } catch {
+            throw JWTError.verificationFailed
+        }
+    }
+    
     static func generate(for user: User) -> Token {
         
         #if DEBUG

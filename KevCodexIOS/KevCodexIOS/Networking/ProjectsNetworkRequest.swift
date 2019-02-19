@@ -34,4 +34,51 @@ extension ProjectsNetworkRequest {
     static func getAllProjectsRequest() -> ProjectsNetworkRequest {
         return ProjectsNetworkRequest(path: "api/projects", method: .get, parameters: nil, headers: nil, body: nil)
     }
+    
+    static func getImageRequest(imagePath: String) -> ProjectsNetworkRequest {
+        return ProjectsNetworkRequest(path: imagePath, method: .get, parameters: nil, headers: nil, body: nil)
+    }
+    
+    static func addProjectRequest(accessToken: String, project: Project) -> ProjectsNetworkRequest {
+        
+        let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
+        
+        // fix network layer to take data so we can use codable
+        var body: NetworkBody? {
+            guard let data = try? JSONEncoder().encode(project),
+                let object = try? JSONSerialization.jsonObject(with: data, options: []),
+                let dict = object as? [String: Any] else {
+                    return nil
+            }
+            
+            return NetworkBody(parameters: dict, encoding: .json)
+        }
+        
+        return ProjectsNetworkRequest(path: "api/projects", method: .post, parameters: nil, headers: headers, body: body)
+    }
+    
+    static func editProjectRequest(id: String, accessToken: String, body: Project.UpdateBody) -> ProjectsNetworkRequest {
+        
+        let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
+        
+        // fix network layer to take data so we can use codable
+        var body: NetworkBody? {
+            guard let data = try? JSONEncoder().encode(body),
+                let object = try? JSONSerialization.jsonObject(with: data, options: []),
+                let dict = object as? [String: Any] else {
+                return nil
+            }
+            
+            return NetworkBody(parameters: dict, encoding: .json)
+        }
+        
+        return ProjectsNetworkRequest(path: "api/projects/\(id)", method: .put, parameters: nil, headers: headers, body: body)
+    }
+    
+    static func deleteProjectRequest(id: String, accessToken: String) -> ProjectsNetworkRequest {
+        
+        let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
+        
+        return ProjectsNetworkRequest(path: "api/projects/\(id)", method: .delete, parameters: nil, headers: headers, body: nil)
+    }
 }

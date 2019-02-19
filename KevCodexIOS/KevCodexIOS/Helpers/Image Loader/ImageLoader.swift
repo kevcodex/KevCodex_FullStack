@@ -8,41 +8,33 @@
 
 import Foundation
 import UIKit
+import MiniNe
 
 /// Async load images
 final class ImageLoader {
     
-    static func loadImage(from imagePath: String, completion: @escaping (UIImage?, ImageLoaderError) -> Void) {
+    static func loadImage<Request>(from request: Request,
+                                   completion: @escaping (Result<UIImage, ImageLoaderError>) -> Void) where Request: NetworkRequest {
         
-        guard let url = URL(string: imagePath) else {
-            completion(nil, .invalidURL)
-            return
-        }
+        let client = MiniNeClient()
         
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-            
-            if error != nil {
-                DispatchQueue.main.async {
-                    completion(nil, .apiFailed(message: "Error with api"))
-                }
-                
-                return
-            }
-            
-            guard let data = data,
-                let image = UIImage(data: data) else {
-                    DispatchQueue.main.async {
-                        completion(nil, .apiFailed(message: "Data was malformed"))
-                    }
-                    
-                    return
-            }
+        client.send(request: request) { (result) in
             
             DispatchQueue.main.async {
-                completion(image, .noError)
+                switch result {
+                case .success(let response):
+                    
+                    guard let image = UIImage(data: response.data) else {
+                        completion(Result(error: .apiFailed(message: "Data was malformed")))
+                        return
+                    }
+                    
+                    completion(Result(value: image))
+                    
+                case .failure(let error):
+                    completion(Result(error: .apiFailed(message: "Error with api: \(error)")))
+                }
             }
-            
-        }).resume()
-        
+        }
     }
 }

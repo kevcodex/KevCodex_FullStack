@@ -1,72 +1,90 @@
 //
 //  ProjectDetailsViewController.swift
-//  SampleProject
+//  KevCodexIOS
 //
-//  Created by Kirby on 6/20/17.
-//  Copyright © 2017 Kirby. All rights reserved.
+//  Created by Kevin Chen on 2/17/19.
+//  Copyright © 2019 Kirby. All rights reserved.
 //
 
 import UIKit
 
-// shows details of the feed
-final class ProjectDetailsViewController: UIViewController {
+protocol ProjectDetailsViewControllerDelegate: class {
+    func projectDetailsViewControllerDidDismiss(_ projectDetailsViewController: ProjectDetailsViewController)
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressEditFor project: Project)
     
-    var result: Project!
+    func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressDelete project: Project)
+}
+
+final class ProjectDetailsViewController: UIViewController {
+
+    weak var delegate: ProjectDetailsViewControllerDelegate?
+    
+    var project: Project?
     var image: UIImage?
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //    dateLabel.text = result.readableDate
-        titleLabel.text = result.title
-        descriptionLabel.text = result.description
-        
-        let colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
-        let locations: [CGFloat] = [0.0, 1.0]
-        
-        if let cachedImage = image,
-            let gradientImage = cachedImage.createGradient(with: colors, at: locations) {
-            
-            imageView.image = gradientImage
-        } else {
-            imageView.image = #imageLiteral(resourceName: "PlaceHolder")
+        guard let project = project else {
+            return
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        navigationBar.isHidden = false
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
-        // navigationBar.tintColor = UIColor.white
+        titleLabel.text = project.title
+        descriptionLabel.text = project.description
+        imageView.image = image
+        
+        let button = UIBarButtonItem(image: IconFactory.imageOfCrossIcon(),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didPressCloseButton))
+        
+        navigationItem.setLeftBarButtonItems([button], animated: true)
     }
 }
 
-// MARK: - Actions
 extension ProjectDetailsViewController {
-    @IBAction func ShareTapped(_ sender: UIBarButtonItem) {
-        
-        if let image = image {
-            let vc = UIActivityViewController(activityItems: [result.title, image], applicationActivities: [])
-            present(vc, animated: true)
-        }
+    
+    @objc func didPressCloseButton() {
+        delegate?.projectDetailsViewControllerDidDismiss(self)
     }
     
-    @IBAction func backTapped(_ sender: UIBarButtonItem) {
+    @IBAction func didPressDeleteButton(_ sender: UIButton) {
+        guard let project = project else {
+            return
+        }
         
-        dismiss(animated: true, completion: nil)
+        let controller = UIAlertController(title: "Permanently Delete?", message: "This action is irreversible, so make sure you are sure.", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            
+            self.delegate?.projectDetailsViewController(self, didPressDelete: project)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        controller.addAction(confirmAction)
+        controller.addAction(cancelAction)
+        
+        present(controller, animated: true)
+    }
+    
+    @IBAction func didPressEditButton(_ sender: UIButton) {
+        
+        guard let project = project else {
+            return
+        }
+        
+        delegate?.projectDetailsViewController(self, didPressEditFor: project)
     }
 }
 
-extension ProjectDetailsViewController: StoryboardInitializable {
+extension ProjectDetailsViewController: ActivityIndicatorPresenter {}
+
+extension ProjectDetailsViewController: StoryboardNavigationInitializable {
     static var storyboardName: String {
         return "Project"
     }
