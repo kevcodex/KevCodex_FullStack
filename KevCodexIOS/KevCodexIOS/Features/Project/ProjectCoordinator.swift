@@ -15,6 +15,8 @@ final class ProjectCoordinator: Coordinator {
     
     var detailNavigationController: UINavigationController?
     
+    var isEditingProject: Bool = false
+    
     init(user: User) {
         self.user = user
         rootViewController = ProjectListViewController.makeFromStoryboard()
@@ -32,6 +34,15 @@ extension ProjectCoordinator: ProjectListViewControllerDelegate {
         detailNavigationController = navigation
         
         rootViewController.present(navigation, animated: true)
+    }
+    
+    func projectListViewControllerDidPressAdd(_ projectListViewController: ProjectListViewController) {
+        isEditingProject = false
+        
+        let vc = ProjectEditorViewController.makeFromStoryboard()
+        vc.delegate = self
+        
+        rootViewController.present(vc, animated: true)
     }
     
     private func refreshListViewController() {
@@ -53,23 +64,25 @@ extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
             return
         }
         
+        isEditingProject = true
+        
         let vc = ProjectEditorViewController.makeFromStoryboard()
         vc.delegate = self
         vc.project = project
         
         navigation.pushViewController(vc, animated: true)
-        
     }
     
     func projectDetailsViewController(_ projectDetailsViewController: ProjectDetailsViewController, didPressDelete project: Project) {
         
-        guard let navigationController = detailNavigationController else {
+        guard let navigationController = detailNavigationController,
+            let id = project._id else {
             return
         }
         
         projectDetailsViewController.showActivityIndicator(title: "Loading")
         
-        ProjectWorker.deleteProject(id: project._id, accessToken: user.accessToken) { [weak self] (result) in
+        ProjectWorker.deleteProject(id: id, accessToken: user.accessToken) { [weak self] (result) in
             switch result {
             case .success:
                 navigationController.dismiss(animated: true) {
@@ -86,24 +99,59 @@ extension ProjectCoordinator: ProjectDetailsViewControllerDelegate {
 }
 
 extension ProjectCoordinator: ProjectEditorViewControllerDelegate {
-    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody) {
+    func shouldRemoveDismissButton() -> Bool {
+        return isEditingProject ? true : false
+    }
+    
+    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project?, withBody body: Project.UpdateBody) {
         
-        guard let navigationController = detailNavigationController else {
-            return
-        }
+        projectEditorViewController.showActivityIndicator(title: "Loading")
         
-        ProjectWorker.editProject(id: project._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
-            switch result {
-            case .success:
-                navigationController.dismiss(animated: true) {
-                    self?.detailNavigationController = nil
-                    self?.refreshListViewController()
-                }
-            case .failure(let error):
-                print(error)
+        if isEditingProject {
+            
+            guard let navigationController = detailNavigationController,
+                let id = project?._id else {
+                projectEditorViewController.hideActivityIndicator()
+                return
             }
             
-            projectEditorViewController.hideActivityIndicator()
+            ProjectWorker.editProject(id: id, accessToken: user.accessToken, body: body) { [weak self] (result) in
+                switch result {
+                case .success:
+                    navigationController.dismiss(animated: true) {
+                        self?.detailNavigationController = nil
+                        self?.refreshListViewController()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+                
+                projectEditorViewController.hideActivityIndicator()
+            }
+        } else {
+            
+            guard let project = body.mapToProject() else {
+                print("Missing a field")
+                projectEditorViewController.hideActivityIndicator()
+                return
+            }
+            
+            ProjectWorker.addProject(accessToken: user.accessToken, project: project) { [weak self] (result) in
+                switch result {
+                case .success:
+                    projectEditorViewController.dismiss(animated: true) {
+                        self?.refreshListViewController()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+                
+                projectEditorViewController.hideActivityIndicator()
+            }
         }
-    }    
+    }
+    
+    func projectEditorViewControllerDidPressDismiss(_ projectEditorViewController: ProjectEditorViewController) {
+        projectEditorViewController.dismiss(animated: true)
+    }
 }

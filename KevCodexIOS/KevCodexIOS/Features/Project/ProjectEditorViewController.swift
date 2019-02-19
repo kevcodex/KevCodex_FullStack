@@ -9,7 +9,12 @@
 import UIKit
 
 protocol ProjectEditorViewControllerDelegate: class {
-    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project, withBody body: Project.UpdateBody)
+    
+    func shouldRemoveDismissButton() -> Bool
+    
+    func projectEditorViewController(_ projectEditorViewController: ProjectEditorViewController, didSubmitFor project: Project?, withBody body: Project.UpdateBody)
+    
+    func projectEditorViewControllerDidPressDismiss(_ projectEditorViewController: ProjectEditorViewController)
 }
 
 final class ProjectEditorViewController: UIViewController {
@@ -23,6 +28,7 @@ final class ProjectEditorViewController: UIViewController {
     @IBOutlet weak var imagePathTextField: UITextField!
     @IBOutlet weak var callToActionTextField: UITextField!
     @IBOutlet weak var sortOrderTextField: UITextField!
+    @IBOutlet weak var dismissButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,13 @@ final class ProjectEditorViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         
         registerNotifications()
+        
+        dismissButton.setBackgroundImage(IconFactory.imageOfCrossIcon(), for: .normal)
+        
+        if let shouldRemove = delegate?.shouldRemoveDismissButton(),
+            shouldRemove {
+            dismissButton.removeFromSuperview()
+        }
     }
     
     private func setupTextFields() {
@@ -75,10 +88,6 @@ final class ProjectEditorViewController: UIViewController {
 extension ProjectEditorViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        guard let project = project else {
-            return
-        }
-        
         let sortOrderInt: Int? = {
             guard let sortOrder = sortOrderTextField.text else {
                 return nil
@@ -92,9 +101,11 @@ extension ProjectEditorViewController {
                                       callToActionLink: callToActionTextField.text,
                                       sortOrder: sortOrderInt)
         
-        showActivityIndicator(title: "Loading")
-        
         delegate?.projectEditorViewController(self, didSubmitFor: project, withBody: body)
+    }
+    
+    @IBAction func didPressDismissButton(_ sender: UIButton) {
+        delegate?.projectEditorViewControllerDidPressDismiss(self)
     }
 }
 

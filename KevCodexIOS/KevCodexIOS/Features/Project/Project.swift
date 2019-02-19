@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Project: Decodable {
-    let _id: String
+struct Project: Codable {
+    let _id: String?
     
     let title: String
     let imageURLString: String
@@ -28,5 +28,18 @@ extension Project {
         let description: String?
         let callToActionLink: String?
         let sortOrder: Int?
+        
+        func mapToProject() -> Project? {
+            
+            guard let title = title,
+                let imageURLString = imageURLString,
+                let description = description,
+                let callToActionLink = callToActionLink,
+                let sortOrder = sortOrder else {
+                return nil
+            }
+            
+            return Project(_id: nil, title: title, imageURLString: imageURLString, description: description, callToActionLink: callToActionLink, sortOrder: sortOrder)
+        }
     }
 }

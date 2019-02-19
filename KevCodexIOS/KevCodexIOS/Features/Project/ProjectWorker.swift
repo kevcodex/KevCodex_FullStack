@@ -48,6 +48,28 @@ class ProjectWorker {
         ImageLoader.loadImage(from: request, completion: completion)
     }
     
+    static func addProject(accessToken: String, project: Project, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        let request = ProjectsNetworkRequest.addProjectRequest(accessToken: accessToken, project: project)
+        
+        let client = MiniNeClient()
+        
+        client.send(request: request) { result in
+            
+            Thread.performOnMainSync {
+                switch result {
+                case .success:
+                    
+                    completion(.success)
+                    
+                case let .failure(error):
+                    
+                    completion(Result(error: .requestError(error)))
+                }
+            }
+        }
+    }
+    
     static func editProject(id: String, accessToken: String, body: Project.UpdateBody, completion: @escaping (Result<Void, Error>) -> Void) {
         
         let request = ProjectsNetworkRequest.editProjectRequest(id: id, accessToken: accessToken, body: body)

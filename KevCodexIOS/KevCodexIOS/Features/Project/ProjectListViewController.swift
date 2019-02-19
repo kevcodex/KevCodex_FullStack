@@ -10,6 +10,8 @@ import UIKit
 
 protocol ProjectListViewControllerDelegate: class {
     func projectListViewController(_ projectListViewController: ProjectListViewController, didSelectProject project: Project, image: UIImage?)
+    
+    func projectListViewControllerDidPressAdd(_ projectListViewController: ProjectListViewController)
 }
 
 final class ProjectListViewController: UIViewController {
@@ -49,6 +51,14 @@ final class ProjectListViewController: UIViewController {
         }
     }
     
+}
+
+extension ProjectListViewController {
+    @IBAction func didPressAddButton(_ sender: UIButton) {
+        
+        delegate?.projectListViewControllerDidPressAdd(self)
+        
+    }
 }
 
 extension ProjectListViewController: UICollectionViewDataSource {
