@@ -139,7 +139,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-xu-EIQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                        <rect key="frame" x="0.0" y="38" width="375" height="690"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5be-ps-gjF">
                                                 <rect key="frame" x="40" y="50" width="295" height="548"/>
@@ -226,13 +226,22 @@
                                             <constraint firstItem="5be-ps-gjF" firstAttribute="top" secondItem="QyC-xu-EIQ" secondAttribute="top" constant="50" id="yfK-Bc-kw0"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Auf-9P-2a4">
+                                        <rect key="frame" x="16" y="8" width="30" height="30"/>
+                                        <connections>
+                                            <action selector="didPressDismissButton:" destination="4Og-ES-M6c" eventType="primaryActionTriggered" id="A8S-VU-0jU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="QyC-xu-EIQ" firstAttribute="top" secondItem="Auf-9P-2a4" secondAttribute="bottom" id="2j7-Wx-Zj1"/>
                                     <constraint firstItem="QyC-xu-EIQ" firstAttribute="width" secondItem="nd5-PE-mrE" secondAttribute="width" id="8TY-wt-Q1D"/>
                                     <constraint firstItem="QyC-xu-EIQ" firstAttribute="leading" secondItem="nd5-PE-mrE" secondAttribute="leading" id="TWE-ZE-6BJ"/>
+                                    <constraint firstItem="Auf-9P-2a4" firstAttribute="top" secondItem="nd5-PE-mrE" secondAttribute="top" constant="8" id="W7g-ZY-0WS"/>
                                     <constraint firstAttribute="trailing" secondItem="QyC-xu-EIQ" secondAttribute="trailing" id="XK6-Wx-Ua9"/>
                                     <constraint firstAttribute="bottom" secondItem="QyC-xu-EIQ" secondAttribute="bottom" id="tEV-MU-hT8"/>
-                                    <constraint firstItem="QyC-xu-EIQ" firstAttribute="top" secondItem="nd5-PE-mrE" secondAttribute="top" id="ueE-GP-B6A"/>
+                                    <constraint firstItem="QyC-xu-EIQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nd5-PE-mrE" secondAttribute="top" id="ueE-GP-B6A"/>
+                                    <constraint firstItem="Auf-9P-2a4" firstAttribute="leading" secondItem="nd5-PE-mrE" secondAttribute="leading" constant="16" id="zmH-Fd-Fgh"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -248,6 +257,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="G8y-UT-upl" id="dAd-K1-mzt"/>
                         <outlet property="difficultyTextField" destination="wpx-Ff-NBk" id="ouq-Vv-xUy"/>
+                        <outlet property="dismissButton" destination="Auf-9P-2a4" id="Jmp-SC-Tam"/>
                         <outlet property="distanceTextField" destination="GTh-wh-4vy" id="gq9-rd-qoN"/>
                         <outlet property="elevationGainTextField" destination="A6D-Mn-5VW" id="Pxi-Ko-4KQ"/>
                         <outlet property="hikeTimeTextField" destination="9ml-0z-E0D" id="mWc-T1-loA"/>
@@ -270,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ybr-ak-UGV">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XPS-p2-BRN">
                                     <size key="itemSize" width="375" height="200"/>
@@ -344,13 +354,34 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABM-8M-mx9">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jr-fP-3bh">
+                                        <rect key="frame" x="336" y="11" width="23" height="22"/>
+                                        <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="didPressAddButton:" destination="3ug-aD-5bd" eventType="primaryActionTriggered" id="ZyO-Yi-4yV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5Jr-fP-3bh" firstAttribute="centerY" secondItem="ABM-8M-mx9" secondAttribute="centerY" id="Bhi-Vy-gmK"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Jr-fP-3bh" secondAttribute="trailing" constant="16" id="MSf-Ep-g25"/>
+                                    <constraint firstAttribute="height" constant="44" id="blw-mS-ShB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ABM-8M-mx9" firstAttribute="trailing" secondItem="EBJ-lK-5T9" secondAttribute="trailing" id="5zb-lT-YW1"/>
                             <constraint firstItem="EBJ-lK-5T9" firstAttribute="trailing" secondItem="Ybr-ak-UGV" secondAttribute="trailing" id="6QF-s4-xCJ"/>
                             <constraint firstItem="EBJ-lK-5T9" firstAttribute="bottom" secondItem="Ybr-ak-UGV" secondAttribute="bottom" id="6xL-yA-J8r"/>
+                            <constraint firstItem="Ybr-ak-UGV" firstAttribute="top" secondItem="ABM-8M-mx9" secondAttribute="bottom" id="ADh-y4-0ml"/>
                             <constraint firstItem="Ybr-ak-UGV" firstAttribute="leading" secondItem="EBJ-lK-5T9" secondAttribute="leading" id="Dii-ww-Bae"/>
-                            <constraint firstItem="Ybr-ak-UGV" firstAttribute="top" secondItem="EBJ-lK-5T9" secondAttribute="top" id="Ls8-Le-RIR"/>
+                            <constraint firstItem="ABM-8M-mx9" firstAttribute="leading" secondItem="EBJ-lK-5T9" secondAttribute="leading" id="cfM-TJ-Xro"/>
+                            <constraint firstItem="ABM-8M-mx9" firstAttribute="top" secondItem="EBJ-lK-5T9" secondAttribute="top" id="riV-Qw-2HX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EBJ-lK-5T9"/>
                     </view>

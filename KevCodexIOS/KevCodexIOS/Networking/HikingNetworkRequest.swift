@@ -56,6 +56,24 @@ extension HikingNetworkRequest {
         return HikingNetworkRequest(path: "api/hikes/\(id)", method: .put, parameters: nil, headers: headers, body: body)
     }
     
+    static func addHikeRequest(accessToken: String, hike: Hike) -> HikingNetworkRequest {
+        
+        let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
+        
+        // fix network layer to take data so we can use codable
+        var body: NetworkBody? {
+            guard let data = try? JSONEncoder().encode(hike),
+                let object = try? JSONSerialization.jsonObject(with: data, options: []),
+                let dict = object as? [String: Any] else {
+                    return nil
+            }
+            
+            return NetworkBody(parameters: dict, encoding: .json)
+        }
+        
+        return HikingNetworkRequest(path: "api/hikes", method: .post, parameters: nil, headers: headers, body: body)
+    }
+    
     static func deleteHikeRequest(id: String, accessToken: String) -> HikingNetworkRequest {
         
         let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]

@@ -9,7 +9,11 @@
 import UIKit
 
 protocol HikingEditorViewControllerDelegate: class {
-    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody)
+    func shouldRemoveDismissButton() -> Bool
+    
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike?, withBody body: Hike.UpdateBody)
+    
+    func hikingEditorViewControllerDidPressDismiss(_ hikingEditorViewController: HikingEditorViewController)
 }
 
 final class HikingEditorViewController: UIViewController {
@@ -27,6 +31,7 @@ final class HikingEditorViewController: UIViewController {
     @IBOutlet weak var elevationGainTextField: UITextField!
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var imagePathTextField: UITextField!
+    @IBOutlet weak var dismissButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,13 @@ final class HikingEditorViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         
         registerNotifications()
+        
+        dismissButton.setBackgroundImage(IconFactory.imageOfCrossIcon(), for: .normal)
+        
+        if let shouldRemove = delegate?.shouldRemoveDismissButton(),
+            shouldRemove {
+            dismissButton.removeFromSuperview()
+        }
     }
     
     private func prefillTextFields() {
@@ -76,10 +88,6 @@ final class HikingEditorViewController: UIViewController {
 extension HikingEditorViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        guard let hike = hike else {
-            return
-        }
-        
         let distanceDouble: Double? = {
             guard let distance = distanceTextField.text else {
                 return nil
@@ -111,6 +119,10 @@ extension HikingEditorViewController {
                                    imageURLString: imagePathTextField.text)
 
         delegate?.hikingEditorViewController(self, didSubmitFor: hike, withBody: body)
+    }
+    
+    @IBAction func didPressDismissButton(_ sender: UIButton) {
+        delegate?.hikingEditorViewControllerDidPressDismiss(self)
     }
 }
 

@@ -10,6 +10,8 @@ import UIKit
 
 protocol HikingListViewControllerDelegate: class {
     func hikingListViewController(_ hikingListViewController: HikingListViewController, didSelectItemAt indexPath: IndexPath, in collectionView: UICollectionView)
+    
+    func hikingListViewControllerDidPressAdd(_ hikingListViewController: HikingListViewController )
 }
 
 // Shows a collection view of the objects recieved
@@ -55,6 +57,15 @@ final class HikingListViewController: UIViewController {
         }
     }
 }
+
+extension HikingListViewController {
+    @IBAction func didPressAddButton(_ sender: UIButton) {
+        
+        delegate?.hikingListViewControllerDidPressAdd(self)
+        
+    }
+}
+
 
 // MARK: - Collection View datasource
 extension HikingListViewController: UICollectionViewDataSource {

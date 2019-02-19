@@ -47,6 +47,28 @@ class HikingWorker {
         ImageLoader.loadImage(from: request, completion: completion)
     }
     
+    static func addHike(accessToken: String, hike: Hike, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        let request = HikingNetworkRequest.addHikeRequest(accessToken: accessToken, hike: hike)
+        
+        let client = MiniNeClient()
+        
+        client.send(request: request) { result in
+            
+            Thread.performOnMainSync {
+                switch result {
+                case .success:
+                    
+                    completion(.success)
+                    
+                case let .failure(error):
+                    
+                    completion(Result(error: .requestError(error)))
+                }
+            }
+        }
+    }
+    
     static func editHike(id: String, accessToken: String, body: Hike.UpdateBody, completion: @escaping (Result<Void, Error>) -> Void) {
         
         let request = HikingNetworkRequest.editHikeRequest(id: id, accessToken: accessToken, body: body)

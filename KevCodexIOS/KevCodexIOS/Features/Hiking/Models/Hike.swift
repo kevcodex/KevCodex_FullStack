@@ -9,7 +9,7 @@
 import Foundation
 
 struct Hike: Codable {
-    var _id: String
+    var _id: String?
     var title: String
     var location: String
     var distance: Double
@@ -34,5 +34,21 @@ extension Hike {
         let difficulty: String?
         let description: String?
         let imageURLString: String?
+        
+        func mapToHike() -> Hike? {
+            guard let title = title,
+                let location = location,
+                let distance = distance,
+                let hikingTime = hikingTime,
+                let elevationGain = elevationGain,
+                let difficulty = difficulty,
+                let description = description,
+                let imageURLString = imageURLString else {
+                    
+                    return nil
+            }
+            
+            return Hike(_id: nil, title: title, location: location, distance: distance, hikingTime: hikingTime, elevationGain: elevationGain, difficulty: difficulty, description: description, imageURLString: imageURLString, shortDescription: nil)
+        }
     }
 }

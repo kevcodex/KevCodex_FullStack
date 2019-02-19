@@ -17,6 +17,8 @@ final class HikingCoordinator: Coordinator {
     
     private var detailNavigationController: UINavigationController?
     
+    var isEditingHike: Bool = false
+    
     init(user: User) {
         self.user = user
         
@@ -30,6 +32,7 @@ final class HikingCoordinator: Coordinator {
 }
 
 extension HikingCoordinator: HikingListViewControllerDelegate {
+    
     func hikingListViewController(_ hikingListViewController: HikingListViewController, didSelectItemAt indexPath: IndexPath, in collectionView: UICollectionView) {
         
         guard let cell = collectionView.cellForItem(at: indexPath) as? HikingFeedCell,
@@ -56,6 +59,15 @@ extension HikingCoordinator: HikingListViewControllerDelegate {
         self.detailNavigationController = nav
     }
     
+    func hikingListViewControllerDidPressAdd(_ hikingListViewController: HikingListViewController) {
+        isEditingHike = false
+        
+        let vc = HikingEditorViewController.makeFromStoryboard()
+        vc.delegate = self
+        
+        rootViewController.present(vc, animated: true)
+    }
+    
     private func refreshListViewController() {
         
         rootViewController.refresh()
@@ -69,6 +81,8 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
         guard let navigationController = detailNavigationController else {
             return
         }
+        
+        isEditingHike = true
         
         let editVC = HikingEditorViewController.makeFromStoryboard()
         editVC.hike = hike
@@ -87,11 +101,12 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
     
     func hikingDetailsViewController(_ hikingDetailsViewController: HikingDetailsViewController, didConfirmDelete hike: Hike, completion: @escaping () -> Void) {
         
-        guard let navigationController = detailNavigationController else {
+        guard let navigationController = detailNavigationController,
+            let id = hike._id else {
             return
         }
         
-        HikingWorker.deleteHike(id: hike._id, accessToken: user.accessToken) { [weak self] (result) in
+        HikingWorker.deleteHike(id: id, accessToken: user.accessToken) { [weak self] (result) in
             switch result {
             case .success:
                 navigationController.dismiss(animated: true) {
@@ -108,26 +123,58 @@ extension HikingCoordinator: HikingDetailsViewControllerDelegate {
 }
 
 extension HikingCoordinator: HikingEditorViewControllerDelegate {
-    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike, withBody body: Hike.UpdateBody) {
+    func shouldRemoveDismissButton() -> Bool {
+        return isEditingHike ? true : false
+    }
+    
+    func hikingEditorViewController(_ hikingEditorViewController: HikingEditorViewController, didSubmitFor hike: Hike?, withBody body: Hike.UpdateBody) {
         
-        guard let navigationController = detailNavigationController else {
-            return
-        }
-        
-        hikingEditorViewController.showActivityIndicator(title: "Loading")
-        
-        HikingWorker.editHike(id: hike._id, accessToken: user.accessToken, body: body) { [weak self] (result) in
-            switch result {
-            case .success:
-                navigationController.dismiss(animated: true) {
-                    self?.detailNavigationController = nil
-                    self?.refreshListViewController()
-                }
-            case .failure(let error):
-                print(error)
+        if isEditingHike {
+            
+            guard let navigationController = detailNavigationController,
+                let id = hike?._id else {
+                hikingEditorViewController.hideActivityIndicator()
+                return
             }
             
-            hikingEditorViewController.hideActivityIndicator()
+            hikingEditorViewController.showActivityIndicator(title: "Loading")
+            
+            HikingWorker.editHike(id: id, accessToken: user.accessToken, body: body) { [weak self] (result) in
+                switch result {
+                case .success:
+                    navigationController.dismiss(animated: true) {
+                        self?.detailNavigationController = nil
+                        self?.refreshListViewController()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+                
+                hikingEditorViewController.hideActivityIndicator()
+            }
+        } else {
+            guard let hike = body.mapToHike() else {
+                print("Missing a field")
+                hikingEditorViewController.hideActivityIndicator()
+                return
+            }
+            
+            HikingWorker.addHike(accessToken: user.accessToken, hike: hike) { [weak self] (result) in
+                switch result {
+                case .success:
+                    hikingEditorViewController.dismiss(animated: true) {
+                        self?.refreshListViewController()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+                
+                hikingEditorViewController.hideActivityIndicator()
+            }
         }
+    }
+    
+    func hikingEditorViewControllerDidPressDismiss(_ hikingEditorViewController: HikingEditorViewController) {
+        hikingEditorViewController.dismiss(animated: true)
     }
 }
