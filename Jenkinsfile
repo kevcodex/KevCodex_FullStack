@@ -61,9 +61,10 @@ pipeline {
                         stage('Build and Test') {
                             steps {
                                 sh """
+                                cd KevCodexServer && \
                                 set -o pipefail && \
                                 xcodebuild \
-                                -workspace KevCodex.xcworkspace \
+                                -project KevCodexServer.xcodeproj \
                                 -scheme Run \
                                 -destination 'platform=macOS' \
                                 build \
@@ -90,10 +91,11 @@ pipeline {
                         stage('Build and Test') {
                             steps {
                                 sh """
+                                cd KevCodexIOS && \
                                 set -o pipefail && \
                                 xcodebuild \
-                                -workspace KevCodex.xcworkspace \
-                                -scheme GameViewer \
+                                -workspace KevCodexIOS.xcworkspace \
+                                -scheme KevCodexIOS \
                                 -configuration Debug \
                                 -destination 'OS=latest,name=iPhone 8' \
                                 test \
