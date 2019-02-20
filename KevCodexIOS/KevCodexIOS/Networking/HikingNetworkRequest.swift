@@ -42,15 +42,12 @@ extension HikingNetworkRequest {
         
         let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
         
-        // fix network layer to take data so we can use codable
         var body: NetworkBody? {
-            guard let data = try? JSONEncoder().encode(body),
-                let object = try? JSONSerialization.jsonObject(with: data, options: []),
-                let dict = object as? [String: Any] else {
+            guard let data = try? JSONEncoder().encode(body) else {
                     return nil
             }
             
-            return NetworkBody(parameters: dict, encoding: .json)
+            return NetworkBody(data: data, encoding: .json)
         }
         
         return HikingNetworkRequest(path: "api/hikes/\(id)", method: .put, parameters: nil, headers: headers, body: body)
@@ -60,15 +57,12 @@ extension HikingNetworkRequest {
         
         let headers: [String: Any] = ["Authorization": "Bearer \(accessToken)", "apiKey": App.apiKey]
         
-        // fix network layer to take data so we can use codable
         var body: NetworkBody? {
-            guard let data = try? JSONEncoder().encode(hike),
-                let object = try? JSONSerialization.jsonObject(with: data, options: []),
-                let dict = object as? [String: Any] else {
+            guard let data = try? JSONEncoder().encode(hike) else {
                     return nil
             }
             
-            return NetworkBody(parameters: dict, encoding: .json)
+            return NetworkBody(data: data, encoding: .json)
         }
         
         return HikingNetworkRequest(path: "api/hikes", method: .post, parameters: nil, headers: headers, body: body)

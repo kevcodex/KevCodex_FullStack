@@ -34,9 +34,9 @@ extension AuthenticationNetworkRequest {
     static func loginRequest(email: String, password: String) -> AuthenticationNetworkRequest {
         
         let parameters: [String: Any] = ["email": email,
-                                      "password": password]
+                                         "password": password]
         
-        let body = NetworkBody(parameters: parameters, encoding: .json)
+        let body = try? NetworkBody(dictionary: parameters, encoding: .json)
         
         return AuthenticationNetworkRequest(path: "api/profile/login", method: .post, parameters: nil, headers: nil, body: body)
     }
