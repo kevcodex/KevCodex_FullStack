@@ -1,9 +1,9 @@
 PODS:
-  - FontAwesome.swift (1.5.0)
+  - FontAwesome.swift (1.7.0)
   - MiniNe (1.3.4)
 
 DEPENDENCIES:
-  - FontAwesome.swift (= 1.5.0)
+  - FontAwesome.swift (= 1.7.0)
   - MiniNe (= 1.3.4)
 
 SPEC REPOS:
@@ -13,9 +13,9 @@ SPEC REPOS:
     - MiniNe
 
 SPEC CHECKSUMS:
-  FontAwesome.swift: 55291c7a334ffacf9b62793d27c14014ec09a11b
+  FontAwesome.swift: 9f377615aa61381796dca143cddfd2a388723ea1
   MiniNe: 91c5f5db357c69cbd89b3fe5f31de3e67ab636be
 
-PODFILE CHECKSUM: a7b7d26441ebc208123bfdce95dcc48c57796f7d
+PODFILE CHECKSUM: 1ec48f91edcf58a9c75d1949654a1ca65ece9bdb
 
 COCOAPODS: 1.5.3
