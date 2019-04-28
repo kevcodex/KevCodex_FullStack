@@ -35,7 +35,7 @@ pipeline {
                         label 'ios-slave'
                     }
                     environment {
-                        PATH = "/usr/local/bin:/usr/local/sbin:$PATH"
+                        PATH = "/Users/jenkins/.rbenv/versions/2.6.3/bin:/Users/jenkins/.rbenv/shim:/usr/local/bin:/usr/local/sbin:$PATH"
                     }
                     post {
                         success {
@@ -80,7 +80,7 @@ pipeline {
                         label 'ios-slave'
                     }
                     environment {
-                        PATH = "/usr/local/bin:/usr/local/sbin:$PATH"
+                        PATH = "/Users/jenkins/.rbenv/versions/2.6.3/bin:/Users/jenkins/.rbenv/shim:/usr/local/bin:/usr/local/sbin:$PATH"
                     }
                     post {
                         success {
