@@ -1,45 +1,58 @@
+FROM swift
+WORKDIR /app
+ADD . ./
+
+RUN apt-get -qq update
+RUN apt-get update && apt-get install -y libicu-dev
+RUN apt-get install -yq libssl-dev
+
+RUN swift package clean
+RUN swift build -c release
+RUN mkdir /app/bin
+RUN mv `swift build -c release --show-bin-path` /app/bin
+EXPOSE 8080
+ENTRYPOINT ./bin/release/Run -e prod -b 0.0.0.0
 # Runs the docker file from here to install swift
 # See bottom for exact code
 # https://hub.docker.com/_/swift/
 # https://github.com/swiftdocker/docker-swift/tree/master/4.0
-FROM swiftdocker/swift
+# FROM swiftdocker/swift
 
-# Add MongoDB
-# RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
-# RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/testing multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+# # Add MongoDB
+# # RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+# # RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/testing multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 
-# Linux stuff
-# Perfect-LinuxBridge.git--5324308374918531723/PADockerfile
-# Perfect-COpenSSL-Linux.git-2348880407782118394/PADockerfile
-# last run cleans up files
-RUN apt-get -y update && apt-get install -y uuid-dev libssl-dev
-# RUN apt-get install -y mongodb-org
-RUN rm -rf /var/lib/apt/lists/*
+# # Linux stuff
+# # Perfect-LinuxBridge.git--5324308374918531723/PADockerfile
+# # Perfect-COpenSSL-Linux.git-2348880407782118394/PADockerfile
+# # last run cleans up files
+# RUN apt-get -y update && apt-get install -y uuid-dev libssl-dev
+# # RUN apt-get install -y mongodb-org
+# RUN rm -rf /var/lib/apt/lists/*
 
-# Add local files to docker at {LOCATION}
-ADD . /KevCodex
-WORKDIR /KevCodex
+# # Add local files to docker at {LOCATION}
+# ADD . /KevCodex
+# WORKDIR /KevCodex
 
-# If I want to clone from somewhere use this 
-# RUN git clone https://github.com/PerfectlySoft/PerfectTemplate 
-# WORKDIR /PerfectTemplate
+# # If I want to clone from somewhere use this 
+# # RUN git clone https://github.com/PerfectlySoft/PerfectTemplate 
+# # WORKDIR /PerfectTemplate
 
-# Create the MongoDB data directory
-# RUN mkdir -p /data/db
+# # Create the MongoDB data directory
+# # RUN mkdir -p /data/db
 
-# # Expose port #27017 from the container to the host
-# EXPOSE 27017
+# # # Expose port #27017 from the container to the host
+# # EXPOSE 27017
 
-# Build
-RUN swift build --configuration release
+# # Build
+# RUN swift build --configuration release
 
-USER root
+# USER root
 
-EXPOSE 8080
+# EXPOSE 8080
 
-# Run
-CMD .build/release/Run
-
+# # Run
+# CMD .build/release/Run
 
 
 # **IMPORTANT** Docker file to get swift this is the FROM swiftdocker/swift
