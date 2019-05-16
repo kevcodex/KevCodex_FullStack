@@ -64,40 +64,33 @@ struct TestController: RouteCollection {
     }
     
     func testMeow(_ req: Request) throws -> Future<Game> {
-        let meow = req.meow()
+        let context = try req.context()
         
-        return meow.flatMap { (context) -> Future<Game> in
-            let foo = context.find(Game.self).getFirstResult()
-            
-            return foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
-        }
+        let foo = context.find(Game.self).getFirstResult()
+        
+        return foo.unwrap(or: Abort(.badRequest, reason: "No game exists"))
     }
     
     // Modify response status and other
     func testMeowStatus(_ req: Request) throws -> Future<Response> {
-        let meow = req.meow()
+        let context = try req.context()
         
-        return meow.flatMap { (context) -> (Future<Response>) in
-            let foo = context.find(Game.self).getFirstResult()
+        let foo = context.find(Game.self).getFirstResult()
+        
+        let bar = foo.unwrap(or: Abort(.badRequest, reason: "No game exists")).map({ (game) -> (Response) in
+            let response = req.response(http: HTTPResponse(status: .accepted))
+            try response.content.encode(game)
             
-            let bar = foo.unwrap(or: Abort(.badRequest, reason: "No game exists")).map({ (game) -> (Response) in
-                let response = req.response(http: HTTPResponse(status: .accepted))
-                try response.content.encode(game)
-                
-                return response
-            })
-            
-            return bar
-        }
+            return response
+        })
+        
+        return bar
     }
     
     func testMeows(_ req: Request) throws -> Future<[Game]> {
-        let meow = req.meow()
+        let context = try req.context()
         
-        return meow.flatMap { (context) -> Future<[Game]> in
-            
-            return context.find(Game.self).getAllResults()
-        }
+        return context.find(Game.self).getAllResults()
     }
     
     func addMeow(_ req: Request) throws -> Future<HTTPStatus> {
@@ -112,19 +105,17 @@ struct TestController: RouteCollection {
         
         return try req.content.decode(GameBody.self).flatMap(to: HTTPStatus.self) { (game) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let test = meow.map { (context) -> Future<Void> in
-                let test = Game(name: game.name,
-                                description: game.description,
-                                image: game.image,
-                                date: game.date,
-                                developer: game.developer)
-                
-                return context.save(test)
-            }
+            let test = Game(name: game.name,
+                            description: game.description,
+                            image: game.image,
+                            date: game.date,
+                            developer: game.developer)
             
-            return test.transform(to: HTTPStatus.created)
+            let foo = context.save(test)
+            
+            return foo.transform(to: HTTPStatus.created)
         }
     }
     
@@ -143,21 +134,17 @@ struct TestController: RouteCollection {
         
         return try req.content.decode(User.self).flatMap { (user) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
-                let path = try User.makeQueryPath(for: \User.email)
-                return context.findOne(User.self, where: path == user.email)
-            })
+            let path = try User.makeQueryPath(for: \User.email)
+            let futureExistingUser = context.findOne(User.self, where: path == user.email)
             
             return futureExistingUser.flatMap({ (existingUser) in
                 if let _ = existingUser {
                     throw Abort(.conflict, reason: "Email already exists")
                 } else {
                     
-                    let saveFuture = meow.flatMap({ (context) in
-                        return context.save(user)
-                    })
+                    let saveFuture = context.save(user)
 
                     return saveFuture.map({ (_) -> User.Response in
                         let token = Token.generate(for: user)
@@ -181,14 +168,12 @@ struct TestController: RouteCollection {
         
         return try req.content.decode(User.self).flatMap { (user) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
-                let emailPath = try User.makeQueryPath(for: \User.email)
-                let passwordPath = try User.makeQueryPath(for: \User.password)
-                
-                return context.findOne(User.self, where: emailPath == user.email && passwordPath == user.password)
-            })
+            let emailPath = try User.makeQueryPath(for: \User.email)
+            let passwordPath = try User.makeQueryPath(for: \User.password)
+            
+            let futureExistingUser = context.findOne(User.self, where: emailPath == user.email && passwordPath == user.password)
             
             return futureExistingUser.map({ (existingUser) in
                 

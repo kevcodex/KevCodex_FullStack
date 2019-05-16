@@ -41,12 +41,10 @@ struct HikingController: RouteCollection, MongoQueryable {
         
         let name = try req.parameters.next(String.self)
         
-        let meow = req.meow()
+        let context = try req.context()
         
-        let futureInt = meow.flatMap { (context) -> Future<Int> in
-            let namePath = try Hike.makeQueryPath(for: \Hike.title)
-            return context.deleteOne(Hike.self, where: namePath == name)
-        }
+        let namePath = try Hike.makeQueryPath(for: \Hike.title)
+        let futureInt = context.deleteOne(Hike.self, where: namePath == name)
         
         return futureInt.map { (int) -> (HTTPStatus) in
             return int == 1 ? .noContent : .notFound

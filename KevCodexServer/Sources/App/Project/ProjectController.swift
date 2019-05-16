@@ -30,19 +30,16 @@ struct ProjectController: RouteCollection, MongoQueryable {
     
     func getAllItems(_ req: Request) throws -> Future<[Item]> {
         
-        let meow = req.meow()
+        let context = try req.context()
         
-        return meow.flatMap { (context) in
-            
-            return context.find(Item.self).getAllResults().map({ (items) in
-                return items.sorted {
-                    guard let firstOrder = $0.sortOrder,
-                        let secondOrder = $1.sortOrder else {
-                            return false
-                    }
-                    return firstOrder < secondOrder
+        return context.find(Item.self).getAllResults().map({ (items) in
+            return items.sorted {
+                guard let firstOrder = $0.sortOrder,
+                    let secondOrder = $1.sortOrder else {
+                        return false
                 }
-            })
-        }
+                return firstOrder < secondOrder
+            }
+        })
     }
 }

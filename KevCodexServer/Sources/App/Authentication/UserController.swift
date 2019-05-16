@@ -38,22 +38,18 @@ struct UserController: RouteCollection {
         
         return try req.content.decode(User.self).flatMap { (user) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
-                let path = try User.makeQueryPath(for: \User.email)
-                return context.findOne(User.self, where: path == user.email)
-            })
+            let path = try User.makeQueryPath(for: \User.email)
+            let futureExistingUser = context.findOne(User.self, where: path == user.email)
             
             return futureExistingUser.flatMap({ (existingUser) in
                 if let _ = existingUser {
                     throw Abort(.conflict, reason: "Email already exists")
                 } else {
                     
-                    let saveFuture = meow.flatMap({ (context) -> EventLoopFuture<Void> in
-                        try user.encryptPassword()
-                        return context.save(user)
-                    })
+                    try user.encryptPassword()
+                    let saveFuture = context.save(user)
                     
                     return saveFuture.map({ (_) -> User.Response in
                         let token = Token.generate(for: user)
@@ -80,13 +76,11 @@ struct UserController: RouteCollection {
         
         return try req.content.decode(User.self).flatMap { (userBody) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let futureExistingUser = meow.flatMap({ (context) -> Future<User?> in
-                let emailPath = try User.makeQueryPath(for: \User.email)
-                
-                return context.findOne(User.self, where: emailPath == userBody.email)
-            })
+            let emailPath = try User.makeQueryPath(for: \User.email)
+            
+            let futureExistingUser = context.findOne(User.self, where: emailPath == userBody.email)
             
             return futureExistingUser.map({ (existingUser) in
                 

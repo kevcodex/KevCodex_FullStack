@@ -20,12 +20,9 @@ struct GameController: RouteCollection {
     }
     
     func getGames(_ req: Request) throws -> Future<[Game]> {
-        let meow = req.meow()
+        let context = try req.context()
         
-        return meow.flatMap { (context) -> Future<[Game]> in
-            
-            return context.find(Game.self).getAllResults()
-        }
+        return context.find(Game.self).getAllResults()
     }
     
     func addGame(_ req: Request) throws -> Future<HTTPStatus> {
@@ -40,19 +37,17 @@ struct GameController: RouteCollection {
         
         return try req.content.decode(GameBody.self).flatMap(to: HTTPStatus.self) { (game) in
             
-            let meow = req.meow()
+            let context = try req.context()
             
-            let test = meow.map { (context) -> Future<Void> in
-                let test = Game(name: game.name,
-                                description: game.description,
-                                image: game.image,
-                                date: game.date,
-                                developer: game.developer)
-                
-                return context.save(test)
-            }
+            let test = Game(name: game.name,
+                            description: game.description,
+                            image: game.image,
+                            date: game.date,
+                            developer: game.developer)
             
-            return test.transform(to: HTTPStatus.created)
+            let foo = context.save(test)
+            
+            return foo.transform(to: HTTPStatus.created)
         }
     }
     
@@ -68,12 +63,10 @@ struct GameController: RouteCollection {
         
         let name = try req.parameters.next(String.self)
         
-        let meow = req.meow()
+        let context = try req.context()
         
-        let futureInt = meow.flatMap { (context) -> Future<Int> in
-            let namePath = try Game.makeQueryPath(for: \Game.name)
-            return context.deleteOne(Game.self, where: namePath == name)
-        }
+        let namePath = try Game.makeQueryPath(for: \Game.name)
+        let futureInt = context.deleteOne(Game.self, where: namePath == name)
         
         return futureInt.map { (int) -> (HTTPStatus) in
             return int == 1 ? .noContent : .notFound

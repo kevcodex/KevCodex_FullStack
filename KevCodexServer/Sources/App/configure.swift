@@ -29,7 +29,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     // For now go with using meow rather than self built provider
     // We'll see if issues occur down the line
-    try services.register(try MeowProvider(uri))
+    let meow = try MeowProvider(uri: uri)
+    try services.register(meow)
     
     try services.register(LeafProvider())
     config.prefer(LeafRenderer.self, for: ViewRenderer.self)
