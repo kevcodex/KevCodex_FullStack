@@ -52,7 +52,7 @@
                 </ul>
                 <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
                     <li class="nav-item">
-                        <a href="/files/resume.pdf" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
+                        <a href="https://kevcodex-public.s3-us-west-1.amazonaws.com/Kevin_Chen_Resume.pdf" class="nav-link p-2" rel="noopener" target="_blank" aria-labelledby="title">
                             Resume
                         </a>
                     </li>

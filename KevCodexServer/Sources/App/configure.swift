@@ -20,6 +20,13 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     
     JWTConfig.key = secretToken
     
+    // Workaround for vapor 3 custom dir
+    #if Xcode
+    services.register { container in
+        return DirectoryConfig(workDir: "/Users/kevin/Documents/KNC_Creative/Swift_Server_Side/Projects/KevCodex_FullStack/KevCodexServer/")
+    }
+    #endif
+    
     // Register providers first
 //    let config = MongoConfig(databaseURI: uri, collectionName: "game")
 //
